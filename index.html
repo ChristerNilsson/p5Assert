@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>p5Assert</title>
+
+    <script src="libraries/p5.js" ></script>
+    <script src="libraries/p5.dom.js"></script>
+    <script src="libraries/p5.sound.js"></script>
+    <script src="libraries/jquery-3.1.1.js"></script>
+    <script src="libraries/underscore.js"></script>
+    <script src="libraries/coffee-script.js"></script>
+    <script src="libraries/nilsson.js"></script>
+
+    <script src="lib/codemirror/codemirror.js"></script>
+    <script src="lib/codemirror/keymap/sublime.js"></script>
+    <script src="lib/codemirror/addon/edit/closebrackets.js"></script>
+    <link rel="stylesheet" href="lib/codemirror/codemirror.css">
+    <link rel="stylesheet" href="lib/codemirror/theme/dracula.css">
+    <script src="lib/codemirror/mode/coffeescript/coffeescript.js"></script>
+
+    <script src="data.js"></script>
+    <script src="transpile.js"></script>
+    <script src="p5Assert.js"></script>
+
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+  </head>
+  <body>
+    <textarea id="code" wrap="soft"></textarea>
+    <textarea id="msg" rows=1 wrap="soft" readonly style="position: absolute; top: 430px; left: 210px; width: 700px;"></textarea>
+    <select onchange="sel1change(this);" id='sel1' size="12" style="position: absolute; top: 5px; left: 5px; width: 200px"></select>
+    <select onchange="sel2change(this);" id='sel2' size="12" style="position: absolute; top: 220px; left: 5px; width: 200px"></select>
+    <table id="tabell" style="font-family:monospace; font-size: 16px; position: absolute; top: 460px; left: 210px;" border="1px">
+        <tr><td>Jill</td><td>Smith</td><td>50</td></tr>
+        <tr><td>Eve</td><td>Jackson</td><td>94</td></tr>
+    </table>
+  </body>
+</html>
