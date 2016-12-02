@@ -1,10 +1,9 @@
 myCodeMirror = 0
-msg = 0
-sel1=0
-sel2=0
-table=0
-chapter=""
-exercise=""
+sel1 = 0
+sel2 = 0
+table = 0
+chapter = ""
+exercise = ""
 
 fillSelect = (sel, dict) ->
   sel.empty()
@@ -20,7 +19,7 @@ sel2change = (sel) ->
   exercise = sel.value
   b = data[chapter][exercise]["b"]
   myCodeMirror.setValue(b)
-  run0()
+  runAll()
   myCodeMirror.focus() 
 
 tableClear = ->
@@ -33,12 +32,12 @@ tableAppend = (call, expected, actual) ->
   cell3 = row.insertCell -1
   cell1.innerHTML = call
   cell2.innerHTML = JSON.stringify expected
-  cell3.innerHTML = JSON.stringify actual    
+  cell3.innerHTML = if actual == undefined then "error" else JSON.stringify actual
+  row.style.backgroundColor = if _.isEqual expected, actual then '#00FF00' else '#FF0000'
 
 changeLayout = ->
   w = $(window).width()
   $(".CodeMirror").width(w-215)
-  $("#msg").width(w-220)
 
 resizeTimer=0
 $(window).resize () ->
@@ -46,7 +45,6 @@ $(window).resize () ->
   resizeTimer = setTimeout(changeLayout, 10)
 
 setup = ->
-  msg = $('#msg')
   sel1 = $('#sel1')
   sel2 = $('#sel2')
   table = $('#tabell')
@@ -65,7 +63,7 @@ window.onload = ->
     indentWithTabs: true
   
   $(".CodeMirror").css 'font-size',"16pt"
-  myCodeMirror.on "change", run0
+  myCodeMirror.on "change", runAll
 
   help = createA('https://github.com/ChristerNilsson/p5Assert/blob/master/README.md', 'help', '_blank')
   help.position 10,430
@@ -79,31 +77,19 @@ window.onload = ->
   window.resizeTo 1000,750
   changeLayout()
 
-setMsg = (txt) ->
-  msg.val txt
-  if txt == ''
-    msg.css 'background-color' , '#FFFFFF'
-  else 
-    msg.css 'background-color' , '#FF0000'
-
-run0 = ->
+runAll = ->
   b = myCodeMirror.getValue()
   data[chapter][exercise]["b"] = b
-
   tableClear()
   dict = data[chapter][exercise]["c"]    
-  #result = undefined
   for call,expectedResult of dict 
-    run 0, "result = " + transpile(b + "\nreturn " + call)    
-    if result is undefined 
-      tableAppend call, expectedResult, ""
-    else
-      tableAppend call, expectedResult, result
+    msg = run "result = " + transpile(b + "\nreturn " + call)    
+    tableAppend call, expectedResult, if msg == "" then result else msg.split('\n')[0]
 
-run = (n, code) ->
+run = (code) ->
   try 
-    setMsg ''
     eval code
+    return ""
   catch err 
-    setMsg err.stack
+    err.stack
   
