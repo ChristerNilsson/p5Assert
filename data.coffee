@@ -183,6 +183,8 @@ data =
 			a:"g = (h) -> _.object(f.split '=' for f in h.split('?')[1].split('&'))"
 			b:"# LOC:1 split for in _.object"
 			c:  
-				"g('url?x=0&y=1')" : {x:'0', y:'1'}
-				"g('url?page=7')" : {page : '7'}
-
+				"g('dn.se?x=0&y=1')" : {x:'0', y:'1'}
+				"g('svd.se?page=7')" : {page : '7'}
+				"g('aftonbladet.se?article=123456&date=2016-12-01')" : {article:'123456', date:'2016-12-01'}
+				"g('expressen.se?city=Stockholm')" : {city : 'Stockholm'}
+				"g('http://stackoverflow.com/search?q=coffeescript')" : {q : 'coffeescript'}
