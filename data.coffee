@@ -188,3 +188,20 @@ data =
 				"g('aftonbladet.se?article=123456&date=2016-12-01')" : {article:'123456', date:'2016-12-01'}
 				"g('expressen.se?city=Stockholm')" : {city : 'Stockholm'}
 				"g('http://stackoverflow.com/search?q=coffeescript')" : {q : 'coffeescript'}
+
+	Assert5: 
+		functional1: 
+			b:"""
+djur = [
+	{namn:'Fluffy',art:'kanin'},
+	{namn:'Karo',art:'hund'},
+	{namn:'Rocky',art:'hund'},
+	{namn:'Albert',art:'fisk'},
+	{namn:'Trixie',art:'katt'},
+	{namn:'Herbert',art:'fisk'},
+]
+			"""
+			a:"g = (djur,art) -> djur.filter (d) -> d.art == art"
+			c:  
+				"g(djur,'hund')" : [{namn:'Karo',art:'hund'},{namn:'Rocky',art:'hund'}]
+				"g(djur,'fisk')" : [{namn:'Albert',art:'fisk'},{namn:'Herbert',art:'fisk'}]
