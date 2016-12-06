@@ -190,18 +190,65 @@ data =
 				"g('http://stackoverflow.com/search?q=coffeescript')" : {q : 'coffeescript'}
 
 	Assert5: 
-		functional1: 
+		filter: 
 			b:"""
+# Använd for loop eller filter
 djur = [
-	{namn:'Fluffy',art:'kanin'},
-	{namn:'Karo',art:'hund'},
-	{namn:'Rocky',art:'hund'},
-	{namn:'Albert',art:'fisk'},
-	{namn:'Trixie',art:'katt'},
-	{namn:'Herbert',art:'fisk'},
+	{namn:'Fluffy',art:'kanin'}
+	{namn:'Karo',art:'hund'}
+	{namn:'Rocky',art:'hund'}
+	{namn:'Albert',art:'fisk'}
+	{namn:'Trixie',art:'katt'}
+	{namn:'Herbert',art:'fisk'}
 ]
 			"""
-			a:"g = (djur,art) -> djur.filter (d) -> d.art == art"
+			a:"""
+arHund = (d) -> d.art == 'hund'
+arFisk = (d) -> d.art == 'fisk'
+g = (djur,f) -> djur.filter f
+			"""
 			c:  
-				"g(djur,'hund')" : [{namn:'Karo',art:'hund'},{namn:'Rocky',art:'hund'}]
-				"g(djur,'fisk')" : [{namn:'Albert',art:'fisk'},{namn:'Herbert',art:'fisk'}]
+				"g(djur,arHund)" : [{namn:'Karo',art:'hund'},{namn:'Rocky',art:'hund'}]
+				"g(djur,arFisk)" : [{namn:'Albert',art:'fisk'},{namn:'Herbert',art:'fisk'}]
+
+		map: 
+			b:"""
+# Använd for loop eller map eller Coffescript comprehension
+djur = [
+	{namn:'Fluffy',art:'kanin'}
+	{namn:'Karo',art:'hund'}
+	{namn:'Rocky',art:'hund'}
+	{namn:'Albert',art:'fisk'}
+	{namn:'Trixie',art:'katt'}
+	{namn:'Herbert',art:'fisk'}
+]
+			"""
+			a:"""
+namn = (djur) -> djur.map (d) -> d.namn
+namn = (djur) -> (d.namn for d in djur)
+			"""
+			c:  
+				"namn(djur)" : ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
+
+		reduce: 
+			b:"""
+# Använd for loop eller reduce
+ica = [
+	{pris: 123, antal:1}
+	{pris: 34, antal:2}
+	{pris: 78, antal:4}
+	{pris: 96, antal:5}
+]
+konsum = [
+	{pris: 100, antal:1}
+	{pris: 30, antal:1}
+	{pris: 70, antal:1}
+	{pris: 90, antal:1}
+]
+			"""
+			a:"""
+summa = (varor) -> varor.reduce ((sum, vara) -> sum + vara.pris * vara.antal), 0
+			"""
+			c:  
+				"summa(ica)" : 983
+				"summa(konsum)" : 290

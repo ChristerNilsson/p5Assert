@@ -87,13 +87,13 @@ runAll = ->
   tableClear()
   dict = data[chapter][exercise]["c"]    
   for call,expectedResult of dict 
-    msg = run "result = " + transpile(b + "\nreturn " + call)    
-    tableAppend call, expectedResult, if msg == "" then result else msg.split('\n')[0]
-
-run = (code) ->
-  try 
-    eval code
-    return ""
-  catch err 
-    err.stack
+    try
+      code = transpile b + "\nreturn " + call
+      try
+        eval "result = " + code 
+      catch e
+        result = e.stack.split('\n')[0]
+    catch e
+      result = e.name + ": " + e.message
+    tableAppend call, expectedResult, result 
   
