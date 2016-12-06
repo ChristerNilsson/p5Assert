@@ -9,7 +9,22 @@ data =
 	Assert1: 
 		Operator1: 
 			a:"function f(x) { return x }"
-			b:"# + - * / %\nf = (x) -> 0"
+			b:"""
+			# Try to implement the yellow function f.
+
+			# The YELLOW column contains the INPUT.
+			# The GREEN column contains the expected OUTPUT.
+			# The RED column contains the OUTPUT returned by your code.
+			# Make the RED column match the GREEN column.
+			
+			# Change 0 to 2 and watch the first RED cell turn GREEN!
+			# Change 0 to 3 and watch the second RED cell turn GREEN!
+			# Change 0 to x and watch both RED cells turn GREEN!
+			
+			# Then continue by clicking Operator2
+
+			f = (x) -> 0
+			"""
 			c: 
 				"f(2)":2
 				"f(3)":3 
@@ -131,7 +146,7 @@ data =
 	Assert4: 
 		complex1: 
 			a:"""
-class Cpx
+class Complex
 	constructor : (@x,@y) ->
 	add : (other) ->
 		new Complex @x+other.x, @y+other.y
@@ -141,7 +156,7 @@ class Cpx
 		c = other.x
 		d = other.y
 		new Complex a*c-b*d, b*c+a*d
-	tos : ->
+	toString : ->
 		sx = "" if @x == 0
 		sx = "#{@x}" if @x > 0
 		sx = "#{@x}" if @x < 0
@@ -167,16 +182,16 @@ class Cpx
 						"""
 			b:"# LOC:23 class constructor -> if"
 			c:  
-				"new Cpx(-1,0).tos()" :"-1"
-				"new Cpx(-1,-1).tos()" : "-1-i"
-				"new Cpx(0,-1).tos()" : "-i"
-				"new Cpx(0,0).tos()" : "0"
-				"new Cpx(0,1).tos()" : "i"
-				"new Cpx(1,-2).tos()" : "1-2i"
-				"new Cpx(1,-1).tos()" : "1-i"
-				"new Cpx(1,0).tos()" : "1"
-				"new Cpx(1,1).tos()" : "1+i"
-				"new Cpx(1,2).tos()" : "1+2i"
+				"new Complex(-1,0).toString()" :"-1"
+				"new Complex(-1,-1).toString()" : "-1-i"
+				"new Complex(0,-1).toString()" : "-i"
+				"new Complex(0,0).toString()" : "0"
+				"new Complex(0,1).toString()" : "i"
+				"new Complex(1,-2).toString()" : "1-2i"
+				"new Complex(1,-1).toString()" : "1-i"
+				"new Complex(1,0).toString()" : "1"
+				"new Complex(1,1).toString()" : "1+i"
+				"new Complex(1,2).toString()" : "1+2i"
 	
 		split1: 
 			a:"g = (h) -> _.object(f.split '=' for f in h.split('?')[1].split('&'))"

@@ -33,11 +33,13 @@ tableAppend = (call, expected, actual) ->
   cell1.innerHTML = call
   cell2.innerHTML = JSON.stringify expected
   cell3.innerHTML = if actual == undefined then "error" else JSON.stringify actual
+  cell1.style.backgroundColor = '#FFFF00'
+  cell2.style.backgroundColor = '#00FF00'
   try 
     chai.assert.deepEqual expected, actual
-    row.style.backgroundColor = '#00FF00'
+    cell3.style.backgroundColor = '#00FF00'
   catch  
-    row.style.backgroundColor = '#FF0000'
+    cell3.style.backgroundColor = '#FF0000'
 
 changeLayout = ->
   w = $(window).width()
