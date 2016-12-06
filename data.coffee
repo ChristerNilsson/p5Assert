@@ -131,40 +131,39 @@ data =
 	Assert4: 
 		complex1: 
 			a:"""
-				class Cpx
-					constructor : (@x,@y) ->
-					add : (other) ->
-						new Complex @x+other.x, @y+other.y
-					mul : (other) ->
-						a = @x
-						b = @y
-						c = other.x
-						d = other.y
-						new Complex a*c-b*d, b*c+a*d
-					tos : ->
-						sx = "" if @x == 0
-						sx = "#{@x}" if @x > 0
-						sx = "#{@x}" if @x < 0
+class Cpx
+	constructor : (@x,@y) ->
+	add : (other) ->
+		new Complex @x+other.x, @y+other.y
+	mul : (other) ->
+		a = @x
+		b = @y
+		c = other.x
+		d = other.y
+		new Complex a*c-b*d, b*c+a*d
+	tos : ->
+		sx = "" if @x == 0
+		sx = "#{@x}" if @x > 0
+		sx = "#{@x}" if @x < 0
 
-						sy = "" if @y == 0
-						sy = "-i" if @y == -1
-						sy = "i" if @y == 1
-						sy = "#{@y}i" if @y > 1
-						sy = "#{@y}i" if @y < -1
+		sy = "" if @y == 0
+		sy = "-i" if @y == -1
+		sy = "i" if @y == 1
+		sy = "#{@y}i" if @y > 1
+		sy = "#{@y}i" if @y < -1
 
-						if sx!="" and sy!=""
-							if @y < 0
-								s = sx+sy
-							else if @y==0
-								s = sx
-							else
-								s = sx + "+" + sy
-						else if @x==0 and @y==0
-							s = "0"
-						else 
-							s = sx + sy
-						s
-
+		if sx!="" and sy!=""
+			if @y < 0
+				s = sx+sy
+			else if @y==0
+				s = sx
+			else
+				s = sx + "+" + sy
+		else if @x==0 and @y==0
+			s = "0"
+		else 
+			s = sx + sy
+		s
 						"""
 			b:"# LOC:23 class constructor -> if"
 			c:  
@@ -252,3 +251,52 @@ summa = (varor) -> varor.reduce ((sum, vara) -> sum + vara.pris * vara.antal), 0
 			c:  
 				"summa(ica)" : 983
 				"summa(konsum)" : 290
+
+	Underscore: 
+		sortBy: 
+			b:"""
+# sortBy
+djur = ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
+"""
+			a:"""
+g = (djur,f) -> _.sortBy djur, f
+			"""
+			c:  
+				"g(djur,(d)->d.length)" : ["Karo","Rocky","Fluffy","Albert","Trixie","Herbert"]
+				"g(djur,(d)->d)" : ["Albert","Fluffy","Herbert","Karo","Rocky","Trixie"]
+
+		groupBy: 
+			b:"""
+# groupBy
+djur = ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
+"""
+			a:"""
+g = (djur,f) -> _.groupBy djur, f
+			"""
+			c:  
+				"g(djur,(d) -> d.length)" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
+				"g(djur,(d) -> _.last(d))" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
+
+	Recursion: 
+		path: 
+			b:"# concat\ntree = {3:0, 4:8, 5:3, 6:3, 10:5, 7:5, 12:6, 8:6, 20:10, 9:7, 24:12, 14:12}\n"
+			a:"path = (tree,x) -> if x==0 then return [] else path(tree,tree[x]).concat([x])"
+			c:  
+				"path(tree, 4)" : [3,6,8,4]
+				"path(tree, 20)" : [3,5,10,20]
+				"path(tree, 9)" : [3,5,7,9]
+
+		summa: 
+			b:"""
+# Använd några av .reduce .isEqual .isNumber .head eller .tail 
+tree = [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]
+
+"""
+			a:"""
+summa = (tree) -> 
+	return 0 if _.isEqual tree,[]
+	return tree if _.isNumber tree 
+	s = summa _.head tree
+	s + summa _.tail tree 
+"""
+			c: "summa(tree)" : 161
