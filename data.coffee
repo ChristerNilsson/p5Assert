@@ -292,7 +292,7 @@ g = (djur,f) -> _.groupBy djur, f
 				"g(djur,(d) -> d.length)" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
 				"g(djur,(d) -> _.last(d))" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
 
-	Recursion: 
+	Advanced: 
 		path: 
 			b:"# concat\ntree = {3:0, 4:8, 5:3, 6:3, 10:5, 7:5, 12:6, 8:6, 20:10, 9:7, 24:12, 14:12}\n"
 			a:"path = (tree,x) -> if x==0 then return [] else path(tree,tree[x]).concat([x])"
@@ -315,3 +315,83 @@ summa = (tree) ->
 	s + summa _.tail tree 
 """
 			c: "summa(tree)" : 161
+
+	Polynom:
+		polynom1:
+			b:""
+			a:""
+			c:
+				"(new Polynom [5,4,3]).lst" : [5,4,3]
+				"(new Polynom [1,0,2,3]).lst" : [1,0,2,3]
+
+		polynom2:
+			b:""
+			a:""
+			c:
+				"(new Polynom [5,4,3]).to_s()" : "3*x^2+4*x+5"
+				"(new Polynom [0,0,1]).to_s()" : "x^2"
+
+		polynom3:
+			b:""
+			a:""
+			c:"(new Polynom [5,4,3]).add(new Polynom [4,3]).to_s()" : "3*x^2+4*x+5"
+
+		polynom4:
+			b:""
+			a:""
+			c:"(new Polynom [5,4,3]).mul(new Polynom [4,3]).to_s()" : "9*x^3+24*x^2+31*x+20"
+	
+		polynom5:
+			b:""
+			a:""
+			c:"(new Polynom [5,4,3]).value(2)" : 25
+
+		polynom6:
+			b:""
+			a:""
+			c:"(new Polynom [5,4,3]).diff().lst" : [4,6]
+
+		polynom7:
+			b:""
+			a:""
+			c:"(new Polynom [5,4,3]).integ().lst" : [0,5,2,1]
+
+		polynom8:
+			b:""
+			a:""
+			c:"(new Polynom [0,0,1]).integ().to_s()" : "0.3333333333333333*x^3"
+
+		polynom9:
+			b:""
+			a:""
+			c:"(new Polynom [0,0,1]).integ().value(3)" : 9
+
+		polynom10:
+			b:""
+			a:""
+			c:"(new Polynom [5,4,3]).power(2).lst" : [25,40,46,24,9]
+
+		polynom11:
+			b:""
+			a:""
+			c:"(new Polynom [4,3]).power(3).lst" : [64,144,108,27] 
+
+		polynom12:
+			b:""
+			a:""
+			c:"(new Polynom [3,2]).compose(new Polynom [3,2]).lst" : [9,4] 
+
+		polynom13:
+			b:""
+			a:""
+			c:"(new Polynom [3,2]).compose(new Polynom [5,0,-1]).lst" : [13,0,-2] 
+
+		polynom14:
+			b:""
+			a:""
+			c:"(new Polynom [5,0,-1]).compose(new Polynom [3,2]).lst" : [-4,-12,-4]
+
+		polynom15:
+			b:""
+			a:""
+			c:"(new Polynom [5,0,-1]).compose(new Polynom [5,0,-1]).lst" : [-20,0,10,0,-1]
