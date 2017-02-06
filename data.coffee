@@ -126,11 +126,11 @@ data =
 			a:"function lerp(y1,y2,x) { return y1 + (y2-y1) * x }"
 			b:"# * + -\nlerp = (y1,y2,x) -> 0"
 			c:  
-				"lerp(10,20,-1)" : 0
-				"lerp(10,20,0)" : 10
-				"lerp(10,20,0.5)" : 15
-				"lerp(10,20,1)" : 20
-				"lerp(10,20,2)" : 30
+				"lerp(10,16,-1)" : 4
+				"lerp(10,16,0)" : 10
+				"lerp(10,16,0.5)" : 13
+				"lerp(10,16,1)" : 16
+				"lerp(10,16,2)" : 22
 		
 		map:  
 			a:"function map(x,x1,x2,y1,y2) { return y1 + (y2-y1) * (x-x1)/(x2-x1) }"
