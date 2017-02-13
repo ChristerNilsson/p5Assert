@@ -12,8 +12,9 @@ fillSelect = (sel, dict) ->
 
 sel1change = (sel) ->
   chapter = sel.value
-  exercise = ""
   fillSelect sel2, data[chapter]
+  exercise = _.keys(data[chapter])[0]
+  sel2.val(exercise).change()
 
 sel2change = (sel) ->
   exercise = sel.value
@@ -74,9 +75,9 @@ window.onload = ->
   help = createA('https://github.com/ChristerNilsson/p5Assert/blob/master/README.md', 'help', '_blank')
   help.position 10,430
   
-  chapter = 'Assert1'
+  chapter = _.keys(data)[0]
   sel1.val(chapter).change()
-  exercise = 'Operator1'
+  exercise = _.keys(data[chapter])[0]
   sel2.val(exercise).change()
   
   myCodeMirror.focus()
@@ -97,5 +98,4 @@ runAll = ->
         result = e.stack.split('\n')[0]
     catch e
       result = e.name + ": " + e.message
-    tableAppend call, expectedResult, result 
-  
+    tableAppend call, expectedResult, result

@@ -59,7 +59,7 @@ function transpile(code) {
     }
   } 
   code = temp.join('\n')
-  console.log(code)
+  //console.log(code)
   return CoffeeScript.compile(code)
 }
 
@@ -116,8 +116,8 @@ function xxx_transpile(code) {
       if (indent < 0)  res.push(s+Array(-indent+1).join(" }"))
     }  
   }
-  for (var l of res) {
-    console.log(l)
-  }
+  //for (var l of res) {
+  // console.log(l)
+  //}
   return res.join("\n")
 }
