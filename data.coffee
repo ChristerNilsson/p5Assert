@@ -149,6 +149,46 @@ data =
 	
 	"A2: Strängar" :
 
+		Introduktion:
+			b:"""
+# LOC:
+a = "Coffee"
+b = "script"
+
+antal = (s) ->
+tecken = (s,i) ->
+mitti = (s,i,j) ->
+konkatenera = (s,t) ->
+leta = (s,t) ->
+splittra = (s,avgr) -> 
+slåihop = (a,avgr='') -> 
+dubbla = (s) ->
+			"""
+			a:"""
+a = "Coffee"
+b = "script"
+
+antal = (s) -> s.length
+tecken = (s,i) -> s[i]
+mitti = (s,i,j) -> s[i..j]
+konkatenera = (s,t) -> s + t
+leta = (s,t) -> s.indexOf t
+splittra = (s,avgr) -> s.split avgr
+slåihop = (a,avgr='') -> a.join(avgr)
+dubbla = (s) -> slåihop (tecken + tecken for tecken in s)
+			"""
+			c:
+				"antal a" : 6
+				"tecken a,1" : 'o'
+				"mitti a,1,3" : 'off'
+				"mitti a,3,5" : 'fee'
+				"konkatenera a,b" : 'Coffeescript' 
+				"leta a,'e'" : 4
+				"leta a,'x'" : -1
+				"splittra '2 3 +',' '" : ['2', '3', '+'] 
+				"slåihop ['2', '3', '+'], '|'" : "2|3|+"
+				"dubbla b" : 'ssccrriipptt'
+
 		Palindrom :
 			b : """
 			# LOC:5 for in + ''
@@ -205,8 +245,6 @@ sortera = (a) ->
 första = (a,n) -> 
 mitti = (a,i,j) -> 
 sista = (a,n) -> 
-append = (a,n) -> 
-tabortsista = (a) -> 
 
 			"""
 			a:"""
@@ -224,10 +262,6 @@ sortera = (a) -> a.sort()
 första = (a,n) -> a[..n-1]
 mitti = (a,i,j) -> a[i..j]
 sista = (a,n) -> a[-n..]
-append = (a,n) -> 
-	a.push n
-	a
-tabortsista = (a) -> [a.pop(),a]
 
 """
 			c:
@@ -239,8 +273,6 @@ tabortsista = (a) -> [a.pop(),a]
 				"första g,3" : [11,12,13]
 				"mitti g,1,2" : [12,13]
 				"sista g,4" : [12,13,14,15]
-				"append b,7" : [1,2,3,7]
-				"tabortsista d" : [6,[4,5]]
 
 		Växelcykel :
 			b: """
