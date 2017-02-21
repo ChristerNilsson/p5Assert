@@ -151,7 +151,7 @@ data =
 
 		Introduktion:
 			b:"""
-# LOC:
+# LOC:8 length [] .. + indexOf split join for in
 a = "Coffee"
 b = "script"
 
@@ -210,7 +210,7 @@ palindrom = (word) ->
 		Rövarspråk :
 			b: """
 			# LOC:5 for in if then else + ''
-			rs = (word) -> 
+			rs = (word,extra='o') -> 
 			"""
 			a: """
 rs = (word,extra='o') -> 
