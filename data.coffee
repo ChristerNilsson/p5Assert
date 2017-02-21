@@ -192,59 +192,55 @@ rs = (word,extra='o') ->
 			b:"""
 # LOC:11 length push concat pop sort .. []
 a = [4,5,6]
-b = []
+b = [1,2,3]
 d = [4,5,6]
 e = [5,4,1,2,9,3,7]
 f = [5,4,1,2,9,3,7]
 g = [11,12,13,14,15]
 
 antal = (a) -> 
-append = (a,n) -> 
-konkatenera = (a,b) -> 
 fetch = (a,i) -> 
-tabortsista = (a) -> 
+konkatenera = (a,b) -> 
 sortera = (a) -> 
 första = (a,n) -> 
 mitti = (a,i,j) -> 
 sista = (a,n) -> 
+append = (a,n) -> 
+tabortsista = (a) -> 
 
 			"""
 			a:"""
 a = [4,5,6]
-b = []
+b = [1,2,3]
 d = [4,5,6]
 e = [5,4,1,2,9,3,7]
 f = [5,4,1,2,9,3,7]
 g = [11,12,13,14,15]
 
 antal = (a) -> a.length
-append = (a,n) -> 
-	a.push n
-	a
-konkatenera = (a,b) -> a.concat b
 fetch = (a,i) -> a[i]
-tabortsista = (a) -> [a.pop(),a]
+konkatenera = (a,b) -> a.concat b
 sortera = (a) -> a.sort()
 första = (a,n) -> a[..n-1]
 mitti = (a,i,j) -> a[i..j]
 sista = (a,n) -> a[-n..]
+append = (a,n) -> 
+	a.push n
+	a
+tabortsista = (a) -> [a.pop(),a]
 
 """
 			c:
-				"a" : [4,5,6]
 				"antal a" : 3
 				"fetch a,0" : 4
 				"fetch a,2" : 6
-				"append b,7" : [7]
 				"konkatenera a,a" : [4,5,6,4,5,6]
-				"d" : [4,5,6]
-				"tabortsista d" : [6,[4,5]]
-				"e" : [5,4,1,2,9,3,7]
 				"sortera f" : [1,2,3,4,5,7,9]
-				"g" : [11,12,13,14,15]
 				"första g,3" : [11,12,13]
 				"mitti g,1,2" : [12,13]
 				"sista g,4" : [12,13,14,15]
+				"append b,7" : [1,2,3,7]
+				"tabortsista d" : [6,[4,5]]
 
 		Växelcykel :
 			b: """
