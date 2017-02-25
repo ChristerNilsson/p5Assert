@@ -161,7 +161,7 @@ mitti = (s,i,j) ->
 konkatenera = (s,t) ->
 leta = (s,t) ->
 splittra = (s,avgr) -> 
-slåihop = (a,avgr='') -> 
+hopslagning = (a,avgr='') -> 
 dubbla = (s) ->
 			"""
 			a:"""
@@ -174,7 +174,7 @@ mitti = (s,i,j) -> s[i..j]
 konkatenera = (s,t) -> s + t
 leta = (s,t) -> s.indexOf t
 splittra = (s,avgr) -> s.split avgr
-slåihop = (a,avgr='') -> a.join(avgr)
+hopslagning = (a,avgr='') -> a.join(avgr)
 dubbla = (s) -> slåihop (tecken + tecken for tecken in s)
 			"""
 			c:
@@ -186,7 +186,7 @@ dubbla = (s) -> slåihop (tecken + tecken for tecken in s)
 				"leta a,'e'" : 4
 				"leta a,'x'" : -1
 				"splittra '2 3 +',' '" : ['2', '3', '+'] 
-				"slåihop ['2', '3', '+'], '|'" : "2|3|+"
+				"hopslagning ['2', '3', '+'], '|'" : "2|3|+"
 				"dubbla b" : 'ssccrriipptt'
 
 		Palindrom :
@@ -225,6 +225,17 @@ rs = (word,extra='o') ->
 				"rs 'kalas fint','i'" : 'kikalilasis fifinintit'
 				"rs 'bokstav','e'" : 'bebokeksestetavev'
 				"rs 'kalas fint','a'" : 'kakalalasas fafinantat'
+
+		split: 
+			a: "g = (h) -> _.object(f.split '=' for f in h.split('?')[1].split('&'))"
+			b: "# LOC:1 split for in _.object"
+			c:  
+				"g 'dn.se?x=0&y=1'" : {x:'0', y:'1'}
+				"g 'svd.se?page=7'" : {page : '7'}
+				"g 'aftonbladet.se?article=123456&date=2016-12-01'" : {article:'123456', date:'2016-12-01'}
+				"g 'expressen.se?city=Stockholm'" : {city : 'Stockholm'}
+				"g 'http://stackoverflow.com/search?q=coffeescript'" : {q : 'coffeescript'}
+
 
 	"A3: Listor" :
 
@@ -467,7 +478,53 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"avg ages girls" : 11
 				"avg ages boys" : 9.5
 
-	"A7: class Bignum" :
+	# "A6.5 class Simplex" :
+		Simplex :
+			b:"""
+#LOC:14 class constructor new [] @		
+class Simplex
+	constructor : (x,y) ->
+	translate : -> 
+		@
+	scale : -> 
+	rotate : -> 
+	mirror : -> 
+
+a = new Simplex 1,3
+b = new Simplex -2,4
+
+"""
+			a:"""
+class Simplex
+	constructor : (@x,@y) ->
+	translate : -> 
+		@x += 1
+		@
+	scale : -> 
+		[@x,@y] = [2*@x,2*@y] 
+		@
+	rotate : -> 
+		[@x,@y] = [-@y,@x]
+		@
+	mirror : ->
+		[@x,@y] = [@y,@x]
+		@
+"""
+			c:
+				"pp a" : "{x:1,y:3}"
+				"pp b" : "{x:-2,y:4}"
+				"pp a.translate()" : "{x:2,y:3}"
+				"pp b.translate()" : "{x:-1,y:4}"
+				"pp a.scale()" : "{x:2,y:6}"
+				"pp b.scale()" : "{x:-4,y:8}"
+				"pp a.rotate()" : "{x:-3,y:1}"
+				"pp b.rotate()" : "{x:-4,y:-2}"
+				"pp a.mirror()" : "{x:3,y:1}"
+				"pp b.mirror()" : "{x:4,y:-2}"
+				"pp a.translate().scale()" : "{x:4,y:6}"
+				"pp a.scale().translate()" : "{x:3,y:6}"
+
+	# "A7: class Bignum" :
 		bignum :
 			b:"""
 # LOC:22 class constructor new parseInt reverse length push floor slice unshift join for if
@@ -550,7 +607,7 @@ h = h.mul h for i in range 7
 				"h.to_s()" :"340282366920938463463374607431768211456"			
 
 
-	"A8: class Complex" : 
+#	"A8: class Complex" : 
 		complex1: 
 			b: """
 # LOC:31 class constructor new -> if + * == > <
@@ -558,7 +615,7 @@ class Complex
 	constructor : (@x,@y) ->
 	add : (other) ->
 	mul : (other) ->
-	toString : ->
+	to_s : ->
 				"""
 			a: """
 class Complex
@@ -571,7 +628,7 @@ class Complex
 		c = other.x
 		d = other.y
 		new Complex a*c-b*d, b*c+a*d
-	toString : ->
+	to_s : ->
 		sx = "" if @x == 0
 		sx = "#{@x}" if @x > 0
 		sx = "#{@x}" if @x < 0
@@ -596,117 +653,125 @@ class Complex
 		s
 						"""
 			c:  
-				"new Complex(-1,0).toString()" :"-1"
-				"new Complex(-1,-1).toString()" : "-1-i"
-				"new Complex(0,-1).toString()" : "-i"
-				"new Complex(0,0).toString()" : "0"
-				"new Complex(0,1).toString()" : "i"
-				"new Complex(1,-2).toString()" : "1-2i"
-				"new Complex(1,-1).toString()" : "1-i"
-				"new Complex(1,0).toString()" : "1"
-				"new Complex(1,1).toString()" : "1+i"
-				"new Complex(1,2).toString()" : "1+2i"
-				"new Complex(1,2).add(new Complex(1,-1)).toString()" : "2+i"
-				"new Complex(1,2).mul(new Complex(1,-1)).toString()" : "3+i"
+				"new Complex(-1,0).to_s()" :"-1"
+				"new Complex(-1,-1).to_s()" : "-1-i"
+				"new Complex(0,-1).to_s()" : "-i"
+				"new Complex(0,0).to_s()" : "0"
+				"new Complex(0,1).to_s()" : "i"
+				"new Complex(1,-2).to_s()" : "1-2i"
+				"new Complex(1,-1).to_s()" : "1-i"
+				"new Complex(1,0).to_s()" : "1"
+				"new Complex(1,1).to_s()" : "1+i"
+				"new Complex(1,2).to_s()" : "1+2i"
+				"new Complex(1,2).add(new Complex(1,-1)).to_s()" : "2+i"
+				"new Complex(1,2).mul(new Complex(1,-1)).to_s()" : "3+i"
 
 	
-		split1: 
-			a: "g = (h) -> _.object(f.split '=' for f in h.split('?')[1].split('&'))"
-			b: "# LOC:1 split for in _.object"
-			c:  
-				"g 'dn.se?x=0&y=1'" : {x:'0', y:'1'}
-				"g 'svd.se?page=7'" : {page : '7'}
-				"g 'aftonbladet.se?article=123456&date=2016-12-01'" : {article:'123456', date:'2016-12-01'}
-				"g 'expressen.se?city=Stockholm'" : {city : 'Stockholm'}
-				"g 'http://stackoverflow.com/search?q=coffeescript'" : {q : 'coffeescript'}
 
+#	"A9: class Polynom" :
 
-	"A9: class Polynom" :
-
-		constructor :
+		polynom :
 			b: """
-# LOC:2 class constructor new
+# LOC:52 class constructor new [] @ or for in range length ** push reverse join #{}
 class Polynom
 	constructor : (lst) ->
+	add : (other) ->
+	mul : (other) ->
+	power : (n) ->
+	compose : (other)	->
+	value : (x) ->
+	diff : ->
+	integ : ->
+	to_s : ->
+
+a = new Polynom [5,4,3]
+b = new Polynom [4,3]
+c = new Polynom [0,0,1]
+d = new Polynom [3,2]
+e = new Polynom [5,0,-1]
 """
-			a: ""
+			a: """
+class Polynom
+	constructor : (@lst) ->
+
+	add : (other) ->
+		h = []
+		h[i] = (h[i] or 0) + value for value,i in @lst
+		h[i] = (h[i] or 0) + value for value,i in other.lst
+		new Polynom h
+
+	mul : (other) ->
+		h = (0 for i in range @lst.length + other.lst.length - 1)
+		for value1,i1 in @lst
+			for value2,i2 in other.lst
+				i = i1+i2
+				h[i] = (h[i] or 0) + value1 * value2
+		new Polynom h
+
+	power : (n) ->
+		res = new Polynom [1]
+		res = res.mul @ for i in range n
+		res
+
+	compose : (other)	->
+		res = new Polynom []
+		for value,i in @lst
+			res = res.add (new Polynom [value]).mul other.power i
+		res
+
+	value : (x) ->
+		res = 0
+		res += value * x ** i for value,i in @lst
+		res
+
+	diff : ->
+		lst = []
+		for value,i in @lst
+			if i != 0 then lst[i-1] = i*value
+		new Polynom lst
+
+	integ : ->
+		lst = [0]
+		for value,i in @lst
+			i += 1
+			lst[i] = value/i
+		new Polynom lst
+
+	to_s : ->
+		arr = []
+		for item,i in @lst
+			if item == 0 then continue
+			if item == 1 
+				if i==0 then arr.push "1"
+				else if i==1 then arr.push "x"
+				else arr.push "x^" + i
+			else				
+				if i==0 then arr.push item
+				else if i==1 then arr.push item + "*x"
+				else arr.push item + "*x^" + i
+		arr.reverse()
+		arr.join "+"
+"""
 			c:
-				"(new Polynom [5,4,3]).lst" : [5,4,3]
-				"(new Polynom [1,0,2,3]).lst" : [1,0,2,3]
+				"a.lst" : [5,4,3]
+				"b.lst" : [4,3]
+				"a.to_s()" : "3*x^2+4*x+5"
+				"c.to_s()" : "x^2"
+				"a.add(b).to_s()" : "3*x^2+7*x+9"
+				"a.mul(b).to_s()" : "9*x^3+24*x^2+31*x+20"
+				"a.value(2)" : 25
+				"a.diff().lst" : [4,6]
+				"a.integ().lst" : [0,5,2,1]
+				"c.integ().to_s()" : "0.3333333333333333*x^3"
+				"c.integ().value(3)" : 9
+				"a.power(2).lst" : [25,40,46,24,9]
+				"b.power(3).lst" : [64,144,108,27] 
+				"d.compose(d).lst" : [9,4] 
+				"d.compose(e).lst" : [13,0,-2] 
+				"e.compose(d).lst" : [-4,-12,-4]
+				"e.compose(e).lst" : [-20,0,10,0,-1]
 
-		to_s:
-			b: ""
-			a: ""
-			c:
-				"(new Polynom [5,4,3]).to_s()" : "3*x^2+4*x+5"
-				"(new Polynom [0,0,1]).to_s()" : "x^2"
-
-		add:
-			b: ""
-			a: ""
-			c: "(new Polynom [5,4,3]).add(new Polynom [4,3]).to_s()" : "3*x^2+4*x+5"
-
-		mul:
-			b: ""
-			a: ""
-			c: "(new Polynom [5,4,3]).mul(new Polynom [4,3]).to_s()" : "9*x^3+24*x^2+31*x+20"
-	
-		value:
-			b: ""
-			a: ""
-			c: "(new Polynom [5,4,3]).value(2)" : 25
-
-		diff:
-			b: ""
-			a: ""
-			c: "(new Polynom [5,4,3]).diff().lst" : [4,6]
-
-		integ:
-			b: ""
-			a: ""
-			c: "(new Polynom [5,4,3]).integ().lst" : [0,5,2,1]
-
-		"integ to_s":
-			b: ""
-			a: ""
-			c: "(new Polynom [0,0,1]).integ().to_s()" : "0.3333333333333333*x^3"
-
-		"integ value":
-			b: ""
-			a: ""
-			c: "(new Polynom [0,0,1]).integ().value(3)" : 9
-
-		power2:
-			b: ""
-			a: ""
-			c: "(new Polynom [5,4,3]).power(2).lst" : [25,40,46,24,9]
-
-		power3:
-			b: ""
-			a: ""
-			c: "(new Polynom [4,3]).power(3).lst" : [64,144,108,27] 
-
-		compose1:
-			b: ""
-			a: ""
-			c: "(new Polynom [3,2]).compose(new Polynom [3,2]).lst" : [9,4] 
-
-		compose2:
-			b: ""
-			a: ""
-			c: "(new Polynom [3,2]).compose(new Polynom [5,0,-1]).lst" : [13,0,-2] 
-
-		compose3:
-			b: ""
-			a: ""
-			c: "(new Polynom [5,0,-1]).compose(new Polynom [3,2]).lst" : [-4,-12,-4]
-
-		compose4:
-			b: ""
-			a: ""
-			c: "(new Polynom [5,0,-1]).compose(new Polynom [5,0,-1]).lst" : [-20,0,10,0,-1]
-
-	"A10: Advanced" :
+	"A7: Advanced" :
 
 		path: 
 			b: "# concat\ntree = {3:0, 4:8, 5:3, 6:3, 10:5, 7:5, 12:6, 8:6, 20:10, 9:7, 24:12, 14:12}\n"

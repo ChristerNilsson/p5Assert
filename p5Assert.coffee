@@ -5,6 +5,8 @@ table = 0
 chapter = ""
 exercise = ""
 
+pp = (obj) -> (JSON.stringify obj).replace /"/g, ''
+
 fillSelect = (sel, dict) ->
   sel.empty()
   for key of dict 
