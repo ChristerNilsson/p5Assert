@@ -147,7 +147,7 @@ data =
 				"g 10,4" : 2
 				"g 11,4" : 3
 	
-	"A2: Strängar" :
+	'A2: ""' :
 
 		Introduktion:
 			b:"""
@@ -226,18 +226,8 @@ rs = (word,extra='o') ->
 				"rs 'bokstav','e'" : 'bebokeksestetavev'
 				"rs 'kalas fint','a'" : 'kakalalasas fafinantat'
 
-		split: 
-			a: "g = (h) -> _.object(f.split '=' for f in h.split('?')[1].split('&'))"
-			b: "# LOC:1 split for in _.object"
-			c:  
-				"g 'dn.se?x=0&y=1'" : {x:'0', y:'1'}
-				"g 'svd.se?page=7'" : {page : '7'}
-				"g 'aftonbladet.se?article=123456&date=2016-12-01'" : {article:'123456', date:'2016-12-01'}
-				"g 'expressen.se?city=Stockholm'" : {city : 'Stockholm'}
-				"g 'http://stackoverflow.com/search?q=coffeescript'" : {q : 'coffeescript'}
 
-
-	"A3: Listor" :
+	"A3: []" :
 
 		Introduktion :
 			b:"""
@@ -323,7 +313,7 @@ calc = (command) ->
 				"calc '2 3 *'" : 6
 				"calc '2 3 4 * +'" : 14
 
-	"A4: Dictionary" :
+	"A4: {}" :
 		"Boys and Girls" :
 			b : """
 #LOC:7 {} [] for in length + /
@@ -435,11 +425,12 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"h2r 12" : 3*Math.PI/6
 
 	"A6: class" :
-		"Girls and Boys" :
+
+		Kid :
 			b : """
-#LOC:8 class constructor new [] for in length + /
+#LOC:8 class constructor new @ [] for in length + /
 class Kid
-	constructor : (@name,@age) ->
+	constructor : (name,age) ->
 
 girls = [new Kid('Sabrina',12), new Kid('Helene',10), new Kid('Anna',11)]
 boys = [new Kid('David',10), new Kid('Henry',11), new Kid('Noel',14), new Kid('Numa',3)]
@@ -478,7 +469,6 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"avg ages girls" : 11
 				"avg ages boys" : 9.5
 
-	# "A6.5 class Simplex" :
 		Simplex :
 			b:"""
 #LOC:14 class constructor new [] @		
@@ -524,10 +514,9 @@ class Simplex
 				"pp a.translate().scale()" : "{x:4,y:6}"
 				"pp a.scale().translate()" : "{x:3,y:6}"
 
-	# "A7: class Bignum" :
-		bignum :
+		Bignum :
 			b:"""
-# LOC:22 class constructor new parseInt reverse length push floor slice unshift join for if
+# LOC:22 class constructor new @ parseInt reverse length push floor slice unshift join for if
 class Bignum
 	constructor : (s) ->
 	add : (other) ->
@@ -606,13 +595,11 @@ h = h.mul h for i in range 7
 				"a.mul(d).to_s()" : "56088"
 				"h.to_s()" :"340282366920938463463374607431768211456"			
 
-
-#	"A8: class Complex" : 
-		complex1: 
+		Complex: 
 			b: """
-# LOC:31 class constructor new -> if + * == > <
+# LOC:31 class constructor new @ -> if + * == > <
 class Complex
-	constructor : (@x,@y) ->
+	constructor : (x,y) ->
 	add : (other) ->
 	mul : (other) ->
 	to_s : ->
@@ -666,11 +653,7 @@ class Complex
 				"new Complex(1,2).add(new Complex(1,-1)).to_s()" : "2+i"
 				"new Complex(1,2).mul(new Complex(1,-1)).to_s()" : "3+i"
 
-	
-
-#	"A9: class Polynom" :
-
-		polynom :
+		Polynom :
 			b: """
 # LOC:52 class constructor new [] @ or for in range length ** push reverse join #{}
 class Polynom
@@ -885,3 +868,12 @@ g = (djur,f) -> _.groupBy djur, f
 				"g(djur,(d) -> d.length)" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
 				"g(djur,(d) -> _.last(d))" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
 
+		split: 
+			a: "g = (h) -> _.object(f.split '=' for f in h.split('?')[1].split('&'))"
+			b: "# LOC:1 split for in _.object"
+			c:  
+				"g 'dn.se?x=0&y=1'" : {x:'0', y:'1'}
+				"g 'svd.se?page=7'" : {page : '7'}
+				"g 'aftonbladet.se?article=123456&date=2016-12-01'" : {article:'123456', date:'2016-12-01'}
+				"g 'expressen.se?city=Stockholm'" : {city : 'Stockholm'}
+				"g 'http://stackoverflow.com/search?q=coffeescript'" : {q : 'coffeescript'}
