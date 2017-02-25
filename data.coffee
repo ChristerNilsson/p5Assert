@@ -7,19 +7,19 @@ data =
 	"A1: Heltal" : 
 		Operator1 :  
 			b: """
-			# LOC:1
-			# Try to implement the yellow function f.
+			# Försök att skapa den GULA funktionen f.
 
-			# The YELLOW column contains the INPUT.
-			# The GREEN column contains the expected OUTPUT.
-			# The RED column contains the OUTPUT returned by your code.
-			# Make the RED column match the GREEN column.
+			# Den GULA kolumnen innehåller INDATA.
+			# Den GRÖNA kolumnen innehåller förväntad UTDATA.
+			# Den RÖDA kolumnen innehåller UTDATA skapad av din kod.
 			
-			# Change 0 to 2 and watch the first RED cell turn GREEN!
-			# Change 0 to 3 and watch the second RED cell turn GREEN!
-			# Change 0 to x and watch both RED cells turn GREEN!
+			# Se till att de RÖDA och GRÖNA kolumnerna blir lika! Gå till sista raden med PgDn.
 			
-			# Then continue by clicking Operator2
+			# Ändra nollan till en tvåa. Nu blir den första RÖDA cellen GRÖN!
+			# Ändra tvåan till en trea.  Nu blir den andra RÖDA cellen GRÖN!
+			# Ändra trean till ett x.    Nu blir båda de RÖDA cellerna GRÖNA!
+			
+			# Gå till nästa övning genom att klicka på Operator2.
 
 			f = (x) -> 0
 			"""
@@ -31,6 +31,8 @@ data =
 		Operator2: 
 			b: """
 			# LOC:1 + - * / %
+			# Sju ska bli åtta och åtta ska bli nio. Vad ska x bli ?
+			
 			f = (x) ->
 			"""
 			a: "f = (x) -> x+1"
@@ -147,6 +149,39 @@ data =
 				"g 10,4" : 2
 				"g 11,4" : 3
 	
+		Operator14: 
+			b: """
+			# LOC:1 + - * / % ==
+			"""
+			a: "g = (a,b) -> a == b"
+			c:
+				"g 0,0" : true
+				"g 1,1" : true
+				"g 7,4" : false
+				"g 6,4" : false
+
+		Operator15: 
+			b: """
+			# LOC:1 + - * / % ==
+			"""
+			a: "g = (a,b) -> a - b == 1"
+			c:
+				"g 7,6" : true
+				"g 5,4" : true
+				"g 7,4" : false
+				"g 6,4" : false
+
+		Operator16: 
+			b: """
+			# LOC:1 + - * / % ==
+			"""
+			a: "g = (a,b) -> a + b == 7"
+			c:
+				"g 7,0" : true
+				"g 5,2" : true
+				"g 7,4" : false
+				"g 6,4" : false
+
 	'A2: ""' :
 
 		Introduktion:
@@ -227,7 +262,7 @@ rs = (word,extra='o') ->
 				"rs 'kalas fint','a'" : 'kakalalasas fafinantat'
 
 
-	"A3: []" :
+	"A3: [ ]" :
 
 		Introduktion :
 			b:"""
@@ -313,7 +348,7 @@ calc = (command) ->
 				"calc '2 3 *'" : 6
 				"calc '2 3 4 * +'" : 14
 
-	"A4: {}" :
+	"A4: { }" :
 		"Boys and Girls" :
 			b : """
 #LOC:7 {} [] for in length + /
@@ -482,7 +517,6 @@ class Simplex
 
 a = new Simplex 1,3
 b = new Simplex -2,4
-
 """
 			a:"""
 class Simplex
@@ -534,7 +568,6 @@ h = new Bignum "2"
 
 g = g.add g for i in range 100
 h = h.mul h for i in range 7
-
 """
 			a:"""
 
@@ -603,7 +636,7 @@ class Complex
 	add : (other) ->
 	mul : (other) ->
 	to_s : ->
-				"""
+"""
 			a: """
 class Complex
 	constructor : (@x,@y) ->
