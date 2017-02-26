@@ -247,93 +247,65 @@ data =
 				"g 7,4" : false
 				"g 6,4" : false
 
-	'A2: " "' :
+	'A2: range lerp for' :
 
-		Introduktion:
+		range:
 			b:"""
-# LOC:8 length [] .. + indexOf split join for in
-# LOC betyder Lines Of Code, dvs antal kodrader.
-# Åtta kodrader är lagom för detta problem.
-# Färre innebär sämre läsbarhet.
-# Har du fler bör du fundera på en kortare lösning.
+# LOC:3 range
 
-a = "Coffee"
-b = "script"
-
-antal = (s) ->
-tecken = (s,i) ->
-mitti = (s,i,j) ->
-konkatenera = (s,t) ->
-leta = (s,t) ->
-splittra = (s,avgr) -> 
-hopslagning = (a,avgr='') -> 
-dubbla = (s) ->
-			"""
+f = (n) -> 
+g = (a,b) ->
+h = (a,b,n) ->
+"""
 			a:"""
-a = "Coffee"
-b = "script"
-
-antal = (s) -> s.length
-tecken = (s,i) -> s[i]
-mitti = (s,i,j) -> s[i..j]
-konkatenera = (s,t) -> s + t
-leta = (s,t) -> s.indexOf t
-splittra = (s,avgr) -> s.split avgr
-hopslagning = (a,avgr='') -> a.join(avgr)
-dubbla = (s) -> slåihop (tecken + tecken for tecken in s)
+f = (n) -> range n
+g = (a,b) -> range a,b
+g = (a,b,n) -> range a,b,n
 			"""
 			c:
-				"antal a" : 6
-				"tecken a,1" : 'o'
-				"mitti a,1,3" : 'off'
-				"mitti a,3,5" : 'fee'
-				"konkatenera a,b" : 'Coffeescript' 
-				"leta a,'e'" : 4
-				"leta a,'x'" : -1
-				"splittra '2 3 +',' '" : ['2', '3', '+'] 
-				"hopslagning ['2', '3', '+'], '|'" : "2|3|+"
-				"dubbla b" : 'ssccrriipptt'
+				"f 5" : [0,1,2,3,4]
+				"f 6" : [0,1,2,3,4,5]
+				"g 1,5" : [1,2,3,4]
+				"g 2,4" : [2,3]
+				"g -2,0" : [-2,-1]
+				"h 0,10,1" : [0,1,2,3,4,5,6,7,8,9]
+				"h 0,10,2" : [0,2,4,6,8]
+				"h 0,-10,-1" : [0,-1,-2,-3,-4,-5,-6,-7,-8,-9]
 
-		Palindrom :
-			b : """
-			# LOC:5 for in + ''
-			# Se till att ha gjort ett antal for loopar i p5Dojo före denna uppgift.
+		"lerp":
+			b:"""
+# LOC:1 lerp
+# Försök lösa uppgiften både med och utan lerp
 
-			palindrom = (word) -> 
-			"""
-			a: """
-palindrom = (word) -> 
-	res = ''
-	for letter in word
-		res = letter + res
-	res == word
+f = (a,b,i) ->
 """
+			a:"""
+f = (a,b,i) -> lerp a,b,i
+			"""
 			c:
-				"palindrom 'badrum'" : false
-				"palindrom 'kök'" : true
-				"palindrom 'kajak'" : true
-				"palindrom 'kanot'" : false
+				"f 10,20,0" : 10
+				"f 10,20,1" : 20
+				"f 10,20,2" : 30
+				"f 10,20,0.5" : 15
+				"f 10,20,-1" : 0
 
-		Rövarspråk :
-			b: """
-			# LOC:5 for in if then else + ''
+		"for":
+			b:"""
+# LOC:1 for in range lerp
+# Försök lösa uppgiften både med och utan lerp
 
-			rs = (word,extra='o') -> 
-			"""
-			a: """
-rs = (word,extra='o') -> 
-	res = ''
-	for letter in word
-		res += if letter in 'aeiouy åäö' then letter else letter + extra + letter
-	res
+f = (a,b,n) -> i for i in range n
 """
-			c:	
-				"rs 'kalas fint'" : 'kokalolasos fofinontot'
-				"rs 'bokstav'" : 'bobokoksostotavov'
-				"rs 'kalas fint','i'" : 'kikalilasis fifinintit'
-				"rs 'bokstav','e'" : 'bebokeksestetavev'
-				"rs 'kalas fint','a'" : 'kakalalasas fafinantat'
-
+			a:"""
+f = (a,b,n) -> lerp a,b,i for i in range n
+			"""
+			c:
+				"f 0,0,5" : [0,0,0,0,0]
+				"f 1,2,5" : [1,2,3,4,5]
+				"f 5,4,5" : [5,4,3,2,1]
+				"f -1,-2,5" : [-1,-2,-3,-4,-5]
+				"f 5,25,10" : [5,25,45,65,85,105,125,145,165,185]
+				"f -0.1,0.0,3" : [-0.1,0.0,0.1]
 
 	"A3: [ ]" :
 
@@ -463,8 +435,95 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"antal boys" : 4
 				"avg ages girls" : 11
 				"avg ages boys" : 9.5
+	'A5: " "' :
 
-	"A5: Interpolation" : 
+		Introduktion:
+			b:"""
+# LOC:8 length [] .. + indexOf split join for in
+# LOC betyder Lines Of Code, dvs antal kodrader.
+# Åtta kodrader är lagom för detta problem.
+# Färre innebär sämre läsbarhet.
+# Har du fler bör du fundera på en kortare lösning.
+
+a = "Coffee"
+b = "script"
+
+antal = (s) ->
+tecken = (s,i) ->
+mitti = (s,i,j) ->
+konkatenera = (s,t) ->
+leta = (s,t) ->
+splittra = (s,avgr) -> 
+hopslagning = (a,avgr='') -> 
+dubbla = (s) ->
+			"""
+			a:"""
+a = "Coffee"
+b = "script"
+
+antal = (s) -> s.length
+tecken = (s,i) -> s[i]
+mitti = (s,i,j) -> s[i..j]
+konkatenera = (s,t) -> s + t
+leta = (s,t) -> s.indexOf t
+splittra = (s,avgr) -> s.split avgr
+hopslagning = (a,avgr='') -> a.join(avgr)
+dubbla = (s) -> slåihop (tecken + tecken for tecken in s)
+			"""
+			c:
+				"antal a" : 6
+				"tecken a,1" : 'o'
+				"mitti a,1,3" : 'off'
+				"mitti a,3,5" : 'fee'
+				"konkatenera a,b" : 'Coffeescript' 
+				"leta a,'e'" : 4
+				"leta a,'x'" : -1
+				"splittra '2 3 +',' '" : ['2', '3', '+'] 
+				"hopslagning ['2', '3', '+'], '|'" : "2|3|+"
+				"dubbla b" : 'ssccrriipptt'
+
+		Palindrom :
+			b : """
+			# LOC:5 for in + ''
+			# Se till att ha gjort ett antal for loopar i p5Dojo före denna uppgift.
+
+			palindrom = (word) -> 
+			"""
+			a: """
+palindrom = (word) -> 
+	res = ''
+	for letter in word
+		res = letter + res
+	res == word
+"""
+			c:
+				"palindrom 'badrum'" : false
+				"palindrom 'kök'" : true
+				"palindrom 'kajak'" : true
+				"palindrom 'kanot'" : false
+
+		Rövarspråk :
+			b: """
+			# LOC:5 for in if then else + ''
+
+			rs = (word,extra='o') -> 
+			"""
+			a: """
+rs = (word,extra='o') -> 
+	res = ''
+	for letter in word
+		res += if letter in 'aeiouy åäö' then letter else letter + extra + letter
+	res
+"""
+			c:	
+				"rs 'kalas fint'" : 'kokalolasos fofinontot'
+				"rs 'bokstav'" : 'bobokoksostotavov'
+				"rs 'kalas fint','i'" : 'kikalilasis fifinintit'
+				"rs 'bokstav','e'" : 'bebokeksestetavev'
+				"rs 'kalas fint','a'" : 'kakalalasas fafinantat'
+
+
+	"A6: Interpolation" : 
 
 		linearequation1: 
 			b: """
@@ -561,7 +620,7 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"h2r 11" : 4*Math.PI/6
 				"h2r 12" : 3*Math.PI/6
 
-	"A6: class" :
+	"A7: class" :
 
 		Kid :
 			b : """
@@ -902,7 +961,7 @@ class Polynom
 				"e.compose(d).lst" : [-4,-12,-4]
 				"e.compose(e).lst" : [-20,0,10,0,-1]
 
-	"A7: Advanced" :
+	"A8: Advanced" :
 
 		path: 
 			b: """
