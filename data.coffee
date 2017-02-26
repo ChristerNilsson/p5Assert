@@ -4,19 +4,19 @@
 
 data = 
 	
-	"A1: Heltal" : 
+	"A0: One Parameter" : 
 		Operator1 :  
 			b: """
-			# Försök att skapa den GULA funktionen f.
-
-			# Den GULA kolumnen innehåller INDATA.
-			# Den GRÖNA kolumnen innehåller förväntad UTDATA.
-			# Den RÖDA kolumnen innehåller UTDATA skapad av din kod.
+			# Försök att skapa funktionen f.
+			# f(2) ska bli 2. f(3) ska bli 3.
+			# Den första kolumnen (gul) innehåller INDATA.
+			# Den andra kolumnen (grön) innehåller UTDATA du ska återskapa.
+			# Den tredje kolumnen (röd eller grön) innehåller UTDATA skapad av din kod.
 			
-			# Se till att de RÖDA och GRÖNA kolumnerna blir lika! Gå till sista raden med PgDn.
+			# Se till att göra de RÖDA cellerna GRÖNA! Gå till sista raden med PgDn.
 			
-			# Ändra nollan till en tvåa. Nu blir den första RÖDA cellen GRÖN!
-			# Ändra tvåan till en trea.  Nu blir den andra RÖDA cellen GRÖN!
+			# Ändra nollan till en tvåa. Nu blir enbart den första RÖDA cellen GRÖN.
+			# Ändra tvåan till en trea.  Nu blir enbart den andra RÖDA cellen GRÖN.
 			# Ändra trean till ett x.    Nu blir båda de RÖDA cellerna GRÖNA!
 			
 			# Gå till nästa övning genom att klicka på Operator2.
@@ -30,8 +30,11 @@ data =
 
 		Operator2: 
 			b: """
-			# LOC:1 + - * / %
-			# Sju ska bli åtta och åtta ska bli nio. Vad ska x bli ?
+			# Välj en av dessa operatorer: + - * / %
+			# f(7) == 8
+			# f(8) == 9
+			# f(x) == ?
+			# Sju ska bli åtta och åtta ska bli nio. Vad ska f skicka ut?
 			
 			f = (x) ->
 			"""
@@ -42,7 +45,8 @@ data =
 
 		Operator3: 
 			b: """
-			# LOC:1 + - * / %
+			# + - * / %
+
 			f = (x) ->
 			"""
 			a: "f = (x) -> 2*x"
@@ -52,7 +56,8 @@ data =
 
 		Operator4: 
 			b: """
-			# LOC:1 + - * / %
+			# + - * / %
+
 			f = (x) ->
 			"""
 			a: "f = (x) -> x*x"
@@ -62,7 +67,8 @@ data =
 
 		Operator5: 
 			b: """
-			# LOC:1 + - * / %
+			# + - * / %
+
 			f = (x) ->
 			"""
 			a: "f = (x) -> -x"
@@ -72,7 +78,8 @@ data =
 
 		Operator6: 
 			b: """
-			# LOC:1 + - * / %
+			# + - * / %
+
 			f = (x) ->
 			"""
 			a: "f = (x) -> x-2"
@@ -82,7 +89,8 @@ data =
 
 		Operator7: 
 			b: """
-			# LOC:1 + - * / %
+			# + - * / %
+
 			f = (x) ->
 			"""
 			a: "f = (x) -> x/2"
@@ -92,7 +100,9 @@ data =
 
 		Operator8: 
 			b: """
-			# LOC:1 + - * / %
+			# + - * / %
+
+			f = (x) ->			
 			"""
 			a: "f = (x) -> x%2"
 			c: 
@@ -100,10 +110,65 @@ data =
 				"f 8" : 0
 				"f 10" : 0
 				"f 11" : 1
-	
+
 		Operator9: 
 			b: """
-			# LOC:1 + - * / %
+			# == < > !=
+
+			f = (x) ->			
+			"""
+			a: "f = (x) -> x == 2"
+			c:
+				"f 1" : false
+				"f 2" : true
+				"f 3" : false
+				"f 4" : false
+
+		Operator10: 
+			b: """
+			# == < > !=
+
+			f = (x) ->			
+			"""
+			a: "f = (x) -> x > 2"
+			c:
+				"f 1" : false
+				"f 2" : false
+				"f 3" : true
+				"f 4" : true
+
+		Operator11: 
+			b: """
+			# == < > !=
+
+			f = (x) ->			
+			"""
+			a: "f = (x) -> x > 2"
+			c:
+				"f 1" : false
+				"f 2" : false
+				"f 3" : true
+				"f 4" : true
+
+		Operator12: 
+			b: """
+			# == < > !=
+
+			f = (x) ->			
+			"""
+			a: "f = (x) -> x != 2"
+			c:
+				"f 1" : true
+				"f 2" : false
+				"f 3" : true
+				"f 4" : true
+
+	"A1: Two Parameters" : 
+	
+		Operator1: 
+			b: """
+			# + - * / %
+
 			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a*b"
@@ -111,36 +176,36 @@ data =
 				"g 3,4" : 12
 				"g 4,6" : 24
 
-		Operator10: 
+		Operator2: 
 			b: """
-			# LOC:1 + - * / %
+			# + - * / %
 			"""
 			a: "g = (a,b) -> a+b"
 			c: 
 				"g 3,4" : 7
 				"g 4,6" : 10
 
-		Operator11: 
+		Operator3: 
 			b: """
-			# LOC:1 + - * / %
+			# + - * / %
 			"""
 			a: "g = (a,b) -> b-a"
 			c: 
 				"g 3,4" : 1
 				"g 4,6" : 2
 
-		Operator12: 
+		Operator4: 
 			b: """
-			# LOC:1 + - * / %
+			# + - * / %
 			"""
 			a: "g = (a,b) -> a/b"
 			c: 
 				"g 8,4" : 2
 				"g 12,3" : 4
 
-		Operator13: 
+		Operator5: 
 			b: """
-			# LOC:1 + - * / %
+			# + - * / %
 			"""
 			a: "g = (a,b) -> a%b"
 			c:
@@ -149,9 +214,9 @@ data =
 				"g 10,4" : 2
 				"g 11,4" : 3
 	
-		Operator14: 
+		Operator6: 
 			b: """
-			# LOC:1 + - * / % ==
+			# + - * / % ==
 			"""
 			a: "g = (a,b) -> a == b"
 			c:
@@ -160,9 +225,9 @@ data =
 				"g 7,4" : false
 				"g 6,4" : false
 
-		Operator15: 
+		Operator7: 
 			b: """
-			# LOC:1 + - * / % ==
+			# + - * / % ==
 			"""
 			a: "g = (a,b) -> a - b == 1"
 			c:
@@ -171,9 +236,9 @@ data =
 				"g 7,4" : false
 				"g 6,4" : false
 
-		Operator16: 
+		Operator8: 
 			b: """
-			# LOC:1 + - * / % ==
+			# + - * / % ==
 			"""
 			a: "g = (a,b) -> a + b == 7"
 			c:
@@ -182,11 +247,16 @@ data =
 				"g 7,4" : false
 				"g 6,4" : false
 
-	'A2: ""' :
+	'A2: " "' :
 
 		Introduktion:
 			b:"""
 # LOC:8 length [] .. + indexOf split join for in
+# LOC betyder Lines Of Code, dvs antal kodrader.
+# Åtta kodrader är lagom för detta problem.
+# Färre innebär sämre läsbarhet.
+# Har du fler bör du fundera på en kortare lösning.
+
 a = "Coffee"
 b = "script"
 
@@ -227,6 +297,8 @@ dubbla = (s) -> slåihop (tecken + tecken for tecken in s)
 		Palindrom :
 			b : """
 			# LOC:5 for in + ''
+			# Se till att ha gjort ett antal for loopar i p5Dojo före denna uppgift.
+
 			palindrom = (word) -> 
 			"""
 			a: """
@@ -245,6 +317,7 @@ palindrom = (word) ->
 		Rövarspråk :
 			b: """
 			# LOC:5 for in if then else + ''
+
 			rs = (word,extra='o') -> 
 			"""
 			a: """
@@ -267,12 +340,11 @@ rs = (word,extra='o') ->
 		Introduktion :
 			b:"""
 # LOC:11 length push concat pop sort .. []
-a = [4,5,6]
-b = [1,2,3]
-d = [4,5,6]
-e = [5,4,1,2,9,3,7]
-f = [5,4,1,2,9,3,7]
-g = [11,12,13,14,15]
+
+a = [1,2,3]
+b = [4,5,6]
+c = [5,4,1,2,9,3,7]
+d = [11,12,13,14,15]
 
 antal = (a) -> 
 fetch = (a,i) -> 
@@ -281,15 +353,12 @@ sortera = (a) ->
 första = (a,n) -> 
 mitti = (a,i,j) -> 
 sista = (a,n) -> 
-
-			"""
+"""
 			a:"""
-a = [4,5,6]
-b = [1,2,3]
-d = [4,5,6]
-e = [5,4,1,2,9,3,7]
-f = [5,4,1,2,9,3,7]
-g = [11,12,13,14,15]
+a = [1,2,3]
+b = [4,5,6]
+c = [5,4,1,2,9,3,7]
+d = [11,12,13,14,15]
 
 antal = (a) -> a.length
 fetch = (a,i) -> a[i]
@@ -298,21 +367,27 @@ sortera = (a) -> a.sort()
 första = (a,n) -> a[..n-1]
 mitti = (a,i,j) -> a[i..j]
 sista = (a,n) -> a[-n..]
-
 """
 			c:
+				"a" : [1,2,3]
+				"b" : [4,5,6]
+				"c" : [5,4,1,2,9,3,7]
+				"d" : [11,12,13,14,15]
 				"antal a" : 3
-				"fetch a,0" : 4
-				"fetch a,2" : 6
-				"konkatenera a,a" : [4,5,6,4,5,6]
-				"sortera f" : [1,2,3,4,5,7,9]
-				"första g,3" : [11,12,13]
-				"mitti g,1,2" : [12,13]
-				"sista g,4" : [12,13,14,15]
+				"antal c" : 7
+				"fetch b,0" : 4
+				"fetch b,2" : 6
+				"konkatenera a,b" : [1,2,3,4,5,6]
+				"sortera c" : [1,2,3,4,5,7,9]
+				"första d,3" : [11,12,13]
+				"mitti d,1,2" : [12,13]
+				"sista d,4" : [12,13,14,15]
 
 		Växelcykel :
 			b: """
 # LOC:4 [] for in push sort - /
+# Din växelcykel har stora och små kugghjul. I vilken i ordning ligger växlarna? 
+
 gear = (big, small) ->
 """
 			a: """
@@ -328,6 +403,8 @@ gear = (big, small) ->
 		Kalkylator :
 			b: """
 # LOC:10 [] for in split == push pop if else parseInt
+
+calc = (command) ->
 """
 			a: """
 calc = (command) ->
@@ -351,7 +428,8 @@ calc = (command) ->
 	"A4: { }" :
 		"Boys and Girls" :
 			b : """
-#LOC:7 {} [] for in length + /
+# LOC:7 {} [] for in length + /
+
 girls = [{name: 'Sabrina', age: 12}, {name: 'Helene', age: 10}, {name: 'Anna', age: 11}]
 boys = [{name: 'David', age: 10}, {name: 'Henry', age: 11}, {name: 'Noel', age: 14}, {name: 'Numa', age: 3}]
 
@@ -389,22 +467,34 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 	"A5: Interpolation" : 
 
 		linearequation1: 
+			b: """
+			# LOC:1 *
+
+			f = (x) -> 0
+			"""
 			a: "f = (x) -> 2 * x"
-			b: "# LOC:1 *\nf = (x) -> 0"
 			c:  
 				"f 2" : 4
 				"f 3" : 6
 
 		linearequation2: 
+			b: """
+			# LOC:1 * +
+
+			f = (x) -> 0
+			"""
 			a: "f = (x) -> 3 + 2 * x"
-			b: "# LOC:1 * +\nf = (x) -> 0"
 			c: 
 				"f 2" : 7
 				"f 3" : 9
 
 		lerp: 
+			b: """
+			# LOC:1 * + -
+
+			lerp = (y1,y2,x) -> 0
+			"""
 			a: "lerp = (y1,y2,x) -> y1 + (y2-y1) * x"
-			b: "# LOC:1 * + -\nlerp = (y1,y2,x) -> 0"
 			c:  
 				"lerp 10,16,-1" : 4
 				"lerp 10,16,0" : 10
@@ -413,8 +503,12 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"lerp 10,16,2" : 22
 		
 		map:  
+			b: """
+			# LOC:1 * + - /
+
+			map = (x,x1,x2,y1,y2) -> 0
+			"""
 			a: "map = (x,x1,x2,y1,y2) -> y1 + (y2-y1) * (x-x1)/(x2-x1)"
-			b: "# LOC:1 * + - /\nmap = (x,x1,x2,y1,y2) -> 0"
 			c:  
 				"map 0,1,3,20,40" : 10
 				"map 1,1,3,20,40" : 20
@@ -424,8 +518,12 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"map 16,0,40,0,200" : 80
 
 		Hour2Degree:  
+			b: """
+			# LOC:1 map
+
+			h2d = (x) -> 0
+			"""
 			a: "h2d = (x) -> map(15-x,0,12,0,360) % 360"
-			b: "# LOC:1 map\nh2d = (x) -> 0"
 			c:  
 				"h2d 0" : 90
 				"h2d 1" : 60
@@ -442,8 +540,12 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"h2d 12" : 90
 
 		Hour2Radian:  
+			b: """
+			# LOC:1 map
+
+			h2r = (x) -> 0
+			"""
 			a: "h2r = (x) -> (map 15-x,0,12,0,2*Math.PI) % (2*Math.PI)"
-			b: "# LOC:1 map\nh2r = (x) -> 0"
 			c:  
 				"h2r 0" : 3*Math.PI/6
 				#"h2r 1" : 2*Math.PI/6  decimal problem
@@ -463,7 +565,9 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 
 		Kid :
 			b : """
-#LOC:8 class constructor new @ [] for in length + /
+# LOC:8 class constructor new @ [] for in length + /
+# Innan du löser denna uppgift: Be att få se Bouncing Balls!
+
 class Kid
 	constructor : (name,age) ->
 
@@ -489,7 +593,7 @@ sum = (numbers) ->
 
 antal = (numbers) -> numbers.length 
 	
-avg = (numbers) -> sum(numbers) / antal(numbers)
+average = (numbers) -> sum(numbers) / antal(numbers)
 """
 
 			c:
@@ -501,16 +605,17 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"sum ages boys" : 38
 				"antal girls" : 3
 				"antal boys" : 4
-				"avg ages girls" : 11
-				"avg ages boys" : 9.5
+				"average ages girls" : 11
+				"average ages boys" : 9.5
 
 		Simplex :
 			b:"""
-#LOC:14 class constructor new [] @		
+# LOC:14 class constructor new [] @	+ - *
+# Tips: Spela p5Complex innan du påbörjar denna övning.	
+
 class Simplex
 	constructor : (x,y) ->
-	translate : -> 
-		@
+	translate : -> @
 	scale : -> 
 	rotate : -> 
 	mirror : -> 
@@ -536,25 +641,30 @@ class Simplex
 """
 			c:
 				"pp a" : "{x:1,y:3}"
-				"pp b" : "{x:-2,y:4}"
 				"pp a.translate()" : "{x:2,y:3}"
-				"pp b.translate()" : "{x:-1,y:4}"
 				"pp a.scale()" : "{x:2,y:6}"
-				"pp b.scale()" : "{x:-4,y:8}"
 				"pp a.rotate()" : "{x:-3,y:1}"
-				"pp b.rotate()" : "{x:-4,y:-2}"
 				"pp a.mirror()" : "{x:3,y:1}"
-				"pp b.mirror()" : "{x:4,y:-2}"
 				"pp a.translate().scale()" : "{x:4,y:6}"
 				"pp a.scale().translate()" : "{x:3,y:6}"
+				"pp b" : "{x:-2,y:4}"
+				"pp b.translate()" : "{x:-1,y:4}"
+				"pp b.scale()" : "{x:-4,y:8}"
+				"pp b.rotate()" : "{x:-4,y:-2}"
+				"pp b.mirror()" : "{x:4,y:-2}"
+				"pp b.translate().scale()" : "{x:-2,y:8}"
+				"pp b.scale().translate()" : "{x:-3,y:8}"
+				"pp b.mirror().mirror()" : "{x:-2,y:4}"
+				"pp b.rotate().rotate().rotate().rotate()" : "{x:-2,y:4}"
 
 		Bignum :
 			b:"""
 # LOC:22 class constructor new @ parseInt reverse length push floor slice unshift join for if
+
 class Bignum
 	constructor : (s) ->
-	add : (other) ->
-	mul : (other) ->
+	add : (other) -> @
+	mul : (other) -> @
 	to_s : () -> 
 
 a = new Bignum "123"
@@ -616,6 +726,7 @@ h = h.mul h for i in range 7
 """
 			c:
 				"12345678901234567890 + 1" : 12345678901234567000
+				"a.list" : [3,2,1]
 				"a.to_s()" : "123"
 				"a.add(b).to_s()" : "131"
 				"b.add(a).to_s()" : "131"
@@ -630,12 +741,14 @@ h = h.mul h for i in range 7
 
 		Complex: 
 			b: """
-# LOC:31 class constructor new @ -> if + * == > <
+# LOC:31 class constructor new @ -> if + * == > < 
+# Börja med att få bort onödiga nollor och ettor i to_s!
+
 class Complex
-	constructor : (x,y) ->
+	constructor : (@x,@y) ->
+	to_s : -> @x + " " + @y + "i"
 	add : (other) ->
 	mul : (other) ->
-	to_s : ->
 """
 			a: """
 class Complex
@@ -689,16 +802,18 @@ class Complex
 		Polynom :
 			b: """
 # LOC:52 class constructor new [] @ or for in range length ** push reverse join #{}
+# Uppgiften innehåller matematik på gymnasienivå.
+
 class Polynom
 	constructor : (lst) ->
+	to_s : ->
 	add : (other) ->
 	mul : (other) ->
 	power : (n) ->
-	compose : (other)	->
 	value : (x) ->
 	diff : ->
 	integ : ->
-	to_s : ->
+	compose : (other)	->
 
 a = new Polynom [5,4,3]
 b = new Polynom [4,3]
@@ -776,12 +891,12 @@ class Polynom
 				"a.add(b).to_s()" : "3*x^2+7*x+9"
 				"a.mul(b).to_s()" : "9*x^3+24*x^2+31*x+20"
 				"a.value(2)" : 25
+				"a.power(2).lst" : [25,40,46,24,9]
+				"b.power(3).lst" : [64,144,108,27] 
 				"a.diff().lst" : [4,6]
 				"a.integ().lst" : [0,5,2,1]
 				"c.integ().to_s()" : "0.3333333333333333*x^3"
 				"c.integ().value(3)" : 9
-				"a.power(2).lst" : [25,40,46,24,9]
-				"b.power(3).lst" : [64,144,108,27] 
 				"d.compose(d).lst" : [9,4] 
 				"d.compose(e).lst" : [13,0,-2] 
 				"e.compose(d).lst" : [-4,-12,-4]
@@ -790,7 +905,11 @@ class Polynom
 	"A7: Advanced" :
 
 		path: 
-			b: "# concat\ntree = {3:0, 4:8, 5:3, 6:3, 10:5, 7:5, 12:6, 8:6, 20:10, 9:7, 24:12, 14:12}\n"
+			b: """
+			# concat
+
+			tree = {3:0, 4:8, 5:3, 6:3, 10:5, 7:5, 12:6, 8:6, 20:10, 9:7, 24:12, 14:12}
+			"""
 			a: "path = (tree,x) -> if x==0 then return [] else path(tree,tree[x]).concat([x])"
 			c:  
 				"path tree, 4" : [3,6,8,4]
@@ -800,8 +919,8 @@ class Polynom
 		summa: 
 			b: """
 # Använd några av .reduce .isEqual .isNumber .head eller .tail 
-tree = [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]
 
+tree = [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]
 """
 			a: """
 summa = (tree) -> 
@@ -812,10 +931,10 @@ summa = (tree) ->
 """
 			c: "summa tree" : 161
 
-	# "A5: filter map reduce" : 
 		filter: 
 			b: """
 # Använd for loop eller filter
+
 djur = [
 	{namn:'Fluffy',art:'kanin'}
 	{namn:'Karo',art:'hund'}
@@ -824,12 +943,12 @@ djur = [
 	{namn:'Trixie',art:'katt'}
 	{namn:'Herbert',art:'fisk'}
 ]
-			"""
+"""
 			a: """
 arHund = (d) -> d.art == 'hund'
 arFisk = (d) -> d.art == 'fisk'
 g = (djur,f) -> djur.filter f
-			"""
+"""
 			c:  
 				"g djur,arHund" : [{namn:'Karo',art:'hund'},{namn:'Rocky',art:'hund'}]
 				"g djur,arFisk" : [{namn:'Albert',art:'fisk'},{namn:'Herbert',art:'fisk'}]
@@ -837,6 +956,7 @@ g = (djur,f) -> djur.filter f
 		map: 
 			b: """
 # Använd for loop eller map eller Coffescript comprehension
+
 djur = [
 	{namn:'Fluffy',art:'kanin'}
 	{namn:'Karo',art:'hund'}
@@ -845,17 +965,18 @@ djur = [
 	{namn:'Trixie',art:'katt'}
 	{namn:'Herbert',art:'fisk'}
 ]
-			"""
+"""
 			a: """
 namn = (djur) -> djur.map (d) -> d.namn
 namn = (djur) -> (d.namn for d in djur)
-			"""
+"""
 			c:  
 				"namn djur" : ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
 
 		reduce: 
 			b: """
 # Använd for loop eller reduce
+
 ica = [
 	{pris: 123, antal:1}
 	{pris: 34, antal:2}
@@ -868,18 +989,18 @@ konsum = [
 	{pris: 70, antal:1}
 	{pris: 90, antal:1}
 ]
-			"""
+"""
 			a: """
 summa = (varor) -> varor.reduce ((sum, vara) -> sum + vara.pris * vara.antal), 0
-			"""
+"""
 			c:  
 				"summa ica" : 983
 				"summa konsum" : 290
 
-	#Underscore: 
 		sortBy: 
 			b: """
 # sortBy
+
 djur = ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
 """
 			a: """
@@ -892,18 +1013,23 @@ g = (djur,f) -> _.sortBy djur, f
 		groupBy: 
 			b: """
 # groupBy
+
 djur = ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
 """
 			a: """
 g = (djur,f) -> _.groupBy djur, f
-			"""
+"""
 			c:  
 				"g(djur,(d) -> d.length)" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
 				"g(djur,(d) -> _.last(d))" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
 
 		split: 
+			b: """
+			# LOC:1 split for in _.object
+
+			g = (h) ->
+			"""
 			a: "g = (h) -> _.object(f.split '=' for f in h.split('?')[1].split('&'))"
-			b: "# LOC:1 split for in _.object"
 			c:  
 				"g 'dn.se?x=0&y=1'" : {x:'0', y:'1'}
 				"g 'svd.se?page=7'" : {page : '7'}
