@@ -325,57 +325,80 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 
 		Introduktion:
 			b:"""
-# LOC:19 if > then else 
+# LOC:16 if < then else
 # Sortera UTAN att använda listor
 # Du får inte heller använda någon punkt
 
 sort2 = (a,b) -> if a < b then [b,a] else [a,b]
 sort3 = (a,b,c) -> [a,b,c]
+sort4 = (a,b,c,d) -> [a,b,c,d]
 sort5 = (a,b,c,d,e) -> [a,b,c,d,e]
 
 """
 			a:"""
+sort2 = (a,b) -> if a>b then [b,a] else [a,b]
 
-swap = (a,b) -> if a>b then [b,a] else [a,b]
-	
-sort2 = (a,b) -> 
-	[a,b] = swap a,b
-	
 sort3 = (a,b,c) ->
-	[a,b] = swap a,b
-	[b,c] = swap b,c
-	[a,b] = swap a,b
+	[a,b] = sort2 a,b
+	[b,c] = sort2 b,c
+	[a,b] = sort2 a,b
 	[a,b,c]
-	
+
+sort4 = (a,b,c,d) ->
+	[a,b,c] = sort3 a,b,c
+	[b,c,d] = sort3 b,c,d
+	[a,b] = sort2 a,b
+	[a,b,c,d]
+
 sort5 = (a,b,c,d,e) ->
-	[a,b] = swap a,b
-	[b,c] = swap b,c
-	[c,d] = swap c,d
-	[d,e] = swap d,e
-	[a,b] = swap a,b
-	[b,c] = swap b,c
-	[c,d] = swap c,d
-	[a,b] = swap a,b
-	[b,c] = swap b,c
-	[a,b] = swap a,b
+	[a,b,c,d] = sort4 a,b,c,d
+	[b,c,d,e] = sort4 b,c,d,e
+	[a,b] = sort2 a,b
 	[a,b,c,d,e]
 """
 			c:
 
 				"sort2 3,4" : [3,4]
 				"sort2 4,3" : [3,4]
-				"sort2 8,4" : [4,8]
 
 				"sort3 3,4,5" : [3,4,5]
 				"sort3 3,5,4" : [3,4,5]
 				"sort3 4,3,5" : [3,4,5]
 				"sort3 4,5,3" : [3,4,5]
 				"sort3 5,3,4" : [3,4,5]
-				"sort3 5,4,8" : [4,5,8]
+				"sort3 5,4,3" : [3,4,5]
 
-				"sort5 5,4,1,2,9" : [1,2,4,5,9]
-				"sort5 9,5,4,1,2" : [1,2,4,5,9]
-				"sort5 3,5,4,1,2" : [1,2,3,4,5]
+				"sort4 3,4,5,6" : [3,4,5,6]
+				"sort4 3,4,6,5" : [3,4,5,6]
+				"sort4 3,5,4,6" : [3,4,5,6]
+				"sort4 3,5,6,4" : [3,4,5,6]
+				"sort4 3,6,4,5" : [3,4,5,6]
+				"sort4 3,6,5,4" : [3,4,5,6]
+
+				"sort4 4,3,5,6" : [3,4,5,6]
+				"sort4 4,3,6,5" : [3,4,5,6]
+				"sort4 4,5,3,6" : [3,4,5,6]
+				"sort4 4,5,6,3" : [3,4,5,6]
+				"sort4 4,6,3,5" : [3,4,5,6]
+				"sort4 4,6,5,3" : [3,4,5,6]
+
+				"sort4 5,3,4,6" : [3,4,5,6]
+				"sort4 5,3,6,4" : [3,4,5,6]
+				"sort4 5,4,3,6" : [3,4,5,6]
+				"sort4 5,4,6,3" : [3,4,5,6]
+				"sort4 5,6,3,4" : [3,4,5,6]
+				"sort4 5,6,4,3" : [3,4,5,6]
+
+				"sort4 6,3,4,5" : [3,4,5,6]
+				"sort4 6,3,5,4" : [3,4,5,6]
+				"sort4 6,4,3,5" : [3,4,5,6]
+				"sort4 6,4,5,3" : [3,4,5,6]
+				"sort4 6,5,3,4" : [3,4,5,6]
+				"sort4 6,5,4,3" : [3,4,5,6]
+
+				"sort5 5,4,3,2,1" : [1,2,3,4,5]
+				"sort5 3,5,2,4,1" : [1,2,3,4,5]
+				"sort5 5,2,3,4,1" : [1,2,3,4,5]
 
 		Listor :
 			b:"""
@@ -942,20 +965,20 @@ class Complex
 
 		PokerHand :
 			b: """
-# LOC:49 class constructor new split for in indexOf push typeof and reverse if then
+# LOC:46 class constructor new split for in indexOf push and not reverse if then
 #	       _.sortBy _.flatten _.isEqual _.without  
 
 # https://sv.wikipedia.org/wiki/Pokerhand
 
-# 1	Färgstege (straight flush)
-# 2	Fyrtal (four of a kind)
-# 3	Kåk (full house)
-# 4	Färg (flush)
+# 9	Färgstege (straight flush)
+# 8	Fyrtal (four of a kind)
+# 7	Kåk (full house)
+# 6	Färg (flush)
 # 5	Stege (straight)
-# 6	Triss (three of a kind)
-# 7	Två par (two pairs)
-# 8	Par (pair)
-# 9	Högt kort (high card)
+# 4	Triss (three of a kind)
+# 3	Två par (two pairs)
+# 2	Par (pair)
+# 1	Högt kort (high card)
 
 # Ingen färg är bättre än någon annan färg. Vissa händer är värda lika mycket.
 
@@ -967,72 +990,67 @@ class Hand
 			a: """
 class Hand
 	constructor : (s) ->
-		arr = s.split " "
-		@färg = [0,0,0,0]
-		@valör = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		@colorcount = [0,0,0,0]
+		@valuecount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 		@value = []
 		@separator = []
-		for card in arr
-			findex = "sphjrukl".indexOf(card[0..1])/2
-			@färg[findex] += 1
-			vindex = "  23456789TJQKA".indexOf card[2]
-			@valör[vindex] += 1	
-			@value.push vindex	
-		for v,i in @valör 
+		for card in s.split " "
+			iColor = "sphjrukl".indexOf(card[0..1])/2
+			@colorcount[iColor] += 1
+			iValue = "  23456789TJQKA".indexOf card[2]
+			@valuecount[iValue] += 1	
+			@value.push iValue	
+		for v,i in @valuecount 
 			if v > 0 then @separator.push [v,i]
-		@färg = _.without @färg, 0 
-		@valör = _.without @valör, 0 
-		@färg = @sortera @färg
-		@valör = @sortera @valör
+		@colorcount = @sortera _.without @colorcount, 0
+		@valuecount = @sortera _.without @valuecount, 0 
 		@value = @sortera @value
-		@separator = _.sortBy @separator, (list) -> 1000*list[0]+list[1] # pga js sortera listor alfabetiskt
+		@separator = _.sortBy @separator, (list) -> 1000*list[0]+list[1] # pga att js sorterar listor alfabetiskt. t ex [11] < [2].
 		@separator.reverse()
 		@separator = _.flatten @separator
 
-		# Specialbehandling av A2345 eftersom esset räknas som 14.
-		if _.isEqual(@separator,[1, 14, 1, 5, 1, 4, 1, 3, 1,  2])
+		# Specialbehandling av A5432 eftersom esset räknas som 14.
+		if _.isEqual @separator,[1, 14, 1, 5, 1, 4, 1, 3, 1,  2]
 			@separator =          [1,  5, 1, 4, 1, 3, 1, 2, 1, 14]
 		@score = @calc()
 
 	compare : (other) -> 
-		if @score < other.score then return -1
-		if @score > other.score then return 1
+		if @score > other.score then return -1
+		if @score < other.score then return 1
 		for i in range @separator.length
 			if @separator[i] > other.separator[i] then return -1
 			if @separator[i] < other.separator[i] then return 1
 		0	
 
-	sortera : (arr) -> _.sortBy arr 
-
 	calc : ->
-		if @stege() and @isFärg() then return 1
-		if _.isEqual(@valör,[1,4]) then return 2
-		if _.isEqual(@valör,[2,3]) then return 3
-		if @isFärg() then return 4
+		if @stege() and @flush() then return 9
+		if _.isEqual(@valuecount,[1,4]) then return 8
+		if _.isEqual(@valuecount,[2,3]) then return 7
+		if @flush() then return 6
 		if @stege() then return 5
-		if _.isEqual(@valör,[1,1,3]) then return 6
-		if _.isEqual(@valör,[1,2,2]) then return 7
-		if _.isEqual(@valör,[1,1,1,2]) then return 8
-		9
+		if _.isEqual(@valuecount,[1,1,3]) then return 4
+		if _.isEqual(@valuecount,[1,2,2]) then return 3
+		if _.isEqual(@valuecount,[1,1,1,2]) then return 2
+		1
 
-	stege : () ->
-		if not _.isEqual(@valör, [1,1,1,1,1]) then return false
+	sortera : (arr) -> _.sortBy arr 
+	flush : -> _.isEqual @colorcount, [5]
+	stege : ->
+		if not _.isEqual(@valuecount, [1,1,1,1,1]) then return false
 		if @value[0] + 4 == @value[4] then return true
-		_.isEqual(@value, [2,3,4,5,14])
-
-	isFärg : () -> _.isEqual(@färg, [5])
+		_.isEqual @value, [2,3,4,5,14]
 
 """
 			c:
-				'(new Hand "spA sp2 sp3 sp4 sp5").score': 1
-				'(new Hand "ru7 sp7 hj7 kl7 spJ").score': 2
-				'(new Hand "ru8 sp8 hj8 kl9 sp9").score': 3
-				'(new Hand "ru7 ru3 ru5 ru9 ruK").score': 4
+				'(new Hand "spA sp2 sp3 sp4 sp5").score': 9
+				'(new Hand "ru7 sp7 hj7 kl7 spJ").score': 8
+				'(new Hand "ru8 sp8 hj8 kl9 sp9").score': 7
+				'(new Hand "ru7 ru3 ru5 ru9 ruK").score': 6
 				'(new Hand "ru7 hj8 ru9 hj5 ru6").score': 5
-				'(new Hand "ru7 hj8 ru8 kl8 ruJ").score': 6
-				'(new Hand "ru7 hj7 ru8 kl8 ruJ").score': 7
-				'(new Hand "sp7 hj3 ru3 kl4 spA").score': 8
-				'(new Hand "sp7 hj3 ru2 kl4 spA").score': 9
+				'(new Hand "ru7 hj8 ru8 kl8 ruJ").score': 4
+				'(new Hand "ru7 hj7 ru8 kl8 ruJ").score': 3
+				'(new Hand "sp7 hj3 ru3 kl4 spA").score': 2
+				'(new Hand "sp7 hj3 ru2 kl4 spA").score': 1
 
 				'(new Hand "spA sp2 sp3 sp4 sp5").compare new Hand "ruA ru2 ru3 ru4 ru5"': 0
 				'(new Hand "ru7 sp7 hj7 kl7 spJ").compare new Hand "ru6 sp5 hj6 kl6 spQ"': -1
