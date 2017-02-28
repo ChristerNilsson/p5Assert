@@ -179,6 +179,8 @@ data =
 		Operator2: 
 			b: """
 			# + - * / %
+
+			g = (a,b) -> 0
 			"""
 			a: "g = (a,b) -> a+b"
 			c: 
@@ -188,6 +190,8 @@ data =
 		Operator3: 
 			b: """
 			# + - * / %
+
+			g = (a,b) -> 0
 			"""
 			a: "g = (a,b) -> b-a"
 			c: 
@@ -197,6 +201,8 @@ data =
 		Operator4: 
 			b: """
 			# + - * / %
+
+			g = (a,b) -> 0
 			"""
 			a: "g = (a,b) -> a/b"
 			c: 
@@ -206,6 +212,8 @@ data =
 		Operator5: 
 			b: """
 			# + - * / %
+
+			g = (a,b) -> 0
 			"""
 			a: "g = (a,b) -> a%b"
 			c:
@@ -217,6 +225,8 @@ data =
 		Operator6: 
 			b: """
 			# + - * / % ==
+
+			g = (a,b) -> null
 			"""
 			a: "g = (a,b) -> a == b"
 			c:
@@ -228,6 +238,8 @@ data =
 		Operator7: 
 			b: """
 			# + - * / % ==
+
+			g = (a,b) -> null
 			"""
 			a: "g = (a,b) -> a - b == 1"
 			c:
@@ -239,6 +251,8 @@ data =
 		Operator8: 
 			b: """
 			# + - * / % ==
+
+			g = (a,b) -> null
 			"""
 			a: "g = (a,b) -> a + b == 7"
 			c:
@@ -460,6 +474,10 @@ girls = [{name: 'Sabrina', age: 12}, {name: 'Helene', age: 10}, {name: 'Anna', a
 boys = [{name: 'David', age: 10}, {name: 'Henry', age: 11}, {name: 'Noel', age: 14}, {name: 'Numa', age: 3}]
 
 names = (kids) -> kid.name for kid in kids
+ages = (kids) -> []
+sum = (numbers) -> 0
+antal = (numbers) -> 0
+avg = (numbers) -> 0
 """
 			a:"""
 girls = [{name: 'Sabrina', age: 12}, {name: 'Helene', age: 10}, {name: 'Anna', age: 11}]
@@ -687,6 +705,12 @@ class Kid
 
 girls = [new Kid('Sabrina',12), new Kid('Helene',10), new Kid('Anna',11)]
 boys = [new Kid('David',10), new Kid('Henry',11), new Kid('Noel',14), new Kid('Numa',3)]
+names = (kids) -> []
+ages = (kids) -> []
+sum = (numbers) -> 0
+antal = (numbers) -> 0
+average = (numbers) -> 0
+
 """
 			a: """
 
@@ -730,9 +754,9 @@ average = (numbers) -> sum(numbers) / antal(numbers)
 class Simplex
 	constructor : (x,y) ->
 	translate : -> @
-	scale : -> 
-	rotate : -> 
-	mirror : -> 
+	scale : -> @
+	rotate : -> @
+	mirror : -> @
 
 a = new Simplex 1,3
 b = new Simplex -2,4
@@ -779,8 +803,8 @@ class Simplex
 # Multiplikationen använder sig av additionen samt inskiftande av noll för varje siffra.
 
 class Bignum
-	constructor : (s) ->
-	to_s : () -> 
+	constructor : (s) -> @list=[]
+	to_s : () -> ""
 	add : (other) -> @
 	mul : (other) -> @
 
@@ -864,8 +888,8 @@ h = h.mul h for i in range 7
 class Complex
 	constructor : (@x,@y) ->
 	to_s : -> @x + " " + @y + "i"
-	add : (other) ->
-	mul : (other) ->
+	add : (other) -> @
+	mul : (other) -> @
 """
 			a: """
 class Complex
@@ -1026,15 +1050,15 @@ class Hand
 # Uppgiften innehåller matematik på gymnasienivå.
 
 class Polynom
-	constructor : (lst) ->
-	to_s : ->
-	add : (other) ->
-	mul : (other) ->
-	power : (n) ->
-	value : (x) ->
-	diff : ->
-	integ : ->
-	compose : (other)	->
+	constructor : (lst) -> @lst=[]
+	to_s : -> ""
+	add : (other) -> @
+	mul : (other) -> @
+	power : (n) -> @
+	value : (x) -> 0
+	diff : -> @
+	integ : -> @
+	compose : (other)	-> @
 
 a = new Polynom [5,4,3]
 b = new Polynom [4,3]
