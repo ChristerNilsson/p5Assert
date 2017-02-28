@@ -309,7 +309,61 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 
 	"A3: [ ]" :
 
-		Introduktion :
+		Introduktion:
+			b:"""
+# LOC:19 if > then else 
+# Sortera UTAN att använda listor
+# Du får inte heller använda någon punkt
+
+sort2 = (a,b) -> if a < b then [b,a] else [a,b]
+sort3 = (a,b,c) -> [a,b,c]
+sort5 = (a,b,c,d,e) -> [a,b,c,d,e]
+
+"""
+			a:"""
+
+swap = (a,b) -> if a>b then [b,a] else [a,b]
+	
+sort2 = (a,b) -> 
+	[a,b] = swap a,b
+	
+sort3 = (a,b,c) ->
+	[a,b] = swap a,b
+	[b,c] = swap b,c
+	[a,b] = swap a,b
+	[a,b,c]
+	
+sort5 = (a,b,c,d,e) ->
+	[a,b] = swap a,b
+	[b,c] = swap b,c
+	[c,d] = swap c,d
+	[d,e] = swap d,e
+	[a,b] = swap a,b
+	[b,c] = swap b,c
+	[c,d] = swap c,d
+	[a,b] = swap a,b
+	[b,c] = swap b,c
+	[a,b] = swap a,b
+	[a,b,c,d,e]
+"""
+			c:
+
+				"sort2 3,4" : [3,4]
+				"sort2 4,3" : [3,4]
+				"sort2 8,4" : [4,8]
+
+				"sort3 3,4,5" : [3,4,5]
+				"sort3 3,5,4" : [3,4,5]
+				"sort3 4,3,5" : [3,4,5]
+				"sort3 4,5,3" : [3,4,5]
+				"sort3 5,3,4" : [3,4,5]
+				"sort3 5,4,8" : [4,5,8]
+
+				"sort5 5,4,1,2,9" : [1,2,4,5,9]
+				"sort5 9,5,4,1,2" : [1,2,4,5,9]
+				"sort5 3,5,4,1,2" : [1,2,3,4,5]
+
+		Listor :
 			b:"""
 # LOC:11 length push concat pop sort .. []
 
