@@ -878,21 +878,11 @@ class Complex
 # 8	Par (pair)
 # 9	Högt kort (high card)
 
-# Färger har ingen betydelse. Det innebär att det kan bli oavgjort i vissa lägen.
+# Ingen färg är bättre än någon annan färg. Vissa händer är värda lika mycket.
 
 class Hand
-	constructor : (s) ->
-		@score = 0
-
-h1 = new Hand "spA sp2 sp3 sp4 sp5" # Strongest hand
-i1 = new Hand "ru7 sp7 hj7 kl7 spJ"
-j1 = new Hand "ru8 sp8 hj8 kl9 sp9"
-k1 = new Hand "ru7 ru3 ru5 ru9 ruK"
-l1 = new Hand "ru7 hj8 ru9 hj5 ru6"
-m1 = new Hand "ru7 hj8 ru8 kl8 ruJ"
-n1 = new Hand "ru7 hj7 ru8 kl8 ruJ"
-o1 = new Hand "sp7 hj3 ru3 kl4 spA"
-p1 = new Hand "sp7 hj3 ru2 kl4 spA" # Weakest hand
+	constructor : (s) -> @score = 0
+	compare : (other) -> -2
 
 """
 			a: """
@@ -953,27 +943,27 @@ class Hand
 
 	isFärg : () -> _.isEqual(@färg, [5])
 
-h1 = new Hand "spA sp2 sp3 sp4 sp5" # Strongest hand
-i1 = new Hand "ru7 sp7 hj7 kl7 spJ"
-j1 = new Hand "ru8 sp8 hj8 kl9 sp9"
-k1 = new Hand "ru7 ru3 ru5 ru9 ruK"
-l1 = new Hand "ru7 hj8 ru9 hj5 ru6"
-m1 = new Hand "ru7 hj8 ru8 kl8 ruJ"
-n1 = new Hand "ru7 hj7 ru8 kl8 ruJ"
-o1 = new Hand "sp7 hj3 ru3 kl4 spA"
-p1 = new Hand "sp7 hj3 ru2 kl4 spA" # Weakest hand
-
 """
 			c:
-				"h1.score": 1
-				"i1.score": 2
-				"j1.score": 3
-				"k1.score": 4
-				"l1.score": 5
-				"m1.score": 6
-				"n1.score": 7
-				"o1.score": 8
-				"p1.score": 9
+				'(new Hand "spA sp2 sp3 sp4 sp5").score': 1
+				'(new Hand "ru7 sp7 hj7 kl7 spJ").score': 2
+				'(new Hand "ru8 sp8 hj8 kl9 sp9").score': 3
+				'(new Hand "ru7 ru3 ru5 ru9 ruK").score': 4
+				'(new Hand "ru7 hj8 ru9 hj5 ru6").score': 5
+				'(new Hand "ru7 hj8 ru8 kl8 ruJ").score': 6
+				'(new Hand "ru7 hj7 ru8 kl8 ruJ").score': 7
+				'(new Hand "sp7 hj3 ru3 kl4 spA").score': 8
+				'(new Hand "sp7 hj3 ru2 kl4 spA").score': 9
+
+				'(new Hand "spA sp2 sp3 sp4 sp5").compare new Hand "spA sp2 sp3 sp4 sp5"': 0
+				'(new Hand "ru7 sp7 hj7 kl7 spJ").compare new Hand "ru7 sp6 hj7 kl7 spJ"': -1
+				'(new Hand "ru8 sp8 hj8 kl9 sp9").compare new Hand "ru8 sp8 hj8 hj9 sp9"': 0
+				'(new Hand "ru7 ru3 ru5 ru9 ruK").compare new Hand "hj7 hj3 hj5 hj9 hjK"': 0
+				'(new Hand "ru7 hj8 ru9 hj5 ru6").compare new Hand "ru7 hj8 ru9 hjT ru6"': 1
+				'(new Hand "ru7 hj8 ru8 kl8 ruJ").compare new Hand "ru7 hj8 ru8 kl8 ruQ"': 1
+				'(new Hand "ru7 hj7 ru8 kl8 ruJ").compare new Hand "ru7 hj6 ru8 kl8 ruJ"': -1
+				'(new Hand "sp7 hj3 ru3 kl4 spA").compare new Hand "sp7 hj3 ru3 klK spA"': 1
+				'(new Hand "sp7 hj3 ru2 kl4 spA").compare new Hand "sp7 hj3 ru5 kl4 spA"': 1
 
 		Polynom :
 			b: """
