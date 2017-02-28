@@ -955,15 +955,15 @@ class Hand
 				'(new Hand "sp7 hj3 ru3 kl4 spA").score': 8
 				'(new Hand "sp7 hj3 ru2 kl4 spA").score': 9
 
-				'(new Hand "spA sp2 sp3 sp4 sp5").compare new Hand "spA sp2 sp3 sp4 sp5"': 0
-				'(new Hand "ru7 sp7 hj7 kl7 spJ").compare new Hand "ru7 sp6 hj7 kl7 spJ"': -1
-				'(new Hand "ru8 sp8 hj8 kl9 sp9").compare new Hand "ru8 sp8 hj8 hj9 sp9"': 0
+				'(new Hand "spA sp2 sp3 sp4 sp5").compare new Hand "ruA ru2 ru3 ru4 ru5"': 0
+				'(new Hand "ru7 sp7 hj7 kl7 spJ").compare new Hand "ru6 sp5 hj6 kl6 spQ"': -1
+				'(new Hand "ru8 sp8 hj8 kl9 sp9").compare new Hand "ru6 sp6 hj6 ru9 hj9"': -1
 				'(new Hand "ru7 ru3 ru5 ru9 ruK").compare new Hand "hj7 hj3 hj5 hj9 hjK"': 0
-				'(new Hand "ru7 hj8 ru9 hj5 ru6").compare new Hand "ru7 hj8 ru9 hjT ru6"': 1
-				'(new Hand "ru7 hj8 ru8 kl8 ruJ").compare new Hand "ru7 hj8 ru8 kl8 ruQ"': 1
-				'(new Hand "ru7 hj7 ru8 kl8 ruJ").compare new Hand "ru7 hj6 ru8 kl8 ruJ"': -1
-				'(new Hand "sp7 hj3 ru3 kl4 spA").compare new Hand "sp7 hj3 ru3 klK spA"': 1
-				'(new Hand "sp7 hj3 ru2 kl4 spA").compare new Hand "sp7 hj3 ru5 kl4 spA"': 1
+				'(new Hand "ru7 hj8 ru9 hj5 ru6").compare new Hand "hj7 ru8 kl9 hjT sp6"': 1
+				'(new Hand "ru7 hj8 ru8 kl8 ruJ").compare new Hand "kl7 hj9 ru9 kl9 ruQ"': 1
+				'(new Hand "ru7 hj7 ru8 kl8 ruJ").compare new Hand "sp7 kl7 sp8 hj8 ruT"': -1
+				'(new Hand "hj7 kl3 sp3 kl4 hjA").compare new Hand "sp7 hj3 ru3 klK spA"': 1
+				'(new Hand "sp7 hj3 ru2 kl4 spA").compare new Hand "hj7 ru3 ru5 sp4 hjA"': 1
 
 		Polynom :
 			b: """
