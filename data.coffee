@@ -719,12 +719,15 @@ class Simplex
 		Bignum :
 			b:"""
 # LOC:22 class constructor new @ parseInt reverse length push floor slice unshift join for if
+# Med Bignum kan man räkna exakt med tal med tusentals siffor.
+# Du programmerar på samma sätt som om du räknar med papper och penna.
+# Multiplikationen använder sig av additionen samt inskiftande av noll för varje siffra.
 
 class Bignum
 	constructor : (s) ->
+	to_s : () -> 
 	add : (other) -> @
 	mul : (other) -> @
-	to_s : () -> 
 
 a = new Bignum "123"
 b = new Bignum "8"
@@ -749,6 +752,8 @@ class Bignum
 		@list = (parseInt(ch) for ch in s)
 		@list.reverse()
 
+	to_s : () -> @list.slice().reverse().join("")
+
 	add : (other) ->
 		if @list.length < other.list.length then return other.add @ 
 		carry = 0
@@ -768,8 +773,6 @@ class Bignum
 			if d < other.list.length-1 then res.list.unshift 0
 		res
 	
-	to_s : () -> @list.slice().reverse().join("")
-
 a = new Bignum "123"
 b = new Bignum "8"
 c = new Bignum "999"
@@ -857,6 +860,120 @@ class Complex
 				"new Complex(1,2).to_s()" : "1+2i"
 				"new Complex(1,2).add(new Complex(1,-1)).to_s()" : "2+i"
 				"new Complex(1,2).mul(new Complex(1,-1)).to_s()" : "3+i"
+
+		PokerHand :
+			b: """
+# LOC:49 class constructor new split for in indexOf push typeof and reverse if then
+#	       _.sortBy _.flatten _.isEqual _.without  
+
+# https://sv.wikipedia.org/wiki/Pokerhand
+
+# 1	Färgstege (straight flush)
+# 2	Fyrtal (four of a kind)
+# 3	Kåk (full house)
+# 4	Färg (flush)
+# 5	Stege (straight)
+# 6	Triss (three of a kind)
+# 7	Två par (two pairs)
+# 8	Par (pair)
+# 9	Högt kort (high card)
+
+# Färger har ingen betydelse. Det innebär att det kan bli oavgjort i vissa lägen.
+
+class Hand
+	constructor : (s) ->
+		@score = 0
+
+h1 = new Hand "spA sp2 sp3 sp4 sp5" # Strongest hand
+i1 = new Hand "ru7 sp7 hj7 kl7 spJ"
+j1 = new Hand "ru8 sp8 hj8 kl9 sp9"
+k1 = new Hand "ru7 ru3 ru5 ru9 ruK"
+l1 = new Hand "ru7 hj8 ru9 hj5 ru6"
+m1 = new Hand "ru7 hj8 ru8 kl8 ruJ"
+n1 = new Hand "ru7 hj7 ru8 kl8 ruJ"
+o1 = new Hand "sp7 hj3 ru3 kl4 spA"
+p1 = new Hand "sp7 hj3 ru2 kl4 spA" # Weakest hand
+
+"""
+			a: """
+class Hand
+	constructor : (s) ->
+		arr = s.split " "
+		@färg = [0,0,0,0]
+		@valör = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		@value = []
+		@separator = []
+		for card in arr
+			findex = "sphjrukl".indexOf(card[0..1])/2
+			@färg[findex] += 1
+			vindex = "  23456789TJQKA".indexOf card[2]
+			@valör[vindex] += 1	
+			@value.push vindex	
+		for v,i in @valör 
+			if v > 0 then @separator.push [v,i]
+		@färg = _.without @färg, 0 
+		@valör = _.without @valör, 0 
+		@färg = @sortera @färg
+		@valör = @sortera @valör
+		@value = @sortera @value
+		@separator = _.sortBy @separator, (list) -> 1000*list[0]+list[1] # pga js sortera listor alfabetiskt
+		@separator.reverse()
+		@separator = _.flatten @separator
+
+		# Specialbehandling av A2345 eftersom esset räknas som 14.
+		if _.isEqual(@separator,[1, 14, 1, 5, 1, 4, 1, 3, 1,  2])
+			@separator =          [1,  5, 1, 4, 1, 3, 1, 2, 1, 14]
+		@score = @calc()
+
+	compare : (other) -> 
+		if @score < other.score then return -1
+		if @score > other.score then return 1
+		for i in range @separator.length
+			if @separator[i] > other.separator[i] then return -1
+			if @separator[i] < other.separator[i] then return 1
+		0	
+
+	sortera : (arr) -> _.sortBy arr 
+
+	calc : ->
+		if @stege() and @isFärg() then return 1
+		if _.isEqual(@valör,[1,4]) then return 2
+		if _.isEqual(@valör,[2,3]) then return 3
+		if @isFärg() then return 4
+		if @stege() then return 5
+		if _.isEqual(@valör,[1,1,3]) then return 6
+		if _.isEqual(@valör,[1,2,2]) then return 7
+		if _.isEqual(@valör,[1,1,1,2]) then return 8
+		9
+
+	stege : () ->
+		if not _.isEqual(@valör, [1,1,1,1,1]) then return false
+		if @value[0] + 4 == @value[4] then return true
+		_.isEqual(@value, [2,3,4,5,14])
+
+	isFärg : () -> _.isEqual(@färg, [5])
+
+h1 = new Hand "spA sp2 sp3 sp4 sp5" # Strongest hand
+i1 = new Hand "ru7 sp7 hj7 kl7 spJ"
+j1 = new Hand "ru8 sp8 hj8 kl9 sp9"
+k1 = new Hand "ru7 ru3 ru5 ru9 ruK"
+l1 = new Hand "ru7 hj8 ru9 hj5 ru6"
+m1 = new Hand "ru7 hj8 ru8 kl8 ruJ"
+n1 = new Hand "ru7 hj7 ru8 kl8 ruJ"
+o1 = new Hand "sp7 hj3 ru3 kl4 spA"
+p1 = new Hand "sp7 hj3 ru2 kl4 spA" # Weakest hand
+
+"""
+			c:
+				"h1.score": 1
+				"i1.score": 2
+				"j1.score": 3
+				"k1.score": 4
+				"l1.score": 5
+				"m1.score": 6
+				"n1.score": 7
+				"o1.score": 8
+				"p1.score": 9
 
 		Polynom :
 			b: """
@@ -960,6 +1077,7 @@ class Polynom
 				"d.compose(e).lst" : [13,0,-2] 
 				"e.compose(d).lst" : [-4,-12,-4]
 				"e.compose(e).lst" : [-20,0,10,0,-1]
+
 
 	"A8: Advanced" :
 
