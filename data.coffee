@@ -36,7 +36,7 @@ data =
 			# f(x) == ?
 			# Sju ska bli åtta och åtta ska bli nio. Vad ska f skicka ut?
 			
-			f = (x) ->
+			f = (x) -> 0
 			"""
 			a: "f = (x) -> x+1"
 			c: 
@@ -47,7 +47,7 @@ data =
 			b: """
 			# + - * / %
 
-			f = (x) ->
+			f = (x) -> 0
 			"""
 			a: "f = (x) -> 2*x"
 			c: 
@@ -58,7 +58,7 @@ data =
 			b: """
 			# + - * / %
 
-			f = (x) ->
+			f = (x) -> 0
 			"""
 			a: "f = (x) -> x*x"
 			c: 
@@ -69,7 +69,7 @@ data =
 			b: """
 			# + - * / %
 
-			f = (x) ->
+			f = (x) -> 0
 			"""
 			a: "f = (x) -> -x"
 			c: 
@@ -80,7 +80,7 @@ data =
 			b: """
 			# + - * / %
 
-			f = (x) ->
+			f = (x) -> 0
 			"""
 			a: "f = (x) -> x-2"
 			c: 
@@ -91,7 +91,7 @@ data =
 			b: """
 			# + - * / %
 
-			f = (x) ->
+			f = (x) -> 0
 			"""
 			a: "f = (x) -> x/2"
 			c: 
@@ -102,7 +102,7 @@ data =
 			b: """
 			# + - * / %
 
-			f = (x) ->			
+			f = (x) -> 0		
 			"""
 			a: "f = (x) -> x%2"
 			c: 
@@ -115,7 +115,7 @@ data =
 			b: """
 			# == < > !=
 
-			f = (x) ->			
+			f = (x) -> null			
 			"""
 			a: "f = (x) -> x == 2"
 			c:
@@ -128,7 +128,7 @@ data =
 			b: """
 			# == < > !=
 
-			f = (x) ->			
+			f = (x) -> null		
 			"""
 			a: "f = (x) -> x > 2"
 			c:
@@ -141,7 +141,7 @@ data =
 			b: """
 			# == < > !=
 
-			f = (x) ->			
+			f = (x) -> null		
 			"""
 			a: "f = (x) -> x > 2"
 			c:
@@ -154,7 +154,7 @@ data =
 			b: """
 			# == < > !=
 
-			f = (x) ->			
+			f = (x) -> null	
 			"""
 			a: "f = (x) -> x != 2"
 			c:
@@ -169,7 +169,7 @@ data =
 			b: """
 			# + - * / %
 
-			g = (a,b) ->
+			g = (a,b) -> 0
 			"""
 			a: "g = (a,b) -> a*b"
 			c: 
@@ -253,9 +253,9 @@ data =
 			b:"""
 # LOC:3 range
 
-f = (n) -> 
-g = (a,b) ->
-h = (a,b,n) ->
+f = (n) -> []
+g = (a,b) -> []
+h = (a,b,n) -> []
 """
 			a:"""
 f = (n) -> range n
@@ -277,7 +277,7 @@ g = (a,b,n) -> range a,b,n
 # LOC:1 lerp
 # Försök lösa uppgiften både med och utan lerp
 
-f = (a,b,i) ->
+f = (a,b,i) -> 0
 """
 			a:"""
 f = (a,b,i) -> lerp a,b,i
@@ -372,13 +372,13 @@ b = [4,5,6]
 c = [5,4,1,2,9,3,7]
 d = [11,12,13,14,15]
 
-antal = (a) -> 
-fetch = (a,i) -> 
-konkatenera = (a,b) -> 
-sortera = (a) -> 
-första = (a,n) -> 
-mitti = (a,i,j) -> 
-sista = (a,n) -> 
+antal = (a) -> 0
+fetch = (a,i) -> 0 
+konkatenera = (a,b) -> [] 
+sortera = (a) -> []
+första = (a,n) -> []
+mitti = (a,i,j) -> []
+sista = (a,n) -> []
 """
 			a:"""
 a = [1,2,3]
@@ -414,7 +414,7 @@ sista = (a,n) -> a[-n..]
 # LOC:4 [] for in push sort - /
 # Din växelcykel har stora och små kugghjul. I vilken i ordning ligger växlarna? 
 
-gear = (big, small) ->
+gear = (big, small) -> []
 """
 			a: """
 gear = (big, small) ->
@@ -430,7 +430,7 @@ gear = (big, small) ->
 			b: """
 # LOC:10 [] for in split == push pop if else parseInt
 
-calc = (command) ->
+calc = (command) -> 0
 """
 			a: """
 calc = (command) ->
@@ -489,6 +489,7 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"antal boys" : 4
 				"avg ages girls" : 11
 				"avg ages boys" : 9.5
+
 	'A5: " "' :
 
 		Introduktion:
@@ -502,14 +503,14 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 a = "Coffee"
 b = "script"
 
-antal = (s) ->
-tecken = (s,i) ->
-mitti = (s,i,j) ->
-konkatenera = (s,t) ->
-leta = (s,t) ->
-splittra = (s,avgr) -> 
-hopslagning = (a,avgr='') -> 
-dubbla = (s) ->
+antal = (s) -> 0
+tecken = (s,i) -> ""
+mitti = (s,i,j) -> ""
+konkatenera = (s,t) -> ""
+leta = (s,t) -> 0
+splittra = (s,avgr) -> [] 
+hopslagning = (a,avgr='') -> "" 
+dubbla = (s) -> ""
 			"""
 			a:"""
 a = "Coffee"
@@ -541,7 +542,7 @@ dubbla = (s) -> slåihop (tecken + tecken for tecken in s)
 			# LOC:5 for in + ''
 			# Se till att ha gjort ett antal for loopar i p5Dojo före denna uppgift.
 
-			palindrom = (word) -> 
+			palindrom = (word) -> null
 			"""
 			a: """
 palindrom = (word) -> 
@@ -560,7 +561,7 @@ palindrom = (word) ->
 			b: """
 			# LOC:5 for in if then else + ''
 
-			rs = (word,extra='o') -> 
+			rs = (word,extra='o') -> ""
 			"""
 			a: """
 rs = (word,extra='o') -> 
