@@ -3,6 +3,19 @@
 # c : call in Coffeescript syntax
 
 data = 
+
+	"Nyheter" :
+		"Nyheter" :
+			b:"""
+# NYHETER
+# 2017-03-01 A3: Listor, Växelcykel, Kalkylator
+#            A5: Palindrom, Rövarspråk
+#            A7: Bignum, Pokerhand
+#            A8: List recursion
+
+# Klicka nu på A0!
+"""
+			a:""
 	
 	"A0: One Parameter" : 
 		Operator1 :  

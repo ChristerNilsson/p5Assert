@@ -75,6 +75,8 @@ window.onload = ->
   myCodeMirror.on "change", runAll
 
   help = createA('https://github.com/ChristerNilsson/p5Assert/blob/master/README.md', 'help', '_blank')
+  #help = createA 'https://christernilsson.github.io/p5Assert/README.md', 'help', '_blank'
+
   help.position 10,430
   
   chapter = _.keys(data)[0]
