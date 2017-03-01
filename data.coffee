@@ -966,7 +966,7 @@ class Complex
 		PokerHand :
 			b: """
 # LOC:42 class constructor new _.sortBy _.flatten _.isEqual _.without  
-#        split for in range indexOf push unshift reverse and not reverse if then keys length
+#        split for in range indexOf push unshift reverse and not if then keys length
 
 # https://sv.wikipedia.org/wiki/Pokerhand
 
