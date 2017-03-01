@@ -7,11 +7,11 @@ data =
 	"Nyheter" :
 		"Nyheter" :
 			b:"""
-# NYHETER
-# 2017-03-01 A3: Listor, Växelcykel, Kalkylator
-#            A5: Palindrom, Rövarspråk
-#            A7: Bignum, Pokerhand
-#            A8: List recursion
+# NYHETER 2017-03-01
+#   A3: Listor, Växelcykel, Kalkylator
+#   A5: Palindrom, Rövarspråk
+#   A7: Bignum, Pokerhand
+#   A8: List recursion
 
 # Klicka nu på A0!
 """
@@ -494,10 +494,10 @@ gear = (big, small) ->
 	res.sort() 
 """	
 			c:	
-				"Math.round(3.1415)" : 3
+				"Math.round 3.1415" : 3
 				"Math.round(3.1415 * 10)/10" : 3.1
-				"gear([43,53],[13,21])" : [[2.05,43,21],[2.52,53,21],[3.31,43,13],[4.08,53,13]]
-				"gear([43,53],[13,15,17,19,21])" : [[2.05,43,21],[2.26,43,19],[2.52,53,21],[2.53,43,17],[2.79,53,19],[2.87,43,15],[3.12,53,17],[3.31,43,13],[3.53,53,15],[4.08,53,13]]
+				"gear [43,53], [13,21]" : [[2.05,43,21],[2.52,53,21],[3.31,43,13],[4.08,53,13]]
+				"gear [43,53], [13,15,17,19,21]" : [[2.05,43,21],[2.26,43,19],[2.52,53,21],[2.53,43,17],[2.79,53,19],[2.87,43,15],[3.12,53,17],[3.31,43,13],[3.53,53,15],[4.08,53,13]]
 
 		Kalkylator :
 			b: """
@@ -924,8 +924,8 @@ h = h.mul h for i in range 7
 				"[1,2,3].reverse()" : [3,2,1]
 				"[1,2,3].length" : 3
 				"Math.floor 3.14" : 3
-				"[11,22,33].slice(1)" : [22,33]
-				"[11,22,33].slice(1,2)" : [22]
+				"[11,22,33].slice 1" : [22,33]
+				"[11,22,33].slice 1,2" : [22]
 				"[11,22,33].slice()" : [11,22,33]
 				"12345678901234567890 + 1" : 12345678901234567000
 				"a.list" : [3,2,1]
@@ -1227,15 +1227,12 @@ path = (tree,x) -> if x==0 then return [] else [x].concat path tree,tree[x]
 
 		summa: 
 			b: """
-# LOC:4 _.isEqual _.isNumber _.head _.tail
+# LOC:1 _.isEqual _.isNumber _.head _.tail
 
 summa = (tree) -> 0
 """
 			a: """
-summa = (tree) -> 
-	return 0 if _.isEqual tree,[]
-	return tree if _.isNumber tree 
-	summa(_.head tree) + summa _.tail tree 
+summa = (tree) -> return if _.isEqual tree,[] then 0 else if _.isNumber tree then tree else	summa(_.head tree) + summa _.tail tree 
 """
 			c:
 				"_.isNumber '12'" : false 
