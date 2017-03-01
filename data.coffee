@@ -444,11 +444,6 @@ sort5 = (a,b,c,d,e) ->
 			b:"""
 # LOC:11 length push concat pop sort .. []
 
-a = [1,2,3]
-b = [4,5,6]
-c = [5,4,1,2,9,3,7]
-d = [11,12,13,14,15]
-
 antal = (a) -> 0
 fetch = (a,i) -> 0 
 konkatenera = (a,b) -> [] 
@@ -458,11 +453,6 @@ mitti = (a,i,j) -> []
 sista = (a,n) -> []
 """
 			a:"""
-a = [1,2,3]
-b = [4,5,6]
-c = [5,4,1,2,9,3,7]
-d = [11,12,13,14,15]
-
 antal = (a) -> a.length
 fetch = (a,i) -> a[i]
 konkatenera = (a,b) -> a.concat b
@@ -480,19 +470,15 @@ sista = (a,n) -> a[-n..]
 				"[11,22,33,44][1..2]" : [22,33]
 				"[4,2,3,1].sort()" : [1,2,3,4]
 				"[4,2,3,1].sort().reverse()" : [4,3,2,1]
-				"a" : [1,2,3]
-				"b" : [4,5,6]
-				"c" : [5,4,1,2,9,3,7]
-				"d" : [11,12,13,14,15]
-				"antal a" : 3
-				"antal c" : 7
-				"fetch b,0" : 4
-				"fetch b,2" : 6
-				"konkatenera a,b" : [1,2,3,4,5,6]
-				"sortera c" : [1,2,3,4,5,7,9]
-				"första d,3" : [11,12,13]
-				"mitti d,1,2" : [12,13]
-				"sista d,4" : [12,13,14,15]
+				"antal [1,2,3]" : 3
+				"antal [5,4,1,2,9,3,7]" : 7
+				"fetch [4,5,6],0" : 4
+				"fetch [4,5,6],2" : 6
+				"konkatenera [1,2,3],[4,5,6]" : [1,2,3,4,5,6]
+				"sortera [5,4,1,2,9,3,7]" : [1,2,3,4,5,7,9]
+				"första [11,12,13,14,15],3" : [11,12,13]
+				"mitti [11,12,13,14,15],1,2" : [12,13]
+				"sista [11,12,13,14,15],4" : [12,13,14,15]
 
 		Växelcykel :
 			b: """
@@ -632,17 +618,14 @@ dubbla = (s) -> hopslagning (tecken + tecken for tecken in s)
 
 		Palindrom :
 			b : """
-			# LOC:5 for in + ''
-			# Se till att ha gjort ett antal for loopar i p5Dojo före denna uppgift.
+			# LOC:1 join reverse split
+			# Ett palindrom blir samma ord om man vänder på det.
+			# Ordet palindrom är inte ett palindrom.
 
 			palindrom = (word) -> null
 			"""
 			a: """
-palindrom = (word) -> 
-	res = ''
-	for letter in word
-		res = letter + res
-	res == word
+palindrom = (word) -> word.split("").reverse().join("") == word
 """
 			c:
 				"palindrom 'badrum'" : false

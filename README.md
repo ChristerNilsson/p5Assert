@@ -1,11 +1,11 @@
 # p5Assert
 
-[p5Assert](https://christernilsson.github.io/p5Assert) christernilsson.github.io/p5Assert
-[p5](https://p5js.org/reference) 
-[Coffeescript](http://coffeescript.org)
-[Javascript](https://www.w3schools.com/js)
-[Underscore](http://underscorejs.org)
-[p5Dojo](https://christernilsson.github.io/p5Dojo) 
+ - [p5Assert](https://christernilsson.github.io/p5Assert) christernilsson.github.io/p5Assert
+ - [p5](https://p5js.org/reference) 
+ - [Coffeescript](http://coffeescript.org)
+ - [Javascript](https://www.w3schools.com/js)
+ - [Underscore](http://underscorejs.org)
+ - [p5Dojo](https://christernilsson.github.io/p5Dojo) 
 
 p5Assert är en sida där man tränar på programmering.
 Uppgifter är enkla i början och blir svårare efterhand. 
