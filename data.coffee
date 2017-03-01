@@ -40,6 +40,12 @@ data =
 			"""
 			a: "f = (x) -> x+1"
 			c: 
+				"3+2" : 5
+				"3-2" : 1
+				"3*2" : 6
+				"6/2" : 3
+				"5%2" : 1
+				"6%2" : 0
 				"f 7" : 8
 				"f 8" : 9 
 
@@ -119,6 +125,18 @@ data =
 			"""
 			a: "f = (x) -> x == 2"
 			c:
+				"1 == 1" : true
+				"1 == 2" : false
+				"1 != 1" : false
+				"1 != 2" : true
+				"1 < 1" : false
+				"1 < 2" : true
+				"1 > 1" : false
+				"1 > 2" : false
+				"1 <= 1" : true
+				"1 <= 2" : true
+				"1 >= 1" : true
+				"1 >= 2" : false
 				"f 1" : false
 				"f 2" : true
 				"f 3" : false
@@ -277,6 +295,9 @@ g = (a,b) -> range a,b
 g = (a,b,n) -> range a,b,n
 			"""
 			c:
+				"range 3" : [0,1,2]
+				"range 1,4" : [1,2,3]
+				"range 1,9,2" : [1,3,5,7]
 				"f 5" : [0,1,2,3,4]
 				"f 6" : [0,1,2,3,4,5]
 				"g 1,5" : [1,2,3,4]
@@ -297,6 +318,11 @@ f = (a,b,i) -> 0
 f = (a,b,i) -> lerp a,b,i
 			"""
 			c:
+				"lerp 8,12,0" : 8
+				"lerp 8,12,1" : 12
+				"lerp 8,12,0.5" : 10
+				"lerp 8,12,-1" : 4
+				"lerp 8,12,2" : 16
 				"f 10,20,0" : 10
 				"f 10,20,1" : 20
 				"f 10,20,2" : 30
@@ -308,12 +334,13 @@ f = (a,b,i) -> lerp a,b,i
 # LOC:1 for in range lerp
 # Försök lösa uppgiften både med och utan lerp
 
-f = (a,b,n) -> i for i in range n
+f = (a,b,n) -> []
 """
 			a:"""
 f = (a,b,n) -> lerp a,b,i for i in range n
 			"""
 			c:
+				"(i*i for i in range 5)" : [0,1,4,9,16]				
 				"f 0,0,5" : [0,0,0,0,0]
 				"f 1,2,5" : [1,2,3,4,5]
 				"f 5,4,5" : [5,4,3,2,1]
@@ -326,10 +353,10 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 		Introduktion:
 			b:"""
 # LOC:16 if < then else
-# Sortera UTAN att använda listor
+# Sortera UTAN att använda loopar
 # Du får inte heller använda någon punkt
 
-sort2 = (a,b) -> if a < b then [b,a] else [a,b]
+sort2 = (a,b) -> [a,b]
 sort3 = (a,b,c) -> [a,b,c]
 sort4 = (a,b,c,d) -> [a,b,c,d]
 sort5 = (a,b,c,d,e) -> [a,b,c,d,e]
@@ -357,7 +384,7 @@ sort5 = (a,b,c,d,e) ->
 	[a,b,c,d,e]
 """
 			c:
-
+				"if 1 < 2 then [1,2] else [2,1]" : [1,2]
 				"sort2 3,4" : [3,4]
 				"sort2 4,3" : [3,4]
 
@@ -432,6 +459,14 @@ mitti = (a,i,j) -> a[i..j]
 sista = (a,n) -> a[-n..]
 """
 			c:
+				"[1,2].concat [3,4]" : [1,2,3,4]
+				"[2,3,4,5].length" : 4
+				"[11,22,33,44][2]" : 33
+				"[11,22,33,44][..2]" : [11,22,33]
+				"[11,22,33,44][1..]" : [22,33,44]
+				"[11,22,33,44][1..2]" : [22,33]
+				"[4,2,3,1].sort()" : [1,2,3,4]
+				"[4,2,3,1].sort().reverse()" : [4,3,2,1]
 				"a" : [1,2,3]
 				"b" : [4,5,6]
 				"c" : [5,4,1,2,9,3,7]
@@ -456,32 +491,38 @@ gear = (big, small) -> []
 			a: """
 gear = (big, small) ->
 	res = []
-	res.push [b,s] for s in small for b in big
-	res.sort ([b1,s1],[b2,s2]) -> b1/s1 - b2/s2 
+	res.push [Math.round(b/s * 100)/100,b,s] for s in small for b in big
+	res.sort() 
 """	
 			c:	
-				"gear([40,50],[13,21])" : [[40,21],[50,21],[40,13],[50,13]]
-				"gear([40,50],[13,15,17,19,21])" : [[40,21],[40,19],[40,17],[50,21],[50,19],[40,15],[50,17],[40,13],[50,15],[50,13]]
+				"Math.round(3.1415)" : 3
+				"Math.round(3.1415 * 10)/10" : 3.1
+				"gear([43,53],[13,21])" : [[2.05,43,21],[2.52,53,21],[3.31,43,13],[4.08,53,13]]
+				"gear([43,53],[13,15,17,19,21])" : [[2.05,43,21],[2.26,43,19],[2.52,53,21],[2.53,43,17],[2.79,53,19],[2.87,43,15],[3.12,53,17],[3.31,43,13],[3.53,53,15],[4.08,53,13]]
 
 		Kalkylator :
 			b: """
-# LOC:10 [] for in split == push pop if else parseInt
+# LOC:7 [] for in split == push pop if else parseInt
 
 calc = (command) -> 0
 """
 			a: """
 calc = (command) ->
 	stack = []
-	for cmd in command.split(' ')
-		if cmd == '+'
-			stack.push(stack.pop() + stack.pop())
-		else if cmd == '*' 
-			stack.push(stack.pop() * stack.pop())
-		else
-			stack.push parseInt cmd
+	for cmd in command.split ' '
+		if cmd == '+' then stack.push stack.pop() + stack.pop()
+		else if cmd == '*' then stack.push stack.pop() * stack.pop()
+		else stack.push parseInt cmd
 	stack.pop()		
 """
 			c:
+				"'a b c'.split ' '" : ['a','b','c']
+				'1+2' : 3
+				"'1'+'2'" : '12'
+				"1+'2'" : '12'
+				"'1'+2" : '12'
+				"parseInt '3'" : 3
+				"parseFloat '3.14'" : 3.14
 				"calc '2'" : 2
 				"calc '2 3'" : 3
 				"calc '2 3 +'" : 5
@@ -541,9 +582,6 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 # Färre innebär sämre läsbarhet.
 # Har du fler bör du fundera på en kortare lösning.
 
-a = "Coffee"
-b = "script"
-
 antal = (s) -> 0
 tecken = (s,i) -> ""
 mitti = (s,i,j) -> ""
@@ -554,9 +592,6 @@ hopslagning = (a,avgr='') -> ""
 dubbla = (s) -> ""
 			"""
 			a:"""
-a = "Coffee"
-b = "script"
-
 antal = (s) -> s.length
 tecken = (s,i) -> s[i]
 mitti = (s,i,j) -> s[i..j]
@@ -564,19 +599,23 @@ konkatenera = (s,t) -> s + t
 leta = (s,t) -> s.indexOf t
 splittra = (s,avgr) -> s.split avgr
 hopslagning = (a,avgr='') -> a.join(avgr)
-dubbla = (s) -> slåihop (tecken + tecken for tecken in s)
+dubbla = (s) -> hopslagning (tecken + tecken for tecken in s)
 			"""
 			c:
-				"antal a" : 6
-				"tecken a,1" : 'o'
-				"mitti a,1,3" : 'off'
-				"mitti a,3,5" : 'fee'
-				"konkatenera a,b" : 'Coffeescript' 
-				"leta a,'e'" : 4
-				"leta a,'x'" : -1
+				'"Javascript".length' : 10
+				'"Javascript".indexOf "a"' : 1
+				'"1,2,3".split ","' : ["1","2","3"]
+				'["1","2","3"].join " "' : "1 2 3"
+				'antal "Coffee"' : 6
+				'tecken "Coffee",1' : 'o'
+				'mitti "Coffee",1,3' : 'off'
+				'mitti "Coffee",3,5' : 'fee'
+				'konkatenera "Coffee","script"' : 'Coffeescript' 
+				'leta "Coffee","e"' : 4
+				'leta "Coffee","x"' : -1
 				"splittra '2 3 +',' '" : ['2', '3', '+'] 
 				"hopslagning ['2', '3', '+'], '|'" : "2|3|+"
-				"dubbla b" : 'ssccrriipptt'
+				'dubbla "script"' : 'ssccrriipptt'
 
 		Palindrom :
 			b : """
@@ -600,16 +639,12 @@ palindrom = (word) ->
 
 		Rövarspråk :
 			b: """
-			# LOC:5 for in if then else + ''
+			# LOC:1 for in if then else + join '' ()
 
 			rs = (word,extra='o') -> ""
 			"""
 			a: """
-rs = (word,extra='o') -> 
-	res = ''
-	for letter in word
-		res += if letter in 'aeiouy åäö' then letter else letter + extra + letter
-	res
+rs = (word,extra='o') -> ((if letter in 'aeiouy åäö' then letter else letter + extra + letter) for letter in word).join("")
 """
 			c:	
 				"rs 'kalas fint'" : 'kokalolasos fofinontot'
@@ -889,6 +924,13 @@ h = h.mul h for i in range 7
 	
 """
 			c:
+				"parseInt '1'" : 1
+				"[1,2,3].reverse()" : [3,2,1]
+				"[1,2,3].length" : 3
+				"Math.floor 3.14" : 3
+				"[11,22,33].slice(1)" : [22,33]
+				"[11,22,33].slice(1,2)" : [22]
+				"[11,22,33].slice()" : [11,22,33]
 				"12345678901234567890 + 1" : 12345678901234567000
 				"a.list" : [3,2,1]
 				"a.to_s()" : "123"
@@ -965,7 +1007,7 @@ class Complex
 
 		PokerHand :
 			b: """
-# LOC:42 class constructor new _.sortBy _.flatten _.isEqual _.without  
+# LOC:41 class constructor new _.sortBy _.flatten _.isEqual _.without  
 #        split for in range indexOf push unshift reverse and not if then keys length
 
 # https://sv.wikipedia.org/wiki/Pokerhand
@@ -1003,8 +1045,7 @@ class Hand
 			if v > 0 then @separator.push [v,i]
 		@valuecount = @sortera _.without @valuecount, 0 
 		@value = @sortera @value
-		@separator = _.sortBy @separator, (list) -> 1000*list[0]+list[1] # pga att js sorterar listor alfabetiskt. t ex [11] < [2].
-		@separator.reverse()
+		@separator = _.sortBy @separator, (list) -> -1000*list[0]-list[1] # pga att js sorterar listor alfabetiskt. t ex [11] < [2].
 		@separator = _.flatten @separator
 
 		# Specialbehandling av A5432 eftersom esset räknas som 14.
@@ -1038,6 +1079,14 @@ class Hand
 
 """
 			c:
+				'[1,2,3] == [1,2,3]' : false
+				'_.isEqual [1,2,3], [1,2,3]' : true
+				'_.isEqual [1,2,3], [1,2,4]' : false
+				'_.flatten [1,[2,1],3]' : [1,2,1,3]
+				'_.without [1,2,1,3], 1' : [2,3]
+				'_.sortBy ["per", "anna", "bo"]' : ["anna","bo","per"]
+				'_.sortBy ["per", "anna", "bo"], (w) -> w.length' : ["bo","per","anna"]
+
 				'(new Hand "spA sp2 sp3 sp4 sp5").separator': [9,1,5,1,4,1,3,1,2,1,14] 
 				'(new Hand "ru7 sp7 hj7 kl7 spJ").separator': [8,4,7,1,11]
 				'(new Hand "ru8 sp8 hj8 kl9 sp9").separator': [7,3,8,2,9]
@@ -1166,34 +1215,89 @@ class Polynom
 
 		path: 
 			b: """
-			# concat
+# LOC:1 concat if then else
 
-			tree = {3:0, 4:8, 5:3, 6:3, 10:5, 7:5, 12:6, 8:6, 20:10, 9:7, 24:12, 14:12}
-			"""
-			a: "path = (tree,x) -> if x==0 then return [] else path(tree,tree[x]).concat([x])"
+tree = {3:0, 4:8, 5:3, 6:3, 10:5, 7:5, 12:6, 8:6, 20:10, 9:7, 24:12, 14:12}
+
+path = (tree,x) -> []
+"""
+			a: """
+path = (tree,x) -> if x==0 then return [] else [x].concat path tree,tree[x]
+"""
 			c:  
-				"path tree, 4" : [3,6,8,4]
-				"path tree, 20" : [3,5,10,20]
-				"path tree, 9" : [3,5,7,9]
+				"path tree, 4" : [4,8,6,3]
+				"path tree, 20" : [20,10,5,3]
+				"path tree, 9" : [9,7,5,3]
 
 		summa: 
 			b: """
-# Använd några av .reduce .isEqual .isNumber .head eller .tail 
+# LOC:4 _.isEqual _.isNumber _.head _.tail
 
-tree = [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]
+summa = (tree) -> 0
 """
 			a: """
 summa = (tree) -> 
 	return 0 if _.isEqual tree,[]
 	return tree if _.isNumber tree 
-	s = summa _.head tree
-	s + summa _.tail tree 
+	summa(_.head tree) + summa _.tail tree 
 """
-			c: "summa tree" : 161
+			c:
+				"_.isNumber '12'" : false 
+				"_.isNumber 12" : true 
+				"_.isNumber [12]" : false 
+				"_.head [11,22,33]" : 11
+				"_.tail [11,22,33]" : [22,33]
+
+				"summa [1,2,3,4]" : 10
+				"summa [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]" : 161
+
+		"list recursion" :
+			b:"""
+# LOC:7 typeof if then else for in range min length
+# Lägg märke till javascripts felaktiga hantering av tal vid jämförelse av listor.
+
+compare = (a,b) -> -2
+
+			"""
+			a:"""
+compare = (a,b) ->
+	if typeof a != "object" 
+		if a > b then return -1 else if a < b then return 1 else return 0
+	for i in range min a.length,b.length
+		c = compare a[i],b[i]
+		if c != 0 then return c
+	0
+"""
+			c:	
+				"typeof 1" : "number"
+				"typeof 3.14" : "number"
+				'typeof ""' : "string"
+				"typeof []" : "object"
+				"typeof {}" : "object"
+				"min 1,2" : 1
+				"min 2,1" : 1
+				"11 > 2" : true		
+				"[11] > [2]" : false 
+				"[11] > [10]" : true
+				"11 == 11" : true 
+				'"11" == "11"' : true 
+				"[11] == [11]" : false 
+				"compare 11, 2" : -1
+				"compare [11], [2]" : -1
+				"compare [11], [10]" : -1
+				"compare [11], [11]" : 0
+				"compare [2], [11]" : 1
+				"compare [1,[2,3]], [1,[2,3]]" : 0
+				"compare [10,[2,3]], [1,[2,3]]" : -1
+				"compare [1,[20,3]], [1,[2,3]]" : -1
+				"compare [1,[2,30]], [1,[2,3]]" : -1
+				"compare [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]], [3, [5,6], [7,8,10,12], [4,9,14,[20,23]], [[12,13],14]]" : -1
+				"compare [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]], [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]" : 0
+				"compare [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]], [3, [5,6], [7,8,10,12], [4,9,14,[20,25]], [[12,13],14]]" : 1
 
 		filter: 
 			b: """
-# Använd for loop eller filter
+# LOC:1 filter
 
 djur = [
 	{namn:'Fluffy',art:'kanin'}
@@ -1203,19 +1307,25 @@ djur = [
 	{namn:'Trixie',art:'katt'}
 	{namn:'Herbert',art:'fisk'}
 ]
+
+g = (djur, art) -> []
+
 """
 			a: """
-arHund = (d) -> d.art == 'hund'
-arFisk = (d) -> d.art == 'fisk'
-g = (djur,f) -> djur.filter f
+g = (djur, art) -> djur.filter (d) -> d.art == art
+
 """
 			c:  
-				"g djur,arHund" : [{namn:'Karo',art:'hund'},{namn:'Rocky',art:'hund'}]
-				"g djur,arFisk" : [{namn:'Albert',art:'fisk'},{namn:'Herbert',art:'fisk'}]
+				"[1,-2,0,3,-4].filter (x) -> x > 0" : [1,3]
+				"g djur,'hund'" : [{namn:'Karo',art:'hund'},{namn:'Rocky',art:'hund'}]
+				"g djur,'fisk'" : [{namn:'Albert',art:'fisk'},{namn:'Herbert',art:'fisk'}]
+				"g djur,'kanin'" : [{namn:'Fluffy',art:'kanin'}]
+				"g djur,'katt'" : [{namn:'Trixie',art:'katt'}]
+				"g djur,'papegoja'" : []
 
-		map: 
+		comprehension: 
 			b: """
-# Använd for loop eller map eller Coffescript comprehension
+# LOC:1 for 
 
 djur = [
 	{namn:'Fluffy',art:'kanin'}
@@ -1225,17 +1335,20 @@ djur = [
 	{namn:'Trixie',art:'katt'}
 	{namn:'Herbert',art:'fisk'}
 ]
+
+namn = (djur) -> []
+
 """
 			a: """
-namn = (djur) -> djur.map (d) -> d.namn
 namn = (djur) -> (d.namn for d in djur)
 """
 			c:  
+				"(2**i for i in range 5)" : [1,2,4,8,16]
 				"namn djur" : ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
 
 		reduce: 
 			b: """
-# Använd for loop eller reduce
+# LOC:1 reduce
 
 ica = [
 	{pris: 123, antal:1}
@@ -1249,50 +1362,62 @@ konsum = [
 	{pris: 70, antal:1}
 	{pris: 90, antal:1}
 ]
+
+summa = (varor) -> 0
 """
 			a: """
 summa = (varor) -> varor.reduce ((sum, vara) -> sum + vara.pris * vara.antal), 0
 """
 			c:  
+				"ica.reduce ((sum, vara) -> sum + vara.antal), 0" : 12
+				"konsum.reduce ((sum, vara) -> sum + vara.pris), 0" : 290
 				"summa ica" : 983
 				"summa konsum" : 290
 
 		sortBy: 
 			b: """
-# sortBy
+# LOC:1 _.sortBy
 
 djur = ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
+
+sortera = (djur,f) -> []
 """
 			a: """
-g = (djur,f) -> _.sortBy djur, f
+sortera = (djur,f) -> _.sortBy djur, f
 			"""
 			c:  
-				"g(djur,(d)->d.length)" : ["Karo","Rocky","Fluffy","Albert","Trixie","Herbert"]
-				"g(djur,(d)->d)" : ["Albert","Fluffy","Herbert","Karo","Rocky","Trixie"]
+				"sortera djur,(d)->d.length" : ["Karo","Rocky","Fluffy","Albert","Trixie","Herbert"]
+				"sortera djur" : ["Albert","Fluffy","Herbert","Karo","Rocky","Trixie"]
 
 		groupBy: 
 			b: """
-# groupBy
+# LOC:1 groupBy
 
 djur = ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
+
+gruppera = (djur,f) -> {}
 """
 			a: """
-g = (djur,f) -> _.groupBy djur, f
+gruppera = (djur,f) -> _.groupBy djur, f
 """
 			c:  
-				"g(djur,(d) -> d.length)" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
-				"g(djur,(d) -> _.last(d))" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
+				"gruppera djur,(d) -> d.length" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
+				"gruppera djur,(d) -> _.last(d)" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
 
 		split: 
 			b: """
-			# LOC:1 split for in _.object
+# LOC:1 split for in _.object
 
-			g = (h) ->
-			"""
-			a: "g = (h) -> _.object(f.split '=' for f in h.split('?')[1].split('&'))"
+parametrar = (url) -> {}
+"""
+			a: """
+parametrar = (url) -> _.object(f.split '=' for f in url.split('?')[1].split('&'))
+"""
 			c:  
-				"g 'dn.se?x=0&y=1'" : {x:'0', y:'1'}
-				"g 'svd.se?page=7'" : {page : '7'}
-				"g 'aftonbladet.se?article=123456&date=2016-12-01'" : {article:'123456', date:'2016-12-01'}
-				"g 'expressen.se?city=Stockholm'" : {city : 'Stockholm'}
-				"g 'http://stackoverflow.com/search?q=coffeescript'" : {q : 'coffeescript'}
+				"_.object ['moe', 'larry', 'curly'], [30, 40, 50]" : {moe: 30, larry: 40, curly: 50}
+				"_.object [['moe', 30], ['larry', 40], ['curly', 50]]" : {moe: 30, larry: 40, curly: 50}
+				"parametrar 'dn.se?x=0&y=1'" : {x:'0', y:'1'}
+				"parametrar 'svd.se?page=7'" : {page : '7'}
+				"parametrar 'aftonbladet.se?article=123456&date=2016-12-01'" : {article:'123456', date:'2016-12-01'}
+				"parametrar 'expressen.se?city=Stockholm'" : {city : 'Stockholm'}
+				"parametrar 'http://stackoverflow.com/search?q=coffeescript'" : {q : 'coffeescript'}
