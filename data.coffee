@@ -965,8 +965,8 @@ class Complex
 
 		PokerHand :
 			b: """
-# LOC:46 class constructor new split for in indexOf push and not reverse if then
-#	       _.sortBy _.flatten _.isEqual _.without  
+# LOC:42 class constructor new _.sortBy _.flatten _.isEqual _.without  
+#        split for in range indexOf push unshift reverse and not reverse if then keys length
 
 # https://sv.wikipedia.org/wiki/Pokerhand
 
@@ -983,26 +983,24 @@ class Complex
 # Ingen färg är bättre än någon annan färg. Vissa händer är värda lika mycket.
 
 class Hand
-	constructor : (s) -> @score = 0
+	constructor : (s) -> @separator = []
 	compare : (other) -> -2
 
 """
 			a: """
 class Hand
 	constructor : (s) ->
-		@colorcount = [0,0,0,0]
+		@colorcount = {} 
 		@valuecount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 		@value = []
 		@separator = []
 		for card in s.split " "
-			iColor = "sphjrukl".indexOf(card[0..1])/2
-			@colorcount[iColor] += 1
+			@colorcount[card[0..1]] = true
 			iValue = "  23456789TJQKA".indexOf card[2]
 			@valuecount[iValue] += 1	
 			@value.push iValue	
 		for v,i in @valuecount 
 			if v > 0 then @separator.push [v,i]
-		@colorcount = @sortera _.without @colorcount, 0
 		@valuecount = @sortera _.without @valuecount, 0 
 		@value = @sortera @value
 		@separator = _.sortBy @separator, (list) -> 1000*list[0]+list[1] # pga att js sorterar listor alfabetiskt. t ex [11] < [2].
@@ -1012,11 +1010,9 @@ class Hand
 		# Specialbehandling av A5432 eftersom esset räknas som 14.
 		if _.isEqual @separator,[1, 14, 1, 5, 1, 4, 1, 3, 1,  2]
 			@separator =          [1,  5, 1, 4, 1, 3, 1, 2, 1, 14]
-		@score = @calc()
+		@separator.unshift @calc()
 
 	compare : (other) -> 
-		if @score > other.score then return -1
-		if @score < other.score then return 1
 		for i in range @separator.length
 			if @separator[i] > other.separator[i] then return -1
 			if @separator[i] < other.separator[i] then return 1
@@ -1034,7 +1030,7 @@ class Hand
 		1
 
 	sortera : (arr) -> _.sortBy arr 
-	flush : -> _.isEqual @colorcount, [5]
+	flush : -> Object.keys(@colorcount).length==1
 	stege : ->
 		if not _.isEqual(@valuecount, [1,1,1,1,1]) then return false
 		if @value[0] + 4 == @value[4] then return true
@@ -1042,15 +1038,15 @@ class Hand
 
 """
 			c:
-				'(new Hand "spA sp2 sp3 sp4 sp5").score': 9
-				'(new Hand "ru7 sp7 hj7 kl7 spJ").score': 8
-				'(new Hand "ru8 sp8 hj8 kl9 sp9").score': 7
-				'(new Hand "ru7 ru3 ru5 ru9 ruK").score': 6
-				'(new Hand "ru7 hj8 ru9 hj5 ru6").score': 5
-				'(new Hand "ru7 hj8 ru8 kl8 ruJ").score': 4
-				'(new Hand "ru7 hj7 ru8 kl8 ruJ").score': 3
-				'(new Hand "sp7 hj3 ru3 kl4 spA").score': 2
-				'(new Hand "sp7 hj3 ru2 kl4 spA").score': 1
+				'(new Hand "spA sp2 sp3 sp4 sp5").separator': [9,1,5,1,4,1,3,1,2,1,14] 
+				'(new Hand "ru7 sp7 hj7 kl7 spJ").separator': [8,4,7,1,11]
+				'(new Hand "ru8 sp8 hj8 kl9 sp9").separator': [7,3,8,2,9]
+				'(new Hand "ru7 ru3 ru5 ru9 ruK").separator': [6,1,13,1,9,1,7,1,5,1,3]
+				'(new Hand "ru7 hj8 ru9 hj5 ru6").separator': [5,1,9,1,8,1,7,1,6,1,5]
+				'(new Hand "ru7 hj8 ru8 kl8 ruJ").separator': [4,3,8,1,11,1,7]
+				'(new Hand "ru7 hj7 ru8 kl8 ruJ").separator': [3,2,8,2,7,1,11]
+				'(new Hand "sp7 hj3 ru3 kl4 spA").separator': [2,2,3,1,14,1,7,1,4]
+				'(new Hand "sp7 hj3 ru2 kl4 spA").separator': [1,1,14,1,7,1,4,1,3,1,2]
 
 				'(new Hand "spA sp2 sp3 sp4 sp5").compare new Hand "ruA ru2 ru3 ru4 ru5"': 0
 				'(new Hand "ru7 sp7 hj7 kl7 spJ").compare new Hand "ru6 sp5 hj6 kl6 spQ"': -1
