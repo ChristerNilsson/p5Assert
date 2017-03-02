@@ -367,7 +367,7 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 			b:"""
 # LOC:16 if < then else
 # Sortera UTAN att använda loopar
-# Du får inte heller använda någon punkt
+# Sortera UTAN att använda någon färdig sorteringsrutin
 
 sort2 = (a,b) -> [a,b]
 sort3 = (a,b,c) -> [a,b,c]
@@ -397,48 +397,48 @@ sort5 = (a,b,c,d,e) ->
 	[a,b,c,d,e]
 """
 			c:
-				"if 1 < 2 then [1,2] else [2,1]" : [1,2]
-				"sort2 3,4" : [3,4]
-				"sort2 4,3" : [3,4]
+				"if 11 < 2 then [11,2] else [2,11]" : [2,11]
+				"sort2 11,2" : [2,11]
+				"sort2 2,11" : [2,11]
 
-				"sort3 3,4,5" : [3,4,5]
-				"sort3 3,5,4" : [3,4,5]
-				"sort3 4,3,5" : [3,4,5]
-				"sort3 4,5,3" : [3,4,5]
-				"sort3 5,3,4" : [3,4,5]
-				"sort3 5,4,3" : [3,4,5]
+				"sort3 11,4,5" : [4,5,11]
+				"sort3 11,5,4" : [4,5,11]
+				"sort3 4,11,5" : [4,5,11]
+				"sort3 4,5,11" : [4,5,11]
+				"sort3 5,11,4" : [4,5,11]
+				"sort3 5,4,11" : [4,5,11]
 
-				"sort4 3,4,5,6" : [3,4,5,6]
-				"sort4 3,4,6,5" : [3,4,5,6]
-				"sort4 3,5,4,6" : [3,4,5,6]
-				"sort4 3,5,6,4" : [3,4,5,6]
-				"sort4 3,6,4,5" : [3,4,5,6]
-				"sort4 3,6,5,4" : [3,4,5,6]
+				"sort4 11,4,5,6" : [4,5,6,11]
+				"sort4 11,4,6,5" : [4,5,6,11]
+				"sort4 11,5,4,6" : [4,5,6,11]
+				"sort4 11,5,6,4" : [4,5,6,11]
+				"sort4 11,6,4,5" : [4,5,6,11]
+				"sort4 11,6,5,4" : [4,5,6,11]
 
-				"sort4 4,3,5,6" : [3,4,5,6]
-				"sort4 4,3,6,5" : [3,4,5,6]
-				"sort4 4,5,3,6" : [3,4,5,6]
-				"sort4 4,5,6,3" : [3,4,5,6]
-				"sort4 4,6,3,5" : [3,4,5,6]
-				"sort4 4,6,5,3" : [3,4,5,6]
+				"sort4 4,11,5,6" : [4,5,6,11]
+				"sort4 4,11,6,5" : [4,5,6,11]
+				"sort4 4,5,11,6" : [4,5,6,11]
+				"sort4 4,5,6,11" : [4,5,6,11]
+				"sort4 4,6,11,5" : [4,5,6,11]
+				"sort4 4,6,5,11" : [4,5,6,11]
 
-				"sort4 5,3,4,6" : [3,4,5,6]
-				"sort4 5,3,6,4" : [3,4,5,6]
-				"sort4 5,4,3,6" : [3,4,5,6]
-				"sort4 5,4,6,3" : [3,4,5,6]
-				"sort4 5,6,3,4" : [3,4,5,6]
-				"sort4 5,6,4,3" : [3,4,5,6]
+				"sort4 5,11,4,6" : [4,5,6,11]
+				"sort4 5,11,6,4" : [4,5,6,11]
+				"sort4 5,4,11,6" : [4,5,6,11]
+				"sort4 5,4,6,11" : [4,5,6,11]
+				"sort4 5,6,11,4" : [4,5,6,11]
+				"sort4 5,6,4,11" : [4,5,6,11]
 
-				"sort4 6,3,4,5" : [3,4,5,6]
-				"sort4 6,3,5,4" : [3,4,5,6]
-				"sort4 6,4,3,5" : [3,4,5,6]
-				"sort4 6,4,5,3" : [3,4,5,6]
-				"sort4 6,5,3,4" : [3,4,5,6]
-				"sort4 6,5,4,3" : [3,4,5,6]
+				"sort4 6,11,4,5" : [4,5,6,11]
+				"sort4 6,11,5,4" : [4,5,6,11]
+				"sort4 6,4,11,5" : [4,5,6,11]
+				"sort4 6,4,5,11" : [4,5,6,11]
+				"sort4 6,5,11,4" : [4,5,6,11]
+				"sort4 6,5,4,11" : [4,5,6,11]
 
-				"sort5 5,4,3,2,1" : [1,2,3,4,5]
-				"sort5 3,5,2,4,1" : [1,2,3,4,5]
-				"sort5 5,2,3,4,1" : [1,2,3,4,5]
+				"sort5 5,4,11,2,1" : [1,2,4,5,11]
+				"sort5 11,5,2,4,1" : [1,2,4,5,11]
+				"sort5 5,2,11,4,1" : [1,2,4,5,11]
 
 		Listor :
 			b:"""
@@ -759,6 +759,7 @@ class Kid
 
 girls = [new Kid('Sabrina',12), new Kid('Helene',10), new Kid('Anna',11)]
 boys = [new Kid('David',10), new Kid('Henry',11), new Kid('Noel',14), new Kid('Numa',3)]
+
 names = (kids) -> []
 ages = (kids) -> []
 sum = (numbers) -> 0
@@ -1119,11 +1120,6 @@ class Polynom
 	integ : -> @
 	compose : (other)	-> @
 
-a = new Polynom [5,4,3]
-b = new Polynom [4,3]
-c = new Polynom [0,0,1]
-d = new Polynom [3,2]
-e = new Polynom [5,0,-1]
 """
 			a: """
 class Polynom
@@ -1188,23 +1184,23 @@ class Polynom
 		arr.join "+"
 """
 			c:
-				"a.lst" : [5,4,3]
-				"b.lst" : [4,3]
-				"a.to_s()" : "3*x^2+4*x+5"
-				"c.to_s()" : "x^2"
-				"a.add(b).to_s()" : "3*x^2+7*x+9"
-				"a.mul(b).to_s()" : "9*x^3+24*x^2+31*x+20"
-				"a.value(2)" : 25
-				"a.power(2).lst" : [25,40,46,24,9]
-				"b.power(3).lst" : [64,144,108,27] 
-				"a.diff().lst" : [4,6]
-				"a.integ().lst" : [0,5,2,1]
-				"c.integ().to_s()" : "0.3333333333333333*x^3"
-				"c.integ().value(3)" : 9
-				"d.compose(d).lst" : [9,4] 
-				"d.compose(e).lst" : [13,0,-2] 
-				"e.compose(d).lst" : [-4,-12,-4]
-				"e.compose(e).lst" : [-20,0,10,0,-1]
+				"(new Polynom [5,4,3]).lst" : [5,4,3]
+				"(new Polynom [4,3]).lst" : [4,3]
+				"(new Polynom [5,4,3]).to_s()" : "3*x^2+4*x+5"
+				"(new Polynom [0,0,1]).to_s()" : "x^2"
+				"(new Polynom [5,4,3]).add(new Polynom [4,3]).to_s()" : "3*x^2+7*x+9"
+				"(new Polynom [5,4,3]).mul(new Polynom [4,3]).to_s()" : "9*x^3+24*x^2+31*x+20"
+				"(new Polynom [5,4,3]).value(2)" : 25
+				"(new Polynom [5,4,3]).power(2).lst" : [25,40,46,24,9]
+				"(new Polynom [4,3]).power(3).lst" : [64,144,108,27] 
+				"(new Polynom [5,4,3]).diff().lst" : [4,6]
+				"(new Polynom [5,4,3]).integ().lst" : [0,5,2,1]
+				"(new Polynom [0,0,1]).integ().to_s()" : "0.3333333333333333*x^3"
+				"(new Polynom [0,0,1]).integ().value(3)" : 9
+				"(new Polynom [3,2]).compose(new Polynom [3,2]).lst" : [9,4] 
+				"(new Polynom [3,2]).compose(new Polynom [5,0,-1]).lst" : [13,0,-2] 
+				"(new Polynom [5,0,-1]).compose(new Polynom [3,2]).lst" : [-4,-12,-4]
+				"(new Polynom [5,0,-1]).compose(new Polynom [5,0,-1]).lst" : [-20,0,10,0,-1]
 
 
 	"A8: Advanced" :
@@ -1379,12 +1375,13 @@ sortera = (djur,f) -> []
 sortera = (djur,f) -> _.sortBy djur, f
 			"""
 			c:  
+				"_.sortBy ['one', 'two', 'three','four'], 'length'" : ["one", "two","four","three"]
 				"sortera djur,(d)->d.length" : ["Karo","Rocky","Fluffy","Albert","Trixie","Herbert"]
 				"sortera djur" : ["Albert","Fluffy","Herbert","Karo","Rocky","Trixie"]
 
 		groupBy: 
 			b: """
-# LOC:1 groupBy
+# LOC:1 _.groupBy
 
 djur = ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
 
@@ -1394,6 +1391,7 @@ gruppera = (djur,f) -> {}
 gruppera = (djur,f) -> _.groupBy djur, f
 """
 			c:  
+				"_.groupBy ['one', 'two', 'three'], 'length'" : {3: ["one", "two"], 5: ["three"]}
 				"gruppera djur,(d) -> d.length" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
 				"gruppera djur,(d) -> _.last(d)" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
 
@@ -1407,6 +1405,7 @@ parametrar = (url) -> {}
 parametrar = (url) -> _.object(f.split '=' for f in url.split('?')[1].split('&'))
 """
 			c:  
+				"'1,2,3'.split ','" : ["1","2","3"]
 				"_.object ['moe', 'larry', 'curly'], [30, 40, 50]" : {moe: 30, larry: 40, curly: 50}
 				"_.object [['moe', 30], ['larry', 40], ['curly', 50]]" : {moe: 30, larry: 40, curly: 50}
 				"parametrar 'dn.se?x=0&y=1'" : {x:'0', y:'1'}
