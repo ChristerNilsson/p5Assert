@@ -39,18 +39,20 @@ tableClear = ->
 tableAppend = (call, expected, actual) ->
   sp = "&nbsp;"
   row = tabell.insertRow -1
+
   cell1 = row.insertCell -1
   cell2 = row.insertCell -1
   cell3 = row.insertCell -1
+
   cell1.innerHTML = sp + call + sp
   cell2.innerHTML = sp + JSON.stringify(expected) + sp
   cell3.innerHTML = if actual == undefined then sp + "error" + sp else sp + JSON.stringify(actual) + sp
+
   cell1.style.backgroundColor = '#FFFF00'
   cell2.style.backgroundColor = '#00FF00'
-  try 
-    chai.assert.deepEqual expected, actual
+  if compare(expected, actual) == 0
     cell3.style.backgroundColor = '#00FF00'
-  catch  
+  else
     cell3.style.backgroundColor = '#FF0000'
 
 changeLayout = ->

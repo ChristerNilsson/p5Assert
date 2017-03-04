@@ -33,8 +33,8 @@ data =
 # Tryck nu på PgDn och gör Ture glad igen!
 #   Ändra nollan till en tvåa. Nu skickas bara tvåor ut.
 #   Ändra tvåan till en trea.  Nu skickas bara treor ut.
-#   Ändra trean till ett x.    Nu blir alla de RÖDA cellerna GRÖNA!
-# Gå till nästa uppgift genom att klicka på Operator2 i listan till vänster.
+#   Ändra trean till ett x.    Nu blir alla de RÖDA cellerna GRÖNA och Ture är glad igen!
+# Gå till nästa uppgift genom att klicka på Wilma i listan till vänster.
 Ture = (x) -> 0
 """
 			a: "Ture = (x) -> x"

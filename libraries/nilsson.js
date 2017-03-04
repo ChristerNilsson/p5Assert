@@ -3,9 +3,9 @@ var ass, assert, bg, bsort, circle, compare, fc, fixColor, getParameters, nilsso
 
 nilsson_version = "1.0";
 
-ass = function(msg, a, b) {
-  return chai.assert.deepEqual(a, b, msg);
-};
+//ass = function(msg, a, b) {
+//  return chai.assert.deepEqual(a, b, msg);
+//};
 
 assert = function(a, b) {
   if (!_.isEqual(a, b)) {
