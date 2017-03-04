@@ -18,40 +18,52 @@ data =
 			a:""
 	
 	"A0: One Parameter" : 
-		Operator1 :  
+		Ture :  
 			b: """
-			# Försök att skapa funktionen f.
-			# f(2) ska bli 2. f(3) ska bli 3.
-			# Den första kolumnen (gul) innehåller INDATA.
-			# Den andra kolumnen (grön) innehåller UTDATA du ska återskapa.
-			# Den tredje kolumnen (röd eller grön) innehåller UTDATA skapad av din kod.
-			
-			# Se till att göra de RÖDA cellerna GRÖNA! Gå till sista raden med PgDn.
-			
-			# Ändra nollan till en tvåa. Nu blir enbart den första RÖDA cellen GRÖN.
-			# Ändra tvåan till en trea.  Nu blir enbart den andra RÖDA cellen GRÖN.
-			# Ändra trean till ett x.    Nu blir båda de RÖDA cellerna GRÖNA!
-			
-			# Gå till nästa övning genom att klicka på Operator2.
-
-			f = (x) -> 0
-			"""
-			a: "f = (x) -> x"
+# Maskin Ture är trasig! Du måste laga Ture!
+# Skickar man in en tvåa till Ture ska en tvåa komma ut.
+# Namnet på det man skickar in till Ture står mellan parenteserna. Namnet är x.  
+# x kan vara olika saker. Till exempel en tvåa eller en trea.
+# Efter pilen talar man om vad som ska komma ut från Ture. 
+# Just nu skickar Ture alltid ut nolla. Här är felet!
+#   Den gula kolumnen innehåller det som skickas in till Ture.
+#   Den gröna kolumnen innehåller det som ska komma ut ur Ture.
+#   Den röda kolumnen innehåller det som kommer ut ur Ture. 
+# Se till att göra de RÖDA cellerna GRÖNA!
+# Tryck nu på PgDn för komma till rätt plats!
+#   Ändra nollan till en tvåa. Nu blir bara den första RÖDA cellen GRÖN.
+#   Ändra tvåan till en trea.  Nu blir bara den andra RÖDA cellen GRÖN.
+#   Ändra trean till ett x.    Nu blir båda de RÖDA cellerna GRÖNA!
+# Gå till nästa uppgift genom att klicka på Operator2 i listan till vänster.
+Ture = (x) -> 0
+"""
+			a: "Ture = (x) -> x"
 			c: 
-				"f 2" : 2
-				"f 3" : 3 
+				"Ture 2" : 2
+				"Ture 3" : 3 
 
-		Operator2: 
+		Wilma: 
 			b: """
-			# Välj en av dessa operatorer: + - * / %
-			# f(7) == 8
-			# f(8) == 9
-			# f(x) == ?
-			# Sju ska bli åtta och åtta ska bli nio. Vad ska f skicka ut?
+			# Om man skickar en sjua till Wilma ska det komma tillbaks en åtta.
+			# Om man skickar en åtta till Wilma ska det komma tillbaks en nia.
+			# Vad ska Wilma skicka tillbaks om det kommer in ett x ?
+			# Prova att använda plus.
 			
-			f = (x) -> 0
+			Wilma = (x) -> 0
 			"""
-			a: "f = (x) -> x+1"
+			a: "Wilma = (x) -> x+1"
+			c: 
+				"3 + 1" : 4
+				"Wilma 7" : 8
+				"Wilma 8" : 9 
+
+		Noel: 
+			b: """
+			# Någon av dessa löser problemet: + - * / %
+
+			Noel = (x) -> null
+			"""
+			a: "Noel = (x) -> 2*x"
 			c: 
 				"3 + 2" : 5
 				"3 - 2" : 1
@@ -59,84 +71,106 @@ data =
 				"6 / 2" : 3
 				"5 % 2" : 1
 				"6 % 2" : 0
-				"f 7" : 8
-				"f 8" : 9 
+				"Noel 5" : 10
+				"Noel 6" : 12 
 
-		Operator3: 
+		Greta: 
 			b: """
 			# + - * / %
 
-			f = (x) -> 0
+			Greta = (x) -> undefined
 			"""
-			a: "f = (x) -> 2*x"
+			a: "Greta = (x) -> x*x"
 			c: 
-				"f 5" : 10
-				"f 6" : 12 
+				"3 + 2" : 5
+				"3 - 2" : 1
+				"3 * 2" : 6
+				"6 / 2" : 3
+				"5 % 2" : 1
+				"6 % 2" : 0
+				"Greta 1" : 1
+				"Greta 2" : 4
+				"Greta 3" : 9
+				"Greta 4" : 16
+				"Greta 5" : 25
 
-		Operator4: 
+		Viktor: 
 			b: """
 			# + - * / %
 
-			f = (x) -> 0
+			Viktor = (x) -> "LOL!"
 			"""
-			a: "f = (x) -> x*x"
+			a: "Viktor = (x) -> -x"
 			c: 
-				"f 5" : 25
-				"f 6" : 36
+				"3 + 2" : 5
+				"3 - 2" : 1
+				"3 * 2" : 6
+				"6 / 2" : 3
+				"5 % 2" : 1
+				"6 % 2" : 0
+				"Viktor -4" : 4
+				"Viktor 3" : -3
 
-		Operator5: 
+		Sabrina: 
 			b: """
 			# + - * / %
 
-			f = (x) -> 0
+			Sabrina = (x) -> "Zzzz...."
 			"""
-			a: "f = (x) -> -x"
+			a: "Sabrina = (x) -> x-2"
 			c: 
-				"f -4" : 4
-				"f 3" : -3
+				"3 + 2" : 5
+				"3 - 2" : 1
+				"3 * 2" : 6
+				"6 / 2" : 3
+				"5 % 2" : 1
+				"6 % 2" : 0
+				"Sabrina 7" : 5
+				"Sabrina 17" : 15
 
-		Operator6: 
+		David: 
 			b: """
 			# + - * / %
 
-			f = (x) -> 0
+			David = (x) -> "Tillfälligt avbrott"
 			"""
-			a: "f = (x) -> x-2"
+			a: "David = (x) -> x/2"
 			c: 
-				"f 7" : 5
-				"f 17" : 15
+				"3 + 2" : 5
+				"3 - 2" : 1
+				"3 * 2" : 6
+				"6 / 2" : 3
+				"5 % 2" : 1
+				"6 % 2" : 0
+				"David 8" : 4
+				"David 6" : 3
 
-		Operator7: 
+		Gabriella: 
 			b: """
 			# + - * / %
 
-			f = (x) -> 0
+			Gabriella = (x) -> "No connection."		
 			"""
-			a: "f = (x) -> x/2"
+			a: "Gabriella = (x) -> x % 2"
 			c: 
-				"f 8" : 4
-				"f 6" : 3
+				"3 + 2" : 5
+				"3 - 2" : 1
+				"3 * 2" : 6
+				"6 / 2" : 3
+				"5 % 2" : 1
+				"6 % 2" : 0
+				"Gabriella 7" : 1
+				"Gabriella 8" : 0
+				"Gabriella 10" : 0
+				"Gabriella 11" : 1
 
-		Operator8: 
-			b: """
-			# + - * / %
-
-			f = (x) -> 0		
-			"""
-			a: "f = (x) -> x%2"
-			c: 
-				"f 7" : 1
-				"f 8" : 0
-				"f 10" : 0
-				"f 11" : 1
-
-		Operator9: 
+		Beppe: 
 			b: """
 			# == < > !=
 
-			f = (x) -> null			
+			Beppe = (x) -> "Försök igen senare."			
 			"""
-			a: "f = (x) -> x == 2"
+			a: "Beppe = (x) -> x == 2"
 			c:
 				"1 == 1" : true
 				"1 == 2" : false
@@ -150,49 +184,85 @@ data =
 				"1 <= 2" : true
 				"1 >= 1" : true
 				"1 >= 2" : false
-				"f 1" : false
-				"f 2" : true
-				"f 3" : false
-				"f 4" : false
+				"Beppe 1" : false
+				"Beppe 2" : true
+				"Beppe 3" : false
+				"Beppe 4" : false
 
-		Operator10: 
+		Karolina: 
 			b: """
 			# == < > !=
 
-			f = (x) -> null		
+			Karolina = (x) -> "Kommer om en minut"	
 			"""
-			a: "f = (x) -> x > 2"
+			a: "Karolina = (x) -> x > 2"
 			c:
-				"f 1" : false
-				"f 2" : false
-				"f 3" : true
-				"f 4" : true
+				"1 == 1" : true
+				"1 == 2" : false
+				"1 != 1" : false
+				"1 != 2" : true
+				"1 < 1" : false
+				"1 < 2" : true
+				"1 > 1" : false
+				"1 > 2" : false
+				"1 <= 1" : true
+				"1 <= 2" : true
+				"1 >= 1" : true
+				"1 >= 2" : false
+				"Karolina 1" : false
+				"Karolina 2" : false
+				"Karolina 3" : true
+				"Karolina 4" : true
 
-		Operator11: 
+		Kasper: 
 			b: """
 			# == < > !=
 
-			f = (x) -> null		
+			Kasper = (x) -> "Gone fishing"	
 			"""
-			a: "f = (x) -> x > 2"
+			a: "Kasper = (x) -> x > 2"
 			c:
-				"f 1" : false
-				"f 2" : false
-				"f 3" : true
-				"f 4" : true
+				"1 == 1" : true
+				"1 == 2" : false
+				"1 != 1" : false
+				"1 != 2" : true
+				"1 < 1" : false
+				"1 < 2" : true
+				"1 > 1" : false
+				"1 > 2" : false
+				"1 <= 1" : true
+				"1 <= 2" : true
+				"1 >= 1" : true
+				"1 >= 2" : false
+				"Kasper 1" : false
+				"Kasper 2" : false
+				"Kasper 3" : true
+				"Kasper 4" : true
 
-		Operator12: 
+		Miranda: 
 			b: """
 			# == < > !=
 
-			f = (x) -> null	
+			Miranda = (x) -> "Tralala..."
 			"""
-			a: "f = (x) -> x != 2"
+			a: "Miranda = (x) -> x != 2"
 			c:
-				"f 1" : true
-				"f 2" : false
-				"f 3" : true
-				"f 4" : true
+				"1 == 1" : true
+				"1 == 2" : false
+				"1 != 1" : false
+				"1 != 2" : true
+				"1 < 1" : false
+				"1 < 2" : true
+				"1 > 1" : false
+				"1 > 2" : false
+				"1 <= 1" : true
+				"1 <= 2" : true
+				"1 >= 1" : true
+				"1 >= 2" : false
+				"Miranda 1" : true
+				"Miranda 2" : false
+				"Miranda 3" : true
+				"Miranda 4" : true
 
 	"A1: Two Parameters" : 
 	
