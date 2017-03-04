@@ -62,7 +62,7 @@ Ture = (x) -> 0
 			b: """
 			# Någon av dessa löser problemet: + - * / %
 
-			Noel = (x) -> null
+			Noel = (x) -> 0
 			"""
 			a: "Noel = (x) -> 2*x"
 			c: 
@@ -79,7 +79,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / %
 
-			Greta = (x) -> undefined
+			Greta = (x) -> 0
 			"""
 			a: "Greta = (x) -> x*x"
 			c: 
@@ -99,7 +99,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / %
 
-			Viktor = (x) -> "LOL!"
+			Viktor = (x) -> 0
 			"""
 			a: "Viktor = (x) -> -x"
 			c: 
@@ -116,7 +116,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / %
 
-			Sabrina = (x) -> "Zzzz...."
+			Sabrina = (x) -> 0
 			"""
 			a: "Sabrina = (x) -> x-2"
 			c: 
@@ -133,7 +133,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / %
 
-			David = (x) -> "Tillfälligt avbrott"
+			David = (x) -> 0
 			"""
 			a: "David = (x) -> x/2"
 			c: 
@@ -150,7 +150,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / %
 
-			Gabriella = (x) -> "No connection."		
+			Gabriella = (x) -> -1	
 			"""
 			a: "Gabriella = (x) -> x % 2"
 			c: 
@@ -169,7 +169,7 @@ Ture = (x) -> 0
 			b: """
 			# == < > !=
 
-			Beppe = (x) -> "Försök igen senare."			
+			Beppe = (x) -> null		
 			"""
 			a: "Beppe = (x) -> x == 2"
 			c:
@@ -194,7 +194,7 @@ Ture = (x) -> 0
 			b: """
 			# == < > !=
 
-			Karolina = (x) -> "Kommer om en minut"	
+			Karolina = (x) -> null
 			"""
 			a: "Karolina = (x) -> x > 2"
 			c:
@@ -219,7 +219,7 @@ Ture = (x) -> 0
 			b: """
 			# == < > !=
 
-			Kasper = (x) -> "Gone fishing"	
+			Kasper = (x) -> "Gone fishing"
 			"""
 			a: "Kasper = (x) -> x > 2"
 			c:

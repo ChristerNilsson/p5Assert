@@ -50,10 +50,7 @@ tableAppend = (call, expected, actual) ->
 
   cell1.style.backgroundColor = '#FFFF00'
   cell2.style.backgroundColor = '#00FF00'
-  if compare(expected, actual) == 0
-    cell3.style.backgroundColor = '#00FF00'
-  else
-    cell3.style.backgroundColor = '#FF0000'
+  cell3.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
 
 changeLayout = ->
   w = $(window).width()
@@ -128,24 +125,3 @@ runAll = ->
     for call,expectedResult of dict 
       tableAppend call, expectedResult, results[i]
       i += 1
-
-  #print round(millis() - start)    
-
-# runAll = ->
-#   b = myCodeMirror.getValue()
-#   data[chapter][exercise]["b"] = b
-#   tableClear()
-#   dict = data[chapter][exercise]["c"]    
-#   for call,expectedResult of dict 
-#     start = millis()
-#     try
-#       code = transpile b + "\nreturn " + call
-#       try
-#         eval "result = " + code 
-#         result = ""
-#       catch e
-#         result = e.stack.split('\n')[0]
-#     catch e
-#       result = e.name + ": " + e.message
-#     tableAppend call, expectedResult, result
-#     print round(millis() - start), call        
