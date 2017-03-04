@@ -53,12 +53,12 @@ data =
 			"""
 			a: "f = (x) -> x+1"
 			c: 
-				"3+2" : 5
-				"3-2" : 1
-				"3*2" : 6
-				"6/2" : 3
-				"5%2" : 1
-				"6%2" : 0
+				"3 + 2" : 5
+				"3 - 2" : 1
+				"3 * 2" : 6
+				"6 / 2" : 3
+				"5 % 2" : 1
+				"6 % 2" : 0
 				"f 7" : 8
 				"f 8" : 9 
 
@@ -516,10 +516,10 @@ calc = (command) ->
 """
 			c:
 				"'a b c'.split ' '" : ['a','b','c']
-				'1+2' : 3
-				"'1'+'2'" : '12'
-				"1+'2'" : '12'
-				"'1'+2" : '12'
+				'1 + 2' : 3
+				"'1' + '2'" : '12'
+				"1 + '2'" : '12'
+				"'1' + 2" : '12'
 				"parseInt '3'" : 3
 				"parseFloat '3.14'" : 3.14
 				"calc '2'" : 2
@@ -1203,7 +1203,7 @@ g = (djur, art) -> djur.filter (d) -> d.art == art
 
 """
 			c:  
-				"[1,-2,0,3,-4].filter (x) -> x > 0" : [1,3]
+				"[1, -2, 0, 3, -4].filter (x) -> x > 0" : [1,3]
 				"g djur,'hund'" : [{namn:'Karo',art:'hund'},{namn:'Rocky',art:'hund'}]
 				"g djur,'fisk'" : [{namn:'Albert',art:'fisk'},{namn:'Herbert',art:'fisk'}]
 				"g djur,'kanin'" : [{namn:'Fluffy',art:'kanin'}]
@@ -1273,8 +1273,8 @@ sortera = (djur,f) -> []
 sortera = (djur,f) -> _.sortBy djur, f
 			"""
 			c:  
-				"_.sortBy ['one', 'two', 'three','four'], 'length'" : ["one", "two","four","three"]
-				"sortera djur,(d)->d.length" : ["Karo","Rocky","Fluffy","Albert","Trixie","Herbert"]
+				"_.sortBy ['one', 'two', 'three', 'four'], 'length'" : ["one", "two","four","three"]
+				"sortera djur, (d) -> d.length" : ["Karo","Rocky","Fluffy","Albert","Trixie","Herbert"]
 				"sortera djur" : ["Albert","Fluffy","Herbert","Karo","Rocky","Trixie"]
 
 		groupBy: 
@@ -1290,8 +1290,8 @@ gruppera = (djur,f) -> _.groupBy djur, f
 """
 			c:  
 				"_.groupBy ['one', 'two', 'three'], 'length'" : {3: ["one", "two"], 5: ["three"]}
-				"gruppera djur,(d) -> d.length" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
-				"gruppera djur,(d) -> _.last(d)" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
+				"gruppera djur, (d) -> d.length" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
+				"gruppera djur, (d) -> _.last(d)" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
 
 		split: 
 			b: """
@@ -1350,20 +1350,20 @@ calc = (hand) ->
 				'_.groupBy ["per", "anna", "karl"], "length"' : {"3":["per"],"4":["anna","karl"]}
 				'_.unzip [["moe", 30, true], ["larry", 40, false]]' : [['moe', 'larry'], [30, 40], [true, false]]
 				'_.uniq [5,4,1,2,1,9]' : [5,4,1,2,9]
-				"poker 'kl8 ruA ru8 klA kl9','ru7 sp2 ru5 sp3 klA'": -1
-				"poker 'kl8 spT klK hj9 sp4','ru7 sp2 ru5 sp3 klA'": 1
-				"poker 'kl8 ruA ru8 klA kl9','kl8 ruA ru8 klA klT'": 1
-				"poker 'kl8 ruA ru8 klA kl9','kl8 ruA ru8 klA kl7'": -1
-				"poker 'kl8 ruA ru8 klA kl9','klT ruA ruT klA kl9'": 1
-				"poker 'spA sp2 sp3 sp4 sp5','ruA ru2 ru3 ru4 ru5'": 0
-				"poker 'spA hjA ruA klA sp5','ruA ru2 ru3 ru4 ru5'": 1
-				"poker 'ru7 sp7 hj7 kl7 spJ','ru6 sp5 hj6 kl6 spQ'": -1
-				"poker 'ru8 sp8 hj8 kl9 sp9','ru6 sp6 hj6 ru9 hj9'": -1
-				"poker 'ru7 ru3 ru5 ru9 ruK','hj7 hj3 hj5 hj9 hjK'": 0
-				"poker 'ru7 ru3 ru5 ru9 ruK','hj7 hj3 hj5 hj9 hjK'": 0
-				"poker 'ru7 ru3 ru5 ru9 ruK','hj7 hj3 hj5 hj9 hjK'": 0
-				"poker 'ru7 hj8 ru9 hj5 ru6','hj7 ru8 kl9 hjT sp6'": 1
-				"poker 'ru7 hj8 ru8 kl8 ruJ','kl7 hj9 ru9 kl9 ruQ'": 1
-				"poker 'ru7 hj7 ru8 kl8 ruJ','sp7 kl7 sp8 hj8 ruT'": -1
-				"poker 'hj7 kl3 sp3 kl4 hjA','sp7 hj3 ru3 klK spA'": 1
-				"poker 'sp7 hj3 ru2 kl4 spA','hj7 ru3 ru5 sp4 hjA'": 1
+				"poker 'kl8 ruA ru8 klA kl9', 'ru7 sp2 ru5 sp3 klA'": -1
+				"poker 'kl8 spT klK hj9 sp4', 'ru7 sp2 ru5 sp3 klA'": 1
+				"poker 'kl8 ruA ru8 klA kl9', 'kl8 ruA ru8 klA klT'": 1
+				"poker 'kl8 ruA ru8 klA kl9', 'kl8 ruA ru8 klA kl7'": -1
+				"poker 'kl8 ruA ru8 klA kl9', 'klT ruA ruT klA kl9'": 1
+				"poker 'spA sp2 sp3 sp4 sp5', 'ruA ru2 ru3 ru4 ru5'": 0
+				"poker 'spA hjA ruA klA sp5', 'ruA ru2 ru3 ru4 ru5'": 1
+				"poker 'ru7 sp7 hj7 kl7 spJ', 'ru6 sp5 hj6 kl6 spQ'": -1
+				"poker 'ru8 sp8 hj8 kl9 sp9', 'ru6 sp6 hj6 ru9 hj9'": -1
+				"poker 'ru7 ru3 ru5 ru9 ruK', 'hj7 hj3 hj5 hj9 hjK'": 0
+				"poker 'ru7 ru3 ru5 ru9 ruK', 'hj7 hj3 hj5 hj9 hjK'": 0
+				"poker 'ru7 ru3 ru5 ru9 ruK', 'hj7 hj3 hj5 hj9 hjK'": 0
+				"poker 'ru7 hj8 ru9 hj5 ru6', 'hj7 ru8 kl9 hjT sp6'": 1
+				"poker 'ru7 hj8 ru8 kl8 ruJ', 'kl7 hj9 ru9 kl9 ruQ'": 1
+				"poker 'ru7 hj7 ru8 kl8 ruJ', 'sp7 kl7 sp8 hj8 ruT'": -1
+				"poker 'hj7 kl3 sp3 kl4 hjA', 'sp7 hj3 ru3 klK spA'": 1
+				"poker 'sp7 hj3 ru2 kl4 spA', 'hj7 ru3 ru5 sp4 hjA'": 1
