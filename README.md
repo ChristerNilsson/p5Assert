@@ -6,9 +6,10 @@
  - [Javascript](https://www.w3schools.com/js)
  - [Underscore](http://underscorejs.org)
  - [p5Dojo](https://christernilsson.github.io/p5Dojo) 
+ - [Nilsson](https://github.com/ChristerNilsson/Nilsson/blob/master/README.md)
 
 p5Assert är en sida där man tränar på programmering.
-Uppgifter är enkla i början och blir svårare efterhand. 
+Uppgifterna är enkla i början och blir svårare efterhand. 
 
 ## Så här går det till
 
