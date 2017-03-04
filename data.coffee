@@ -20,25 +20,26 @@ data =
 	"A0: One Parameter" : 
 		Ture :  
 			b: """
-# Maskin Ture är trasig! Du måste laga Ture!
+# Maskinen Ture är trasig! Ture är ledsen. Du måste laga Ture!
+# Just nu skickar Ture alltid ut nollor. Här är felet!
 # Skickar man in en tvåa till Ture ska en tvåa komma ut.
 # Namnet på det man skickar in till Ture står mellan parenteserna. Namnet är x.  
 # x kan vara olika saker. Till exempel en tvåa eller en trea.
 # Efter pilen talar man om vad som ska komma ut från Ture. 
-# Just nu skickar Ture alltid ut nolla. Här är felet!
 #   Den gula kolumnen innehåller det som skickas in till Ture.
 #   Den gröna kolumnen innehåller det som ska komma ut ur Ture.
 #   Den röda kolumnen innehåller det som kommer ut ur Ture. 
 # Se till att göra de RÖDA cellerna GRÖNA!
-# Tryck nu på PgDn för komma till rätt plats!
-#   Ändra nollan till en tvåa. Nu blir bara den första RÖDA cellen GRÖN.
-#   Ändra tvåan till en trea.  Nu blir bara den andra RÖDA cellen GRÖN.
-#   Ändra trean till ett x.    Nu blir båda de RÖDA cellerna GRÖNA!
+# Tryck nu på PgDn och gör Ture glad igen!
+#   Ändra nollan till en tvåa. Nu skickas bara tvåor ut.
+#   Ändra tvåan till en trea.  Nu skickas bara treor ut.
+#   Ändra trean till ett x.    Nu blir alla de RÖDA cellerna GRÖNA!
 # Gå till nästa uppgift genom att klicka på Operator2 i listan till vänster.
 Ture = (x) -> 0
 """
 			a: "Ture = (x) -> x"
 			c: 
+				"Ture 0" : 0
 				"Ture 2" : 2
 				"Ture 3" : 3 
 
