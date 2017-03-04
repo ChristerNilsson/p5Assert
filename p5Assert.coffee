@@ -4,8 +4,16 @@ sel2 = 0
 table = 0
 chapter = ""
 exercise = ""
+msg = null
 
 pp = (obj) -> (JSON.stringify obj).replace /"/g, ''
+
+setMsg = (txt) ->
+  msg.val txt
+  if txt == ''
+    msg.css 'background-color' , '#FFFFFF'
+  else
+    msg.css 'background-color' , '#FF0000'
 
 fillSelect = (sel, dict) ->
   sel.empty()
@@ -46,7 +54,8 @@ tableAppend = (call, expected, actual) ->
 
 changeLayout = ->
   w = $(window).width()
-  $(".CodeMirror").width(w-215)
+  $(".CodeMirror").width(w-215-15)
+  $("#msg").width w-220-15
 
 resizeTimer=0
 $(window).resize () ->
@@ -54,6 +63,7 @@ $(window).resize () ->
   resizeTimer = setTimeout(changeLayout, 10)
 
 setup = ->
+  msg = $('#msg')
   sel1 = $('#sel1')
   sel2 = $('#sel2')
   table = $('#tabell')
@@ -74,7 +84,7 @@ window.onload = ->
   $(".CodeMirror").css 'font-size',"16pt"
   myCodeMirror.on "change", runAll
 
-  help = createA('https://github.com/ChristerNilsson/p5Assert/blob/master/README.md', 'help', '_blank')
+  help = createA('https://github.com/ChristerNilsson/p5Assert/blob/master/README.md', 'Help', '_blank')
   #help = createA 'https://christernilsson.github.io/p5Assert/README.md', 'help', '_blank'
 
   help.position 10,430
@@ -89,17 +99,50 @@ window.onload = ->
   changeLayout()
 
 runAll = ->
+  #start = millis()
   b = myCodeMirror.getValue()
   data[chapter][exercise]["b"] = b
   tableClear()
   dict = data[chapter][exercise]["c"]    
+ 
+  calls = []
   for call,expectedResult of dict 
+    calls.push "(" + call + ")"
+
+  error = ""
+  try
+    code = transpile b + "\nreturn [" + calls + "]"
     try
-      code = transpile b + "\nreturn " + call
-      try
-        eval "result = " + code 
-      catch e
-        result = e.stack.split('\n')[0]
+      eval "results = " + code 
     catch e
-      result = e.name + ": " + e.message
-    tableAppend call, expectedResult, result
+      error = e.stack.split('\n')[0]
+  catch e
+    error = e.name + ": " + e.message
+
+  setMsg error
+  if error == ""
+    i=0
+    for call,expectedResult of dict 
+      tableAppend call, expectedResult, results[i]
+      i += 1
+
+  #print round(millis() - start)    
+
+# runAll = ->
+#   b = myCodeMirror.getValue()
+#   data[chapter][exercise]["b"] = b
+#   tableClear()
+#   dict = data[chapter][exercise]["c"]    
+#   for call,expectedResult of dict 
+#     start = millis()
+#     try
+#       code = transpile b + "\nreturn " + call
+#       try
+#         eval "result = " + code 
+#         result = ""
+#       catch e
+#         result = e.stack.split('\n')[0]
+#     catch e
+#       result = e.name + ": " + e.message
+#     tableAppend call, expectedResult, result
+#     print round(millis() - start), call        

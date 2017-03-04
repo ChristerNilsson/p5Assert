@@ -296,7 +296,7 @@ data =
 
 		range:
 			b:"""
-# LOC:3 range
+# LOC:3 range []
 
 f = (n) -> []
 g = (a,b) -> []
@@ -322,7 +322,7 @@ g = (a,b,n) -> range a,b,n
 
 		"lerp":
 			b:"""
-# LOC:1 lerp
+# LOC:1 lerp + - * /
 # Försök lösa uppgiften både med och utan lerp
 
 f = (a,b,i) -> 0
@@ -344,7 +344,7 @@ f = (a,b,i) -> lerp a,b,i
 
 		"for":
 			b:"""
-# LOC:1 for in range lerp
+# LOC:1 for in range lerp []
 # Försök lösa uppgiften både med och utan lerp
 
 f = (a,b,n) -> []
@@ -365,7 +365,7 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 
 		Introduktion:
 			b:"""
-# LOC:16 if < then else
+# LOC:16 if < then else []
 # Sortera UTAN att använda loopar
 # Sortera UTAN att använda någon färdig sorteringsrutin
 
@@ -575,7 +575,7 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 
 		Introduktion:
 			b:"""
-# LOC:8 length [] .. + indexOf split join for in
+# LOC:8 length [] .. + "" indexOf split join for in
 # LOC betyder Lines Of Code, dvs antal kodrader.
 # Åtta kodrader är lagom för detta problem.
 # Färre innebär sämre läsbarhet.
@@ -618,7 +618,7 @@ dubbla = (s) -> hopslagning (tecken + tecken for tecken in s)
 
 		Palindrom :
 			b : """
-			# LOC:1 join reverse split
+			# LOC:1 join reverse split ""
 			# Ett palindrom blir samma ord om man vänder på det.
 			# Ordet palindrom är inte ett palindrom.
 
@@ -705,7 +705,7 @@ rs = (word,extra='o') -> ((if letter in 'aeiouy åäö' then letter else letter 
 
 		Hour2Degree:  
 			b: """
-			# LOC:1 map
+			# LOC:1 map + - * / %
 
 			h2d = (x) -> 0
 			"""
@@ -727,7 +727,7 @@ rs = (word,extra='o') -> ((if letter in 'aeiouy åäö' then letter else letter 
 
 		Hour2Radian:  
 			b: """
-			# LOC:1 map
+			# LOC:1 map + - * / % Math.PI
 
 			h2r = (x) -> 0
 			"""
@@ -1314,7 +1314,7 @@ parametrar = (url) -> _.object(f.split '=' for f in url.split('?')[1].split('&')
 
 		PokerHand :
 			b: """
-# LOC:10 nilsson: compare bsort underscore: _.groupBy _.unzip _.uniq
+# LOC:10 nilsson: compare bsort underscore: _.size _.groupBy _.unzip _.uniq "" [] {}
 # javascript: for in if then else substring length parseInt split indexOf
 
 # https://sv.wikipedia.org/wiki/Pokerhand
@@ -1326,28 +1326,31 @@ poker = (a,b) -> -2
 poker = (a,b) -> compare calc(a.split(" ")), calc(b.split(" "))
 calc = (hand) ->
 	groups = _.groupBy('  23456789TJQKA'.indexOf(card[2]) for card in hand)
-	[score, ranks] = _.unzip reverse bsort ([cnt.length, parseInt(rank)] for rank, cnt of groups), compare 
+	[score, ranks] = _.unzip reverse bsort ([cnt.length, parseInt(rank)] for rank, cnt of groups) 
 	if score.length == 5
 		if compare(ranks, [14,5,4,3,2])==0 then ranks = [5,4,3,2,1]
 		straight = if ranks[0] - ranks[4] == 4 then 1 else 0
 		flush = if _.size(_.uniq(suit.substring(0,2) for suit in hand)) == 1 then 1 else 0 
-		score = [[1, [3,1,1,1]], [[3,1,1,2], [5]]][flush][straight]
-	[score, ranks]
+		score = [[[1], [3,1,1,1]], [[3,1,1,2], [5]]][flush][straight]
+	[score, ranks] 
 """
 			c: 
 				'[1,2,3] == [1,2,3]' : false
 				'2 < 11' : true
+				'"2" < "11"' : false
 				'[2] < [11]' : false
-				'compare [11], [2]' : -1
-				'compare [1,2,3], [1,2,3]' : 0
+				'["2"] < ["11"]' : false
 				'compare [2], [11]' : 1
+				'compare [1,2,3], [1,2,3]' : 0
+				'compare [11], [2]' : -1
 				'bsort [47,12,25]' : [12,25,47]
 				'bsort [[11,13],[11,12],[2,2]]' : [[2,2],[11,12],[11,13]]
 				'bsort [[11,13],[11,12],[2,2]], (a,b) -> compare b,a' : [[11,13],[11,12],[2,2]]
-				'bsort ["per", "anna", "bo"], compare' : ["anna","bo","per"]
+				'bsort ["per", "anna", "bo"]' : ["anna","bo","per"]
 				'_.groupBy ["per", "anna", "karl"], "length"' : {"3":["per"],"4":["anna","karl"]}
 				'_.unzip [["moe", 30, true], ["larry", 40, false]]' : [['moe', 'larry'], [30, 40], [true, false]]
 				'_.uniq [5,4,1,2,1,9]' : [5,4,1,2,9]
+				"poker 'kl8 ruA ru8 klA kl9','ru7 sp2 ru5 sp3 klA'": -1
 				"poker 'kl8 spT klK hj9 sp4','ru7 sp2 ru5 sp3 klA'": 1
 				"poker 'kl8 ruA ru8 klA kl9','kl8 ruA ru8 klA klT'": 1
 				"poker 'kl8 ruA ru8 klA kl9','kl8 ruA ru8 klA kl7'": -1
