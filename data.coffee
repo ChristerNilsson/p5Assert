@@ -10,8 +10,8 @@ data =
 # NYHETER 2017-03-01
 #   A3: Listor, Växelcykel, Kalkylator
 #   A5: Palindrom, Rövarspråk
-#   A7: Bignum, Pokerhand
-#   A8: List recursion
+#   A7: Bignum, Simplex, Complex
+#   A8: List recursion, Pokerhand
 
 # Klicka nu på A0!
 """
@@ -1002,108 +1002,6 @@ class Complex
 				"new Complex(1,2).add(new Complex(1,-1)).to_s()" : "2+i"
 				"new Complex(1,2).mul(new Complex(1,-1)).to_s()" : "3+i"
 
-		PokerHand :
-			b: """
-# LOC:41 class constructor new _.sortBy _.flatten _.isEqual _.without  
-#        split for in range indexOf push unshift reverse and not if then keys length
-
-# https://sv.wikipedia.org/wiki/Pokerhand
-
-# 9	Färgstege (straight flush)
-# 8	Fyrtal (four of a kind)
-# 7	Kåk (full house)
-# 6	Färg (flush)
-# 5	Stege (straight)
-# 4	Triss (three of a kind)
-# 3	Två par (two pairs)
-# 2	Par (pair)
-# 1	Högt kort (high card)
-
-# Ingen färg är bättre än någon annan färg. Vissa händer är värda lika mycket.
-
-class Hand
-	constructor : (s) -> @separator = []
-	compare : (other) -> -2
-
-"""
-			a: """
-class Hand
-	constructor : (s) ->
-		@colorcount = {} 
-		@valuecount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-		@value = []
-		@separator = []
-		for card in s.split " "
-			@colorcount[card[0..1]] = true
-			iValue = "  23456789TJQKA".indexOf card[2]
-			@valuecount[iValue] += 1	
-			@value.push iValue	
-		for v,i in @valuecount 
-			if v > 0 then @separator.push [v,i]
-		@valuecount = @sortera _.without @valuecount, 0 
-		@value = @sortera @value
-		@separator = _.sortBy @separator, (list) -> -1000*list[0]-list[1] # pga att js sorterar listor alfabetiskt. t ex [11] < [2].
-		@separator = _.flatten @separator
-
-		# Specialbehandling av A5432 eftersom esset räknas som 14.
-		if _.isEqual @separator,[1, 14, 1, 5, 1, 4, 1, 3, 1,  2]
-			@separator =          [1,  5, 1, 4, 1, 3, 1, 2, 1, 14]
-		@separator.unshift @calc()
-
-	compare : (other) -> 
-		for i in range @separator.length
-			if @separator[i] > other.separator[i] then return -1
-			if @separator[i] < other.separator[i] then return 1
-		0	
-
-	calc : ->
-		if @stege() and @flush() then return 9
-		if _.isEqual(@valuecount,[1,4]) then return 8
-		if _.isEqual(@valuecount,[2,3]) then return 7
-		if @flush() then return 6
-		if @stege() then return 5
-		if _.isEqual(@valuecount,[1,1,3]) then return 4
-		if _.isEqual(@valuecount,[1,2,2]) then return 3
-		if _.isEqual(@valuecount,[1,1,1,2]) then return 2
-		1
-
-	sortera : (arr) -> _.sortBy arr 
-	flush : -> Object.keys(@colorcount).length==1
-	stege : ->
-		if not _.isEqual(@valuecount, [1,1,1,1,1]) then return false
-		if @value[0] + 4 == @value[4] then return true
-		_.isEqual @value, [2,3,4,5,14]
-
-"""
-			c:
-				'[1,2,3] == [1,2,3]' : false
-				'_.isEqual [1,2,3], [1,2,3]' : true
-				'_.isEqual [1,2,3], [1,2,4]' : false
-				'_.flatten [1,[2,1],3]' : [1,2,1,3]
-				'_.without [1,2,1,3], 1' : [2,3]
-				'_.sortBy ["per", "anna", "bo"]' : ["anna","bo","per"]
-				'_.sortBy ["per", "anna", "bo"], (w) -> w.length' : ["bo","per","anna"]
-
-				'(new Hand "spA sp2 sp3 sp4 sp5").separator': [9,1,5,1,4,1,3,1,2,1,14] 
-				'(new Hand "ru7 sp7 hj7 kl7 spJ").separator': [8,4,7,1,11]
-				'(new Hand "ru8 sp8 hj8 kl9 sp9").separator': [7,3,8,2,9]
-				'(new Hand "ru7 ru3 ru5 ru9 ruK").separator': [6,1,13,1,9,1,7,1,5,1,3]
-				'(new Hand "ru7 hj8 ru9 hj5 ru6").separator': [5,1,9,1,8,1,7,1,6,1,5]
-				'(new Hand "ru7 hj8 ru8 kl8 ruJ").separator': [4,3,8,1,11,1,7]
-				'(new Hand "ru7 hj7 ru8 kl8 ruJ").separator': [3,2,8,2,7,1,11]
-				'(new Hand "sp7 hj3 ru3 kl4 spA").separator': [2,2,3,1,14,1,7,1,4]
-				'(new Hand "sp7 hj3 ru2 kl4 spA").separator': [1,1,14,1,7,1,4,1,3,1,2]
-
-				'(new Hand "spA sp2 sp3 sp4 sp5").compare new Hand "ruA ru2 ru3 ru4 ru5"': 0
-				'(new Hand "ru7 sp7 hj7 kl7 spJ").compare new Hand "ru6 sp5 hj6 kl6 spQ"': -1
-				'(new Hand "ru8 sp8 hj8 kl9 sp9").compare new Hand "ru6 sp6 hj6 ru9 hj9"': -1
-				'(new Hand "ru7 ru3 ru5 ru9 ruK").compare new Hand "hj7 hj3 hj5 hj9 hjK"': 0
-				'(new Hand "ru7 hj8 ru9 hj5 ru6").compare new Hand "hj7 ru8 kl9 hjT sp6"': 1
-				'(new Hand "ru7 hj8 ru8 kl8 ruJ").compare new Hand "kl7 hj9 ru9 kl9 ruQ"': 1
-				'(new Hand "ru7 hj7 ru8 kl8 ruJ").compare new Hand "sp7 kl7 sp8 hj8 ruT"': -1
-				'(new Hand "hj7 kl3 sp3 kl4 hjA").compare new Hand "sp7 hj3 ru3 klK spA"': 1
-				'(new Hand "sp7 hj3 ru2 kl4 spA").compare new Hand "hj7 ru3 ru5 sp4 hjA"': 1
-
 		Polynom :
 			b: """
 # LOC:52 class constructor new [] @ or for in range length ** push reverse join #{}
@@ -1413,3 +1311,56 @@ parametrar = (url) -> _.object(f.split '=' for f in url.split('?')[1].split('&')
 				"parametrar 'aftonbladet.se?article=123456&date=2016-12-01'" : {article:'123456', date:'2016-12-01'}
 				"parametrar 'expressen.se?city=Stockholm'" : {city : 'Stockholm'}
 				"parametrar 'http://stackoverflow.com/search?q=coffeescript'" : {q : 'coffeescript'}
+
+		PokerHand :
+			b: """
+# LOC:10 nilsson: compare bsort underscore: _.groupBy _.unzip _.uniq
+# javascript: for in if then else substring length parseInt split indexOf
+
+# https://sv.wikipedia.org/wiki/Pokerhand
+
+poker = (a,b) -> -2
+
+"""
+			a: """
+poker = (a,b) -> compare calc(a.split(" ")), calc(b.split(" "))
+calc = (hand) ->
+	groups = _.groupBy('  23456789TJQKA'.indexOf(card[2]) for card in hand)
+	[score, ranks] = _.unzip reverse bsort ([cnt.length, parseInt(rank)] for rank, cnt of groups), compare 
+	if score.length == 5
+		if compare(ranks, [14,5,4,3,2])==0 then ranks = [5,4,3,2,1]
+		straight = if ranks[0] - ranks[4] == 4 then 1 else 0
+		flush = if _.size(_.uniq(suit.substring(0,2) for suit in hand)) == 1 then 1 else 0 
+		score = [[1, [3,1,1,1]], [[3,1,1,2], [5]]][flush][straight]
+	[score, ranks]
+"""
+			c: 
+				'[1,2,3] == [1,2,3]' : false
+				'2 < 11' : true
+				'[2] < [11]' : false
+				'compare [11], [2]' : -1
+				'compare [1,2,3], [1,2,3]' : 0
+				'compare [2], [11]' : 1
+				'bsort [47,12,25]' : [12,25,47]
+				'bsort [[11,13],[11,12],[2,2]]' : [[2,2],[11,12],[11,13]]
+				'bsort [[11,13],[11,12],[2,2]], (a,b) -> compare b,a' : [[11,13],[11,12],[2,2]]
+				'bsort ["per", "anna", "bo"], compare' : ["anna","bo","per"]
+				'_.groupBy ["per", "anna", "karl"], "length"' : {"3":["per"],"4":["anna","karl"]}
+				'_.unzip [["moe", 30, true], ["larry", 40, false]]' : [['moe', 'larry'], [30, 40], [true, false]]
+				'_.uniq [5,4,1,2,1,9]' : [5,4,1,2,9]
+				"poker 'kl8 spT klK hj9 sp4','ru7 sp2 ru5 sp3 klA'": 1
+				"poker 'kl8 ruA ru8 klA kl9','kl8 ruA ru8 klA klT'": 1
+				"poker 'kl8 ruA ru8 klA kl9','kl8 ruA ru8 klA kl7'": -1
+				"poker 'kl8 ruA ru8 klA kl9','klT ruA ruT klA kl9'": 1
+				"poker 'spA sp2 sp3 sp4 sp5','ruA ru2 ru3 ru4 ru5'": 0
+				"poker 'spA hjA ruA klA sp5','ruA ru2 ru3 ru4 ru5'": 1
+				"poker 'ru7 sp7 hj7 kl7 spJ','ru6 sp5 hj6 kl6 spQ'": -1
+				"poker 'ru8 sp8 hj8 kl9 sp9','ru6 sp6 hj6 ru9 hj9'": -1
+				"poker 'ru7 ru3 ru5 ru9 ruK','hj7 hj3 hj5 hj9 hjK'": 0
+				"poker 'ru7 ru3 ru5 ru9 ruK','hj7 hj3 hj5 hj9 hjK'": 0
+				"poker 'ru7 ru3 ru5 ru9 ruK','hj7 hj3 hj5 hj9 hjK'": 0
+				"poker 'ru7 hj8 ru9 hj5 ru6','hj7 ru8 kl9 hjT sp6'": 1
+				"poker 'ru7 hj8 ru8 kl8 ruJ','kl7 hj9 ru9 kl9 ruQ'": 1
+				"poker 'ru7 hj7 ru8 kl8 ruJ','sp7 kl7 sp8 hj8 ruT'": -1
+				"poker 'hj7 kl3 sp3 kl4 hjA','sp7 hj3 ru3 klK spA'": 1
+				"poker 'sp7 hj3 ru2 kl4 spA','hj7 ru3 ru5 sp4 hjA'": 1
