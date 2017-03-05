@@ -453,6 +453,51 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 
 		Introduktion:
 			b:"""
+# LOC:6 length concat .. []
+
+antal = (a) -> 0
+fetch = (a,i) -> 0 
+konkatenera = (a,b) -> [] 
+första = (a,n) -> []
+mitti = (a,i,j) -> []
+sista = (a,n) -> []
+"""
+			a:"""
+antal = (a) -> a.length
+fetch = (a,i) -> a[i]
+konkatenera = (a,b) -> a.concat b
+första = (a,n) -> a[..n-1]
+mitti = (a,i,j) -> a[i..j]
+sista = (a,n) -> a[-n..]
+"""
+			c:
+				"antal [1,2,3]" : 3
+				"antal [5,4,1,2,9,3,7]" : 7
+				"fetch [4,5,6],0" : 4
+				"fetch [4,5,6],2" : 6
+				"konkatenera [1,2,3],[4,5,6]" : [1,2,3,4,5,6]
+				"första [11,12,13,14,15],3" : [11,12,13]
+				"mitti [11,12,13,14,15],1,2" : [12,13]
+				"sista [11,12,13,14,15],4" : [12,13,14,15]
+			d:
+				"[2,11,3,56,62][0]" : 2
+				"_.first [2,11,3,56,62]" : 2
+				"_.last [2,11,3,56,62]" : 62
+				"[2,11,3,56,62][3]" : 56
+				"[2,11,3,56,62].length" : 5
+				"[2,11,3,56,62][2]" : 3
+				"[2,11,3,56,62][..2]" : [2,11,3]
+				"[2,11,3,56,62][1..]" : [11,3,56,62]
+				"[2,11,3,56,62][1..2]" : [11,3]
+				"_.min [2,11,3,56,62]" : 2
+				"_.max [2,11,3,56,62]" : 62
+				"_.contains [2,11,3,56,62], 3" : true
+				"[2,11,3,56,62].indexOf 62" : 4
+				"[2,11,3,56,62].reverse()" : [62,56,3,11,2]
+				"[1,2].concat [3,4]" : [1,2,3,4]
+
+		Sort:
+			b:"""
 # LOC:16 if < then else []
 # Sortera UTAN att använda loopar
 # Sortera UTAN att använda någon färdig sorteringsrutin
@@ -529,63 +574,37 @@ sort5 = (a,b,c,d,e) ->
 			d:
 				"if 11 < 2 then [11,2] else [2,11]" : [2,11]
 
-		Listor :
-			b:"""
-# LOC:11 length push concat pop sort .. []
-
-antal = (a) -> 0
-fetch = (a,i) -> 0 
-konkatenera = (a,b) -> [] 
-sortera = (a) -> []
-första = (a,n) -> []
-mitti = (a,i,j) -> []
-sista = (a,n) -> []
-"""
-			a:"""
-antal = (a) -> a.length
-fetch = (a,i) -> a[i]
-konkatenera = (a,b) -> a.concat b
-sortera = (a) -> a.sort()
-första = (a,n) -> a[..n-1]
-mitti = (a,i,j) -> a[i..j]
-sista = (a,n) -> a[-n..]
-"""
-			c:
-				"antal [1,2,3]" : 3
-				"antal [5,4,1,2,9,3,7]" : 7
-				"fetch [4,5,6],0" : 4
-				"fetch [4,5,6],2" : 6
-				"konkatenera [1,2,3],[4,5,6]" : [1,2,3,4,5,6]
-				"sortera [5,4,1,2,9,3,7]" : [1,2,3,4,5,7,9]
-				"första [11,12,13,14,15],3" : [11,12,13]
-				"mitti [11,12,13,14,15],1,2" : [12,13]
-				"sista [11,12,13,14,15],4" : [12,13,14,15]
-			d:
-				"[1,2].concat [3,4]" : [1,2,3,4]
-				"[2,3,4,5].length" : 4
-				"[11,22,33,44][2]" : 33
-				"[11,22,33,44][..2]" : [11,22,33]
-				"[11,22,33,44][1..]" : [22,33,44]
-				"[11,22,33,44][1..2]" : [22,33]
-				"[4,2,3,1].sort()" : [1,2,3,4]
-				"[4,2,3,1].sort().reverse()" : [4,3,2,1]
 
 		Växelcykel :
 			b: """
-# LOC:4 [] for in push sort - /
-# Din växelcykel har stora och små kugghjul. I vilken i ordning ligger växlarna? 
+# LOC:5 [] for in push bsort - /
+# Din växelcykel har stora och små kugghjul. I vilken ordning ligger växlarna? 
 
-gear = (big, small) -> []
+gear = (big, small, index) -> []
 """
 			a: """
-gear = (big, small) ->
+gear = (big, small, index) ->
 	res = []
 	res.push [Math.round(b/s * 100)/100,b,s] for s in small for b in big
-	res.sort() 
+	bsort res
+	res[index]
+
 """	
 			c:	
-				"gear [43,53], [13,21]" : [[2.05,43,21],[2.52,53,21],[3.31,43,13],[4.08,53,13]]
-				"gear [43,53], [13,15,17,19,21]" : [[2.05,43,21],[2.26,43,19],[2.52,53,21],[2.53,43,17],[2.79,53,19],[2.87,43,15],[3.12,53,17],[3.31,43,13],[3.53,53,15],[4.08,53,13]]
+				"gear [43,53], [13,21], 0" : [2.05,43,21]
+				"gear [43,53], [13,21], 1" : [2.52,53,21]
+				"gear [43,53], [13,21], 2" : [3.31,43,13]
+				"gear [43,53], [13,21], 3" : [4.08,53,13]
+				"gear [43,53], [13,15,17,19,21], 0" : [2.05,43,21]
+				"gear [43,53], [13,15,17,19,21], 1" : [2.26,43,19]
+				"gear [43,53], [13,15,17,19,21], 2" : [2.52,53,21]
+				"gear [43,53], [13,15,17,19,21], 3" : [2.53,43,17]
+				"gear [43,53], [13,15,17,19,21], 4" : [2.79,53,19]
+				"gear [43,53], [13,15,17,19,21], 5" : [2.87,43,15]
+				"gear [43,53], [13,15,17,19,21], 6" : [3.12,53,17]
+				"gear [43,53], [13,15,17,19,21], 7" : [3.31,43,13]
+				"gear [43,53], [13,15,17,19,21], 8" : [3.53,53,15]
+				"gear [43,53], [13,15,17,19,21], 9" : [4.08,53,13]
 			d:
 				"Math.round 3.1415" : 3
 				"Math.round(3.1415 * 10)/10" : 3.1
@@ -628,7 +647,9 @@ calc = (command) ->
 girls = [{name: 'Sabrina', age: 12}, {name: 'Helene', age: 10}, {name: 'Anna', age: 11}]
 boys = [{name: 'David', age: 10}, {name: 'Henry', age: 11}, {name: 'Noel', age: 14}, {name: 'Numa', age: 3}]
 
-names = (kids) -> kid.name for kid in kids
+girl = girls[0]
+
+names = (kids) -> []
 ages = (kids) -> []
 sum = (numbers) -> 0
 antal = (numbers) -> 0
@@ -662,16 +683,23 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"antal boys" : 4
 				"avg ages girls" : 11
 				"avg ages boys" : 9.5
+			d:
+				"girl" : {name: 'Sabrina', age: 12}
+				"girl['name']" : "Sabrina"
+				"girl.name" : "Sabrina"
+				"girl['age']" : 12
+				"girl.age" : 12
+				"girls.length" : 3
+				"_.size girl" : 2
+				"_.keys girl" : ['name','age']
+				"_.values girl" : ['Sabrina',12]
+				"_.pairs girl" : [['name', 'Sabrina'], ['age', 12]]
 
 	'A5: " "' :
 
 		Introduktion:
 			b:"""
 # LOC:8 length [] .. + "" indexOf split join for in
-# LOC betyder Lines Of Code, dvs antal kodrader.
-# Åtta kodrader är lagom för detta problem.
-# Färre innebär sämre läsbarhet.
-# Har du fler bör du fundera på en kortare lösning.
 
 antal = (s) -> 0
 tecken = (s,i) -> ""
@@ -846,6 +874,10 @@ rs = (word,extra='o') -> ((if letter in 'aeiouy åäö' then letter else letter 
 			b : """
 # LOC:8 class constructor new @ [] for in length + /
 # Innan du löser denna uppgift: Be att få se Bouncing Balls!
+# LOC betyder Lines Of Code, dvs antal kodrader.
+# Åtta kodrader är lagom för detta problem.
+# Färre innebär sämre läsbarhet.
+# Har du fler bör du fundera på en kortare lösning.
 
 class Kid
 	constructor : (name,age) ->
