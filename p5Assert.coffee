@@ -1,7 +1,6 @@
-myCodeMirror = 0
-sel1 = 0
-sel2 = 0
-table = 0
+myCodeMirror = null
+sel1 = null
+sel2 = null
 chapter = ""
 exercise = ""
 msg = null
@@ -33,8 +32,8 @@ sel2change = (sel) ->
   runAll()
   myCodeMirror.focus() 
 
-tableClear = ->
-  $("#tabell tr").remove()
+tableClear = -> $("#tabell tr").remove()
+axiomClear = -> $("#axioms tr").remove()
 
 tableAppend = (call, expected, actual) ->
   sp = "&nbsp;"
@@ -52,6 +51,23 @@ tableAppend = (call, expected, actual) ->
   cell2.style.backgroundColor = '#00FF00'
   cell3.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
 
+axiomAppend = (call, expected) ->
+  sp = "&nbsp;"
+  row = axioms.insertRow -1
+
+  cell1 = row.insertCell -1
+  cell2 = row.insertCell -1
+  #cell3 = row.insertCell -1
+
+  cell1.innerHTML = sp + call + sp
+  cell2.innerHTML = sp + JSON.stringify(expected) + sp
+  #cell3.innerHTML = if actual == undefined then sp + "error" + sp else sp + JSON.stringify(actual) + sp
+
+  cell1.style.backgroundColor = '#FFFF00'
+  cell2.style.backgroundColor = '#00FF00'
+  #cell3.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
+
+
 changeLayout = ->
   w = $(window).width()
   $(".CodeMirror").width(w-215-15)
@@ -66,7 +82,6 @@ setup = ->
   msg = $('#msg')
   sel1 = $('#sel1')
   sel2 = $('#sel2')
-  table = $('#tabell')
   fillSelect sel1, data
 
 window.onload = ->
@@ -85,7 +100,6 @@ window.onload = ->
   myCodeMirror.on "change", runAll
 
   help = createA('https://github.com/ChristerNilsson/p5Assert/blob/master/README.md', 'Help', '_blank')
-  #help = createA 'https://christernilsson.github.io/p5Assert/README.md', 'help', '_blank'
 
   help.position 10,430
   
@@ -99,10 +113,8 @@ window.onload = ->
   changeLayout()
 
 runAll = ->
-  #start = millis()
   b = myCodeMirror.getValue()
   data[chapter][exercise]["b"] = b
-  tableClear()
   dict = data[chapter][exercise]["c"]    
  
   calls = []
@@ -122,6 +134,12 @@ runAll = ->
   setMsg error
   if error == ""
     i=0
+    tableClear()
     for call,expectedResult of dict 
       tableAppend call, expectedResult, results[i]
       i += 1
+
+  axiomClear()
+  document.getElementById('axioms').style.top="#{450 + _.size(dict)*29}px" 
+  for call,expectedResult of data[chapter][exercise]["d"] 
+    axiomAppend call, expectedResult

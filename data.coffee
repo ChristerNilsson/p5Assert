@@ -1,6 +1,7 @@
 # a : facit, might be any language. Not used by p5Dojo.
 # b : comment line. LOC and keyword clues
-# c : call in Coffeescript syntax
+# c : call in Coffeescript syntax, three columns
+# d : axioms, two columns
 
 data = 
 
@@ -22,41 +23,42 @@ data =
 			b: """
 # Maskinen Ture är trasig! Ture är ledsen. Du måste laga Ture!
 # Just nu skickar Ture alltid ut nollor. Här är felet!
-# Skickar man in en tvåa till Ture ska en tvåa komma ut.
+# Skickar man in en etta till Ture ska en etta komma ut.
 # Namnet på det man skickar in till Ture står mellan parenteserna. Namnet är x.  
-# x kan vara olika saker. Till exempel en tvåa eller en trea.
+# x kan vara olika saker. Till exempel en nolla eller en etta.
 # Efter pilen talar man om vad som ska komma ut från Ture. 
 #   Den gula kolumnen innehåller det som skickas in till Ture.
 #   Den gröna kolumnen innehåller det som ska komma ut ur Ture.
-#   Den röda kolumnen innehåller det som kommer ut ur Ture. 
+#   Den röda kolumnen innehåller det som kommer ut ur Ture, just nu.
 # Se till att göra de RÖDA cellerna GRÖNA!
 # Tryck nu på PgDn och gör Ture glad igen!
-#   Ändra nollan till en tvåa. Nu skickas bara tvåor ut.
-#   Ändra tvåan till en trea.  Nu skickas bara treor ut.
-#   Ändra trean till ett x.    Nu blir alla de RÖDA cellerna GRÖNA och Ture är glad igen!
+#   Ändra nollan till en etta. Nu skickas bara ettor ut.
+#   Ändra ettan till ett x.    Nu blir alla de RÖDA cellerna GRÖNA och Ture är glad igen!
 # Gå till nästa uppgift genom att klicka på Wilma i listan till vänster.
+
 Ture = (x) -> 0
 """
 			a: "Ture = (x) -> x"
 			c: 
 				"Ture 0" : 0
-				"Ture 2" : 2
-				"Ture 3" : 3 
+				"Ture 1" : 1
 
 		Wilma: 
 			b: """
 			# Om man skickar en sjua till Wilma ska det komma tillbaks en åtta.
 			# Om man skickar en åtta till Wilma ska det komma tillbaks en nia.
 			# Vad ska Wilma skicka tillbaks om det kommer in ett x ?
-			# Prova att använda plus.
+			# Tabellen längst ner innehåller lite ledtrådar.
 			
 			Wilma = (x) -> 0
 			"""
 			a: "Wilma = (x) -> x+1"
 			c: 
-				"3 + 1" : 4
 				"Wilma 7" : 8
 				"Wilma 8" : 9 
+			d:
+				"7 + 1" : 8
+				"8 + 1" : 9
 
 		Noel: 
 			b: """
@@ -66,14 +68,15 @@ Ture = (x) -> 0
 			"""
 			a: "Noel = (x) -> 2*x"
 			c: 
+				"Noel 5" : 10
+				"Noel 6" : 12 
+			d:
 				"3 + 2" : 5
 				"3 - 2" : 1
 				"3 * 2" : 6
 				"6 / 2" : 3
 				"5 % 2" : 1
 				"6 % 2" : 0
-				"Noel 5" : 10
-				"Noel 6" : 12 
 
 		Greta: 
 			b: """
@@ -83,17 +86,18 @@ Ture = (x) -> 0
 			"""
 			a: "Greta = (x) -> x*x"
 			c: 
+				"Greta 1" : 1
+				"Greta 2" : 4
+				"Greta 3" : 9
+				"Greta 4" : 16
+				"Greta 5" : 25
+			d:
 				"3 + 2" : 5
 				"3 - 2" : 1
 				"3 * 2" : 6
 				"6 / 2" : 3
 				"5 % 2" : 1
 				"6 % 2" : 0
-				"Greta 1" : 1
-				"Greta 2" : 4
-				"Greta 3" : 9
-				"Greta 4" : 16
-				"Greta 5" : 25
 
 		Viktor: 
 			b: """
@@ -103,14 +107,15 @@ Ture = (x) -> 0
 			"""
 			a: "Viktor = (x) -> -x"
 			c: 
+				"Viktor -4" : 4
+				"Viktor 3" : -3
+			d:
 				"3 + 2" : 5
 				"3 - 2" : 1
 				"3 * 2" : 6
 				"6 / 2" : 3
 				"5 % 2" : 1
 				"6 % 2" : 0
-				"Viktor -4" : 4
-				"Viktor 3" : -3
 
 		Sabrina: 
 			b: """
@@ -120,14 +125,15 @@ Ture = (x) -> 0
 			"""
 			a: "Sabrina = (x) -> x-2"
 			c: 
+				"Sabrina 7" : 5
+				"Sabrina 17" : 15
+			d:
 				"3 + 2" : 5
 				"3 - 2" : 1
 				"3 * 2" : 6
 				"6 / 2" : 3
 				"5 % 2" : 1
 				"6 % 2" : 0
-				"Sabrina 7" : 5
-				"Sabrina 17" : 15
 
 		David: 
 			b: """
@@ -137,14 +143,15 @@ Ture = (x) -> 0
 			"""
 			a: "David = (x) -> x/2"
 			c: 
+				"David 8" : 4
+				"David 6" : 3
+			d:
 				"3 + 2" : 5
 				"3 - 2" : 1
 				"3 * 2" : 6
 				"6 / 2" : 3
 				"5 % 2" : 1
 				"6 % 2" : 0
-				"David 8" : 4
-				"David 6" : 3
 
 		Gabriella: 
 			b: """
@@ -154,16 +161,17 @@ Ture = (x) -> 0
 			"""
 			a: "Gabriella = (x) -> x % 2"
 			c: 
+				"Gabriella 7" : 1
+				"Gabriella 8" : 0
+				"Gabriella 10" : 0
+				"Gabriella 11" : 1
+			d:
 				"3 + 2" : 5
 				"3 - 2" : 1
 				"3 * 2" : 6
 				"6 / 2" : 3
 				"5 % 2" : 1
 				"6 % 2" : 0
-				"Gabriella 7" : 1
-				"Gabriella 8" : 0
-				"Gabriella 10" : 0
-				"Gabriella 11" : 1
 
 		Beppe: 
 			b: """
@@ -173,6 +181,11 @@ Ture = (x) -> 0
 			"""
 			a: "Beppe = (x) -> x == 2"
 			c:
+				"Beppe 1" : false
+				"Beppe 2" : true
+				"Beppe 3" : false
+				"Beppe 4" : false
+			d:
 				"1 == 1" : true
 				"1 == 2" : false
 				"1 != 1" : false
@@ -185,10 +198,6 @@ Ture = (x) -> 0
 				"1 <= 2" : true
 				"1 >= 1" : true
 				"1 >= 2" : false
-				"Beppe 1" : false
-				"Beppe 2" : true
-				"Beppe 3" : false
-				"Beppe 4" : false
 
 		Karolina: 
 			b: """
@@ -198,6 +207,11 @@ Ture = (x) -> 0
 			"""
 			a: "Karolina = (x) -> x > 2"
 			c:
+				"Karolina 1" : false
+				"Karolina 2" : false
+				"Karolina 3" : true
+				"Karolina 4" : true
+			d:
 				"1 == 1" : true
 				"1 == 2" : false
 				"1 != 1" : false
@@ -210,10 +224,6 @@ Ture = (x) -> 0
 				"1 <= 2" : true
 				"1 >= 1" : true
 				"1 >= 2" : false
-				"Karolina 1" : false
-				"Karolina 2" : false
-				"Karolina 3" : true
-				"Karolina 4" : true
 
 		Kasper: 
 			b: """
@@ -223,6 +233,11 @@ Ture = (x) -> 0
 			"""
 			a: "Kasper = (x) -> x > 2"
 			c:
+				"Kasper 1" : false
+				"Kasper 2" : false
+				"Kasper 3" : true
+				"Kasper 4" : true
+			d:
 				"1 == 1" : true
 				"1 == 2" : false
 				"1 != 1" : false
@@ -235,10 +250,6 @@ Ture = (x) -> 0
 				"1 <= 2" : true
 				"1 >= 1" : true
 				"1 >= 2" : false
-				"Kasper 1" : false
-				"Kasper 2" : false
-				"Kasper 3" : true
-				"Kasper 4" : true
 
 		Miranda: 
 			b: """
@@ -248,6 +259,11 @@ Ture = (x) -> 0
 			"""
 			a: "Miranda = (x) -> x != 2"
 			c:
+				"Miranda 1" : true
+				"Miranda 2" : false
+				"Miranda 3" : true
+				"Miranda 4" : true
+			d:
 				"1 == 1" : true
 				"1 == 2" : false
 				"1 != 1" : false
@@ -260,10 +276,6 @@ Ture = (x) -> 0
 				"1 <= 2" : true
 				"1 >= 1" : true
 				"1 >= 2" : false
-				"Miranda 1" : true
-				"Miranda 2" : false
-				"Miranda 3" : true
-				"Miranda 4" : true
 
 	"A1: Two Parameters" : 
 	
@@ -379,9 +391,6 @@ g = (a,b) -> range a,b
 g = (a,b,n) -> range a,b,n
 			"""
 			c:
-				"range 3" : [0,1,2]
-				"range 1,4" : [1,2,3]
-				"range 1,9,2" : [1,3,5,7]
 				"f 5" : [0,1,2,3,4]
 				"f 6" : [0,1,2,3,4,5]
 				"g 1,5" : [1,2,3,4]
@@ -390,6 +399,10 @@ g = (a,b,n) -> range a,b,n
 				"h 0,10,1" : [0,1,2,3,4,5,6,7,8,9]
 				"h 0,10,2" : [0,2,4,6,8]
 				"h 0,-10,-1" : [0,-1,-2,-3,-4,-5,-6,-7,-8,-9]
+			d:
+				"range 3" : [0,1,2]
+				"range 1,4" : [1,2,3]
+				"range 1,9,2" : [1,3,5,7]
 
 		"lerp":
 			b:"""
@@ -402,16 +415,17 @@ f = (a,b,i) -> 0
 f = (a,b,i) -> lerp a,b,i
 			"""
 			c:
-				"lerp 8,12,0" : 8
-				"lerp 8,12,1" : 12
-				"lerp 8,12,0.5" : 10
-				"lerp 8,12,-1" : 4
-				"lerp 8,12,2" : 16
 				"f 10,20,0" : 10
 				"f 10,20,1" : 20
 				"f 10,20,2" : 30
 				"f 10,20,0.5" : 15
 				"f 10,20,-1" : 0
+			d:
+				"lerp 8,12,0" : 8
+				"lerp 8,12,1" : 12
+				"lerp 8,12,0.5" : 10
+				"lerp 8,12,-1" : 4
+				"lerp 8,12,2" : 16
 
 		"for":
 			b:"""
@@ -424,13 +438,14 @@ f = (a,b,n) -> []
 f = (a,b,n) -> lerp a,b,i for i in range n
 			"""
 			c:
-				"(i*i for i in range 5)" : [0,1,4,9,16]				
 				"f 0,0,5" : [0,0,0,0,0]
 				"f 1,2,5" : [1,2,3,4,5]
 				"f 5,4,5" : [5,4,3,2,1]
 				"f -1,-2,5" : [-1,-2,-3,-4,-5]
 				"f 5,25,10" : [5,25,45,65,85,105,125,145,165,185]
 				"f -0.1,0.0,3" : [-0.1,0.0,0.1]
+			d:
+				"(i*i for i in range 5)" : [0,1,4,9,16]				
 
 	"A3: [ ]" :
 
@@ -468,7 +483,6 @@ sort5 = (a,b,c,d,e) ->
 	[a,b,c,d,e]
 """
 			c:
-				"if 11 < 2 then [11,2] else [2,11]" : [2,11]
 				"sort2 11,2" : [2,11]
 				"sort2 2,11" : [2,11]
 
@@ -510,6 +524,8 @@ sort5 = (a,b,c,d,e) ->
 				"sort5 5,4,11,2,1" : [1,2,4,5,11]
 				"sort5 11,5,2,4,1" : [1,2,4,5,11]
 				"sort5 5,2,11,4,1" : [1,2,4,5,11]
+			d:
+				"if 11 < 2 then [11,2] else [2,11]" : [2,11]
 
 		Listor :
 			b:"""
@@ -533,14 +549,6 @@ mitti = (a,i,j) -> a[i..j]
 sista = (a,n) -> a[-n..]
 """
 			c:
-				"[1,2].concat [3,4]" : [1,2,3,4]
-				"[2,3,4,5].length" : 4
-				"[11,22,33,44][2]" : 33
-				"[11,22,33,44][..2]" : [11,22,33]
-				"[11,22,33,44][1..]" : [22,33,44]
-				"[11,22,33,44][1..2]" : [22,33]
-				"[4,2,3,1].sort()" : [1,2,3,4]
-				"[4,2,3,1].sort().reverse()" : [4,3,2,1]
 				"antal [1,2,3]" : 3
 				"antal [5,4,1,2,9,3,7]" : 7
 				"fetch [4,5,6],0" : 4
@@ -550,6 +558,15 @@ sista = (a,n) -> a[-n..]
 				"första [11,12,13,14,15],3" : [11,12,13]
 				"mitti [11,12,13,14,15],1,2" : [12,13]
 				"sista [11,12,13,14,15],4" : [12,13,14,15]
+			d:
+				"[1,2].concat [3,4]" : [1,2,3,4]
+				"[2,3,4,5].length" : 4
+				"[11,22,33,44][2]" : 33
+				"[11,22,33,44][..2]" : [11,22,33]
+				"[11,22,33,44][1..]" : [22,33,44]
+				"[11,22,33,44][1..2]" : [22,33]
+				"[4,2,3,1].sort()" : [1,2,3,4]
+				"[4,2,3,1].sort().reverse()" : [4,3,2,1]
 
 		Växelcykel :
 			b: """
@@ -565,10 +582,11 @@ gear = (big, small) ->
 	res.sort() 
 """	
 			c:	
-				"Math.round 3.1415" : 3
-				"Math.round(3.1415 * 10)/10" : 3.1
 				"gear [43,53], [13,21]" : [[2.05,43,21],[2.52,53,21],[3.31,43,13],[4.08,53,13]]
 				"gear [43,53], [13,15,17,19,21]" : [[2.05,43,21],[2.26,43,19],[2.52,53,21],[2.53,43,17],[2.79,53,19],[2.87,43,15],[3.12,53,17],[3.31,43,13],[3.53,53,15],[4.08,53,13]]
+			d:
+				"Math.round 3.1415" : 3
+				"Math.round(3.1415 * 10)/10" : 3.1
 
 		Kalkylator :
 			b: """
@@ -586,6 +604,12 @@ calc = (command) ->
 	stack.pop()		
 """
 			c:
+				"calc '2'" : 2
+				"calc '2 3'" : 3
+				"calc '2 3 +'" : 5
+				"calc '2 3 *'" : 6
+				"calc '2 3 4 * +'" : 14
+			d:
 				"'a b c'.split ' '" : ['a','b','c']
 				'1 + 2' : 3
 				"'1' + '2'" : '12'
@@ -593,11 +617,6 @@ calc = (command) ->
 				"'1' + 2" : '12'
 				"parseInt '3'" : 3
 				"parseFloat '3.14'" : 3.14
-				"calc '2'" : 2
-				"calc '2 3'" : 3
-				"calc '2 3 +'" : 5
-				"calc '2 3 *'" : 6
-				"calc '2 3 4 * +'" : 14
 
 	"A4: { }" :
 		"Boys and Girls" :
@@ -672,10 +691,6 @@ hopslagning = (a,avgr='') -> a.join(avgr)
 dubbla = (s) -> hopslagning (tecken + tecken for tecken in s)
 			"""
 			c:
-				'"Javascript".length' : 10
-				'"Javascript".indexOf "a"' : 1
-				'"1,2,3".split ","' : ["1","2","3"]
-				'["1","2","3"].join " "' : "1 2 3"
 				'antal "Coffee"' : 6
 				'tecken "Coffee",1' : 'o'
 				'mitti "Coffee",1,3' : 'off'
@@ -686,6 +701,11 @@ dubbla = (s) -> hopslagning (tecken + tecken for tecken in s)
 				"splittra '2 3 +',' '" : ['2', '3', '+'] 
 				"hopslagning ['2', '3', '+'], '|'" : "2|3|+"
 				'dubbla "script"' : 'ssccrriipptt'
+			d:
+				'"Javascript".length' : 10
+				'"Javascript".indexOf "a"' : 1
+				'"1,2,3".split ","' : ["1","2","3"]
+				'["1","2","3"].join " "' : "1 2 3"
 
 		Palindrom :
 			b : """
@@ -992,14 +1012,6 @@ h = h.mul h for i in range 7
 	
 """
 			c:
-				"parseInt '1'" : 1
-				"[1,2,3].reverse()" : [3,2,1]
-				"[1,2,3].length" : 3
-				"Math.floor 3.14" : 3
-				"[11,22,33].slice 1" : [22,33]
-				"[11,22,33].slice 1,2" : [22]
-				"[11,22,33].slice()" : [11,22,33]
-				"12345678901234567890 + 1" : 12345678901234567000
 				"a.list" : [3,2,1]
 				"a.to_s()" : "123"
 				"a.add(b).to_s()" : "131"
@@ -1012,6 +1024,15 @@ h = h.mul h for i in range 7
 				"a.mul(c).to_s()" : "122877"
 				"a.mul(d).to_s()" : "56088"
 				"h.to_s()" :"340282366920938463463374607431768211456"			
+			d:
+				"parseInt '1'" : 1
+				"[1,2,3].reverse()" : [3,2,1]
+				"[1,2,3].length" : 3
+				"Math.floor 3.14" : 3
+				"[11,22,33].slice 1" : [22,33]
+				"[11,22,33].slice 1,2" : [22]
+				"[11,22,33].slice()" : [11,22,33]
+				"12345678901234567890 + 1" : 12345678901234567000
 
 		Complex: 
 			b: """
@@ -1200,14 +1221,14 @@ summa = (tree) -> 0
 summa = (tree) -> return if _.isEqual tree,[] then 0 else if _.isNumber tree then tree else	summa(_.head tree) + summa _.tail tree 
 """
 			c:
+				"summa [1,2,3,4]" : 10
+				"summa [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]" : 161
+			d:
 				"_.isNumber '12'" : false 
 				"_.isNumber 12" : true 
 				"_.isNumber [12]" : false 
 				"_.head [11,22,33]" : 11
 				"_.tail [11,22,33]" : [22,33]
-
-				"summa [1,2,3,4]" : 10
-				"summa [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]" : 161
 
 		"list recursion" :
 			b:"""
@@ -1227,6 +1248,19 @@ compare = (a,b) ->
 	0
 """
 			c:	
+				"compare 11, 2" : -1
+				"compare [11], [2]" : -1
+				"compare [11], [10]" : -1
+				"compare [11], [11]" : 0
+				"compare [2], [11]" : 1
+				"compare [1,[2,3]], [1,[2,3]]" : 0
+				"compare [10,[2,3]], [1,[2,3]]" : -1
+				"compare [1,[20,3]], [1,[2,3]]" : -1
+				"compare [1,[2,30]], [1,[2,3]]" : -1
+				"compare [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]], [3, [5,6], [7,8,10,12], [4,9,14,[20,23]], [[12,13],14]]" : -1
+				"compare [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]], [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]" : 0
+				"compare [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]], [3, [5,6], [7,8,10,12], [4,9,14,[20,25]], [[12,13],14]]" : 1
+			d:
 				"typeof 1" : "number"
 				"typeof 3.14" : "number"
 				'typeof ""' : "string"
@@ -1240,18 +1274,6 @@ compare = (a,b) ->
 				"11 == 11" : true 
 				'"11" == "11"' : true 
 				"[11] == [11]" : false 
-				"compare 11, 2" : -1
-				"compare [11], [2]" : -1
-				"compare [11], [10]" : -1
-				"compare [11], [11]" : 0
-				"compare [2], [11]" : 1
-				"compare [1,[2,3]], [1,[2,3]]" : 0
-				"compare [10,[2,3]], [1,[2,3]]" : -1
-				"compare [1,[20,3]], [1,[2,3]]" : -1
-				"compare [1,[2,30]], [1,[2,3]]" : -1
-				"compare [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]], [3, [5,6], [7,8,10,12], [4,9,14,[20,23]], [[12,13],14]]" : -1
-				"compare [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]], [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]" : 0
-				"compare [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]], [3, [5,6], [7,8,10,12], [4,9,14,[20,25]], [[12,13],14]]" : 1
 
 		filter: 
 			b: """
@@ -1274,12 +1296,13 @@ g = (djur, art) -> djur.filter (d) -> d.art == art
 
 """
 			c:  
-				"[1, -2, 0, 3, -4].filter (x) -> x > 0" : [1,3]
 				"g djur,'hund'" : [{namn:'Karo',art:'hund'},{namn:'Rocky',art:'hund'}]
 				"g djur,'fisk'" : [{namn:'Albert',art:'fisk'},{namn:'Herbert',art:'fisk'}]
 				"g djur,'kanin'" : [{namn:'Fluffy',art:'kanin'}]
 				"g djur,'katt'" : [{namn:'Trixie',art:'katt'}]
 				"g djur,'papegoja'" : []
+			d:
+				"[1, -2, 0, 3, -4].filter (x) -> x > 0" : [1,3]
 
 		comprehension: 
 			b: """
@@ -1301,8 +1324,9 @@ namn = (djur) -> []
 namn = (djur) -> (d.namn for d in djur)
 """
 			c:  
-				"(2**i for i in range 5)" : [1,2,4,8,16]
 				"namn djur" : ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
+			d:
+				"(2**i for i in range 5)" : [1,2,4,8,16]
 
 		reduce: 
 			b: """
@@ -1327,10 +1351,11 @@ summa = (varor) -> 0
 summa = (varor) -> varor.reduce ((sum, vara) -> sum + vara.pris * vara.antal), 0
 """
 			c:  
-				"ica.reduce ((sum, vara) -> sum + vara.antal), 0" : 12
-				"konsum.reduce ((sum, vara) -> sum + vara.pris), 0" : 290
 				"summa ica" : 983
 				"summa konsum" : 290
+			d:
+				"ica.reduce ((sum, vara) -> sum + vara.antal), 0" : 12
+				"konsum.reduce ((sum, vara) -> sum + vara.pris), 0" : 290
 
 		sortBy: 
 			b: """
@@ -1344,9 +1369,10 @@ sortera = (djur,f) -> []
 sortera = (djur,f) -> _.sortBy djur, f
 			"""
 			c:  
-				"_.sortBy ['one', 'two', 'three', 'four'], 'length'" : ["one", "two","four","three"]
 				"sortera djur, (d) -> d.length" : ["Karo","Rocky","Fluffy","Albert","Trixie","Herbert"]
 				"sortera djur" : ["Albert","Fluffy","Herbert","Karo","Rocky","Trixie"]
+			d:
+				"_.sortBy ['one', 'two', 'three', 'four'], 'length'" : ["one", "two","four","three"]
 
 		groupBy: 
 			b: """
@@ -1360,9 +1386,10 @@ gruppera = (djur,f) -> {}
 gruppera = (djur,f) -> _.groupBy djur, f
 """
 			c:  
-				"_.groupBy ['one', 'two', 'three'], 'length'" : {3: ["one", "two"], 5: ["three"]}
 				"gruppera djur, (d) -> d.length" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
 				"gruppera djur, (d) -> _.last(d)" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
+			d:
+				"_.groupBy ['one', 'two', 'three'], 'length'" : {3: ["one", "two"], 5: ["three"]}
 
 		split: 
 			b: """
@@ -1374,14 +1401,15 @@ parametrar = (url) -> {}
 parametrar = (url) -> _.object(f.split '=' for f in url.split('?')[1].split('&'))
 """
 			c:  
-				"'1,2,3'.split ','" : ["1","2","3"]
-				"_.object ['moe', 'larry', 'curly'], [30, 40, 50]" : {moe: 30, larry: 40, curly: 50}
-				"_.object [['moe', 30], ['larry', 40], ['curly', 50]]" : {moe: 30, larry: 40, curly: 50}
 				"parametrar 'dn.se?x=0&y=1'" : {x:'0', y:'1'}
 				"parametrar 'svd.se?page=7'" : {page : '7'}
 				"parametrar 'aftonbladet.se?article=123456&date=2016-12-01'" : {article:'123456', date:'2016-12-01'}
 				"parametrar 'expressen.se?city=Stockholm'" : {city : 'Stockholm'}
 				"parametrar 'http://stackoverflow.com/search?q=coffeescript'" : {q : 'coffeescript'}
+			d:
+				"'1,2,3'.split ','" : ["1","2","3"]
+				"_.object ['moe', 'larry', 'curly'], [30, 40, 50]" : {moe: 30, larry: 40, curly: 50}
+				"_.object [['moe', 30], ['larry', 40], ['curly', 50]]" : {moe: 30, larry: 40, curly: 50}
 
 		PokerHand :
 			b: """
@@ -1406,21 +1434,6 @@ calc = (hand) ->
 	[score, ranks] 
 """
 			c: 
-				'[1,2,3] == [1,2,3]' : false
-				'2 < 11' : true
-				'"2" < "11"' : false
-				'[2] < [11]' : false
-				'["2"] < ["11"]' : false
-				'compare [2], [11]' : 1
-				'compare [1,2,3], [1,2,3]' : 0
-				'compare [11], [2]' : -1
-				'bsort [47,12,25]' : [12,25,47]
-				'bsort [[11,13],[11,12],[2,2]]' : [[2,2],[11,12],[11,13]]
-				'bsort [[11,13],[11,12],[2,2]], (a,b) -> compare b,a' : [[11,13],[11,12],[2,2]]
-				'bsort ["per", "anna", "bo"]' : ["anna","bo","per"]
-				'_.groupBy ["per", "anna", "karl"], "length"' : {"3":["per"],"4":["anna","karl"]}
-				'_.unzip [["moe", 30, true], ["larry", 40, false]]' : [['moe', 'larry'], [30, 40], [true, false]]
-				'_.uniq [5,4,1,2,1,9]' : [5,4,1,2,9]
 				"poker 'kl8 ruA ru8 klA kl9', 'ru7 sp2 ru5 sp3 klA'": -1
 				"poker 'kl8 spT klK hj9 sp4', 'ru7 sp2 ru5 sp3 klA'": 1
 				"poker 'kl8 ruA ru8 klA kl9', 'kl8 ruA ru8 klA klT'": 1
@@ -1438,3 +1451,19 @@ calc = (hand) ->
 				"poker 'ru7 hj7 ru8 kl8 ruJ', 'sp7 kl7 sp8 hj8 ruT'": -1
 				"poker 'hj7 kl3 sp3 kl4 hjA', 'sp7 hj3 ru3 klK spA'": 1
 				"poker 'sp7 hj3 ru2 kl4 spA', 'hj7 ru3 ru5 sp4 hjA'": 1
+			d:
+				'[1,2,3] == [1,2,3]' : false
+				'2 < 11' : true
+				'"2" < "11"' : false
+				'[2] < [11]' : false
+				'["2"] < ["11"]' : false
+				'compare [2], [11]' : 1
+				'compare [1,2,3], [1,2,3]' : 0
+				'compare [11], [2]' : -1
+				'bsort [47,12,25]' : [12,25,47]
+				'bsort [[11,13],[11,12],[2,2]]' : [[2,2],[11,12],[11,13]]
+				'bsort [[11,13],[11,12],[2,2]], (a,b) -> compare b,a' : [[11,13],[11,12],[2,2]]
+				'bsort ["per", "anna", "bo"]' : ["anna","bo","per"]
+				'_.groupBy ["per", "anna", "karl"], "length"' : {"3":["per"],"4":["anna","karl"]}
+				'_.unzip [["moe", 30, true], ["larry", 40, false]]' : [['moe', 'larry'], [30, 40], [true, false]]
+				'_.uniq [5,4,1,2,1,9]' : [5,4,1,2,9]
