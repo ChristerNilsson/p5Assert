@@ -8,6 +8,8 @@ data =
 	"Nyheter" :
 		"Nyheter" :
 			b:"""
+# NYHETER 2017-03-05
+#   A8: Matematik
 # NYHETER 2017-03-01
 #   A3: Listor, Växelcykel, Kalkylator
 #   A5: Palindrom, Rövarspråk
@@ -22,18 +24,18 @@ data =
 		Ture :  
 			b: """
 # Maskinen Ture är trasig! Ture är ledsen. Du måste laga Ture!
-# Just nu skickar Ture alltid ut nollor. Här är felet!
 # Skickar man in en etta till Ture ska en etta komma ut.
+# Just nu skickar Ture alltid ut nollor. Ture har hakat upp sig!
 # Namnet på det man skickar in till Ture står mellan parenteserna. Namnet är x.  
-# x kan vara olika saker. Till exempel en nolla eller en etta.
+# x kan vara olika saker. Ibland en nolla och ibland en etta.
 # Efter pilen talar man om vad som ska komma ut från Ture. 
 #   Den gula kolumnen innehåller det som skickas in till Ture.
 #   Den gröna kolumnen innehåller det som ska komma ut ur Ture.
 #   Den röda kolumnen innehåller det som kommer ut ur Ture, just nu.
 # Se till att göra de RÖDA cellerna GRÖNA!
 # Tryck nu på PgDn och gör Ture glad igen!
-#   Ändra nollan till en etta. Nu skickas bara ettor ut.
-#   Ändra ettan till ett x.    Nu blir alla de RÖDA cellerna GRÖNA och Ture är glad igen!
+#   Ändra nollan till en etta. Nu skickas bara ettor ut och inga nollor.
+#   Ändra ettan till ett x.    Nu är allt som det ska och Ture är glad igen!
 # Gå till nästa uppgift genom att klicka på Wilma i listan till vänster.
 
 Ture = (x) -> 0
@@ -50,7 +52,7 @@ Ture = (x) -> 0
 			# Vad ska Wilma skicka tillbaks om det kommer in ett x ?
 			# Tabellen längst ner innehåller lite ledtrådar.
 			
-			Wilma = (x) -> 0
+			Wilma = (x) -> x
 			"""
 			a: "Wilma = (x) -> x+1"
 			c: 
@@ -1467,3 +1469,52 @@ calc = (hand) ->
 				'_.groupBy ["per", "anna", "karl"], "length"' : {"3":["per"],"4":["anna","karl"]}
 				'_.unzip [["moe", 30, true], ["larry", 40, false]]' : [['moe', 'larry'], [30, 40], [true, false]]
 				'_.uniq [5,4,1,2,1,9]' : [5,4,1,2,9]
+
+		Matematik :
+			b: """
+# LOC:13 if then else * / + - % ** Math.sqrt == <= for in range []
+
+a = (x) -> 0 
+b = (x) -> 0 
+c = (x) -> 0 
+d = (x) -> 0 
+e = (x) -> 0 
+h = (n) -> 0
+f = (x) -> 0 
+g = (n) -> 0
+k = (x,y) -> 0
+l = (a,b) -> [0,0]  
+p = (a,b) -> 0
+n = (a,b) -> false
+m = (a,b) -> []
+"""
+			a:"""
+a = (n) -> 2*n+1
+b = (n) -> 2*n+2
+c = (n) -> (-1)**n * n 
+d = (n) -> 10**n
+e = (n) -> 2**n
+h = (n) -> if n==0 then 0 else n+h(n-1)
+f = (n) -> if n==0 then 1 else n*f(n-1)
+g = (n) -> if n<=1 then 1 else g(n-1) + g(n-2)
+k = (x,y) -> if y == 0 then x else k y, x % y
+l = (a,b) -> [a/k(a,b),b/k(a,b)]
+p = (a,b) -> Math.sqrt(a*a+b*b)
+n = (y) -> if y%100==0 then y%400==0 else y%4==0
+m = (n) -> i for i in [1..n] when n % i == 0
+
+"""
+			c:
+				"[a(0),a(1),a(2),a(3),a(4),a(5)]" : [1,3,5,7,9,11]
+				"[b(0),b(1),b(2),b(3),b(4),b(5)]" : [2,4,6,8,10,12]
+				"[c(0),c(1),c(2),c(3),c(4),c(5)]" : [0,-1,2,-3,4,-5]
+				"[d(0),d(1),d(2),d(3),d(4),d(5)]" : [1,10,100,1000,10000,100000]
+				"[e(0),e(1),e(2),e(3),e(4),e(5)]" : [1,2,4,8,16,32]
+				"[h(0),h(1),h(2),h(3),h(4),h(5),h(6)]" : [0,1,3,6,10,15,21]
+				"[f(0),f(1),f(2),f(3),f(4),f(5),f(10)]" : [1,1,2,6,24,120,3628800]
+				"[g(0),g(1),g(2),g(3),g(4),g(5),g(6)]" : [1,1,2,3,5,8,13]
+				"[k(7,11),k(18,42),k(100,30),k(99,105)]" : [1,6,10,3]
+				"[l(1,4),l(2,4),l(12,18),l(90,100)]" : [[1,4],[1,2],[2,3],[9,10]]
+				"[p(3,4),p(5,12),p(7,24),p(9,40)]" : [5,13,25,41]
+				"[n(2000),n(2016),n(2017),n(2020),n(2100)]" : [true,true,false,true,false]
+				"[m([12]),m(33),m(17)]" : [[1,2,3,4,6,12],[1,3,11,33],[1,17]]
