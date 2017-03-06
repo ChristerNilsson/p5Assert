@@ -49,6 +49,18 @@ tableAppend = (t, call, expected, actual) ->
 		cell3.innerHTML = if actual == undefined then sp + "error" + sp else sp + JSON.stringify(actual) + sp
 		cell3.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
 
+axiomAppend = (t, call, expected, actual) ->
+	sp = "&nbsp;"
+	row = t.insertRow -1
+
+	cell1 = row.insertCell -1
+	cell1.innerHTML = sp + call + sp
+	cell1.style.backgroundColor = '#FFFF00'
+
+	cell2 = row.insertCell -1
+	cell2.innerHTML = if actual == undefined then sp + "error" + sp else sp + JSON.stringify(actual) + sp
+	cell2.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
+
 changeLayout = ->
 	w = $(window).width()
 	$(".CodeMirror").width(w-215-15)
@@ -122,5 +134,13 @@ runAll = ->
 				tableAppend tabell, call, dict[call], results[i]
 
 		document.getElementById('axioms').style.top="#{450 + _.size(dict)*29}px" 
-		for call,expectedResult of data[chapter][exercise]["d"] 
-			tableAppend axioms, call, expectedResult
+
+		dict = data[chapter][exercise]["d"]
+		if dict
+			calls = []
+			for call,expectedResult of dict 
+				calls.push "(" + call + ")"
+			code = transpile b + "\nreturn [" + calls + "]"
+			eval "results = " + code 
+			for call,i in Object.keys(dict)
+				axiomAppend axioms, call, dict[call], results[i]
