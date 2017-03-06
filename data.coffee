@@ -9,6 +9,7 @@ data =
 		"Nyheter" :
 			b:"""
 # NYHETER 2017-03-05
+#   A4: Earth, Glosor, Glosor[]
 #   A8: Matematik
 # NYHETER 2017-03-01
 #   A3: Listor, Växelcykel, Kalkylator
@@ -64,7 +65,7 @@ Ture = (x) -> 0
 
 		Noel: 
 			b: """
-			# Någon av dessa löser problemet: + - * / %
+			# Någon av dessa löser problemet: + *
 
 			Noel = (x) -> 0
 			"""
@@ -74,15 +75,11 @@ Ture = (x) -> 0
 				"Noel 6" : 12 
 			d:
 				"3 + 2" : 5
-				"3 - 2" : 1
 				"3 * 2" : 6
-				"6 / 2" : 3
-				"5 % 2" : 1
-				"6 % 2" : 0
 
 		Greta: 
 			b: """
-			# + - * / %
+			# *
 
 			Greta = (x) -> 0
 			"""
@@ -94,16 +91,11 @@ Ture = (x) -> 0
 				"Greta 4" : 16
 				"Greta 5" : 25
 			d:
-				"3 + 2" : 5
-				"3 - 2" : 1
 				"3 * 2" : 6
-				"6 / 2" : 3
-				"5 % 2" : 1
-				"6 % 2" : 0
 
 		Viktor: 
 			b: """
-			# + - * / %
+			# -
 
 			Viktor = (x) -> 0
 			"""
@@ -112,16 +104,11 @@ Ture = (x) -> 0
 				"Viktor -4" : 4
 				"Viktor 3" : -3
 			d:
-				"3 + 2" : 5
 				"3 - 2" : 1
-				"3 * 2" : 6
-				"6 / 2" : 3
-				"5 % 2" : 1
-				"6 % 2" : 0
 
 		Sabrina: 
 			b: """
-			# + - * / %
+			# -
 
 			Sabrina = (x) -> 0
 			"""
@@ -130,16 +117,11 @@ Ture = (x) -> 0
 				"Sabrina 7" : 5
 				"Sabrina 17" : 15
 			d:
-				"3 + 2" : 5
 				"3 - 2" : 1
-				"3 * 2" : 6
-				"6 / 2" : 3
-				"5 % 2" : 1
-				"6 % 2" : 0
 
 		David: 
 			b: """
-			# + - * / %
+			# / 
 
 			David = (x) -> 0
 			"""
@@ -148,16 +130,11 @@ Ture = (x) -> 0
 				"David 8" : 4
 				"David 6" : 3
 			d:
-				"3 + 2" : 5
-				"3 - 2" : 1
-				"3 * 2" : 6
-				"6 / 2" : 3
-				"5 % 2" : 1
-				"6 % 2" : 0
+				"6 / 3" : 2
 
 		Gabriella: 
 			b: """
-			# + - * / %
+			# %
 
 			Gabriella = (x) -> -1	
 			"""
@@ -165,19 +142,19 @@ Ture = (x) -> 0
 			c: 
 				"Gabriella 7" : 1
 				"Gabriella 8" : 0
+				"Gabriella 9" : 1
 				"Gabriella 10" : 0
-				"Gabriella 11" : 1
 			d:
-				"3 + 2" : 5
-				"3 - 2" : 1
-				"3 * 2" : 6
-				"6 / 2" : 3
-				"5 % 2" : 1
-				"6 % 2" : 0
+				"0 % 3" : 0
+				"1 % 3" : 1
+				"2 % 3" : 2
+				"3 % 3" : 0
+				"4 % 3" : 1
+				"5 % 3" : 2
 
 		Beppe: 
 			b: """
-			# == < > !=
+			# == 
 
 			Beppe = (x) -> null		
 			"""
@@ -188,22 +165,13 @@ Ture = (x) -> 0
 				"Beppe 3" : false
 				"Beppe 4" : false
 			d:
+				"1 == 0" : false
 				"1 == 1" : true
 				"1 == 2" : false
-				"1 != 1" : false
-				"1 != 2" : true
-				"1 < 1" : false
-				"1 < 2" : true
-				"1 > 1" : false
-				"1 > 2" : false
-				"1 <= 1" : true
-				"1 <= 2" : true
-				"1 >= 1" : true
-				"1 >= 2" : false
 
 		Karolina: 
 			b: """
-			# == < > !=
+			# >
 
 			Karolina = (x) -> null
 			"""
@@ -214,48 +182,30 @@ Ture = (x) -> 0
 				"Karolina 3" : true
 				"Karolina 4" : true
 			d:
-				"1 == 1" : true
-				"1 == 2" : false
-				"1 != 1" : false
-				"1 != 2" : true
-				"1 < 1" : false
-				"1 < 2" : true
+				"0 > 1" : false
 				"1 > 1" : false
-				"1 > 2" : false
-				"1 <= 1" : true
-				"1 <= 2" : true
-				"1 >= 1" : true
-				"1 >= 2" : false
+				"2 > 1" : true
 
 		Kasper: 
 			b: """
-			# == < > !=
+			# >=
 
 			Kasper = (x) -> "Gone fishing"
 			"""
-			a: "Kasper = (x) -> x > 2"
+			a: "Kasper = (x) -> x >= 3"
 			c:
 				"Kasper 1" : false
 				"Kasper 2" : false
 				"Kasper 3" : true
 				"Kasper 4" : true
 			d:
-				"1 == 1" : true
-				"1 == 2" : false
-				"1 != 1" : false
-				"1 != 2" : true
-				"1 < 1" : false
-				"1 < 2" : true
-				"1 > 1" : false
-				"1 > 2" : false
-				"1 <= 1" : true
-				"1 <= 2" : true
-				"1 >= 1" : true
 				"1 >= 2" : false
+				"2 >= 2" : true
+				"3 >= 2" : true
 
 		Miranda: 
 			b: """
-			# == < > !=
+			# !=
 
 			Miranda = (x) -> "Tralala..."
 			"""
@@ -266,18 +216,9 @@ Ture = (x) -> 0
 				"Miranda 3" : true
 				"Miranda 4" : true
 			d:
-				"1 == 1" : true
-				"1 == 2" : false
+				"1 != 0" : true
 				"1 != 1" : false
 				"1 != 2" : true
-				"1 < 1" : false
-				"1 < 2" : true
-				"1 > 1" : false
-				"1 > 2" : false
-				"1 <= 1" : true
-				"1 <= 2" : true
-				"1 >= 1" : true
-				"1 >= 2" : false
 
 	"A1: Two Parameters" : 
 	
@@ -489,7 +430,7 @@ Ture = (x) -> 0
 				"g 1,2" : 5
 				"g 2,3" : 13
 				"g 3,4" : 25
-				"g 4,5" : 41
+				"g 3,5" : 34
 			d:
 				"3 + 2" : 5
 				"3 * 2" : 6
@@ -756,7 +697,9 @@ calc = (command) ->
 				"parseInt '3'" : 3
 				"parseFloat '3.14'" : 3.14
 
+
 	"A4: { }" :
+
 		"Boys and Girls" :
 			b : """
 # LOC:7 {} [] for in length + /
@@ -811,6 +754,122 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"_.keys girl" : ['name','age']
 				"_.values girl" : ['Sabrina',12]
 				"_.pairs girl" : [['name', 'Sabrina'], ['age', 12]]
+
+		Earth :
+			b:"""
+earth = 
+	europe :
+		sweden : 10
+		denmark : 5
+	asia : 
+		china : 1300
+		india : 1500
+		japan : 120
+
+f = -> 
+g = ->
+h = -> earth.europe.sweden
+k = ->
+l = ->
+m = ->
+n = ->
+
+			"""
+			a:"""
+earth = 
+	europe :
+		sweden : 10
+		denmark : 5
+	asia : 
+		china : 1300
+		india : 1500
+		japan : 120
+
+			"""
+			c:
+				"f()" : {"europe":{"sweden":10,"denmark":5},"asia":{"china":1300,"india":1500,"japan":120}} 
+				"g()" : {"sweden":10,"denmark":5}
+				"h()" : 10
+				"k()" : {"china":1300,"india":1500,"japan":120}
+				"l()" : 1300
+				"m()" : 1500
+				"n()" : 120
+
+		Glosor : 
+			b:"""
+SWE_ENG = {	bord:'table',	stol:'chair',	hund:'dog',	 katt:'cat',   selfie:'selfie', programmering:'programming' }
+SWE_GER = {	bord:'Tisch',	stol:'Stuhl',	hund:'Hund', katt:'Katze', selfie:'Selfie', programmering:'Programmierung' }
+
+swe2eng = (ord) -> 
+eng2swe = (ord) -> 
+
+swe2ger = (ord) ->
+ger2swe = (ord) ->
+
+eng2ger = (ord) ->
+ger2eng = (ord) ->
+"""
+			a:"""
+swe2eng = (ord) -> SWE_ENG[ord]
+eng2swe = (ord) -> _.invert(SWE_ENG)[ord]
+
+swe2ger = (ord) -> SWE_GER[ord]
+ger2swe = (ord) -> _.invert(SWE_GER)[ord]
+
+eng2ger = (ord) -> swe2ger eng2swe ord
+ger2eng = (ord) -> swe2eng ger2swe ord
+
+			"""
+			c:
+				"swe2eng 'bord'" : 'table'
+				"eng2swe 'dog'" : 'hund'
+				"swe2ger 'programmering'" : 'Programmierung'
+				"ger2swe 'Selfie'" : 'selfie'
+				"eng2ger 'cat'" : 'Katze'
+				"ger2eng 'Stuhl'" : 'chair'
+
+			d:
+				"SWE_ENG['bord']" : "table"
+				"_.invert {a:1, b:2}" : {"1":"a","2":"b"}
+
+		"Glosor[]" : 
+			b:"""
+SWE = [	'bord',	 'stol',  'hund', 'katt',  'selfie', 'programmering'  ]
+ENG = [	'table', 'chair', 'dog',	'cat',   'selfie', 'programming'    ]
+GER = [	'Tisch', 'Stuhl', 'Hund', 'Katze', 'Selfie', 'Programmierung' ]
+
+swe2eng = (ord) -> 
+eng2swe = (ord) -> 
+
+swe2ger = (ord) ->
+ger2swe = (ord) ->
+
+eng2ger = (ord) ->
+ger2eng = (ord) ->
+"""
+			a:"""
+swe2eng = (ord) -> ENG[SWE.indexOf(ord)]
+eng2swe = (ord) -> SWE[ENG.indexOf(ord)]
+
+swe2ger = (ord) -> GER[SWE.indexOf(ord)]
+ger2swe = (ord) -> SWE[GER.indexOf(ord)]
+
+eng2ger = (ord) -> GER[ENG.indexOf(ord)]
+ger2eng = (ord) -> ENG[GER.indexOf(ord)]
+
+			"""
+			c:
+				"swe2eng 'bord'" : 'table'
+				"eng2swe 'dog'" : 'hund'
+				"swe2ger 'programmering'" : 'Programmierung'
+				"ger2swe 'Selfie'" : 'selfie'
+				"eng2ger 'cat'" : 'Katze'
+				"ger2eng 'Stuhl'" : 'chair'
+
+			d:
+				"SWE.indexOf 'katt'" : 3
+				"ENG[3]" : "cat"
+				"GER[3]" : "Katze"
 
 	'A5: " "' :
 

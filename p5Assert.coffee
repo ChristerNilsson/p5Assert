@@ -32,7 +32,7 @@ sel2change = (sel) ->
 tableClear = -> $("#tabell tr").remove()
 axiomClear = -> $("#axioms tr").remove()
 
-tableAppend = (t, call, expected, actual) ->
+tableAppend = (t, call, expected, actual) -> # exakt tre kolumner
 	sp = "&nbsp;"
 	row = t.insertRow -1
 
@@ -44,12 +44,11 @@ tableAppend = (t, call, expected, actual) ->
 	cell2.innerHTML = sp + JSON.stringify(expected) + sp
 	cell2.style.backgroundColor = '#00FF00'
 
-	if actual isnt undefined
-		cell3 = row.insertCell -1
-		cell3.innerHTML = if actual == undefined then sp + "error" + sp else sp + JSON.stringify(actual) + sp
-		cell3.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
+	cell3 = row.insertCell -1
+	cell3.innerHTML = sp + JSON.stringify(actual) + sp
+	cell3.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
 
-axiomAppend = (t, call, expected, actual) ->
+axiomAppend = (t, call, expected, actual) -> # exakt två kolumner
 	sp = "&nbsp;"
 	row = t.insertRow -1
 
@@ -58,7 +57,7 @@ axiomAppend = (t, call, expected, actual) ->
 	cell1.style.backgroundColor = '#FFFF00'
 
 	cell2 = row.insertCell -1
-	cell2.innerHTML = if actual == undefined then sp + "error" + sp else sp + JSON.stringify(actual) + sp
+	cell2.innerHTML = sp + JSON.stringify(actual) + sp
 	cell2.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
 
 changeLayout = ->
