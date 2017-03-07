@@ -588,7 +588,7 @@ sista = (a,n) -> a[-n..]
 
 		Nim:
 			b:"""
-# LOC:6 < ^ sort if then return [] 
+# LOC:5 < ^ sort if then return [] 
 
 # NIM är ett tvåmansspel
 # Tag minst en sticka ur en av tre högar
@@ -596,11 +596,10 @@ sista = (a,n) -> a[-n..]
 # https://en.wikipedia.org/wiki/Nim
 # https://en.wikipedia.org/wiki/Bitwise_operation#XOR
 
-nim = (board) -> [a,b,c] = board
+nim = ([a,b,c]) -> [a,b,c]
 """
 			a:"""
-nim = (board) ->
-	[a,b,c] = board
+nim = ([a,b,c]) ->
 	if (b^c) < a then return sort [b^c,b,c]
 	if (a^c) < b then return sort [a,a^c,c]
 	if (a^b) < c then return sort [a,b,a^b]
