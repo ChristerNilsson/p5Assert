@@ -9,7 +9,7 @@ data =
 		"Nyheter" :
 			b:"""
 # NYHETER 2017 Mars
-#   A3: Listor, Växelcykel, Kalkylator
+#   A3: Introduktion, Nim, Sort, Växelcykel, Kalkylator
 #   A4: Earth, Glosor, Glosor[]
 #   A5: Palindrom, Rövarspråk, Advanced
 #   A7: Bignum, Bråktal, Simplex, Complex, Nian
@@ -585,6 +585,53 @@ sista = (a,n) -> a[-n..]
 				"[2,11,3,56,62].indexOf 62" : 4
 				"[2,11,3,56,62].reverse()" : [62,56,3,11,2]
 				"[1,2].concat [3,4]" : [1,2,3,4]
+
+		Nim:
+			b:"""
+# LOC:6 < ^ sort if then return [] 
+
+# NIM är ett tvåmansspel
+# Tag minst en sticka ur en hög
+# Sista stickan vinner
+# https://en.wikipedia.org/wiki/Nim
+# https://en.wikipedia.org/wiki/Bitwise_operation#XOR
+
+nim = (board) -> [a,b,c] = board
+"""
+			a:"""
+nim = (board) ->
+	[a,b,c] = board
+	if (b^c) < a then return sort [b^c,b,c]
+	if (a^c) < b then return sort [a,a^c,c]
+	if (a^b) < c then return sort [a,b,a^b]
+	sort [a,b,c-1]
+"""
+			c:
+				"nim [0,0,1]" : [0,0,0]
+				"nim [0,0,2]" : [0,0,0]
+				"nim [0,3,3]" : [0,2,3]
+				"nim [1,2,3]" : [1,2,2]
+				"nim [1,2,4]" : [1,2,3]
+				"nim [1,3,4]" : [1,2,3]
+				"nim [1,3,5]" : [1,2,3]
+				"nim [2,3,5]" : [1,2,3]
+				"nim [2,4,7]" : [2,4,6]
+				"nim [2,5,6]" : [2,4,6]
+				"nim [3,4,5]" : [1,4,5]
+				"nim [3,4,6]" : [2,4,6]
+				"nim [5,6,7]" : [1,6,7]
+			d: 
+				"0^0" : 0 
+				"0^1" : 1 
+				"1^0" : 1 
+				"1^1" : 0 
+				"0^2" : 2 
+				"2^0" : 2 
+				"2^2" : 0 
+				"1^2^3" : 0 
+				"1^3^4" : 6 
+				"1^4^5" : 0 
+				"1^5^6" : 2 
 
 		Sort:
 			b:"""
