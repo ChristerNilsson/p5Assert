@@ -11,7 +11,7 @@ data =
 # NYHETER 2017 Mars
 #   A3: Listor, Växelcykel, Kalkylator
 #   A4: Earth, Glosor, Glosor[]
-#   A5: Palindrom, Rövarspråk
+#   A5: Palindrom, Rövarspråk, Advanced
 #   A7: Bignum, Bråktal, Simplex, Complex, Nian
 #   A8: List recursion, Pokerhand, Matematik
 
@@ -978,6 +978,37 @@ rs = (word,extra='o') -> ((if letter in 'aeiouy åäö' then letter else letter 
 				"rs 'bokstav','e'" : 'bebokeksestetavev'
 				"rs 'kalas fint','a'" : 'kakalalasas fafinantat'
 
+		Advanced :
+			b: """
+# LOC:4 _.any _.filter _.countBy length split reverse join == RegExp test
+
+existerar = (word) ->
+palindromer = () -> []
+frekvens = () ->  {}
+korsord = (pattern) -> []
+
+words = ordlista.split " "			
+"""
+			a:"""
+existerar = (word) -> _.any words, (w) -> w==word
+palindromer = (n) -> _.filter words, (w) -> w.length == n and w == w.split('').reverse().join('')
+frekvens = () ->  _.countBy words, "length"
+korsord = (pattern) -> _.filter words, (w) -> (new RegExp('^' + pattern + '$')).test w
+
+words = ordlista.split " "			
+"""
+			c:
+				"existerar 'ajabaja'" : true
+				"existerar 'selfie'" : false
+				"palindromer 4" : ["alla","amma","arra","esse"]
+				"palindromer 6" : ["tillit"]
+				"palindromer 7" : ["ajabaja","tätatät"]
+				"frekvens()" : {"4":2573,"5":4568,"6":6769,"7":10181,"8":13578,"9":14600} 
+				"korsord 'b..l'" : ["ball", "bill", "boll", "bröl"] 
+			d: 
+				"words.length" : 52269
+				"_.first words" : "abakus"
+				"_.last words" : "övärld"				
 
 	"A6: Interpolation" : 
 
