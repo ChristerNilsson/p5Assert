@@ -12,7 +12,7 @@ data =
 #   A3: Listor, Växelcykel, Kalkylator
 #   A4: Earth, Glosor, Glosor[]
 #   A5: Palindrom, Rövarspråk
-#   A7: Bignum, Bråktal, Simplex, Complex
+#   A7: Bignum, Bråktal, Simplex, Complex, Nian
 #   A8: List recursion, Pokerhand, Matematik
 
 # Klicka nu på A0!
@@ -1469,6 +1469,59 @@ class Polynom
 				"(new Polynom [5,0,-1]).compose(new Polynom [3,2]).lst" : [-4,-12,-4]
 				"(new Polynom [5,0,-1]).compose(new Polynom [5,0,-1]).lst" : [-20,0,10,0,-1]
 
+		Nian :
+			b:"""
+# LOC:20 class constructor new @ split for in of reduce ** & and push "" indexOf > if then _.countBy
+# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. 
+# Se http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html
+
+class Nian
+	constructor : (lista=ordlista) ->
+	bits : (word) -> 0
+	solve : (letters) -> []
+
+nian = new Nian()
+			"""
+			a:"""
+
+class Nian
+	constructor : (@words=ordlista.split(" ")) ->	
+		@patterns = (@bits word for word in @words)
+
+	bits : (word) -> word.split("").reduce ((acc,ch) -> acc|(2 ** "abcdefghijklmnopqrstuvwxyzåäö".indexOf ch)), 0
+	ok : (f1,f2) ->
+		for ch, f of f2
+			if f > f1[ch] then return false
+		true 
+	    
+	solve : (letters) ->
+		mandatory = letters[4]
+		res = [] 
+		p = @bits letters
+		letters1 = letters.split ""
+		freq1 = _.countBy letters1
+		for pattern,i in @patterns
+			if (p & pattern) == pattern
+				letters2 = @words[i].split ""
+				freq2 = _.countBy letters2
+				if @ok(freq1,freq2) and mandatory in letters2 then res.push @words[i]
+		res 
+nian = new Nian()
+"""
+			c:
+				"nian.bits 'a'" : 1
+				"nian.bits 'b'" : 2
+				"nian.bits 'c'" : 4
+				"nian.bits 'abba'" : 3
+				"nian.bits 'aaaacklmn'" : 15365
+				"nian.bits 'mack'" : 5125
+				"nian.solve 'aaaacklmn'" : ["almanacka", "anacka", "lack", "lacka", "mack", "macka", "mackla", "nacka"]
+				"nian.solve 'eemncrrtö'" : ["cement", "cementrör", "cent", "center", "cert", "crème", "recent"]
+				"nian.solve('rakeutraf').length" : 34
+			d:
+				"ordlista.split(' ').length" : 52269
+				"_.first ordlista.split ' '" : "abakus"
+				"_.last ordlista.split ' '" : "övärld"
 
 	"A8: Advanced" :
 
