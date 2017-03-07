@@ -588,22 +588,19 @@ sista = (a,n) -> a[-n..]
 
 		Nim:
 			b:"""
-# LOC:5 < ^ sort if then return [] 
+# LOC:1 < ^ sort if then else [] 
 
 # NIM är ett tvåmansspel
 # Tag minst en sticka ur en av tre högar
 # Sista stickan vinner
 # https://en.wikipedia.org/wiki/Nim
 # https://en.wikipedia.org/wiki/Bitwise_operation#XOR
+# https://en.wikipedia.org/wiki/Nimrod_(computing)
 
 nim = ([a,b,c]) -> [a,b,c]
 """
 			a:"""
-nim = ([a,b,c]) ->
-	if (b^c) < a then return sort [b^c,b,c]
-	if (a^c) < b then return sort [a,a^c,c]
-	if (a^b) < c then return sort [a,b,a^b]
-	sort [a,b,c-1]
+nim=([a,b,c])->sort if(b^c)<a then[b^c,b,c]else if(a^c)<b then[a,a^c,c]else if(a^b)<c then[a,b,a^b]else[a,b,c-1]
 """
 			c:
 				"nim [0,0,1]" : [0,0,0]
