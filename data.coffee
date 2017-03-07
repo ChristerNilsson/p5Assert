@@ -591,7 +591,7 @@ sista = (a,n) -> a[-n..]
 # LOC:6 < ^ sort if then return [] 
 
 # NIM är ett tvåmansspel
-# Tag minst en sticka ur en hög
+# Tag minst en sticka ur en av tre högar
 # Sista stickan vinner
 # https://en.wikipedia.org/wiki/Nim
 # https://en.wikipedia.org/wiki/Bitwise_operation#XOR
@@ -628,6 +628,7 @@ nim = (board) ->
 				"0^2" : 2 
 				"2^0" : 2 
 				"2^2" : 0 
+				"1^2" : 3 
 				"1^2^3" : 0 
 				"1^3^4" : 6 
 				"1^4^5" : 0 
