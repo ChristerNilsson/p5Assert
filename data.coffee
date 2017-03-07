@@ -980,10 +980,10 @@ rs = (word,extra='o') -> ((if letter in 'aeiouy åäö' then letter else letter 
 
 		Advanced :
 			b: """
-# LOC:4 _.any _.filter _.countBy length split reverse join == RegExp test
+# LOC:8 _.any _.filter _.countBy length split reverse join == and for in continue
 
 existerar = (word) ->
-palindromer = () -> []
+palindromer = (n) -> []
 frekvens = () ->  {}
 korsord = (pattern) -> []
 
@@ -993,10 +993,13 @@ words = ordlista.split " "
 existerar = (word) -> _.any words, (w) -> w==word
 palindromer = (n) -> _.filter words, (w) -> w.length == n and w == w.split('').reverse().join('')
 frekvens = () ->  _.countBy words, "length"
-korsord = (pattern) -> _.filter words, (w) -> (new RegExp('^' + pattern + '$')).test w
+match = (word,pattern) ->
+	for letter,i in pattern
+		if letter != '.' and letter != word[i] then	return false
+	true
+korsord = (pattern) -> _.filter words, (w) -> w.length == pattern.length and match w,pattern
 
-words = ordlista.split " "			
-"""
+words = ordlista.split " "		    	               """
 			c:
 				"existerar 'ajabaja'" : true
 				"existerar 'selfie'" : false

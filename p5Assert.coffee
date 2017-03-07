@@ -105,6 +105,7 @@ window.onload = ->
 	changeLayout()
 
 runAll = ->
+	#start = millis()
 	b = myCodeMirror.getValue()
 	data[chapter][exercise]["b"] = b
 	dict = data[chapter][exercise]["c"]		
@@ -143,3 +144,4 @@ runAll = ->
 			eval "results = " + code 
 			for call,i in Object.keys(dict)
 				axiomAppend axioms, call, dict[call], results[i]
+	#print millis()-start
