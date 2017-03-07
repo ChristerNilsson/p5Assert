@@ -3,7 +3,7 @@
 # c : call in Coffeescript syntax, three columns
 # d : axioms, two columns
 
-data = 
+data =
 
 	"Nyheter" :
 		"Nyheter" :
@@ -18,16 +18,16 @@ data =
 # Klicka nu på A0!
 """
 			a:""
-	
-	"A0: One Parameter" : 
-		Ture :  
+
+	"A0: One Parameter" :
+		Ture :
 			b: """
 # Maskinen Ture är trasig! Ture är ledsen. Du måste laga Ture!
 # Skickar man in en etta till Ture ska en etta komma ut.
 # Just nu skickar Ture alltid ut nollor. Ture har hakat upp sig!
-# Namnet på det man skickar in till Ture står mellan parenteserna. Namnet är x.  
+# Namnet på det man skickar in till Ture står mellan parenteserna. Namnet är x.
 # x kan vara olika saker. Ibland en nolla och ibland en etta.
-# Efter pilen talar man om vad som ska komma ut från Ture. 
+# Efter pilen talar man om vad som ska komma ut från Ture.
 #   Den gula kolumnen innehåller det som skickas in till Ture.
 #   Den gröna kolumnen innehåller det som ska komma ut ur Ture.
 #   Den röda kolumnen innehåller det som kommer ut ur Ture, just nu.
@@ -40,49 +40,49 @@ data =
 Ture = (x) -> 0
 """
 			a: "Ture = (x) -> x"
-			c: 
+			c:
 				"Ture 0" : 0
 				"Ture 1" : 1
 
-		Wilma: 
+		Wilma:
 			b: """
 			# Om man skickar en sjua till Wilma ska det komma tillbaks en åtta.
 			# Om man skickar en åtta till Wilma ska det komma tillbaks en nia.
 			# Vad ska Wilma skicka tillbaks om det kommer in ett x ?
 			# Tabellen längst ner innehåller lite ledtrådar.
-			
+
 			Wilma = (x) -> x
 			"""
 			a: "Wilma = (x) -> x+1"
-			c: 
+			c:
 				"Wilma 7" : 8
-				"Wilma 8" : 9 
+				"Wilma 8" : 9
 			d:
 				"7 + 1" : 8
 				"8 + 1" : 9
 
-		Noel: 
+		Noel:
 			b: """
 			# Någon av dessa löser problemet: + *
 
 			Noel = (x) ->
 			"""
 			a: "Noel = (x) -> 2*x"
-			c: 
+			c:
 				"Noel 5" : 10
-				"Noel 6" : 12 
+				"Noel 6" : 12
 			d:
 				"3 + 2" : 5
 				"3 * 2" : 6
 
-		Greta: 
+		Greta:
 			b: """
 			# *
 
 			Greta = (x) ->
 			"""
 			a: "Greta = (x) -> x*x"
-			c: 
+			c:
 				"Greta 1" : 1
 				"Greta 2" : 4
 				"Greta 3" : 9
@@ -91,53 +91,53 @@ Ture = (x) -> 0
 			d:
 				"3 * 2" : 6
 
-		Viktor: 
+		Viktor:
 			b: """
 			# -
 
 			Viktor = (x) ->
 			"""
 			a: "Viktor = (x) -> -x"
-			c: 
+			c:
 				"Viktor -4" : 4
 				"Viktor 3" : -3
 			d:
 				"3 - 2" : 1
 
-		Sabrina: 
+		Sabrina:
 			b: """
 			# -
 
 			Sabrina = (x) ->
 			"""
 			a: "Sabrina = (x) -> x-2"
-			c: 
+			c:
 				"Sabrina 7" : 5
 				"Sabrina 17" : 15
 			d:
 				"3 - 2" : 1
 
-		David: 
+		David:
 			b: """
-			# / 
+			# /
 
 			David = (x) ->
 			"""
 			a: "David = (x) -> x/2"
-			c: 
+			c:
 				"David 8" : 4
 				"David 6" : 3
 			d:
 				"6 / 3" : 2
 
-		Gabriella: 
+		Gabriella:
 			b: """
 			# %
 
 			Gabriella = (x) ->
 			"""
 			a: "Gabriella = (x) -> x % 2"
-			c: 
+			c:
 				"Gabriella 7" : 1
 				"Gabriella 8" : 0
 				"Gabriella 9" : 1
@@ -150,9 +150,9 @@ Ture = (x) -> 0
 				"4 % 3" : 1
 				"5 % 3" : 2
 
-		Beppe: 
+		Beppe:
 			b: """
-			# == 
+			# ==
 
 			Beppe = (x) ->
 			"""
@@ -167,7 +167,7 @@ Ture = (x) -> 0
 				"1 == 1" : true
 				"1 == 2" : false
 
-		Karolina: 
+		Karolina:
 			b: """
 			# >
 
@@ -184,7 +184,7 @@ Ture = (x) -> 0
 				"1 > 1" : false
 				"2 > 1" : true
 
-		Kasper: 
+		Kasper:
 			b: """
 			# >=
 
@@ -201,7 +201,7 @@ Ture = (x) -> 0
 				"2 >= 2" : true
 				"3 >= 2" : true
 
-		Miranda: 
+		Miranda:
 			b: """
 			# !=
 
@@ -218,16 +218,16 @@ Ture = (x) -> 0
 				"1 != 1" : false
 				"1 != 2" : true
 
-	"A1: Two Parameters" : 
+	"A1: Two Parameters" :
 	
-		Operator1: 
+		Operator1:
 			b: """
 			# + - * / % **
 
 			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a*b"
-			c: 
+			c:
 				"g 3,4" : 12
 				"g 4,6" : 24
 			d:
@@ -242,14 +242,14 @@ Ture = (x) -> 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
 
-		Operator2: 
+		Operator2:
 			b: """
 			# + - * / %
 
 			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a+b"
-			c: 
+			c:
 				"g 3,4" : 7
 				"g 4,6" : 10
 			d:
@@ -262,14 +262,14 @@ Ture = (x) -> 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
 
-		Operator3: 
+		Operator3:
 			b: """
 			# + - * / %
 
 			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> b-a"
-			c: 
+			c:
 				"g 3,4" : 1
 				"g 4,6" : 2
 			d:
@@ -282,14 +282,14 @@ Ture = (x) -> 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
 
-		Operator4: 
+		Operator4:
 			b: """
 			# + - * / %
 
 			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a/b"
-			c: 
+			c:
 				"g 8,4" : 2
 				"g 12,3" : 4
 			d:
@@ -302,7 +302,7 @@ Ture = (x) -> 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
 
-		Operator5: 
+		Operator5:
 			b: """
 			# + - * / %
 
@@ -324,7 +324,7 @@ Ture = (x) -> 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
 	
-		Operator6: 
+		Operator6:
 			b: """
 			# + - * / % ==
 
@@ -348,7 +348,7 @@ Ture = (x) -> 0
 				"2 == 3" : false
 				"3 == 3" : true
 
-		Operator7: 
+		Operator7:
 			b: """
 			# + - * / % ==
 
@@ -372,7 +372,7 @@ Ture = (x) -> 0
 				"2 == 3" : false
 				"3 == 3" : true
 
-		Operator8: 
+		Operator8:
 			b: """
 			# + - * / % ==
 
@@ -396,7 +396,7 @@ Ture = (x) -> 0
 				"2 == 3" : false
 				"3 == 3" : true
 
-		Operator9: 
+		Operator9:
 			b: """
 			# + - * / % **
 
@@ -416,7 +416,7 @@ Ture = (x) -> 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
 
-		Operator10: 
+		Operator10:
 			b: """
 			# + *
 
@@ -433,7 +433,7 @@ Ture = (x) -> 0
 				"3 + 2" : 5
 				"3 * 2" : 6
 
-		Operator11: 
+		Operator11:
 			b: """
 			# + *
 
@@ -453,7 +453,7 @@ g = (x) -> x + 1
 				"0 + 1 + 1 + 1" : 3
 				"10 + 1 + 1 + 1" : 13
 
-		Operator12: 
+		Operator12:
 			b: """
 			# + *
 
@@ -537,7 +537,7 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 				"f 5,25,10" : [5,25,45,65,85,105,125,145,165,185]
 				"f -0.1,0.0,3" : [-0.1,0.0,0.1]
 			d:
-				"(i*i for i in range 5)" : [0,1,4,9,16]				
+				"(i*i for i in range 5)" : [0,1,4,9,16]
 
 	"A3: [ ]" :
 
@@ -547,7 +547,7 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 
 antal = (a) -> 0
 fetch = (a,i) -> 0 
-konkatenera = (a,b) -> [] 
+konkatenera = (a,b) -> []
 första = (a,n) -> []
 mitti = (a,i,j) -> []
 sista = (a,n) -> []
@@ -679,8 +679,8 @@ gear = (big, small, index) ->
 	bsort res
 	res[index]
 
-"""	
-			c:	
+"""
+			c:
 				"gear [43,53], [13,21], 0" : [2.05,43,21]
 				"gear [43,53], [13,21], 1" : [2.52,53,21]
 				"gear [43,53], [13,21], 2" : [3.31,43,13]
@@ -712,7 +712,7 @@ calc = (command) ->
 		if cmd == '+' then stack.push stack.pop() + stack.pop()
 		else if cmd == '*' then stack.push stack.pop() * stack.pop()
 		else stack.push parseInt cmd
-	stack.pop()		
+	stack.pop()
 """
 			c:
 				"calc '2'" : 2
@@ -766,7 +766,7 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 """
 			c:
 				"names girls" : ['Sabrina', 'Helene', 'Anna']
-				"names boys" : ['David', 'Henry', 'Noel','Numa'] 
+				"names boys" : ['David', 'Henry', 'Noel','Numa']
 				"ages girls" : [12,10,11]
 				"ages boys" : [10,11,14,3]
 				"sum ages girls" : 33
@@ -789,16 +789,16 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 
 		Earth :
 			b:"""
-earth = 
+earth =
 	europe :
 		sweden : 10
 		denmark : 5
-	asia : 
+	asia :
 		china : 1300
 		india : 1500
 		japan : 120
 
-f = -> 
+f = ->
 g = ->
 h = -> earth.europe.sweden
 k = ->
@@ -808,18 +808,18 @@ n = ->
 
 			"""
 			a:"""
-earth = 
+earth =
 	europe :
 		sweden : 10
 		denmark : 5
-	asia : 
+	asia :
 		china : 1300
 		india : 1500
 		japan : 120
 
 			"""
 			c:
-				"f()" : {"europe":{"sweden":10,"denmark":5},"asia":{"china":1300,"india":1500,"japan":120}} 
+				"f()" : {"europe":{"sweden":10,"denmark":5},"asia":{"china":1300,"india":1500,"japan":120}}
 				"g()" : {"sweden":10,"denmark":5}
 				"h()" : 10
 				"k()" : {"china":1300,"india":1500,"japan":120}
@@ -827,13 +827,13 @@ earth =
 				"m()" : 1500
 				"n()" : 120
 
-		Glosor : 
+		Glosor :
 			b:"""
 SWE_ENG = {	bord:'table',	stol:'chair',	hund:'dog',	 katt:'cat',   selfie:'selfie', programmering:'programming' }
 SWE_GER = {	bord:'Tisch',	stol:'Stuhl',	hund:'Hund', katt:'Katze', selfie:'Selfie', programmering:'Programmierung' }
 
-swe2eng = (ord) -> 
-eng2swe = (ord) -> 
+swe2eng = (ord) ->
+eng2swe = (ord) ->
 
 swe2ger = (ord) ->
 ger2swe = (ord) ->
@@ -864,14 +864,14 @@ ger2eng = (ord) -> swe2eng ger2swe ord
 				"SWE_ENG['bord']" : "table"
 				"_.invert {a:1, b:2}" : {"1":"a","2":"b"}
 
-		"Glosor[]" : 
+		"Glosor[]" :
 			b:"""
 SWE = [	'bord',	 'stol',  'hund', 'katt',  'selfie', 'programmering'  ]
 ENG = [	'table', 'chair', 'dog',	'cat',   'selfie', 'programming'    ]
 GER = [	'Tisch', 'Stuhl', 'Hund', 'Katze', 'Selfie', 'Programmierung' ]
 
-swe2eng = (ord) -> 
-eng2swe = (ord) -> 
+swe2eng = (ord) ->
+eng2swe = (ord) ->
 
 swe2ger = (ord) ->
 ger2swe = (ord) ->
@@ -914,8 +914,8 @@ tecken = (s,i) -> ""
 mitti = (s,i,j) -> ""
 konkatenera = (s,t) -> ""
 leta = (s,t) -> 0
-splittra = (s,avgr) -> [] 
-hopslagning = (a,avgr='') -> "" 
+splittra = (s,avgr) -> []
+hopslagning = (a,avgr='') -> ""
 dubbla = (s) -> ""
 			"""
 			a:"""
@@ -933,10 +933,10 @@ dubbla = (s) -> hopslagning (tecken + tecken for tecken in s)
 				'tecken "Coffee",1' : 'o'
 				'mitti "Coffee",1,3' : 'off'
 				'mitti "Coffee",3,5' : 'fee'
-				'konkatenera "Coffee","script"' : 'Coffeescript' 
+				'konkatenera "Coffee","script"' : 'Coffeescript'
 				'leta "Coffee","e"' : 4
 				'leta "Coffee","x"' : -1
-				"splittra '2 3 +',' '" : ['2', '3', '+'] 
+				"splittra '2 3 +',' '" : ['2', '3', '+']
 				"hopslagning ['2', '3', '+'], '|'" : "2|3|+"
 				'dubbla "script"' : 'ssccrriipptt'
 			d:
@@ -971,7 +971,7 @@ palindrom = (word) -> word.split("").reverse().join("") == word
 			a: """
 rs = (word,extra='o') -> ((if letter in 'aeiouy åäö' then letter else letter + extra + letter) for letter in word).join("")
 """
-			c:	
+			c:
 				"rs 'kalas fint'" : 'kokalolasos fofinontot'
 				"rs 'bokstav'" : 'bobokoksostotavov'
 				"rs 'kalas fint','i'" : 'kikalilasis fifinintit'
@@ -987,7 +987,7 @@ palindromer = (n) -> []
 frekvens = () ->  {}
 korsord = (pattern) -> []
 
-words = ordlista.split " "			
+words = ordlista.split " "
 """
 			a:"""
 existerar = (word) -> _.any words, (w) -> w==word
@@ -999,41 +999,42 @@ match = (word,pattern) ->
 	true
 korsord = (pattern) -> _.filter words, (w) -> w.length == pattern.length and match w,pattern
 
-words = ordlista.split " "		    	               """
+words = ordlista.split " "
+"""
 			c:
 				"existerar 'ajabaja'" : true
 				"existerar 'selfie'" : false
 				"palindromer 4" : ["alla","amma","arra","esse"]
 				"palindromer 6" : ["tillit"]
 				"palindromer 7" : ["ajabaja","tätatät"]
-				"frekvens()" : {"4":2573,"5":4568,"6":6769,"7":10181,"8":13578,"9":14600} 
-				"korsord 'b..l'" : ["ball", "bill", "boll", "bröl"] 
-			d: 
+				"frekvens()" : {"4":2573,"5":4568,"6":6769,"7":10181,"8":13578,"9":14600}
+				"korsord 'b..l'" : ["ball", "bill", "boll", "bröl"]
+			d:
 				"words.length" : 52269
 				"_.first words" : "abakus"
-				"_.last words" : "övärld"				
+				"_.last words" : "övärld"
 
-	"A6: Interpolation" : 
+	"A6: Interpolation" :
 
-		linearequation1: 
+		linearequation1:
 			b: """
 			# LOC:1 *
 
 			f = (x) -> 0
 			"""
 			a: "f = (x) -> 2 * x"
-			c:  
+			c:
 				"f 2" : 4
 				"f 3" : 6
 
-		linearequation2: 
+		linearequation2:
 			b: """
 			# LOC:1 * +
 
 			f = (x) -> 0
 			"""
 			a: "f = (x) -> 3 + 2 * x"
-			c: 
+			c:
 				"f 2" : 7
 				"f 3" : 9
 
@@ -1044,21 +1045,21 @@ words = ordlista.split " "		    	               """
 			lerp = (y1,y2,x) -> 0
 			"""
 			a: "lerp = (y1,y2,x) -> y1 + (y2-y1) * x"
-			c:  
+			c:
 				"lerp 10,16,-1" : 4
 				"lerp 10,16,0" : 10
 				"lerp 10,16,0.5" : 13
 				"lerp 10,16,1" : 16
 				"lerp 10,16,2" : 22
 		
-		map:  
+		map:
 			b: """
 			# LOC:1 * + - /
 
 			map = (x,x1,x2,y1,y2) -> 0
 			"""
 			a: "map = (x,x1,x2,y1,y2) -> y1 + (y2-y1) * (x-x1)/(x2-x1)"
-			c:  
+			c:
 				"map 0,1,3,20,40" : 10
 				"map 1,1,3,20,40" : 20
 				"map 2,1,3,20,40" : 30
@@ -1066,14 +1067,14 @@ words = ordlista.split " "		    	               """
 				"map 75,50,100,0,1" : 0.5
 				"map 16,0,40,0,200" : 80
 
-		Hour2Degree:  
+		Hour2Degree:
 			b: """
 			# LOC:1 map + - * / %
 
 			h2d = (x) -> 0
 			"""
 			a: "h2d = (x) -> map(15-x,0,12,0,360) % 360"
-			c:  
+			c:
 				"h2d 0" : 90
 				"h2d 1" : 60
 				"h2d 2" : 30
@@ -1088,14 +1089,14 @@ words = ordlista.split " "		    	               """
 				"h2d 11" : 120
 				"h2d 12" : 90
 
-		Hour2Radian:  
+		Hour2Radian:
 			b: """
 			# LOC:1 map + - * / % Math.PI
 
 			h2r = (x) -> 0
 			"""
 			a: "h2r = (x) -> (map 15-x,0,12,0,2*Math.PI) % (2*Math.PI)"
-			c:  
+			c:
 				"h2r 0" : 3*Math.PI/6
 				#"h2r 1" : 2*Math.PI/6  decimal problem
 				#"h2r 2" : 1*Math.PI/6  decimal problem
@@ -1152,13 +1153,13 @@ sum = (numbers) ->
 	res
 
 antal = (numbers) -> numbers.length 
-	
+
 average = (numbers) -> sum(numbers) / antal(numbers)
 """
 
 			c:
 				"names girls" : ['Sabrina', 'Helene', 'Anna']
-				"names boys" : ['David', 'Henry', 'Noel','Numa'] 
+				"names boys" : ['David', 'Henry', 'Noel','Numa']
 				"ages girls" : [12,10,11]
 				"ages boys" : [10,11,14,3]
 				"sum ages girls" : 33
@@ -1188,10 +1189,10 @@ gcd = (a,b) -> if b == 0 then a else gcd b, a % b
 class Fraction
 	constructor : (@a,@b) -> [@a,@b] = [@a/gcd(@a,@b), @b/gcd(@a,@b)]
 	to_s : -> @a + "/" + @b
-	add : (o) -> new Fraction @a*o.b+@b*o.a, @b*o.b 
-	sub : (o) -> new Fraction @a*o.b-@b*o.a, @b*o.b 
-	mul : (o) -> new Fraction @a*o.a, @b*o.b 
-	div : (o) -> new Fraction @a*o.b, @b*o.a 
+	add : (o) -> new Fraction @a*o.b+@b*o.a, @b*o.b
+	sub : (o) -> new Fraction @a*o.b-@b*o.a, @b*o.b
+	mul : (o) -> new Fraction @a*o.a, @b*o.b
+	div : (o) -> new Fraction @a*o.b, @b*o.a
 """
 			c:
 				"gcd 2,4" : 2
@@ -1206,7 +1207,7 @@ class Fraction
 		Simplex :
 			b:"""
 # LOC:14 class constructor new [] @	+ - *
-# Tips: Spela p5Complex innan du påbörjar denna övning.	
+# Tips: Spela p5Complex innan du påbörjar denna övning.
 
 class Simplex
 	constructor : (x,y) ->
@@ -1221,13 +1222,13 @@ b = new Simplex -2,4
 			a:"""
 class Simplex
 	constructor : (@x,@y) ->
-	translate : -> 
+	translate : ->
 		@x += 1
 		@
-	scale : -> 
-		[@x,@y] = [2*@x,2*@y] 
+	scale : ->
+		[@x,@y] = [2*@x,2*@y]
 		@
-	rotate : -> 
+	rotate : ->
 		[@x,@y] = [-@y,@x]
 		@
 	mirror : ->
@@ -1281,7 +1282,7 @@ h = h.mul h for i in range 7
 
 # observera att reverse() vänder PÅ plats.
 # clona därför med slice() i t ex to_s
-#reversera = (arr) -> arr.slice().reverse() 
+#reversera = (arr) -> arr.slice().reverse()
 
 class Bignum
 	constructor : (s) ->
@@ -1291,7 +1292,7 @@ class Bignum
 	to_s : () -> @list.slice().reverse().join("")
 
 	add : (other) ->
-		if @list.length < other.list.length then return other.add @ 
+		if @list.length < other.list.length then return other.add @
 		carry = 0
 		res = new Bignum ""
 		for d1, pos in @list
@@ -1308,7 +1309,7 @@ class Bignum
 				res = res.add @
 			if d < other.list.length-1 then res.list.unshift 0
 		res
-	
+
 a = new Bignum "123"
 b = new Bignum "8"
 c = new Bignum "999"
@@ -1320,7 +1321,7 @@ h = new Bignum "2"
 
 g = g.add g for i in range 100
 h = h.mul h for i in range 7
-	
+
 """
 			c:
 				"a.list" : [3,2,1]
@@ -1329,12 +1330,12 @@ h = h.mul h for i in range 7
 				"b.add(a).to_s()" : "131"
 				"a.add(c).to_s()" : "1122"
 				"a.add(b).add(c).to_s()" : "1130"
-				"e.add(f).to_s()" : "12345678901234567891" 
+				"e.add(f).to_s()" : "12345678901234567891"
 				"g.to_s()" : "1267650600228229401496703205376"
 				"a.mul(b).to_s()" :"984"
 				"a.mul(c).to_s()" : "122877"
 				"a.mul(d).to_s()" : "56088"
-				"h.to_s()" :"340282366920938463463374607431768211456"			
+				"h.to_s()" :"340282366920938463463374607431768211456"
 			d:
 				"parseInt '1'" : 1
 				"[1,2,3].reverse()" : [3,2,1]
@@ -1345,9 +1346,9 @@ h = h.mul h for i in range 7
 				"[11,22,33].slice()" : [11,22,33]
 				"12345678901234567890 + 1" : 12345678901234567000
 
-		Complex: 
+		Complex:
 			b: """
-# LOC:31 class constructor new @ -> if + * == > < 
+# LOC:31 class constructor new @ -> if + * == > <
 # Börja med att få bort onödiga nollor och ettor i to_s!
 
 class Complex
@@ -1387,11 +1388,11 @@ class Complex
 				s = sx + "+" + sy
 		else if @x==0 and @y==0
 			s = "0"
-		else 
+		else
 			s = sx + sy
 		s
 						"""
-			c:  
+			c:
 				"new Complex(-1,0).to_s()" :"-1"
 				"new Complex(-1,-1).to_s()" : "-1-i"
 				"new Complex(0,-1).to_s()" : "-i"
@@ -1473,11 +1474,11 @@ class Polynom
 		arr = []
 		for item,i in @lst
 			if item == 0 then continue
-			if item == 1 
+			if item == 1
 				if i==0 then arr.push "1"
 				else if i==1 then arr.push "x"
 				else arr.push "x^" + i
-			else				
+			else
 				if i==0 then arr.push item
 				else if i==1 then arr.push item + "*x"
 				else arr.push item + "*x^" + i
@@ -1498,15 +1499,15 @@ class Polynom
 				"(new Polynom [5,4,3]).integ().lst" : [0,5,2,1]
 				"(new Polynom [0,0,1]).integ().to_s()" : "0.3333333333333333*x^3"
 				"(new Polynom [0,0,1]).integ().value(3)" : 9
-				"(new Polynom [3,2]).compose(new Polynom [3,2]).lst" : [9,4] 
-				"(new Polynom [3,2]).compose(new Polynom [5,0,-1]).lst" : [13,0,-2] 
+				"(new Polynom [3,2]).compose(new Polynom [3,2]).lst" : [9,4]
+				"(new Polynom [3,2]).compose(new Polynom [5,0,-1]).lst" : [13,0,-2]
 				"(new Polynom [5,0,-1]).compose(new Polynom [3,2]).lst" : [-4,-12,-4]
 				"(new Polynom [5,0,-1]).compose(new Polynom [5,0,-1]).lst" : [-20,0,10,0,-1]
 
 		Nian :
 			b:"""
 # LOC:20 class constructor new @ split for in of reduce ** & and push "" indexOf > if then _.countBy
-# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå. 
+# Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå.
 # Se http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html
 
 class Nian
@@ -1519,18 +1520,18 @@ nian = new Nian()
 			a:"""
 
 class Nian
-	constructor : (@words=ordlista.split(" ")) ->	
+	constructor : (@words=ordlista.split(" ")) ->
 		@patterns = (@bits word for word in @words)
 
 	bits : (word) -> word.split("").reduce ((acc,ch) -> acc|(2 ** "abcdefghijklmnopqrstuvwxyzåäö".indexOf ch)), 0
 	ok : (f1,f2) ->
 		for ch, f of f2
 			if f > f1[ch] then return false
-		true 
-	    
+		true
+
 	solve : (letters) ->
 		mandatory = letters[4]
-		res = [] 
+		res = []
 		p = @bits letters
 		letters1 = letters.split ""
 		freq1 = _.countBy letters1
@@ -1539,7 +1540,7 @@ class Nian
 				letters2 = @words[i].split ""
 				freq2 = _.countBy letters2
 				if @ok(freq1,freq2) and mandatory in letters2 then res.push @words[i]
-		res 
+		res
 nian = new Nian()
 """
 			c:
@@ -1559,7 +1560,7 @@ nian = new Nian()
 
 	"A8: Advanced" :
 
-		path: 
+		path:
 			b: """
 # LOC:1 concat if then else
 
@@ -1570,27 +1571,27 @@ path = (tree,x) -> []
 			a: """
 path = (tree,x) -> if x==0 then return [] else [x].concat path tree,tree[x]
 """
-			c:  
+			c:
 				"path tree, 4" : [4,8,6,3]
 				"path tree, 20" : [20,10,5,3]
 				"path tree, 9" : [9,7,5,3]
 
-		summa: 
+		summa:
 			b: """
 # LOC:1 _.isEqual _.isNumber _.head _.tail
 
 summa = (tree) -> 0
 """
 			a: """
-summa = (tree) -> return if _.isEqual tree,[] then 0 else if _.isNumber tree then tree else	summa(_.head tree) + summa _.tail tree 
+summa = (tree) -> return if _.isEqual tree,[] then 0 else if _.isNumber tree then tree else	summa(_.head tree) + summa _.tail tree
 """
 			c:
 				"summa [1,2,3,4]" : 10
 				"summa [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]" : 161
 			d:
-				"_.isNumber '12'" : false 
-				"_.isNumber 12" : true 
-				"_.isNumber [12]" : false 
+				"_.isNumber '12'" : false
+				"_.isNumber 12" : true
+				"_.isNumber [12]" : false
 				"_.head [11,22,33]" : 11
 				"_.tail [11,22,33]" : [22,33]
 
@@ -1604,7 +1605,7 @@ compare = (a,b) -> -2
 			"""
 			a:"""
 compare = (a,b) ->
-	if typeof a != "object" 
+	if typeof a != "object"
 		if a > b then return -1 else if a < b then return 1 else return 0
 	for i in range min a.length,b.length
 		c = compare a[i],b[i]
@@ -1632,14 +1633,14 @@ compare = (a,b) ->
 				"typeof {}" : "object"
 				"min 1,2" : 1
 				"min 2,1" : 1
-				"11 > 2" : true		
-				"[11] > [2]" : false 
+				"11 > 2" : true
+				"[11] > [2]" : false
 				"[11] > [10]" : true
-				"11 == 11" : true 
-				'"11" == "11"' : true 
-				"[11] == [11]" : false 
+				"11 == 11" : true
+				'"11" == "11"' : true
+				"[11] == [11]" : false
 
-		filter: 
+		filter:
 			b: """
 # LOC:1 filter
 
@@ -1659,7 +1660,7 @@ g = (djur, art) -> []
 g = (djur, art) -> djur.filter (d) -> d.art == art
 
 """
-			c:  
+			c:
 				"g djur,'hund'" : [{namn:'Karo',art:'hund'},{namn:'Rocky',art:'hund'}]
 				"g djur,'fisk'" : [{namn:'Albert',art:'fisk'},{namn:'Herbert',art:'fisk'}]
 				"g djur,'kanin'" : [{namn:'Fluffy',art:'kanin'}]
@@ -1668,9 +1669,9 @@ g = (djur, art) -> djur.filter (d) -> d.art == art
 			d:
 				"[1, -2, 0, 3, -4].filter (x) -> x > 0" : [1,3]
 
-		comprehension: 
+		comprehension:
 			b: """
-# LOC:1 for 
+# LOC:1 for
 
 djur = [
 	{namn:'Fluffy',art:'kanin'}
@@ -1687,12 +1688,12 @@ namn = (djur) -> []
 			a: """
 namn = (djur) -> (d.namn for d in djur)
 """
-			c:  
+			c:
 				"namn djur" : ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
 			d:
 				"(2**i for i in range 5)" : [1,2,4,8,16]
 
-		reduce: 
+		reduce:
 			b: """
 # LOC:1 reduce
 
@@ -1714,14 +1715,14 @@ summa = (varor) -> 0
 			a: """
 summa = (varor) -> varor.reduce ((sum, vara) -> sum + vara.pris * vara.antal), 0
 """
-			c:  
+			c:
 				"summa ica" : 983
 				"summa konsum" : 290
 			d:
 				"ica.reduce ((sum, vara) -> sum + vara.antal), 0" : 12
 				"konsum.reduce ((sum, vara) -> sum + vara.pris), 0" : 290
 
-		sortBy: 
+		sortBy:
 			b: """
 # LOC:1 _.sortBy
 
@@ -1732,13 +1733,13 @@ sortera = (djur,f) -> []
 			a: """
 sortera = (djur,f) -> _.sortBy djur, f
 			"""
-			c:  
+			c:
 				"sortera djur, (d) -> d.length" : ["Karo","Rocky","Fluffy","Albert","Trixie","Herbert"]
 				"sortera djur" : ["Albert","Fluffy","Herbert","Karo","Rocky","Trixie"]
 			d:
 				"_.sortBy ['one', 'two', 'three', 'four'], 'length'" : ["one", "two","four","three"]
 
-		groupBy: 
+		groupBy:
 			b: """
 # LOC:1 _.groupBy
 
@@ -1749,13 +1750,13 @@ gruppera = (djur,f) -> {}
 			a: """
 gruppera = (djur,f) -> _.groupBy djur, f
 """
-			c:  
+			c:
 				"gruppera djur, (d) -> d.length" : {"4":["Karo"],"5":["Rocky"],"6":["Fluffy","Albert","Trixie"],"7":["Herbert"]}
 				"gruppera djur, (d) -> _.last(d)" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
 			d:
 				"_.groupBy ['one', 'two', 'three'], 'length'" : {3: ["one", "two"], 5: ["three"]}
 
-		split: 
+		split:
 			b: """
 # LOC:1 split for in _.object
 
@@ -1764,7 +1765,7 @@ parametrar = (url) -> {}
 			a: """
 parametrar = (url) -> _.object(f.split '=' for f in url.split('?')[1].split('&'))
 """
-			c:  
+			c:
 				"parametrar 'dn.se?x=0&y=1'" : {x:'0', y:'1'}
 				"parametrar 'svd.se?page=7'" : {page : '7'}
 				"parametrar 'aftonbladet.se?article=123456&date=2016-12-01'" : {article:'123456', date:'2016-12-01'}
@@ -1789,15 +1790,15 @@ poker = (a,b) -> -2
 poker = (a,b) -> compare calc(a.split(" ")), calc(b.split(" "))
 calc = (hand) ->
 	groups = _.groupBy('  23456789TJQKA'.indexOf(card[2]) for card in hand)
-	[score, ranks] = _.unzip reverse bsort ([cnt.length, parseInt(rank)] for rank, cnt of groups) 
+	[score, ranks] = _.unzip reverse bsort ([cnt.length, parseInt(rank)] for rank, cnt of groups)
 	if score.length == 5
 		if compare(ranks, [14,5,4,3,2])==0 then ranks = [5,4,3,2,1]
 		straight = if ranks[0] - ranks[4] == 4 then 1 else 0
-		flush = if _.size(_.uniq(suit.substring(0,2) for suit in hand)) == 1 then 1 else 0 
+		flush = if _.size(_.uniq(suit.substring(0,2) for suit in hand)) == 1 then 1 else 0
 		score = [[[1], [3,1,1,1]], [[3,1,1,2], [5]]][flush][straight]
-	[score, ranks] 
+	[score, ranks]
 """
-			c: 
+			c:
 				"poker 'kl8 ruA ru8 klA kl9', 'ru7 sp2 ru5 sp3 klA'": -1
 				"poker 'kl8 spT klK hj9 sp4', 'ru7 sp2 ru5 sp3 klA'": 1
 				"poker 'kl8 ruA ru8 klA kl9', 'kl8 ruA ru8 klA klT'": 1
@@ -1845,7 +1846,7 @@ h = (n) -> 0
 f = (x) -> 0 
 g = (n) -> 0
 k = (x,y) -> 0
-l = (a,b) -> [0,0]  
+l = (a,b) -> [0,0]
 p = (a,b) -> 0
 n = (y) -> false
 m = (n) -> []
@@ -1854,7 +1855,7 @@ q = (n) -> []
 			a:"""
 a = (n) -> 2*n+1
 b = (n) -> 2*n+2
-c = (n) -> (-1)**n * n 
+c = (n) -> (-1)**n * n
 d = (n) -> 10**n
 e = (n) -> 2**n
 h = (n) -> if n==0 then 0 else n+h(n-1)
@@ -1868,7 +1869,7 @@ m = (n) -> i for i in [2...n] when n % i == 0
 q = (n) ->
 	for i in range n-1,1,-1
 		v = i if n%i==0
-	if v then [v].concat q(n/v) else [n] 
+	if v then [v].concat q(n/v) else [n]
 """
 			c:
 				"a(i) for i in range 12" : [1,3,5,7,9,11,13,15,17,19,21,23]
@@ -1885,4 +1886,3 @@ q = (n) ->
 				"[n(2000),n(2016),n(2017),n(2020),n(2100)]" : [true,true,false,true,false]
 				"[m(17),m(60)]" : [[],[2,3,4,5,6,10,12,15,20,30]]
 				"[q(17),q(60)]" : [[17],[2,2,3,5]]
-
