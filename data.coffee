@@ -8,14 +8,12 @@ data =
 	"Nyheter" :
 		"Nyheter" :
 			b:"""
-# NYHETER 2017-03-05
-#   A4: Earth, Glosor, Glosor[]
-#   A8: Matematik
-# NYHETER 2017-03-01
+# NYHETER 2017 Mars
 #   A3: Listor, Växelcykel, Kalkylator
+#   A4: Earth, Glosor, Glosor[]
 #   A5: Palindrom, Rövarspråk
-#   A7: Bignum, Simplex, Complex
-#   A8: List recursion, Pokerhand
+#   A7: Bignum, Bråktal, Simplex, Complex
+#   A8: List recursion, Pokerhand, Matematik
 
 # Klicka nu på A0!
 """
@@ -67,7 +65,7 @@ Ture = (x) -> 0
 			b: """
 			# Någon av dessa löser problemet: + *
 
-			Noel = (x) -> 0
+			Noel = (x) ->
 			"""
 			a: "Noel = (x) -> 2*x"
 			c: 
@@ -81,7 +79,7 @@ Ture = (x) -> 0
 			b: """
 			# *
 
-			Greta = (x) -> 0
+			Greta = (x) ->
 			"""
 			a: "Greta = (x) -> x*x"
 			c: 
@@ -97,7 +95,7 @@ Ture = (x) -> 0
 			b: """
 			# -
 
-			Viktor = (x) -> 0
+			Viktor = (x) ->
 			"""
 			a: "Viktor = (x) -> -x"
 			c: 
@@ -110,7 +108,7 @@ Ture = (x) -> 0
 			b: """
 			# -
 
-			Sabrina = (x) -> 0
+			Sabrina = (x) ->
 			"""
 			a: "Sabrina = (x) -> x-2"
 			c: 
@@ -123,7 +121,7 @@ Ture = (x) -> 0
 			b: """
 			# / 
 
-			David = (x) -> 0
+			David = (x) ->
 			"""
 			a: "David = (x) -> x/2"
 			c: 
@@ -136,7 +134,7 @@ Ture = (x) -> 0
 			b: """
 			# %
 
-			Gabriella = (x) -> -1	
+			Gabriella = (x) ->
 			"""
 			a: "Gabriella = (x) -> x % 2"
 			c: 
@@ -156,7 +154,7 @@ Ture = (x) -> 0
 			b: """
 			# == 
 
-			Beppe = (x) -> null		
+			Beppe = (x) ->
 			"""
 			a: "Beppe = (x) -> x == 2"
 			c:
@@ -173,7 +171,7 @@ Ture = (x) -> 0
 			b: """
 			# >
 
-			Karolina = (x) -> null
+			Karolina = (x) ->
 			"""
 			a: "Karolina = (x) -> x > 2"
 			c:
@@ -190,7 +188,7 @@ Ture = (x) -> 0
 			b: """
 			# >=
 
-			Kasper = (x) -> "Gone fishing"
+			Kasper = (x) ->
 			"""
 			a: "Kasper = (x) -> x >= 3"
 			c:
@@ -207,7 +205,7 @@ Ture = (x) -> 0
 			b: """
 			# !=
 
-			Miranda = (x) -> "Tralala..."
+			Miranda = (x) ->
 			"""
 			a: "Miranda = (x) -> x != 2"
 			c:
@@ -226,7 +224,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / % **
 
-			g = (a,b) -> 0
+			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a*b"
 			c: 
@@ -248,7 +246,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / %
 
-			g = (a,b) -> 0
+			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a+b"
 			c: 
@@ -268,7 +266,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / %
 
-			g = (a,b) -> 0
+			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> b-a"
 			c: 
@@ -288,7 +286,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / %
 
-			g = (a,b) -> 0
+			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a/b"
 			c: 
@@ -308,7 +306,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / %
 
-			g = (a,b) -> 0
+			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a%b"
 			c:
@@ -330,7 +328,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / % ==
 
-			g = (a,b) -> null
+			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a == b"
 			c:
@@ -354,7 +352,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / % ==
 
-			g = (a,b) -> null
+			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a - b == 1"
 			c:
@@ -378,7 +376,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / % ==
 
-			g = (a,b) -> null
+			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a + b == 7"
 			c:
@@ -402,7 +400,7 @@ Ture = (x) -> 0
 			b: """
 			# + - * / % **
 
-			g = (a,b) -> 0
+			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a ** b"
 			c:
@@ -422,7 +420,7 @@ Ture = (x) -> 0
 			b: """
 			# + *
 
-			g = (a,b) -> 0
+			g = (a,b) ->
 			"""
 			a: "g = (a,b) -> a * a + b * b"
 			c:
@@ -434,6 +432,40 @@ Ture = (x) -> 0
 			d:
 				"3 + 2" : 5
 				"3 * 2" : 6
+
+		Operator11: 
+			b: """
+			# + *
+
+			g = (x) ->
+			"""
+			a: """"
+g = (x) -> x + 1
+"""
+			c:
+				"g g 0" : 2
+				"g g 10" : 12
+				"g g g 0" : 3
+				"g g g 10" : 13
+			d:
+				"0 + 1 + 1" : 2
+				"10 + 1 + 1" : 12
+				"0 + 1 + 1 + 1" : 3
+				"10 + 1 + 1 + 1" : 13
+
+		Operator12: 
+			b: """
+			# + *
+
+			f = (x) ->
+			"""
+			a: """"
+f = (x) -> x * 2
+"""
+			c:
+				"f f 0" : 0
+				"f f 1" : 4
+				"f f f 1" : 8
 
 	'A2: range lerp for' :
 
@@ -1102,6 +1134,41 @@ average = (numbers) -> sum(numbers) / antal(numbers)
 				"average ages girls" : 11
 				"average ages boys" : 9.5
 
+		Bråktal :
+			b:"""
+# LOC:8 class constructor new @ if then else * + - / % ==
+
+gcd = (a,b) -> 1
+
+class Fraction
+	constructor : (a,b) ->
+	to_s : -> "1/1"
+	add : (o) -> new Fraction 1,1
+	sub : (o) -> new Fraction 1,1
+	mul : (o) -> new Fraction 1,1
+	div : (o) -> new Fraction 1,1
+"""
+			a:"""
+gcd = (a,b) -> if b == 0 then a else gcd b, a % b
+
+class Fraction
+	constructor : (@a,@b) -> [@a,@b] = [@a/gcd(@a,@b), @b/gcd(@a,@b)]
+	to_s : -> @a + "/" + @b
+	add : (o) -> new Fraction @a*o.b+@b*o.a, @b*o.b 
+	sub : (o) -> new Fraction @a*o.b-@b*o.a, @b*o.b 
+	mul : (o) -> new Fraction @a*o.a, @b*o.b 
+	div : (o) -> new Fraction @a*o.b, @b*o.a 
+"""
+			c:
+				"gcd 2,4" : 2
+				"gcd 15,25" : 5
+				"(new Fraction 2,4).to_s()" : "1/2"
+				"(new Fraction 3,8).to_s()" : "3/8"
+				"(new Fraction 1,2).add(new Fraction 1,3).to_s()" : "5/6"
+				"(new Fraction 1,2).sub(new Fraction 1,3).to_s()" : "1/6"
+				"(new Fraction 4,6).mul(new Fraction 1,3).to_s()" : "2/9"
+				"(new Fraction 4,6).div(new Fraction 2,1).to_s()" : "1/3"
+
 		Simplex :
 			b:"""
 # LOC:14 class constructor new [] @	+ - *
@@ -1731,3 +1798,4 @@ q = (n) ->
 				"[n(2000),n(2016),n(2017),n(2020),n(2100)]" : [true,true,false,true,false]
 				"[m(17),m(60)]" : [[],[2,3,4,5,6,10,12,15,20,30]]
 				"[q(17),q(60)]" : [[17],[2,2,3,5]]
+
