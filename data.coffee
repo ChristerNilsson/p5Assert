@@ -1,7 +1,8 @@
-# a : facit, might be any language. Not used by p5Dojo.
 # b : comment line. LOC and keyword clues
+# a : Solution in Coffeescript. 
 # c : call in Coffeescript syntax, three columns
 # d : axioms, two columns
+# e : links
 
 data =
 
@@ -18,6 +19,8 @@ data =
 # Klicka nu på A0!
 """
 			a:""
+			e:
+				"Beginners Guide to Coffeescript" : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
 
 	"A0: One Parameter" :
 		Ture :
@@ -43,6 +46,8 @@ Ture = (x) -> 0
 			c:
 				"Ture 0" : 0
 				"Ture 1" : 1
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Wilma:
 			b: """
@@ -60,6 +65,8 @@ Ture = (x) -> 0
 			d:
 				"7 + 1" : 8
 				"8 + 1" : 9
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Noel:
 			b: """
@@ -74,6 +81,8 @@ Ture = (x) -> 0
 			d:
 				"3 + 2" : 5
 				"3 * 2" : 6
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Greta:
 			b: """
@@ -90,6 +99,8 @@ Ture = (x) -> 0
 				"Greta 5" : 25
 			d:
 				"3 * 2" : 6
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Viktor:
 			b: """
@@ -103,6 +114,8 @@ Ture = (x) -> 0
 				"Viktor 3" : -3
 			d:
 				"3 - 2" : 1
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Sabrina:
 			b: """
@@ -116,6 +129,8 @@ Ture = (x) -> 0
 				"Sabrina 17" : 15
 			d:
 				"3 - 2" : 1
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		David:
 			b: """
@@ -129,6 +144,8 @@ Ture = (x) -> 0
 				"David 6" : 3
 			d:
 				"6 / 3" : 2
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Gabriella:
 			b: """
@@ -149,6 +166,8 @@ Ture = (x) -> 0
 				"3 % 3" : 0
 				"4 % 3" : 1
 				"5 % 3" : 2
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Beppe:
 			b: """
@@ -166,6 +185,8 @@ Ture = (x) -> 0
 				"1 == 0" : false
 				"1 == 1" : true
 				"1 == 2" : false
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Karolina:
 			b: """
@@ -183,6 +204,8 @@ Ture = (x) -> 0
 				"0 > 1" : false
 				"1 > 1" : false
 				"2 > 1" : true
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Kasper:
 			b: """
@@ -200,6 +223,8 @@ Ture = (x) -> 0
 				"1 >= 2" : false
 				"2 >= 2" : true
 				"3 >= 2" : true
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Miranda:
 			b: """
@@ -217,6 +242,8 @@ Ture = (x) -> 0
 				"1 != 0" : true
 				"1 != 1" : false
 				"1 != 2" : true
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 	"A1: Two Parameters" :
 	
@@ -241,6 +268,8 @@ Ture = (x) -> 0
 				"3*3" : 9
 				"2 ** 3" : 8
 				"3 ** 2" : 9
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Operator2:
 			b: """
@@ -261,6 +290,8 @@ Ture = (x) -> 0
 				"6 % 2" : 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Operator3:
 			b: """
@@ -281,6 +312,8 @@ Ture = (x) -> 0
 				"6 % 2" : 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Operator4:
 			b: """
@@ -301,6 +334,8 @@ Ture = (x) -> 0
 				"6 % 2" : 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Operator5:
 			b: """
@@ -323,6 +358,8 @@ Ture = (x) -> 0
 				"6 % 2" : 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 	
 		Operator6:
 			b: """
@@ -347,6 +384,8 @@ Ture = (x) -> 0
 				"3 ** 2" : 9
 				"2 == 3" : false
 				"3 == 3" : true
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Operator7:
 			b: """
@@ -371,6 +410,8 @@ Ture = (x) -> 0
 				"3 ** 2" : 9
 				"2 == 3" : false
 				"3 == 3" : true
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Operator8:
 			b: """
@@ -395,6 +436,8 @@ Ture = (x) -> 0
 				"3 ** 2" : 9
 				"2 == 3" : false
 				"3 == 3" : true
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Operator9:
 			b: """
@@ -415,6 +458,8 @@ Ture = (x) -> 0
 				"6 % 2" : 0
 				"2 ** 3" : 8
 				"3 ** 2" : 9
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Operator10:
 			b: """
@@ -432,6 +477,8 @@ Ture = (x) -> 0
 			d:
 				"3 + 2" : 5
 				"3 * 2" : 6
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Operator11:
 			b: """
@@ -452,6 +499,8 @@ g = (x) -> x + 1
 				"10 + 1 + 1" : 12
 				"0 + 1 + 1 + 1" : 3
 				"10 + 1 + 1 + 1" : 13
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 		Operator12:
 			b: """
@@ -466,6 +515,8 @@ f = (x) -> x * 2
 				"f f 0" : 0
 				"f f 1" : 4
 				"f f f 1" : 8
+			e:
+				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
 	'A2: range lerp for' :
 
@@ -495,6 +546,8 @@ g = (a,b,n) -> range a,b,n
 				"range 3" : [0,1,2]
 				"range 1,4" : [1,2,3]
 				"range 1,9,2" : [1,3,5,7]
+			e:
+				range : "http://underscorejs.org/#range"
 
 		"lerp":
 			b:"""
@@ -518,6 +571,8 @@ f = (a,b,i) -> lerp a,b,i
 				"lerp 8,12,0.5" : 10
 				"lerp 8,12,-1" : 4
 				"lerp 8,12,2" : 16
+			e:
+				lerp : "https://p5js.org/reference/#/p5/lerp"
 
 		"for":
 			b:"""
@@ -538,6 +593,8 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 				"f -0.1,0.0,3" : [-0.1,0.0,0.1]
 			d:
 				"(i*i for i in range 5)" : [0,1,4,9,16]
+			e:
+				range : "http://underscorejs.org/#range"
 
 	"A3: [ ]" :
 
@@ -585,6 +642,8 @@ sista = (a,n) -> a[-n..]
 				"[2,11,3,56,62].indexOf 62" : 4
 				"[2,11,3,56,62].reverse()" : [62,56,3,11,2]
 				"[1,2].concat [3,4]" : [1,2,3,4]
+			e:
+				"[ ]" : "https://www.w3schools.com/js/js_arrays.asp"
 
 		Nim:
 			b:"""
@@ -593,9 +652,6 @@ sista = (a,n) -> a[-n..]
 # NIM är ett tvåmansspel
 # Tag minst en sticka ur en av tre högar
 # Sista stickan vinner
-# https://en.wikipedia.org/wiki/Nim
-# https://en.wikipedia.org/wiki/Bitwise_operation#XOR
-# https://en.wikipedia.org/wiki/Nimrod_(computing)
 
 nim = ([a,b,c]) -> [a,b,c]
 """
@@ -629,6 +685,10 @@ nim=([a,b,c])->sort if(b^c)<a then[b^c,b,c]else if(a^c)<b then[a,a^c,c]else if(a
 				"1^3^4" : 6 
 				"1^4^5" : 0 
 				"1^5^6" : 2 
+			e:
+				Nim : "https://en.wikipedia.org/wiki/Nim"
+				xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
+				Nimrod : "https://en.wikipedia.org/wiki/Nimrod_(computing)"
 
 		Sort:
 			b:"""
@@ -742,6 +802,8 @@ gear = (big, small, index) ->
 			d:
 				"Math.round 3.1415" : 3
 				"Math.round(3.1415 * 10)/10" : 3.1
+			e:
+				"Gear ratios" : "https://cyclingtips.com/2014/08/beyond-the-big-ring-understanding-gear-ratios-and-why-they-matter/"
 
 		Kalkylator :
 			b: """
@@ -772,7 +834,11 @@ calc = (command) ->
 				"'1' + 2" : '12'
 				"parseInt '3'" : 3
 				"parseFloat '3.14'" : 3.14
-
+			e:
+				parseInt : "https://www.w3schools.com/jsref/jsref_parseint.asp"
+				stack : "https://sv.wikipedia.org/wiki/Stack_(datastruktur)"
+				split : "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
+				RPN : "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
 
 	"A4: { }" :
 
@@ -830,6 +896,8 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 				"_.keys girl" : ['name','age']
 				"_.values girl" : ['Sabrina',12]
 				"_.pairs girl" : [['name', 'Sabrina'], ['age', 12]]
+			e:
+				"{ }" :"https://www.w3schools.com/js/js_objects.asp"
 
 		Earth :
 			b:"""
@@ -907,6 +975,9 @@ ger2eng = (ord) -> swe2eng ger2swe ord
 			d:
 				"SWE_ENG['bord']" : "table"
 				"_.invert {a:1, b:2}" : {"1":"a","2":"b"}
+
+			e:
+				"_.invert" : "http://underscorejs.org/#invert"
 
 		"Glosor[]" :
 			b:"""
@@ -988,6 +1059,11 @@ dubbla = (s) -> hopslagning (tecken + tecken for tecken in s)
 				'"Javascript".indexOf "a"' : 1
 				'"1,2,3".split ","' : ["1","2","3"]
 				'["1","2","3"].join " "' : "1 2 3"
+			e:
+				'" "' : "https://www.w3schools.com/jsref/jsref_obj_string.asp"				
+				split: "http://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
+				join : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join"
+				indexOf : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"
 
 		Palindrom :
 			b : """
@@ -1005,6 +1081,8 @@ palindrom = (word) -> word.split("").reverse().join("") == word
 				"palindrom 'kök'" : true
 				"palindrom 'kajak'" : true
 				"palindrom 'kanot'" : false
+			e:
+				reverse : "http://coffeescript-cookbook.github.io/chapters/arrays/reversing-arrays"
 
 		Rövarspråk :
 			b: """
@@ -1024,7 +1102,7 @@ rs = (word,extra='o') -> ((if letter in 'aeiouy åäö' then letter else letter 
 
 		Advanced :
 			b: """
-# LOC:8 _.any _.filter _.countBy length split reverse join == and for in continue
+# LOC:8 _.some _.filter _.countBy length split reverse join == and for in continue
 
 existerar = (word) ->
 palindromer = (n) -> []
@@ -1034,7 +1112,7 @@ korsord = (pattern) -> []
 words = ordlista.split " "
 """
 			a:"""
-existerar = (word) -> _.any words, (w) -> w==word
+existerar = (word) -> _.some words, (w) -> w==word
 palindromer = (n) -> _.filter words, (w) -> w.length == n and w == w.split('').reverse().join('')
 frekvens = () ->  _.countBy words, "length"
 match = (word,pattern) ->
@@ -1057,6 +1135,10 @@ words = ordlista.split " "
 				"words.length" : 52269
 				"_.first words" : "abakus"
 				"_.last words" : "övärld"
+			e:
+				'_.some' : "http://underscorejs.org/#some"
+				'_.filter' : "http://underscorejs.org/#filter"
+				'_.countBy' : "http://underscorejs.org/#countBy"
 
 	"A6: Interpolation" :
 
@@ -1070,6 +1152,8 @@ words = ordlista.split " "
 			c:
 				"f 2" : 4
 				"f 3" : 6
+			e:
+				"Linjär interpolation" : "https://en.wikipedia.org/wiki/Linear_interpolation"
 
 		linearequation2:
 			b: """
@@ -1081,6 +1165,8 @@ words = ordlista.split " "
 			c:
 				"f 2" : 7
 				"f 3" : 9
+			e:
+				"Linjär interpolation" : "https://en.wikipedia.org/wiki/Linear_interpolation"
 
 		lerp: 
 			b: """
@@ -1095,6 +1181,9 @@ words = ordlista.split " "
 				"lerp 10,16,0.5" : 13
 				"lerp 10,16,1" : 16
 				"lerp 10,16,2" : 22
+			e:
+				"Linjär interpolation" : "https://en.wikipedia.org/wiki/Linear_interpolation"
+				lerp : "https://p5js.org/reference/#/p5/lerp"
 		
 		map:
 			b: """
@@ -1110,6 +1199,8 @@ words = ordlista.split " "
 				"map 3,1,3,20,40" : 40
 				"map 75,50,100,0,1" : 0.5
 				"map 16,0,40,0,200" : 80
+			e:
+				map : "https://p5js.org/reference/#/p5/map"	
 
 		Hour2Degree:
 			b: """
@@ -1212,6 +1303,8 @@ average = (numbers) -> sum(numbers) / antal(numbers)
 				"antal boys" : 4
 				"average ages girls" : 11
 				"average ages boys" : 9.5
+			e:
+				class : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
 
 		Bråktal :
 			b:"""
@@ -1247,6 +1340,8 @@ class Fraction
 				"(new Fraction 1,2).sub(new Fraction 1,3).to_s()" : "1/6"
 				"(new Fraction 4,6).mul(new Fraction 1,3).to_s()" : "2/9"
 				"(new Fraction 4,6).div(new Fraction 2,1).to_s()" : "1/3"
+			e:
+				Bråktal : "http://www.matteboken.se/lektioner/skolar-7/brak-och-procent/braktal"				
 
 		Simplex :
 			b:"""
@@ -1296,6 +1391,8 @@ class Simplex
 				"pp b.scale().translate()" : "{x:-3,y:8}"
 				"pp b.mirror().mirror()" : "{x:-2,y:4}"
 				"pp b.rotate().rotate().rotate().rotate()" : "{x:-2,y:4}"
+			e:
+				p5Complex : "https://christernilsson.github.io/p5Complex/www"
 
 		Bignum :
 			b:"""
@@ -1389,6 +1486,8 @@ h = h.mul h for i in range 7
 				"[11,22,33].slice 1,2" : [22]
 				"[11,22,33].slice()" : [11,22,33]
 				"12345678901234567890 + 1" : 12345678901234567000
+			e:
+				Bignum : "https://sv.wikipedia.org/wiki/Bignum-aritmetik"
 
 		Complex:
 			b: """
@@ -1449,6 +1548,8 @@ class Complex
 				"new Complex(1,2).to_s()" : "1+2i"
 				"new Complex(1,2).add(new Complex(1,-1)).to_s()" : "2+i"
 				"new Complex(1,2).mul(new Complex(1,-1)).to_s()" : "3+i"
+			e:
+				"Komplexa tal" : "https://sv.wikipedia.org/wiki/Komplexa_tal"
 
 		Polynom :
 			b: """
@@ -1547,12 +1648,16 @@ class Polynom
 				"(new Polynom [3,2]).compose(new Polynom [5,0,-1]).lst" : [13,0,-2]
 				"(new Polynom [5,0,-1]).compose(new Polynom [3,2]).lst" : [-4,-12,-4]
 				"(new Polynom [5,0,-1]).compose(new Polynom [5,0,-1]).lst" : [-20,0,10,0,-1]
+			e:
+				Polynom : "http://www.matteboken.se/lektioner/matte-2/algebra/polynom"
+				Polynomfunktioner : "http://www.matteboken.se/lektioner/matte-3/polynom-och-ekvationer/polynomfunktioner"
+				"Multiplikation" : "http://www.matteboken.se/lektioner/matte-3/polynom-och-ekvationer/multiplikation-av-polynom"
+				"Polynom, wikipedia" : "https://sv.wikipedia.org/wiki/Polynom"
 
 		Nian :
 			b:"""
 # LOC:20 class constructor new @ split for in of reduce ** & and push "" indexOf > if then _.countBy
 # Bilda ord med fyra till nio bokstäver. Den mittersta bokstaven måste ingå.
-# Se http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html
 
 class Nian
 	constructor : (lista=words) ->
@@ -1604,6 +1709,10 @@ nian = new Nian()
 				"_.first words" : "abakus"
 				"_.last words" : "övärld"
 
+			e:
+				Nian : "http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html"
+
+
 	"A8: Advanced" :
 
 		path:
@@ -1640,6 +1749,12 @@ summa = (tree) -> return if _.isEqual tree,[] then 0 else if _.isNumber tree the
 				"_.isNumber [12]" : false
 				"_.head [11,22,33]" : 11
 				"_.tail [11,22,33]" : [22,33]
+			e:
+				"_.isEqual" : "http://underscorejs.org/#isEqual"
+				"_.isNumber" : "http://underscorejs.org/#isNumber"
+				"_.head" : "http://underscorejs.org/#head"
+				"_.tail" : "http://underscorejs.org/#tail"
+
 
 		"list recursion" :
 			b:"""
@@ -1714,6 +1829,8 @@ g = (djur, art) -> djur.filter (d) -> d.art == art
 				"g djur,'papegoja'" : []
 			d:
 				"[1, -2, 0, 3, -4].filter (x) -> x > 0" : [1,3]
+			e: 
+				filter : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"
 
 		comprehension:
 			b: """
@@ -1738,6 +1855,8 @@ namn = (djur) -> (d.namn for d in djur)
 				"namn djur" : ['Fluffy','Karo','Rocky','Albert','Trixie','Herbert']
 			d:
 				"(2**i for i in range 5)" : [1,2,4,8,16]
+			e:
+				comprehension : "https://coffeescript-cookbook.github.io/chapters/arrays/list-comprehensions"
 
 		reduce:
 			b: """
@@ -1767,6 +1886,8 @@ summa = (varor) -> varor.reduce ((sum, vara) -> sum + vara.pris * vara.antal), 0
 			d:
 				"ica.reduce ((sum, vara) -> sum + vara.antal), 0" : 12
 				"konsum.reduce ((sum, vara) -> sum + vara.pris), 0" : 290
+			e:
+				reduce : "https://coffeescript-cookbook.github.io/chapters/arrays/reducing-arrays"
 
 		sortBy:
 			b: """
@@ -1784,6 +1905,8 @@ sortera = (djur,f) -> _.sortBy djur, f
 				"sortera djur" : ["Albert","Fluffy","Herbert","Karo","Rocky","Trixie"]
 			d:
 				"_.sortBy ['one', 'two', 'three', 'four'], 'length'" : ["one", "two","four","three"]
+			e:
+				"_.sortBy" : "http://underscorejs.org/#sortBy"
 
 		groupBy:
 			b: """
@@ -1801,6 +1924,8 @@ gruppera = (djur,f) -> _.groupBy djur, f
 				"gruppera djur, (d) -> _.last(d)" : {"y":["Fluffy","Rocky"],"o":["Karo"],"t":["Albert","Herbert"],"e":["Trixie"]}
 			d:
 				"_.groupBy ['one', 'two', 'three'], 'length'" : {3: ["one", "two"], 5: ["three"]}
+			e:
+				"_.groupBy" : "http://underscorejs.org/#groupBy"
 
 		split:
 			b: """
@@ -1821,16 +1946,17 @@ parametrar = (url) -> _.object(f.split '=' for f in url.split('?')[1].split('&')
 				"'1,2,3'.split ','" : ["1","2","3"]
 				"_.object ['moe', 'larry', 'curly'], [30, 40, 50]" : {moe: 30, larry: 40, curly: 50}
 				"_.object [['moe', 30], ['larry', 40], ['curly', 50]]" : {moe: 30, larry: 40, curly: 50}
+			e:
+				"_.object" : "http://underscorejs.org/#object"
+				split : "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
+
 
 		PokerHand :
 			b: """
 # LOC:10 nilsson: compare bsort underscore: _.size _.groupBy _.unzip _.uniq "" [] {}
 # javascript: for in if then else substring length parseInt split indexOf
 
-# https://sv.wikipedia.org/wiki/Pokerhand
-
 poker = (a,b) -> -2
-
 """
 			a: """
 poker = (a,b) -> compare calc(a.split(" ")), calc(b.split(" "))
@@ -1878,6 +2004,13 @@ calc = (hand) ->
 				'_.groupBy ["per", "anna", "karl"], "length"' : {"3":["per"],"4":["anna","karl"]}
 				'_.unzip [["moe", 30, true], ["larry", 40, false]]' : [['moe', 'larry'], [30, 40], [true, false]]
 				'_.uniq [5,4,1,2,1,9]' : [5,4,1,2,9]
+
+			e:
+				Pokerhand : "https://sv.wikipedia.org/wiki/Pokerhand"
+				"_.size" : "http://underscorejs.org/#size"
+				"_.unzip" : "http://underscorejs.org/#unzip"
+				"_.uniq" : "http://underscorejs.org/#uniq"
+ 
 
 		Matematik :
 			b: """
@@ -1932,3 +2065,8 @@ q = (n) ->
 				"[n(2000),n(2016),n(2017),n(2020),n(2100)]" : [true,true,false,true,false]
 				"[m(17),m(60)]" : [[],[2,3,4,5,6,10,12,15,20,30]]
 				"[q(17),q(60)]" : [[17],[2,2,3,5]]
+			e: 
+				rekursion : "http://www.matteboken.se/lektioner/matte-5/talfoljder-och-induktionsbevis/rekursion"
+				talserier : "http://www.matteboken.se/lektioner/matte-3/ovningsexempel/talserier"
+				pythagoras : "http://www.matteboken.se/lektioner/skolar-9/geometri/pythagoras-sats"
+				delbarhet : "http://www.matteboken.se/lektioner/matte-1/tal/delbarhet"

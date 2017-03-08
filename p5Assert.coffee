@@ -26,12 +26,26 @@ sel1change = (sel) ->
 sel2change = (sel) ->
 	exercise = sel.value
 	b = data[chapter][exercise]["b"]
+	setLinks()
 	myCodeMirror.setValue(b)
 	runAll()
 	myCodeMirror.focus() 
 
+setLinks = ->
+	linksClear()
+	linkAppend links,	"https://github.com/ChristerNilsson/p5Assert/blob/master/README.md", "Help"
+	linkAppend links,	"https://p5js.org/reference", "p5"
+	linkAppend links,	"http://coffeescript.org", "Coffeescript"
+	linkAppend links,	"https://www.w3schools.com/js", "Javascript"
+	linkAppend links,	"https://github.com/ChristerNilsson/Nilsson/blob/master/README.md", "Nilsson"
+	linkAppend links,	"http://underscorejs.org/", "_"
+
+	for text,link of data[chapter][exercise]["e"]
+		linkAppend links,link,text
+
 tableClear = -> $("#tabell tr").remove()
 axiomClear = -> $("#axioms tr").remove()
+linksClear = -> $("#links tr").remove()
 
 tableAppend = (t, call, expected, actual) -> # exakt tre kolumner
 	sp = "&nbsp;"
@@ -60,6 +74,11 @@ axiomAppend = (t, call, expected, actual) -> # exakt två kolumner
 	cell2 = row.insertCell -1
 	cell2.innerHTML = sp + JSON.stringify(actual) + sp
 	cell2.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
+
+linkAppend = (t, link, text) -> # exakt en kolumn
+	row = t.insertRow -1
+	cell1 = row.insertCell -1
+	cell1.innerHTML = '<a href="' + link + '" target="_blank">' + text + '</a>'
 
 changeLayout = ->
 	w = $(window).width()
@@ -93,10 +112,6 @@ window.onload = ->
 	$(".CodeMirror").css 'font-size',"16pt"
 	myCodeMirror.on "change", runDelayed
 
-	help = createA('https://github.com/ChristerNilsson/p5Assert/blob/master/README.md', 'Help', '_blank')
-
-	help.position 10,430
-	
 	chapter = _.keys(data)[0]
 	sel1.val(chapter).change()
 	exercise = _.keys(data[chapter])[0]
