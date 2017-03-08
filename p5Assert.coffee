@@ -63,18 +63,19 @@ axiomAppend = (t, call, expected, actual) -> # exakt två kolumner
 
 changeLayout = ->
 	w = $(window).width()
-	$(".CodeMirror").width(w-215-15)
+	$(".CodeMirror").width w-215-15
 	$("#msg").width w-220-15
+	runDelayed()
 
 resizeTimer=0
 $(window).resize () ->
-	clearTimeout(resizeTimer)
-	resizeTimer = setTimeout(changeLayout, 10)
+	clearTimeout resizeTimer
+	resizeTimer = setTimeout changeLayout, 10
 
 setup = ->
-	msg = $('#msg')
-	sel1 = $('#sel1')
-	sel2 = $('#sel2')
+	msg = $ '#msg'
+	sel1 = $ '#sel1'
+	sel2 = $ '#sel2'
 	fillSelect sel1, data
 
 window.onload = ->
@@ -138,7 +139,8 @@ runAll = ->
 			for call,i in Object.keys(dict)
 				tableAppend tabell, call, dict[call], results[i]
 
-		document.getElementById('axioms').style.top="#{450 + _.size(dict)*29}px" 
+		h = $('#tabell').height();
+		document.getElementById('axioms').style.top = "#{450 + h}px" 
 
 		dict = data[chapter][exercise]["d"]
 		if dict
