@@ -123,9 +123,9 @@ runAll = ->
 
 	error = ""
 	try
-		code = transpile b + "\nreturn [" + calls + "]"
+		code = transpile b
 		try
-			eval "results = " + code 
+			eval "results = " + transpile b + "\nreturn [" + calls + "]" 
 		catch e
 			error = e.stack.split('\n')[0]
 	catch e
