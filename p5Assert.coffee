@@ -111,14 +111,15 @@ runDelayed = ->
 	timeout = setTimeout runAll, 200
 
 runAll = ->
-	#start = millis()
 	b = myCodeMirror.getValue()
 	data[chapter][exercise]["b"] = b
-	dict = data[chapter][exercise]["c"]		
- 
+
+	cdict = data[chapter][exercise]["c"]		
+	ddict = data[chapter][exercise]["d"]
+
 	calls = []
-	for call,expectedResult of dict 
-		calls.push "(" + call + ")"
+	calls = calls.concat ('(' + call + ')' for call of cdict) 
+	calls = calls.concat ('(' + call + ')' for call of ddict) 
 
 	error = ""
 	try
@@ -135,20 +136,14 @@ runAll = ->
 
 	setMsg error
 	if error == ""
-		if dict 
-			for call,i in Object.keys(dict)
-				tableAppend tabell, call, dict[call], results[i]
+		if cdict 
+			offset = _.keys(cdict).length
+			for call,i in _.keys(cdict)
+				tableAppend tabell, call, cdict[call], results[i]
 
 		h = $('#tabell').height();
 		document.getElementById('axioms').style.top = "#{450 + h}px" 
 
-		dict = data[chapter][exercise]["d"]
-		if dict
-			calls = []
-			for call,expectedResult of dict 
-				calls.push "(" + call + ")"
-			code = transpile b + "\nreturn [" + calls + "]"
-			eval "results = " + code 
-			for call,i in Object.keys(dict)
-				axiomAppend axioms, call, dict[call], results[i]
-	#print millis()-start
+		if ddict
+			for call,i in _.keys(ddict)
+				axiomAppend axioms, call, ddict[call], results[offset + i]

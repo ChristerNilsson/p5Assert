@@ -1555,16 +1555,17 @@ class Polynom
 # Se http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html
 
 class Nian
-	constructor : (lista=ordlista) ->
+	constructor : (lista=words) ->
 	bits : (word) -> 0
 	solve : (letters) -> []
 
+words = ordlista.split " "
 nian = new Nian()
 			"""
 			a:"""
 
 class Nian
-	constructor : (@words=ordlista.split(" ")) ->
+	constructor : (@words=words) ->
 		@patterns = (@bits word for word in @words)
 
 	bits : (word) -> word.split("").reduce ((acc,ch) -> acc|(2 ** "abcdefghijklmnopqrstuvwxyzåäö".indexOf ch)), 0
@@ -1585,6 +1586,7 @@ class Nian
 				freq2 = _.countBy letters2
 				if @ok(freq1,freq2) and mandatory in letters2 then res.push @words[i]
 		res
+words = ordlista.split " "
 nian = new Nian()
 """
 			c:
@@ -1598,9 +1600,9 @@ nian = new Nian()
 				"nian.solve 'eemncrrtö'" : ["cement", "cementrör", "cent", "center", "cert", "crème", "recent"]
 				"nian.solve('rakeutraf').length" : 34
 			d:
-				"ordlista.split(' ').length" : 52269
-				"_.first ordlista.split ' '" : "abakus"
-				"_.last ordlista.split ' '" : "övärld"
+				"words.length" : 52269
+				"_.first words" : "abakus"
+				"_.last words" : "övärld"
 
 	"A8: Advanced" :
 
