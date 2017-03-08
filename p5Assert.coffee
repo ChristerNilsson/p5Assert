@@ -4,6 +4,7 @@ sel2 = null
 chapter = ""
 exercise = ""
 msg = null
+timeout = null
 
 pp = (obj) -> (JSON.stringify obj).replace /"/g, ''
 
@@ -89,7 +90,7 @@ window.onload = ->
 		indentWithTabs: true
 	
 	$(".CodeMirror").css 'font-size',"16pt"
-	myCodeMirror.on "change", runAll
+	myCodeMirror.on "change", runDelayed
 
 	help = createA('https://github.com/ChristerNilsson/p5Assert/blob/master/README.md', 'Help', '_blank')
 
@@ -103,6 +104,10 @@ window.onload = ->
 	myCodeMirror.focus()
 	window.resizeTo 1000,750
 	changeLayout()
+
+runDelayed = ->
+	if timeout then clearTimeout timeout
+	timeout = setTimeout runAll, 200
 
 runAll = ->
 	#start = millis()
