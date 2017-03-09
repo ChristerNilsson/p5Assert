@@ -75,10 +75,20 @@ axiomAppend = (t, call, expected, actual) -> # exakt två kolumner
 	cell2.innerHTML = sp + JSON.stringify(actual) + sp
 	cell2.style.backgroundColor = if _.isEqual(expected, actual) then '#00FF00' else '#FF0000'
 
+d = (s) -> "'" + s + "'"
+dd = (s) -> '"' + s + '"'
+
 linkAppend = (t, link, text) -> # exakt en kolumn
 	row = t.insertRow -1
 	cell1 = row.insertCell -1
-	cell1.innerHTML = '<a href="' + link + '" target="_blank">' + text + '</a>'
+	s = '<a href=' + d(link)  
+	s += ' target=' + d('_blank')
+	s += ' onmouseover=' + d('this.style.color=' + dd('yellow') + ';') 
+	s += ' onmouseout='  + d('this.style.color=' + dd('black') + ';') 
+	s += '>' 
+	s += text 
+	s += '</a>'
+	cell1.innerHTML = s
 
 changeLayout = ->
 	w = $(window).width()

@@ -18,9 +18,17 @@ data =
 
 # Klicka nu på A0!
 """
-			a:""
 			e:
-				"Beginners Guide to Coffeescript" : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
+				"Intro to Coffeescript" : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
+				"Jeremy Ashkenas" : "https://sv.wikipedia.org/wiki/Jeremy_Ashkenas"
+				"Lauren McCarthy" : "http://lauren-mccarthy.com/"
+				"Brendan Eich" : "https://en.wikipedia.org/wiki/Brendan_Eich"
+				"Snake Game" : "https://www.youtube.com/watch?v=AaGK-fj-BAM"
+				"Asteroids with p5" : "https://www.youtube.com/watch?v=hacZU523FyM"
+				"Matrix LOC:86" : "https://www.youtube.com/watch?v=S1TQCi9axzg" 
+				"Matrix LOC:25" : "https://github.com/ChristerNilsson/Lab/blob/master/2017/018-Green%20Rain/sketch.coffee"
+				"Matter.js" : "https://www.youtube.com/watch?v=urR596FsU68"
+				"Sublime Text" : "https://www.sublimetext.com"
 
 	"A0: One Parameter" :
 		Ture :
