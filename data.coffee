@@ -909,6 +909,8 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 
 		Earth :
 			b:"""
+# LOC:7 
+
 earth =
 	europe :
 		sweden : 10
@@ -925,8 +927,7 @@ k = ->
 l = ->
 m = ->
 n = ->
-
-			"""
+"""
 			a:"""
 earth =
 	europe :
@@ -937,7 +938,14 @@ earth =
 		india : 1500
 		japan : 120
 
-			"""
+f = -> earth
+g = -> earth.europe
+h = -> earth.europe.sweden
+k = -> earth.asia
+l = -> earth.asia.china
+m = -> earth.asia.india
+n = -> earth.asia.japan
+"""
 			c:
 				"f()" : {"europe":{"sweden":10,"denmark":5},"asia":{"china":1300,"india":1500,"japan":120}}
 				"g()" : {"sweden":10,"denmark":5}
@@ -949,6 +957,8 @@ earth =
 
 		Glosor :
 			b:"""
+# LOC:6 [] _.invert
+
 SWE_ENG = {	bord:'table',	stol:'chair',	hund:'dog',	 katt:'cat',   selfie:'selfie', programmering:'programming' }
 SWE_GER = {	bord:'Tisch',	stol:'Stuhl',	hund:'Hund', katt:'Katze', selfie:'Selfie', programmering:'Programmierung' }
 
@@ -989,6 +999,8 @@ ger2eng = (ord) -> swe2eng ger2swe ord
 
 		"Glosor[]" :
 			b:"""
+# LOC:6 .indexOf []
+
 SWE = [	'bord',	 'stol',  'hund', 'katt',  'selfie', 'programmering'  ]
 ENG = [	'table', 'chair', 'dog',	'cat',   'selfie', 'programming'    ]
 GER = [	'Tisch', 'Stuhl', 'Hund', 'Katze', 'Selfie', 'Programmierung' ]
@@ -1025,6 +1037,8 @@ ger2eng = (ord) -> ENG[GER.indexOf(ord)]
 				"SWE.indexOf 'katt'" : 3
 				"ENG[3]" : "cat"
 				"GER[3]" : "Katze"
+			e: 
+				indexOf : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"
 
 	'A5: " "' :
 
@@ -1253,6 +1267,8 @@ words = ordlista.split " "
 				"h2r 10" : 5*Math.PI/6
 				"h2r 11" : 4*Math.PI/6
 				"h2r 12" : 3*Math.PI/6
+			e:
+				Math : "https://www.w3schools.com/jsref/jsref_obj_math.asp"
 
 	"A7: class" :
 
@@ -1496,6 +1512,10 @@ h = h.mul h for i in range 7
 				"12345678901234567890 + 1" : 12345678901234567000
 			e:
 				Bignum : "https://sv.wikipedia.org/wiki/Bignum-aritmetik"
+				unshift : "https://www.w3schools.com/jsref/jsref_unshift.asp"
+				shift : "https://www.w3schools.com/jsref/jsref_shift.asp"
+				push : "https://www.w3schools.com/jsref/jsref_push.asp"
+				pop : "https://www.w3schools.com/jsref/jsref_pop.asp"
 
 		Complex:
 			b: """
@@ -1719,7 +1739,8 @@ nian = new Nian()
 
 			e:
 				Nian : "http://svenska-apps.se/iphone-ipad/underhallning/svd-nian-babqpg.html"
-
+				'_.countBy' : "http://underscorejs.org/#countBy"
+				reduce : "https://coffeescript-cookbook.github.io/chapters/arrays/reducing-arrays"
 
 	"A8: Advanced" :
 
@@ -2073,7 +2094,16 @@ q = (n) ->
 				"[n(2000),n(2016),n(2017),n(2020),n(2100)]" : [true,true,false,true,false]
 				"[m(17),m(60)]" : [[],[2,3,4,5,6,10,12,15,20,30]]
 				"[q(17),q(60)]" : [[17],[2,2,3,5]]
+			d:
+				"range 10" : [0,1,2,3,4,5,6,7,8,9]
+				"i for i in range 10" : [0,1,2,3,4,5,6,7,8,9]
+				"i*i for i in range 10" : [0,1,4,9,16,25,36,49,64,81]
+				"i % 2 for i in range 6" : [0,1,0,1,0,1]
+				"i % 2 == 0 for i in range 6" : [true,false,true,false,true,false]
+				"Math.sqrt 25" : 5
+				"[1,2].concat [3,4]" : [1,2,3,4]
 			e: 
+				comprehension : "https://coffeescript-cookbook.github.io/chapters/arrays/list-comprehensions"
 				rekursion : "http://www.matteboken.se/lektioner/matte-5/talfoljder-och-induktionsbevis/rekursion"
 				talserier : "http://www.matteboken.se/lektioner/matte-3/ovningsexempel/talserier"
 				pythagoras : "http://www.matteboken.se/lektioner/skolar-9/geometri/pythagoras-sats"
