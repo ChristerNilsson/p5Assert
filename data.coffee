@@ -1332,83 +1332,45 @@ average = (numbers) -> sum(numbers) / antal(numbers)
 
 		Morse :
 			b:"""
-# LOC:15 class constructor new @ indexOf while * / + % > Math.floor for in ""
+# LOC:7 class constructor new @ indexOf * / + % == Math.floor for in "" if then else split join
 
 class Morse
 	constructor : (ab, alfabet) ->
-	c2m : (c) -> ''
-	m2c : (code) -> ''
+	c2m : (word) -> ''
+	m2c : (word) -> ''
 
 #                          012345678901234567890123456789
 morse  = new Morse '.-',  ' etianmsurwdkgohvf l pjbxcyzq'
 morse2 = new Morse '01',  ' abcdefghijklmnopqrstuvwxyzåäö'
-morse3 = new Morse 'ABCD',' abcdefghijklmnopqrstuvwxyzåäö'
+morse3 = new Morse 'XYZ', ' abcdefghijklmnopqrstuvwxyzåäö'
+morse4 = new Morse 'ABCD',' abcdefghijklmnopqrstuvwxyzåäö'
 """
 			a:"""
 class Morse
-	constructor : (@ab, @alfabet) ->
-	c2m : (c) ->
-		i = @alfabet.indexOf c 
-		result = ""
-		while i > 0
-			i = i - 1
-			result = @ab[i % @ab.length] + result
-			i = Math.floor i / @ab.length
-		result
-	m2c : (code) ->
-		i = 0
-		for c in code
-			i = @ab.length * i + @ab.indexOf(c) + 1
-		@alfabet[i]
-
-#                          012345678901234567890123456789
-morse  = new Morse '.-',  ' etianmsurwdkgohvf l pjbxcyzq'
-morse2 = new Morse '01',  ' abcdefghijklmnopqrstuvwxyzåäö'
-morse3 = new Morse '+-*/',' abcdefghijklmnopqrstuvwxyzåäö'
+	constructor : (@ab, @alfabet) -> @n = @ab.length
+	indexes : (i) -> if i==0 then [] else (@indexes (Math.floor (i-1) / @n)).concat [(i-1) % @n] 
+	symbols : (c) -> (@ab[item] for item in @indexes @alfabet.indexOf c).join ""
+	c2m : (word) -> (@symbols c for c in word).join " "
+	decode : (code,i=0) -> if code=="" then i else @decode code[1..], @n*i+1+@ab.indexOf code[0] 
+	m2c : (word) -> (@alfabet[@decode(code)] for code in word.split ' ').join ""
 """
 			c:
-				"morse.c2m 'a'" : '.-'
-				"morse.c2m 'b'" : '-...'
-				"morse.c2m 'c'" : '-.-.'
-				"morse.c2m 'd'" : '-..'
-				"morse.c2m 'e'" : '.'
-				"morse.c2m 'f'" : '..-.'
-				"morse.c2m 'g'" : '--.'
-				"morse.c2m 'h'" : '....'
-				"morse.m2c '.-'" : 'a'
-				"morse.m2c '-...'" : 'b'
-				"morse.m2c '-.-.'" : 'c'
-				"morse.m2c '-..'" : 'd'
-				"morse.m2c '.'" : 'e'
-				"morse.m2c '..-.'" : 'f'
-				"morse.m2c '--.'" : 'g'
-				"morse.m2c '....'" : 'h'
+				"morse.c2m 'morse'" : '-- --- .-. ... .'
+				"morse.m2c '-- --- .-. ... .'" : 'morse'
 
-				"morse2.c2m 'a'" : '0'
-				"morse2.c2m 'b'" : '1'
-				"morse2.c2m 'c'" : '00'
-				"morse2.c2m 'd'" : '01'
-				"morse2.m2c '10'" : 'e'
-				"morse2.m2c '11'" : 'f'
-				"morse2.m2c '000'" : 'g'
-				"morse2.m2c '001'" : 'h'
+				"morse2.c2m 'alfabet'" : '0 101 11 0 1 10 0101'
+				"morse2.m2c '0 101 11 0 1 10 0101'" : 'alfabet'
 
-				"morse3.c2m 'a'" : 'A'
-				"morse3.c2m 'b'" : 'B'
-				"morse3.c2m 'c'" : 'C'
-				"morse3.c2m 'd'" : 'D'
-				"morse3.c2m 'e'" : 'AA'
-				"morse3.c2m 'f'" : 'AB'
-				"morse3.c2m 'g'" : 'AC'
-				"morse3.c2m 'h'" : 'AD'
-				"morse3.m2c 'AA'" : 'e'
-				"morse3.m2c 'BC'" : 'k'
+				"morse3.c2m 'tre'" : 'XZY XYZ XY'
+				"morse3.m2c 'XZY XYZ XY'" : 'tre'
+
+				"morse4.c2m 'fyra'" : 'AB ABA DB A'
+				"morse4.m2c 'AB ABA DB A'" : 'fyra'
 
 			d:
 				"' abcd'.indexOf 'b'" : 2
 			e:
 				Morse : "https://sv.wikipedia.org/wiki/Morsealfabetet"
-				while : "https://www.w3schools.com/js/js_loop_while.asp"
 				indexOf : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"
 
 		Bråktal :
