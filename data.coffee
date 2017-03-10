@@ -1794,9 +1794,9 @@ class Nian
 class Morse
 	constructor : (ab, alfabet) -> 
 	indexes : (i) -> [] 
-	symbols : (c) -> ""
+	encode : (c) -> ""
 	c2m : (word) -> ""
-	decode : (code,i=0) -> 0
+	decode : (code,i=0) -> ""
 	m2c : (word) -> ""
 
 #                          012345678901234567890123456789
@@ -1811,17 +1811,17 @@ morse5 = new Morse 'BCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖA',' abcdefghijklmnopqrstuvwx
 class Morse
 	constructor : (@ab, @alfabet) -> @n = @ab.length
 	indexes : (i) -> if i==0 then [] else (@indexes (Math.floor (i-1) / @n)).concat [(i-1) % @n] 
-	symbols : (c) -> (@ab[item] for item in @indexes @alfabet.indexOf c).join ""
-	c2m : (word) -> (@symbols c for c in word).join " "
-	decode : (code,i=0) -> if code=="" then i else @decode code[1..], @n*i+1+@ab.indexOf code[0] 
-	m2c : (word) -> (@alfabet[@decode(code)] for code in word.split ' ').join ""
+	encode : (c) -> (@ab[item] for item in @indexes @alfabet.indexOf c).join ""
+	c2m : (word) -> (@encode c for c in word).join " "
+	decode : (code,i=0) -> if code=="" then @alfabet[i] else @decode code[1..], @n*i+1+@ab.indexOf code[0] 
+	m2c : (word) -> (@decode(code) for code in word.split ' ').join ""
 """
 			c:
 
 				"morse.indexes 9" : [0,1,0]
-				"morse.symbols 'r'" : ".-."
+				"morse.encode 'r'" : ".-."
 				"morse.c2m 'morse'" : '-- --- .-. ... .'
-				"morse.decode '.-.'" : 9
+				"morse.decode '.-.'" : 'r'
 				"morse.m2c '-- --- .-. ... .'" : 'morse'
 
 				"morse1.c2m 'alfa'" : '* ************ ****** *'
