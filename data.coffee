@@ -1704,18 +1704,19 @@ class Polynom
 
 		Compressor :
 			b:"""
-# LOC:8 class constructor new @ for in if then else != break push split join "" []
+# LOC:9 class constructor new @ for in if then else != break push split join "" []
 
 class Compressor
-	constructor : (words) ->
+	constructor : (ordlista) ->
 	to_s : -> ""
 
-c2 = new Compressor ["abakus","abandon","abbedissa","abborre","abbot"]
-compressor = new Compressor ordlista.split " "
+c5 = new Compressor "abakus abandon abbedissa abborre abbot"
+compressor = new Compressor ordlista
 """
 			a:"""
 class Compressor
-	constructor : (words, @last="", @compressed=[]) ->
+	constructor : (ordlista, @last="", @compressed=[]) ->
+		words = ordlista.split " "
 		for word in words
 			for ch,i in word
 				if ch != @last[i] then break
@@ -1724,7 +1725,7 @@ class Compressor
 	to_s : -> @compressed.join ""
 """
 			c:
-				"c2.to_s()" : "abakus3ndon2bedissa3orre4t"
+				"c5.to_s()" : "abakus3ndon2bedissa3orre4t"
 				"ordlista.length" : 437305
 				"compressor.to_s().length" : 212067
 
