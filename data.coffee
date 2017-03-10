@@ -6,14 +6,17 @@
 
 data =
 
+#########################
 	"Nyheter" :
+#########################
+
 		"Nyheter" :
 			b:"""
 # NYHETER 2017 Mars
 #   A3: Introduktion, Nim, Sort, Växelcykel, Kalkylator
 #   A4: Earth, Glosor, Glosor[]
 #   A5: Palindrom, Rövarspråk, Advanced
-#   A7: Morse, Bråktal, Simplex, Bignum, Complex, Nian
+#   A7: Morse, Bråktal, Simplex, Bignum, Complex, Nian, Compressor
 #   A8: List recursion, Pokerhand, Matematik
 
 # Klicka nu på A0!
@@ -30,7 +33,10 @@ data =
 				"Matter.js" : "https://www.youtube.com/watch?v=urR596FsU68"
 				"Sublime Text" : "https://www.sublimetext.com"
 
+#########################
 	"A0: One Parameter" :
+#########################
+
 		Ture :
 			b: """
 # Maskinen Ture är trasig! Ture är ledsen. Du måste laga Ture!
@@ -253,7 +259,9 @@ Ture = (x) -> 0
 			e:
 				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
+#########################
 	"A1: Two Parameters" :
+#########################
 	
 		Operator1:
 			b: """
@@ -526,7 +534,9 @@ f = (x) -> x * 2
 			e:
 				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
 
+#########################
 	'A2: range lerp for' :
+#########################
 
 		range:
 			b:"""
@@ -604,7 +614,9 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 			e:
 				range : "http://underscorejs.org/#range"
 
+#########################
 	"A3: [ ]" :
+#########################
 
 		Introduktion:
 			b:"""
@@ -848,7 +860,9 @@ calc = (command) ->
 				split : "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
 				RPN : "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
 
+#########################
 	"A4: { }" :
+#########################
 
 		"Boys and Girls" :
 			b : """
@@ -1040,7 +1054,9 @@ ger2eng = (ord) -> ENG[GER.indexOf(ord)]
 			e: 
 				indexOf : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"
 
+#########################
 	'A5: " "' :
+#########################
 
 		Introduktion:
 			b:"""
@@ -1162,7 +1178,9 @@ words = ordlista.split " "
 				'_.filter' : "http://underscorejs.org/#filter"
 				'_.countBy' : "http://underscorejs.org/#countBy"
 
+#########################
 	"A6: Interpolation" :
+#########################
 
 		linearequation1:
 			b: """
@@ -1270,7 +1288,9 @@ words = ordlista.split " "
 			e:
 				Math : "https://www.w3schools.com/jsref/jsref_obj_math.asp"
 
+#########################
 	"A7: class" :
+#########################
 
 		Kid :
 			b : """
@@ -1329,49 +1349,6 @@ average = (numbers) -> sum(numbers) / antal(numbers)
 				"average ages boys" : 9.5
 			e:
 				class : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
-
-		Morse :
-			b:"""
-# LOC:7 class constructor new @ indexOf * / + % == Math.floor for in "" if then else split join
-
-class Morse
-	constructor : (ab, alfabet) ->
-	c2m : (word) -> ''
-	m2c : (word) -> ''
-
-#                          012345678901234567890123456789
-morse  = new Morse '.-',  ' etianmsurwdkgohvf l pjbxcyzq'
-morse2 = new Morse '01',  ' abcdefghijklmnopqrstuvwxyzåäö'
-morse3 = new Morse 'XYZ', ' abcdefghijklmnopqrstuvwxyzåäö'
-morse4 = new Morse 'ABCD',' abcdefghijklmnopqrstuvwxyzåäö'
-"""
-			a:"""
-class Morse
-	constructor : (@ab, @alfabet) -> @n = @ab.length
-	indexes : (i) -> if i==0 then [] else (@indexes (Math.floor (i-1) / @n)).concat [(i-1) % @n] 
-	symbols : (c) -> (@ab[item] for item in @indexes @alfabet.indexOf c).join ""
-	c2m : (word) -> (@symbols c for c in word).join " "
-	decode : (code,i=0) -> if code=="" then i else @decode code[1..], @n*i+1+@ab.indexOf code[0] 
-	m2c : (word) -> (@alfabet[@decode(code)] for code in word.split ' ').join ""
-"""
-			c:
-				"morse.c2m 'morse'" : '-- --- .-. ... .'
-				"morse.m2c '-- --- .-. ... .'" : 'morse'
-
-				"morse2.c2m 'alfabet'" : '0 101 11 0 1 10 0101'
-				"morse2.m2c '0 101 11 0 1 10 0101'" : 'alfabet'
-
-				"morse3.c2m 'tre'" : 'XZY XYZ XY'
-				"morse3.m2c 'XZY XYZ XY'" : 'tre'
-
-				"morse4.c2m 'fyra'" : 'AB ABA DB A'
-				"morse4.m2c 'AB ABA DB A'" : 'fyra'
-
-			d:
-				"' abcd'.indexOf 'b'" : 2
-			e:
-				Morse : "https://sv.wikipedia.org/wiki/Morsealfabetet"
-				indexOf : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"
 
 		Bråktal :
 			b:"""
@@ -1725,6 +1702,32 @@ class Polynom
 				"Multiplikation" : "http://www.matteboken.se/lektioner/matte-3/polynom-och-ekvationer/multiplikation-av-polynom"
 				"Polynom, wikipedia" : "https://sv.wikipedia.org/wiki/Polynom"
 
+		Compressor :
+			b:"""
+# LOC:8 class constructor new @ for in if then else != break push split join "" []
+
+class Compressor
+	constructor : (words) ->
+	to_s : -> ""
+
+c2 = new Compressor ["abakus","abandon","abbedissa","abborre","abbot"]
+compressor = new Compressor ordlista.split " "
+"""
+			a:"""
+class Compressor
+	constructor : (words, @last="", @compressed=[]) ->
+		for word in words
+			for ch,i in word
+				if ch != @last[i] then break
+			@last = word
+			@compressed.push (if i>0 then i else "") + word[i..]
+	to_s : -> @compressed.join ""
+"""
+			c:
+				"c2.to_s()" : "abakus3ndon2bedissa3orre4t"
+				"ordlista.length" : 437305
+				"compressor.to_s().length" : 212067
+
 		Nian :
 			b:"""
 # LOC:20 class constructor new @ split for in of reduce ** & and push "" indexOf > if then _.countBy
@@ -1785,7 +1788,63 @@ nian = new Nian()
 				'_.countBy' : "http://underscorejs.org/#countBy"
 				reduce : "https://coffeescript-cookbook.github.io/chapters/arrays/reducing-arrays"
 
+		Morse :
+			b:"""
+# LOC:7 class constructor new @ indexOf * / + % == Math.floor for in "" if then else split join
+
+class Morse
+	constructor : (ab, alfabet) -> 
+	indexes : (i) -> [] 
+	symbols : (c) -> ""
+	c2m : (word) -> ""
+	decode : (code,i=0) -> 0
+	m2c : (word) -> ""
+
+#                          012345678901234567890123456789
+morse  = new Morse '.-',  ' etianmsurwdkgohvf l pjbxcyzq'
+morse2 = new Morse '01',  ' abcdefghijklmnopqrstuvwxyzåäö'
+morse3 = new Morse 'XYZ', ' abcdefghijklmnopqrstuvwxyzåäö'
+morse4 = new Morse 'ABCD',' abcdefghijklmnopqrstuvwxyzåäö'
+morse5 = new Morse 'BCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖA',' abcdefghijklmnopqrstuvwxyzåäö'
+"""
+			a:"""
+class Morse
+	constructor : (@ab, @alfabet) -> @n = @ab.length
+	indexes : (i) -> if i==0 then [] else (@indexes (Math.floor (i-1) / @n)).concat [(i-1) % @n] 
+	symbols : (c) -> (@ab[item] for item in @indexes @alfabet.indexOf c).join ""
+	c2m : (word) -> (@symbols c for c in word).join " "
+	decode : (code,i=0) -> if code=="" then i else @decode code[1..], @n*i+1+@ab.indexOf code[0] 
+	m2c : (word) -> (@alfabet[@decode(code)] for code in word.split ' ').join ""
+"""
+			c:
+
+				"morse.indexes 9" : [0,1,0]
+				"morse.symbols 'r'" : ".-."
+				"morse.c2m 'morse'" : '-- --- .-. ... .'
+				"morse.decode '.-.'" : 9
+				"morse.m2c '-- --- .-. ... .'" : 'morse'
+
+				"morse2.c2m 'alfabet'" : '0 101 11 0 1 10 0101'
+				"morse2.m2c '0 101 11 0 1 10 0101'" : 'alfabet'
+
+				"morse3.c2m 'tre'" : 'XZY XYZ XY'
+				"morse3.m2c 'XZY XYZ XY'" : 'tre'
+
+				"morse4.c2m 'fjorton'" : 'AB BB CC DB DD CC CB'
+				"morse4.m2c 'AB BB CC DB DD CC CB'" : 'fjorton'
+
+				"morse5.c2m 'tjugonio'" : 'U K V H P O J P'
+				"morse5.m2c 'U K V H P O J P'" : 'tjugonio'
+
+			d:
+				"' abcd'.indexOf 'b'" : 2
+			e:
+				Morse : "https://sv.wikipedia.org/wiki/Morsealfabetet"
+				indexOf : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"
+
+#########################
 	"A8: Advanced" :
+#########################
 
 		path:
 			b: """
