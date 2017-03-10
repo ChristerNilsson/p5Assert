@@ -1710,7 +1710,7 @@ class Compressor
 	constructor : (ordlista) ->
 	to_s : -> ""
 
-c5 = new Compressor "abakus abandon abbedissa abborre abbot"
+c5 = new Compressor "abakus abandon abbedissa abborre abbot babbel"
 compressor = new Compressor ordlista
 """
 			a:"""
@@ -1721,13 +1721,13 @@ class Compressor
 			for ch,i in word
 				if ch != @last[i] then break
 			@last = word
-			@compressed.push (if i>0 then i else "") + word[i..]
+			@compressed.push i + word[i..]
 	to_s : -> @compressed.join ""
 """
 			c:
-				"c5.to_s()" : "abakus3ndon2bedissa3orre4t"
+				"c5.to_s()" : "0abakus3ndon2bedissa3orre4t0babbel"
 				"ordlista.length" : 437305
-				"compressor.to_s().length" : 212067
+				"compressor.to_s().length" : 212097
 
 		Nian :
 			b:"""
@@ -1740,7 +1740,7 @@ class Nian
 	solve : (letters) -> []
 
 words = ordlista.split " "
-nian = new Nian()
+nian = new Nian
 			"""
 			a:"""
 
@@ -1766,8 +1766,6 @@ class Nian
 				freq2 = _.countBy letters2
 				if @ok(freq1,freq2) and mandatory in letters2 then res.push @words[i]
 		res
-words = ordlista.split " "
-nian = new Nian()
 """
 			c:
 				"nian.bits 'a'" : 1
