@@ -1801,6 +1801,7 @@ class Morse
 
 #                          012345678901234567890123456789
 morse  = new Morse '.-',  ' etianmsurwdkgohvf l pjbxcyzq'
+morse1 = new Morse '*',   ' abcdefghijklmnopqrstuvwxyzåäö'
 morse2 = new Morse '01',  ' abcdefghijklmnopqrstuvwxyzåäö'
 morse3 = new Morse 'XYZ', ' abcdefghijklmnopqrstuvwxyzåäö'
 morse4 = new Morse 'ABCD',' abcdefghijklmnopqrstuvwxyzåäö'
@@ -1822,6 +1823,9 @@ class Morse
 				"morse.c2m 'morse'" : '-- --- .-. ... .'
 				"morse.decode '.-.'" : 9
 				"morse.m2c '-- --- .-. ... .'" : 'morse'
+
+				"morse1.c2m 'alfa'" : '* ************ ****** *'
+				"morse1.m2c '* ************ ****** *'" : 'alfa'
 
 				"morse2.c2m 'alfabet'" : '0 101 11 0 1 10 0101'
 				"morse2.m2c '0 101 11 0 1 10 0101'" : 'alfabet'
