@@ -547,24 +547,33 @@ f = (x) -> x * 2
 			b:"""
 # LOC:3 range []
 
-f = (n) -> []
-g = (a,b) -> []
-h = (a,b,n) -> []
+# Jämförelse med for loop i Javascript:
+# for (i=0;     i<stopp; i+=1)        motsvarar    range stopp
+# for (i=start; i<stopp; i+=1)        motsvarar    range start,stopp
+# for (i=start; i<stopp; i+=steg)     motsvarar    range start,stopp,steg
+# for (i=start; i>stopp; i+=steg)     motsvarar    range start,stopp,steg  (negativt steg)
+
+f = (stopp) -> []
+g = (start,stopp) -> []
+h = (start,stopp,steg) -> []
 """
 			a:"""
-f = (n) -> range n
-g = (a,b) -> range a,b
-g = (a,b,n) -> range a,b,n
+f = (stopp)	           -> range stopp
+g = (start,stopp)      -> range start,stopp
+h = (start,stopp,steg) -> range start,stopp,steg
 			"""
 			c:
 				"f 5" : [0,1,2,3,4]
 				"f 6" : [0,1,2,3,4,5]
 				"g 1,5" : [1,2,3,4]
 				"g 2,4" : [2,3]
+				"g 4,2" : []
 				"g -2,0" : [-2,-1]
 				"h 0,10,1" : [0,1,2,3,4,5,6,7,8,9]
-				"h 0,10,2" : [0,2,4,6,8]
+				"h 9,-1,-1" : [9,8,7,6,5,4,3,2,1,0]
 				"h 0,-10,-1" : [0,-1,-2,-3,-4,-5,-6,-7,-8,-9]
+				"h -9,1,1" : [-9,-8,-7,-6,-5,-4,-3,-2,-1,0]
+				"h 0,10,2" : [0,2,4,6,8]
 			d:
 				"range 3" : [0,1,2]
 				"range 1,4" : [1,2,3]
@@ -830,40 +839,6 @@ gear = (big, small, index) ->
 			e:
 				"Gear ratios" : "https://cyclingtips.com/2014/08/beyond-the-big-ring-understanding-gear-ratios-and-why-they-matter/"
 
-		Kalkylator :
-			b: """
-# LOC:7 [] for in split == push pop if else parseInt
-
-calc = (command) -> 0
-"""
-			a: """
-calc = (command) ->
-	stack = []
-	for cmd in command.split ' '
-		if cmd == '+' then stack.push stack.pop() + stack.pop()
-		else if cmd == '*' then stack.push stack.pop() * stack.pop()
-		else stack.push parseInt cmd
-	stack.pop()
-"""
-			c:
-				"calc '2'" : 2
-				"calc '2 3'" : 3
-				"calc '2 3 +'" : 5
-				"calc '2 3 *'" : 6
-				"calc '2 3 4 * +'" : 14
-			d:
-				"'a b c'.split ' '" : ['a','b','c']
-				'1 + 2' : 3
-				"'1' + '2'" : '12'
-				"1 + '2'" : '12'
-				"'1' + 2" : '12'
-				"parseInt '3'" : 3
-				"parseFloat '3.14'" : 3.14
-			e:
-				parseInt : "https://www.w3schools.com/jsref/jsref_parseint.asp"
-				stack : "https://sv.wikipedia.org/wiki/Stack_(datastruktur)"
-				split : "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
-				RPN : "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
 
 #########################
 	"A4: { }" :
@@ -1354,6 +1329,135 @@ average = (numbers) -> sum(numbers) / antal(numbers)
 				"average ages boys" : 9.5
 			e:
 				class : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
+
+
+		Kalkylator :
+			b: """
+# LOC:11 class constructor new @ for in split == push pop if then else parseInt [] ""
+# Med Reverse Polish Notation behövs inga parenteser.
+# (2 + 3) * 4 utförs som 2 3 + 4 *
+
+class RPN 
+	calculate : (command) -> []
+
+rpn = new RPN
+"""
+			a: """
+
+class RPN
+	calculate : (command) ->
+		@stack = []
+		@calc command
+		@stack
+		
+	calc : (command) ->
+		for cmd in command.split ' '
+			if cmd == '+' then @stack.push @stack.pop() + @stack.pop()
+			else if cmd == '*' then @stack.push @stack.pop() * @stack.pop()
+			else if cmd == '/' then @stack.push 1 / @stack.pop() * @stack.pop()
+			else @stack.push parseInt cmd
+"""
+			c:
+				"rpn.calculate '2'" : [2]
+				"rpn.calculate '2 3'" : [2,3]
+				"rpn.calculate '2 3 +'" : [5]
+				"rpn.calculate '2 3 *'" : [6]
+				"rpn.calculate '2 3 4 * +'" : [14]
+				"rpn.calculate '3 4 /'" : [0.75]
+
+			d:
+				"'a b c'.split ' '" : ['a','b','c']
+				'1 + 2' : 3
+				"'1' + '2'" : '12'
+				"1 + '2'" : '12'
+				"'1' + 2" : '12'
+				"parseInt '3'" : 3
+				"parseFloat '3.14'" : 3.14
+			e:
+				parseInt : "https://www.w3schools.com/jsref/jsref_parseint.asp"
+				stack : "https://sv.wikipedia.org/wiki/Stack_(datastruktur)"
+				split : "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
+				"Omvänd Polsk Notation" : "https://sv.wikipedia.org/wiki/Omv%C3%A4nd_polsk_notation"
+
+		Resistanskalkylator :
+			b: """
+# LOC:22 class constructor new @ for in split == push pop if then else parseInt [] ""
+# Exempel 1 kan lösas med: '2 2 s 4 p 10 s 4 8 s p 4 s'
+# Klarar du att lösa exempel 2? 
+# OBS: Detta är fysik på gymnasienivå.
+
+serial = (a,b) -> 0
+parallel = (a,b) -> 0
+
+class RPN 
+	constructor : () -> 
+	calculate : (command) -> []
+
+rpn = new RPN
+"""
+			a: """
+serial = (a,b) -> a + b
+parallel = (a,b) -> 1/(1/a + 1/b)
+
+class RPN
+	constructor : () -> 	
+	
+	calculate : (command) ->
+		@stack = []
+		@calc command
+		@stack
+		
+	calc : (command) ->
+		for cmd in command.split ' '
+			if cmd == '+' then @stack.push @stack.pop() + @stack.pop()
+			else if cmd == '*' then @stack.push @stack.pop() * @stack.pop()
+			else if cmd == '/' then @stack.push 1 / @stack.pop() * @stack.pop()
+			else if cmd == 'inv' then @calc "1 swap /"
+			else if cmd == 'swap'
+				a = @stack.pop()
+				b = @stack.pop()
+				@stack.push a
+				@stack.push b
+			else if cmd == 's' then @calc '+'
+			else if cmd == 'p' then @calc 'inv swap inv + inv'
+			else @stack.push parseInt cmd
+"""
+			c:
+				"serial 100,150" : 250
+				"parallel 100,150" : 60
+				"parallel serial(100,150),100" : 25000/350
+				"serial parallel(100,150),100" : 160
+				"serial serial(100,150),200" : 450
+				"parallel parallel(100,150),200" : 100*150*200/(100*150 + 150*200 + 100*200)
+				"rpn.calculate '4 inv'" : [0.25]
+				"rpn.calculate '3 4 swap'" : [4,3]
+				"rpn.calculate '100 150 s'" : [250]
+				"rpn.calculate '100 150 p'" : [60]
+				"rpn.calculate '100 150 s 100 p'" : [25000/350]
+				"rpn.calculate '100 150 p 100 s'" : [160]
+				"rpn.calculate '100 150 s 200 s'" : [100+150+200]
+				"rpn.calculate '100 150 p 200 p'" : [100*150*200/(100*150 + 150*200 + 100*200)]
+				"rpn.calculate '2 2 s 4 p 10 s 4 8 s p 4 s'" : [10]
+
+			d:
+				"'a b c'.split ' '" : ['a','b','c']
+				'1 + 2' : 3
+				"'1' + '2'" : '12'
+				"1 + '2'" : '12'
+				"'1' + 2" : '12'
+				"parseInt '3'" : 3
+				"parseFloat '3.14'" : 3.14
+				"100 + 150" : 250
+				"100*150 / (100+150)" : 60
+				"1 / (1/100 + 1/150)" : 60
+			e:
+				parseInt : "https://www.w3schools.com/jsref/jsref_parseint.asp"
+				stack : "https://sv.wikipedia.org/wiki/Stack_(datastruktur)"
+				split : "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
+				RPN : "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
+				Resistans : "http://montessorimuddle.org/wp-content/uploads/2012/01/circuits-resistance-current1.png"
+				"Exempel 1" : "http://www.electronicshub.org/resistors-in-series-and-parallel-combinations#Resistors_in_series_and_parallel_Example"
+				"Exempel 2" : "http://www.electronicshub.org/resistors-in-series-and-parallel-combinations#Resistor_Network"
 
 		Bråktal :
 			b:"""
