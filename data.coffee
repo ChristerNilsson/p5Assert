@@ -23,15 +23,15 @@ data =
 """
 			e:
 				"Intro to Coffeescript" : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
-				"Jeremy Ashkenas" : "https://sv.wikipedia.org/wiki/Jeremy_Ashkenas"
-				"Lauren McCarthy" : "http://lauren-mccarthy.com/"
-				"Brendan Eich" : "https://en.wikipedia.org/wiki/Brendan_Eich"
 				"Snake Game" : "https://www.youtube.com/watch?v=AaGK-fj-BAM"
 				"Asteroids with p5" : "https://www.youtube.com/watch?v=hacZU523FyM"
 				"Matrix LOC:86" : "https://www.youtube.com/watch?v=S1TQCi9axzg" 
 				"Matrix LOC:25" : "https://github.com/ChristerNilsson/Lab/blob/master/2017/018-Green%20Rain/sketch.coffee"
 				"Matter.js" : "https://www.youtube.com/watch?v=urR596FsU68"
 				"Sublime Text" : "https://www.sublimetext.com"
+				"Jeremy Ashkenas" : "https://sv.wikipedia.org/wiki/Jeremy_Ashkenas"
+				"Lauren McCarthy" : "http://lauren-mccarthy.com/"
+				"Brendan Eich" : "https://en.wikipedia.org/wiki/Brendan_Eich"
 
 #########################
 	"A0: One Parameter" :
@@ -627,6 +627,63 @@ f = (a,b,n) -> lerp a,b,i for i in range n
 				"(i*i for i in range 5)" : [0,1,4,9,16]
 			e:
 				range : "http://underscorejs.org/#range"
+
+		Roulette:
+			b:"""
+# LOC:13 [] .. range for in concat when == % if then else length /
+
+L18 = []
+H18 = []
+ODD = []
+EVEN = []
+L12 = []
+M12 = []
+H12 = []
+LCOL = []
+MCOL = []
+RCOL = []
+RED = []
+BLACK = []
+
+profit = (numbers,winner) -> 
+"""
+			a:"""
+L18 = [1..18]
+H18 = [19..36]
+ODD = range 1,37,2
+EVEN = range 2,37,2
+RED = (i for i in [1..10].concat [19..28] when i%2==1).concat (i for i in [11..18].concat [29..36] when i%2==0)
+BLACK = (i for i in [1..36] when i not in RED)
+L12 = [1..12]
+M12 = [13..24]
+H12 = [25..36]
+LCOL = range 1,37,3
+MCOL = range 2,37,3
+RCOL = range 3,37,3
+
+profit = (numbers,winner) -> if winner in numbers then 36 / numbers.length else 0 
+"""
+			c:
+				"profit [1], 1" : 36
+				"profit [1,2], 1": 18
+				"profit [1,2,3], 1": 12
+				"profit [1,2,4,5], 1": 9
+				"profit [1,2,3,4,5,6], 1": 6
+				"profit L12, 1": 3
+				"profit LCOL, 1": 3
+				"profit L18, 1": 2
+				"profit RED, 1": 2
+				"profit ODD, 1": 2		
+				"profit [1], 36" : 0
+				"profit [1,2], 36": 0
+				"profit [1,2,3], 36": 0
+				"profit [1,2,4,5], 36": 0
+				"profit [1,2,3,4,5,6], 36": 0
+				"profit L12, 36": 0
+				"profit LCOL, 36": 0
+				"profit L18, 36": 0
+				"profit BLACK, 36": 0
+				"profit ODD, 36": 0		
 
 #########################
 	"A3: [ ]" :
