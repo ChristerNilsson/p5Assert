@@ -1331,6 +1331,87 @@ average = (numbers) -> sum(numbers) / antal(numbers)
 				class : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
 
 
+		Geometri :
+			b:"""
+# LOC:24 class constructor new @ Math.PI * + / - Math.sqrt Math.atan2
+
+class Kvadrat
+	constructor : (@sida) ->
+	area : -> 0
+	omkrets : -> 0 
+	
+class Cirkel
+	constructor : (radie) ->
+	area : -> 
+	omkrets : -> 
+	
+class Rektangel
+	constructor : () ->
+	area : -> 
+	omkrets : -> 
+	
+class Triangel
+	area : -> 
+	omkrets : -> 0 
+	
+class Kub
+	area : -> 
+	volym : -> 
+
+class Linje
+	distans : -> 
+	riktning : -> 
+
+			"""
+			a:"""
+class Kvadrat
+	constructor : (@sida) ->
+	area : -> @sida * @sida
+	omkrets : -> 4 * @sida 
+	
+class Cirkel
+	constructor : (@radie) ->
+	area : -> Math.PI * @radie * @radie
+	omkrets : -> 2 * @radie * Math.PI
+	
+class Rektangel
+	constructor : (@a,@b) ->
+	area : -> @a * @b
+	omkrets : -> 2 * (@a+@b) 	
+	
+class Triangel
+	constructor : (@a,@b) ->
+	area : -> @a * @b / 2
+	omkrets : -> @a + @b + Math.sqrt @a*@a+@b*@b 	
+	
+class Kub
+	constructor : (@sida) ->
+	area : -> 6 * @sida * @sida
+	volym : -> @sida * @sida * @sida 
+
+class Linje
+	constructor : (@x1,@y1,@x2,@y2) -> [@dx, @dy] = [@x2-@x1, @y2-@y1]
+	distans : -> Math.sqrt @dx*@dx + @dy*@dy
+	riktning : -> 180 / Math.PI * Math.atan2 @dy,@dx
+"""
+			c:
+				"(new Kvadrat 5).area()" : 25
+				"(new Kvadrat 6).omkrets()" : 24
+				"(new Cirkel 3).area()" : 3*3*Math.PI
+				"(new Cirkel 4).omkrets()" : 2*4*Math.PI
+				"(new Rektangel 4,5).area()" : 20
+				"(new Rektangel 4,5).omkrets()" : 18
+				"(new Triangel 4,5).area()" : 10
+				"(new Triangel 4,5).omkrets()" : 4+5+Math.sqrt 4*4+5*5
+				"(new Kub 4).area()" : 6 * 4 * 4
+				"(new Kub 4).volym()" : 4 * 4 * 4
+				"(new Linje 0,0, 4,3).distans()" : 5
+				"(new Linje 0,0, 4,3).riktning()" : 36.86989764584402
+
+
+
+
+
 		Kalkylator :
 			b: """
 # LOC:11 class constructor new @ for in split == push pop if then else parseInt [] ""
@@ -1438,23 +1519,15 @@ class RPN
 				"rpn.calculate '100 150 s 200 s'" : [100+150+200]
 				"rpn.calculate '100 150 p 200 p'" : [100*150*200/(100*150 + 150*200 + 100*200)]
 				"rpn.calculate '2 2 s 4 p 10 s 4 8 s p 4 s'" : [10]
+				"rpn.calculate '4 4 8 s 10 4 2 2 s p s p s'" : [10]
 
 			d:
-				"'a b c'.split ' '" : ['a','b','c']
-				'1 + 2' : 3
-				"'1' + '2'" : '12'
-				"1 + '2'" : '12'
-				"'1' + 2" : '12'
-				"parseInt '3'" : 3
-				"parseFloat '3.14'" : 3.14
 				"100 + 150" : 250
 				"100*150 / (100+150)" : 60
 				"1 / (1/100 + 1/150)" : 60
+				"100*150*200 / (100*150 + 100*200 + 150*200)" : (100*150*200)/(100*150 + 150*200 + 100*200)
+				"1 / (1/100 + 1/150 + 1/200)" : 100*150*200/(100*150 + 150*200 + 100*200)
 			e:
-				parseInt : "https://www.w3schools.com/jsref/jsref_parseint.asp"
-				stack : "https://sv.wikipedia.org/wiki/Stack_(datastruktur)"
-				split : "https://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
-				RPN : "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
 				Resistans : "http://montessorimuddle.org/wp-content/uploads/2012/01/circuits-resistance-current1.png"
 				"Exempel 1" : "http://www.electronicshub.org/resistors-in-series-and-parallel-combinations#Resistors_in_series_and_parallel_Example"
 				"Exempel 2" : "http://www.electronicshub.org/resistors-in-series-and-parallel-combinations#Resistor_Network"
