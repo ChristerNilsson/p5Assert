@@ -2459,12 +2459,7 @@ q = (n) ->
 
 		Triangelskolan:
 			b: """
-			# LOC:4 *
-			# Kajsa går i Triangelskolan, vars profil är att lägga
-			# runda plastbrickor så de bildar liksidiga trianglar.
-			# Givet hur många brickor Kajsa har,
-			# skriv ett program som beräknar sidlängden
-			# för den största triangeln hon kan skapa.
+			# LOC:5
 			f = (x) -> 0
 			"""
 			a: """
@@ -2486,4 +2481,80 @@ f = (x) ->
 				"f 1000000" : 1413
 
 			e:
-				"Triangelskolan" : "https://po.kattis.com/problems/triangel/file/statement/sv/img-0001.png"
+				"Triangelskolan" : "https://po.kattis.com/problems/triangel"
+
+		Bio:
+			b: """
+			# LOC:8
+f = (platser,grupper) -> 0
+			"""
+			a: """
+f = (platser,grupper) ->
+	miss = 0
+	for grupp in grupper
+		if grupp <= platser
+			platser -= grupp
+		else
+			miss += 1
+	miss
+"""
+			c:
+				"f 10,[1,2,3,4,5]" : 1
+				"f 1,[1,1,1,1,1,1,1,1,1,1]" : 9
+			f:
+				"f 100,[5,4,9,2,9,9,4,3,7,4,5,4,9,2,9,9,4,3,7,4,5,4,9,2,9,9,4,3,7,4]" : 12
+				"f 19,[5,4,1,2,1,9,4,3,7,4]" : 4
+			e:
+				"Bio" : "https://po.kattis.com/problems/bio"
+
+		Bio2:
+			b: """
+			# LOC:8
+f = (platser,grupper) -> 0
+			"""
+			a: """
+f = (platser,grupper) ->
+	ok = 0
+	for grupp in grupper
+		if grupp <= platser
+			platser -= grupp
+			ok += 1
+		else
+			return grupper.length - ok
+	grupper.length - ok
+"""
+			c:
+				"f 10,[1,2,3,4,5]" : 1
+				"f 1,[1,1,1,1,1,1,1,1,1,1]" : 9
+			f:
+				"f 100,[5,4,9,2,9,9,4,3,7,4,5,4,9,2,9,9,4,3,7,4,5,4,9,2,9,9,4,3,7,4]" : 13
+				"f 19,[5,4,1,2,1,9,4,3,7,4]" : 5
+				"f 40,[5,4,1,2,1,9,4,3,7,4]" : 0
+			e:
+				"Bio2" : "https://po.kattis.com/problems/bio2"
+
+		Fullsatt:
+			b: """
+			# LOC:12
+f = (stolar,hallplatser) -> 0
+			"""
+			a: """
+f = (stolar,hallplatser) ->
+	ombord = []
+	miss = []
+	for hallplats,i in hallplatser
+		hpl = i+1
+		ombord = (p for p in ombord when p != hpl)
+		for person in hallplats
+			if ombord.length < stolar
+				ombord.push person
+			else
+				miss.push person
+	miss.length
+"""
+			c:
+				"f 3,[[2],[3],[4]]" : 0
+				"f 1,[[2,3,4,5],[3,4,5],[4,5],[5]]" : 6
+				"f 4,[[2,3],[3,3,3],[4,5,5,5,4],[5,5]]" : 2
+			e:
+				"Fullsatt" : "https://po.kattis.com/problems/fullsatt"
