@@ -2468,16 +2468,21 @@ q = (n) ->
 			f = (x) -> 0
 			"""
 			a: """
-			f = (x) ->
-				for i in range 10
-					if i*(i+1)/2 >= x
-						return x
-				0
+f = (x) ->
+	for i in range 2000
+		if i*(i+1)/2 > x
+			return i-1
+	0
 			"""
 			c:
 				"f 1" : 1
 				"f 4" : 2
 				"f 10" : 4
 				"f 20" : 5
+				"f 123" : 15
+				"f 1234" : 49
+				"f 123456" : 496
+				"f 1000000" : 1413
+
 			e:
 				"Triangelskolan" : "https://po.kattis.com/problems/triangel/file/statement/sv/img-0001.png"
