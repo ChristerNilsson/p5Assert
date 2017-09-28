@@ -1,5 +1,5 @@
 # b : comment line. LOC and keyword clues
-# a : Solution in Coffeescript. 
+# a : Solution in Coffeescript.
 # c : call in Coffeescript syntax, three columns
 # d : axioms, two columns
 # e : links
@@ -25,7 +25,7 @@ data =
 				"Intro to Coffeescript" : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
 				"Snake Game" : "https://www.youtube.com/watch?v=AaGK-fj-BAM"
 				"Asteroids with p5" : "https://www.youtube.com/watch?v=hacZU523FyM"
-				"Matrix LOC:86" : "https://www.youtube.com/watch?v=S1TQCi9axzg" 
+				"Matrix LOC:86" : "https://www.youtube.com/watch?v=S1TQCi9axzg"
 				"Matrix LOC:25" : "https://github.com/ChristerNilsson/Lab/blob/master/2017/018-Green%20Rain/sketch.coffee"
 				"Matter.js" : "https://www.youtube.com/watch?v=urR596FsU68"
 				"Sublime Text" : "https://www.sublimetext.com"
@@ -262,7 +262,7 @@ Ture = (x) -> 0
 #########################
 	"A1: Two Parameters" :
 #########################
-	
+
 		Operator1:
 			b: """
 			# + - * / % **
@@ -380,7 +380,7 @@ Ture = (x) -> 0
 				"3 ** 2" : 9
 			e:
 				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
-	
+
 		Operator6:
 			b: """
 			# + - * / % ==
@@ -645,7 +645,7 @@ RCOL = []
 RED = []
 BLACK = []
 
-profit = (numbers,winner) -> 
+profit = (numbers,winner) ->
 """
 			a:"""
 L18 = [1..18]
@@ -661,7 +661,7 @@ LCOL = range 1,37,3
 MCOL = range 2,37,3
 RCOL = range 3,37,3
 
-profit = (numbers,winner) -> if winner in numbers then 36 / numbers.length else 0 
+profit = (numbers,winner) -> if winner in numbers then 36 / numbers.length else 0
 """
 			c:
 				"profit [1], 1" : 36
@@ -673,7 +673,7 @@ profit = (numbers,winner) -> if winner in numbers then 36 / numbers.length else 
 				"profit LCOL, 1": 3
 				"profit L18, 1": 2
 				"profit RED, 1": 2
-				"profit ODD, 1": 2		
+				"profit ODD, 1": 2
 				"profit [1], 36" : 0
 				"profit [1,2], 36": 0
 				"profit [1,2,3], 36": 0
@@ -683,7 +683,7 @@ profit = (numbers,winner) -> if winner in numbers then 36 / numbers.length else 
 				"profit LCOL, 36": 0
 				"profit L18, 36": 0
 				"profit BLACK, 36": 0
-				"profit ODD, 36": 0		
+				"profit ODD, 36": 0
 
 #########################
 	"A3: [ ]" :
@@ -694,7 +694,7 @@ profit = (numbers,winner) -> if winner in numbers then 36 / numbers.length else 
 # LOC:6 length concat .. []
 
 antal = (a) -> 0
-fetch = (a,i) -> 0 
+fetch = (a,i) -> 0
 konkatenera = (a,b) -> []
 första = (a,n) -> []
 mitti = (a,i,j) -> []
@@ -738,7 +738,7 @@ sista = (a,n) -> a[-n..]
 
 		Nim:
 			b:"""
-# LOC:1 < ^ sort if then else [] 
+# LOC:1 < ^ sort if then else []
 
 # NIM är ett tvåmansspel
 # Tag minst en sticka ur en av tre högar
@@ -763,19 +763,19 @@ nim=([a,b,c])->sort if(b^c)<a then[b^c,b,c]else if(a^c)<b then[a,a^c,c]else if(a
 				"nim [3,4,5]" : [1,4,5]
 				"nim [3,4,6]" : [2,4,6]
 				"nim [5,6,7]" : [1,6,7]
-			d: 
-				"0^0" : 0 
-				"0^1" : 1 
-				"1^0" : 1 
-				"1^1" : 0 
-				"0^2" : 2 
-				"2^0" : 2 
-				"2^2" : 0 
-				"1^2" : 3 
-				"1^2^3" : 0 
-				"1^3^4" : 6 
-				"1^4^5" : 0 
-				"1^5^6" : 2 
+			d:
+				"0^0" : 0
+				"0^1" : 1
+				"1^0" : 1
+				"1^1" : 0
+				"0^2" : 2
+				"2^0" : 2
+				"2^2" : 0
+				"1^2" : 3
+				"1^2^3" : 0
+				"1^3^4" : 6
+				"1^4^5" : 0
+				"1^5^6" : 2
 			e:
 				Nim : "https://en.wikipedia.org/wiki/Nim"
 				xor : "https://en.wikipedia.org/wiki/Bitwise_operation#XOR"
@@ -863,7 +863,7 @@ sort5 = (a,b,c,d,e) ->
 		Växelcykel :
 			b: """
 # LOC:5 [] for in push bsort - /
-# Din växelcykel har stora och små kugghjul. I vilken ordning ligger växlarna? 
+# Din växelcykel har stora och små kugghjul. I vilken ordning ligger växlarna?
 
 gear = (big, small, index) -> []
 """
@@ -929,8 +929,8 @@ sum = (numbers) ->
 	res += n for n in numbers
 	res
 
-antal = (numbers) -> numbers.length 
-	
+antal = (numbers) -> numbers.length
+
 avg = (numbers) -> sum(numbers) / antal(numbers)
 """
 			c:
@@ -960,7 +960,7 @@ avg = (numbers) -> sum(numbers) / antal(numbers)
 
 		Earth :
 			b:"""
-# LOC:7 
+# LOC:7
 
 earth =
 	europe :
@@ -1088,7 +1088,7 @@ ger2eng = (ord) -> ENG[GER.indexOf(ord)]
 				"SWE.indexOf 'katt'" : 3
 				"ENG[3]" : "cat"
 				"GER[3]" : "Katze"
-			e: 
+			e:
 				indexOf : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"
 
 #########################
@@ -1135,7 +1135,7 @@ dubbla = (s) -> hopslagning (tecken + tecken for tecken in s)
 				'"1,2,3".split ","' : ["1","2","3"]
 				'["1","2","3"].join " "' : "1 2 3"
 			e:
-				'" "' : "https://www.w3schools.com/jsref/jsref_obj_string.asp"				
+				'" "' : "https://www.w3schools.com/jsref/jsref_obj_string.asp"
 				split: "http://coffeescript-cookbook.github.io/chapters/strings/splitting-a-string"
 				join : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join"
 				indexOf : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf"
@@ -1245,7 +1245,7 @@ words = ordlista.split " "
 			e:
 				"Linjär interpolation" : "https://en.wikipedia.org/wiki/Linear_interpolation"
 
-		lerp: 
+		lerp:
 			b: """
 			# LOC:1 * + -
 
@@ -1261,7 +1261,7 @@ words = ordlista.split " "
 			e:
 				"Linjär interpolation" : "https://en.wikipedia.org/wiki/Linear_interpolation"
 				lerp : "https://p5js.org/reference/#/p5/lerp"
-		
+
 		map:
 			b: """
 			# LOC:1 * + - /
@@ -1277,7 +1277,7 @@ words = ordlista.split " "
 				"map 75,50,100,0,1" : 0.5
 				"map 16,0,40,0,200" : 80
 			e:
-				map : "https://p5js.org/reference/#/p5/map"	
+				map : "https://p5js.org/reference/#/p5/map"
 
 		Hour2Degree:
 			b: """
@@ -1355,12 +1355,12 @@ average = (numbers) -> 0
 
 class Kid
 	constructor : (@name,@age) ->
-	
+
 girls = [new Kid('Sabrina',12), new Kid('Helene',10), new Kid('Anna',11)]
 boys = [new Kid('David',10), new Kid('Henry',11), new Kid('Noel',14), new Kid('Numa',3)]
 
 names = (kids) -> kid.name for kid in kids
-	
+
 ages = (kids) -> kid.age for kid in kids
 
 sum = (numbers) ->
@@ -1368,7 +1368,7 @@ sum = (numbers) ->
 	res += n for n in numbers
 	res
 
-antal = (numbers) -> numbers.length 
+antal = (numbers) -> numbers.length
 
 average = (numbers) -> sum(numbers) / antal(numbers)
 """
@@ -1395,56 +1395,56 @@ average = (numbers) -> sum(numbers) / antal(numbers)
 class Kvadrat
 	constructor : (@sida) ->
 	area : -> 0
-	omkrets : -> 0 
-	
+	omkrets : -> 0
+
 class Cirkel
 	constructor : (radie) ->
-	area : -> 
-	omkrets : -> 
-	
+	area : ->
+	omkrets : ->
+
 class Rektangel
 	constructor : () ->
-	area : -> 
-	omkrets : -> 
-	
+	area : ->
+	omkrets : ->
+
 class Triangel
-	area : -> 
-	omkrets : -> 0 
-	
+	area : ->
+	omkrets : -> 0
+
 class Kub
-	area : -> 
-	volym : -> 
+	area : ->
+	volym : ->
 
 class Linje
-	distans : -> 
-	riktning : -> 
+	distans : ->
+	riktning : ->
 
 			"""
 			a:"""
 class Kvadrat
 	constructor : (@sida) ->
 	area : -> @sida * @sida
-	omkrets : -> 4 * @sida 
-	
+	omkrets : -> 4 * @sida
+
 class Cirkel
 	constructor : (@radie) ->
 	area : -> Math.PI * @radie * @radie
 	omkrets : -> 2 * @radie * Math.PI
-	
+
 class Rektangel
 	constructor : (@a,@b) ->
 	area : -> @a * @b
-	omkrets : -> 2 * (@a+@b) 	
-	
+	omkrets : -> 2 * (@a+@b)
+
 class Triangel
 	constructor : (@a,@b) ->
 	area : -> @a * @b / 2
-	omkrets : -> @a + @b + Math.sqrt @a*@a+@b*@b 	
-	
+	omkrets : -> @a + @b + Math.sqrt @a*@a+@b*@b
+
 class Kub
 	constructor : (@sida) ->
 	area : -> 6 * @sida * @sida
-	volym : -> @sida * @sida * @sida 
+	volym : -> @sida * @sida * @sida
 
 class Linje
 	constructor : (@x1,@y1,@x2,@y2) -> [@dx, @dy] = [@x2-@x1, @y2-@y1]
@@ -1475,7 +1475,7 @@ class Linje
 # Med Reverse Polish Notation behövs inga parenteser.
 # (2 + 3) * 4 utförs som 2 3 + 4 *
 
-class RPN 
+class RPN
 	calculate : (command) -> []
 
 rpn = new RPN
@@ -1487,7 +1487,7 @@ class RPN
 		@stack = []
 		@calc command
 		@stack
-		
+
 	calc : (command) ->
 		for cmd in command.split ' '
 			if cmd == '+' then @stack.push @stack.pop() + @stack.pop()
@@ -1521,14 +1521,14 @@ class RPN
 			b: """
 # LOC:22 class constructor new @ for in split == push pop if then else parseInt [] ""
 # Exempel 1 kan lösas med: '2 2 s 4 p 10 s 4 8 s p 4 s'
-# Klarar du att lösa exempel 2? 
+# Klarar du att lösa exempel 2?
 # OBS: Detta är fysik på gymnasienivå.
 
 serial = (a,b) -> 0
 parallel = (a,b) -> 0
 
-class RPN 
-	constructor : () -> 
+class RPN
+	constructor : () ->
 	calculate : (command) -> []
 
 rpn = new RPN
@@ -1538,13 +1538,13 @@ serial = (a,b) -> a + b
 parallel = (a,b) -> 1/(1/a + 1/b)
 
 class RPN
-	constructor : () -> 	
-	
+	constructor : () ->
+
 	calculate : (command) ->
 		@stack = []
 		@calc command
 		@stack
-		
+
 	calc : (command) ->
 		for cmd in command.split ' '
 			if cmd == '+' then @stack.push @stack.pop() + @stack.pop()
@@ -1624,7 +1624,7 @@ class Fraction
 				"(new Fraction 4,6).mul(new Fraction 1,3).to_s()" : "2/9"
 				"(new Fraction 4,6).div(new Fraction 2,1).to_s()" : "1/3"
 			e:
-				Bråktal : "http://www.matteboken.se/lektioner/skolar-7/brak-och-procent/braktal"				
+				Bråktal : "http://www.matteboken.se/lektioner/skolar-7/brak-och-procent/braktal"
 
 		Simplex :
 			b:"""
@@ -1926,7 +1926,7 @@ class Polynom
 				"(new Polynom [5,4,3]).mul(new Polynom [4,3]).to_s()" : "9*x^3+24*x^2+31*x+20"
 				"(new Polynom [5,4,3]).value(2)" : 25
 				"(new Polynom [5,4,3]).power(2).lst" : [25,40,46,24,9]
-				"(new Polynom [4,3]).power(3).lst" : [64,144,108,27] 
+				"(new Polynom [4,3]).power(3).lst" : [64,144,108,27]
 				"(new Polynom [5,4,3]).diff().lst" : [4,6]
 				"(new Polynom [5,4,3]).integ().lst" : [0,5,2,1]
 				"(new Polynom [0,0,1]).integ().to_s()" : "0.3333333333333333*x^3"
@@ -2031,8 +2031,8 @@ class Nian
 # LOC:7 class constructor new @ indexOf * / + % == Math.floor for in "" if then else split join
 
 class Morse
-	constructor : (ab, alfabet) -> 
-	indexes : (i) -> [] 
+	constructor : (ab, alfabet) ->
+	indexes : (i) -> []
 	encode : (c) -> ""
 	c2m : (word) -> ""
 	decode : (code,i=0) -> ""
@@ -2049,10 +2049,10 @@ morse5 = new Morse 'BCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖA',' abcdefghijklmnopqrstuvwx
 			a:"""
 class Morse
 	constructor : (@ab, @alfabet) -> @n = @ab.length
-	indexes : (i) -> if i==0 then [] else (@indexes (Math.floor (i-1) / @n)).concat [(i-1) % @n] 
+	indexes : (i) -> if i==0 then [] else (@indexes (Math.floor (i-1) / @n)).concat [(i-1) % @n]
 	encode : (c) -> (@ab[item] for item in @indexes @alfabet.indexOf c).join ""
 	c2m : (word) -> (@encode c for c in word).join " "
-	decode : (code,i=0) -> if code=="" then @alfabet[i] else @decode code[1..], @n*i+1+@ab.indexOf code[0] 
+	decode : (code,i=0) -> if code=="" then @alfabet[i] else @decode code[1..], @n*i+1+@ab.indexOf code[0]
 	m2c : (word) -> (@decode(code) for code in word.split ' ').join ""
 """
 			c:
@@ -2146,7 +2146,7 @@ compare = (a,b) ->
 		if c != 0 then return c
 	0
 """
-			c:	
+			c:
 				"compare 11, 2" : -1
 				"compare [11], [2]" : -1
 				"compare [11], [10]" : -1
@@ -2202,7 +2202,7 @@ g = (djur, art) -> djur.filter (d) -> d.art == art
 				"g djur,'papegoja'" : []
 			d:
 				"[1, -2, 0, 3, -4].filter (x) -> x > 0" : [1,3]
-			e: 
+			e:
 				filter : "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"
 
 		comprehension:
@@ -2383,19 +2383,19 @@ calc = (hand) ->
 				"_.size" : "http://underscorejs.org/#size"
 				"_.unzip" : "http://underscorejs.org/#unzip"
 				"_.uniq" : "http://underscorejs.org/#uniq"
- 
+
 
 		Matematik :
 			b: """
 # LOC:17 if then else * / + - % ** Math.sqrt == <= for in range [] concat
 
-a = (x) -> 0 
-b = (x) -> 0 
-c = (x) -> 0 
-d = (x) -> 0 
-e = (x) -> 0 
+a = (x) -> 0
+b = (x) -> 0
+c = (x) -> 0
+d = (x) -> 0
+e = (x) -> 0
 h = (n) -> 0
-f = (x) -> 0 
+f = (x) -> 0
 g = (n) -> 0
 k = (x,y) -> 0
 l = (a,b) -> [0,0]
@@ -2446,9 +2446,38 @@ q = (n) ->
 				"i % 2 == 0 for i in range 6" : [true,false,true,false,true,false]
 				"Math.sqrt 25" : 5
 				"[1,2].concat [3,4]" : [1,2,3,4]
-			e: 
+			e:
 				comprehension : "https://coffeescript-cookbook.github.io/chapters/arrays/list-comprehensions"
 				rekursion : "http://www.matteboken.se/lektioner/matte-5/talfoljder-och-induktionsbevis/rekursion"
 				talserier : "http://www.matteboken.se/lektioner/matte-3/ovningsexempel/talserier"
 				pythagoras : "http://www.matteboken.se/lektioner/skolar-9/geometri/pythagoras-sats"
 				delbarhet : "http://www.matteboken.se/lektioner/matte-1/tal/delbarhet"
+
+#########################
+	"A9: Kattis" :
+#########################
+
+		Triangelskolan:
+			b: """
+			# LOC:4 *
+			# Kajsa går i Triangelskolan, vars profil är att lägga
+			# runda plastbrickor så de bildar liksidiga trianglar.
+			# Givet hur många brickor Kajsa har,
+			# skriv ett program som beräknar sidlängden
+			# för den största triangeln hon kan skapa.
+			f = (x) -> 0
+			"""
+			a: """
+			f = (x) ->
+				for i in range 10
+					if i*(i+1)/2 >= x
+						return x
+				0
+			"""
+			c:
+				"f 1" : 1
+				"f 4" : 2
+				"f 10" : 4
+				"f 20" : 5
+			e:
+				"Triangelskolan" : "https://po.kattis.com/problems/triangel/file/statement/sv/img-0001.png"
