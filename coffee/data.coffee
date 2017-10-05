@@ -1325,6 +1325,45 @@ words = ordlista.split " "
 			e:
 				Math : "https://www.w3schools.com/jsref/jsref_obj_math.asp"
 
+		AngleConversions:
+			b: """
+			# LOC:6 map
+
+k2t = (k) -> -1
+t2k = (t) -> -1
+
+k2g = (k) -> -1
+g2k = (g) -> -1
+
+t2g = (t) -> -1
+g2t = (g) -> -1
+			"""
+			a:"""
+k2t = (k) -> map k, 0,360, 0,12
+t2k = (t) -> map t, 0,12,  0,360
+
+k2g = (k) -> map k,90,0, 0,90
+g2k = (g) -> map g,90,0, 0,90
+
+t2g = (t) -> map t,3,0, 0,90
+g2t = (g) -> map g,0,90, 3,0
+				"""
+			c:
+				"k2t 0" : 0
+				"k2t 180" : 6
+				"t2k 0"  : 0
+				"t2k 6" : 180
+
+				"k2g 90"  : 0
+				"k2g 0" : 90
+				"g2k 90" : 0
+				"g2k 0" : 90
+
+				"t2g 3"  : 0
+				"t2g 0" : 90
+				"g2t 0"  : 3
+				"g2t 90" : 0
+
 #########################
 	"A7: class" :
 #########################
