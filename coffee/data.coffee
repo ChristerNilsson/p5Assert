@@ -2493,7 +2493,7 @@ q = (n) ->
 				delbarhet : "http://www.matteboken.se/lektioner/matte-1/tal/delbarhet"
 
 #########################
-	"A9: Kattis" :
+	"A9: Problem" :
 #########################
 
 		Triangelskolan:
@@ -2597,3 +2597,84 @@ f = (stolar,hallplatser) ->
 				"f 4,[[2,3],[3,3,3],[4,5,5,5,4],[5,5]]" : 2
 			e:
 				"Fullsatt" : "https://po.kattis.com/problems/fullsatt"
+
+		PE01:
+			b: """
+			# LOC:1
+# If we list all the natural numbers below 10
+# that are multiples of 3 or 5,
+# we get 3, 5, 6 and 9.
+# The sum of these multiples is 23.
+
+f = (n) -> 0
+			"""
+			a: """
+f = (n) -> (i for i in range n when i%3==0 or i%5==0).reduce (t, s) -> t + s
+"""
+			c:
+				"f 10" : 23
+				"f 100" : 2318
+				"f 200" : 9168
+				"f 500" : 57918
+				#"f 1000" : 233168
+				"f 2000" : 931668
+			e:
+				"Multiples of 3 and 5" : "https://projecteuler.net/problem=1"
+
+		PE02:
+			b: """
+			# LOC:7
+# Each new term in the Fibonacci sequence is generated
+# by adding the previous two terms. By starting with
+# 1 and 2, the first 10 terms will be:
+#
+# 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
+#
+# By considering the terms in the Fibonacci sequence whose values
+# do not exceed four million, find the sum of the even-valued terms.
+
+f = (n) -> 0
+			"""
+			a: """
+f = (n) ->
+	[a,b] = [0,1]
+	sum = 0
+	for i in range n
+		if b%2==0 then sum+=b
+		if b>n then return sum
+		[a,b] = [b,a+b]
+"""
+			c:
+				"f 40" : 44
+				"f 400" : 798
+				"f 4000" : 3382
+				"f 40000" : 60696
+				"f 400000" : 257114
+				#"f 4000000" : 4613732
+			e:
+				"Even Fibonacci numbers" : "https://projecteuler.net/problem=2"
+
+		PE03:
+			b: """
+			# LOC: 9
+# The prime factors of 13195 are 5, 7, 13 and 29.
+# What is the largest prime factor of the number 51475143 ?
+
+f = (n) -> 0
+			"""
+			a: """
+f = (n) ->
+	factor = 0
+	d = 2
+	while n > 1
+		while n % d == 0
+			factor =  d
+			n = int n/d
+		d = d + 1
+	factor
+"""
+			c:
+				"f 13195" : 29
+				"f 51475143" : 12497
+			e:
+				"Largest prime factor" : "https://projecteuler.net/problem=3"
