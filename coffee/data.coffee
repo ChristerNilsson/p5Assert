@@ -2498,9 +2498,10 @@ q = (n) ->
 
 		Triangelskolan:
 			b: """
-			# LOC:5
-			f = (x) -> 0
-			"""
+# LOC:5
+# Se länk nedan för problembeskrivning.
+f = (x) -> 0
+"""
 			a: """
 f = (x) ->
 	for i in range 2000
@@ -2524,7 +2525,8 @@ f = (x) ->
 
 		Bio:
 			b: """
-			# LOC:8
+# LOC:8
+# Se länk nedan för problembeskrivning.
 f = (platser,grupper) -> 0
 			"""
 			a: """
@@ -2549,6 +2551,7 @@ f = (platser,grupper) ->
 		Bio2:
 			b: """
 			# LOC:8
+# Se länk nedan för problembeskrivning.
 f = (platser,grupper) -> 0
 			"""
 			a: """
@@ -2574,7 +2577,8 @@ f = (platser,grupper) ->
 
 		Fullsatt:
 			b: """
-			# LOC:12
+# LOC:12
+# Se länk nedan för problembeskrivning.
 f = (stolar,hallplatser) -> 0
 			"""
 			a: """
