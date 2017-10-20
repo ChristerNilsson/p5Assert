@@ -1283,22 +1283,18 @@ words = ordlista.split " "
 
 		CelsiusFahrenheit:
 			b: """
-			# LOC:6 * + - / lerp map
+			# LOC:4 * + - / map
 
 c2f_map  = (c) -> map c,0,1,2,3
 f2c_map  = (f) -> map f,0,1,2,3
 c2f      = (c) -> 0 + 1 * c
 f2c      = (f) -> 0 + 1 * f
-c2f_lerp = (c) -> lerp 0,1,c
-f2c_lerp = (f) -> lerp 0,1,f
 """
 			a: """
 c2f_map = (c) -> map c,0,100,32,212
 f2c_map = (f) -> map f,32,212,0,100
 c2f = (c) -> 32 + 1.8 * c
 f2c = (f) -> (f-32) / 1.8
-c2f_lerp = (c) -> lerp 32,33.8,c
-f2c_lerp = (f) -> lerp -17.77778,-17.22222,f
 """
 			c:
 				"c2f_map 0" : 32
@@ -1309,10 +1305,6 @@ f2c_lerp = (f) -> lerp -17.77778,-17.22222,f
 				"c2f 100" : 212
 				"f2c 32" : 0
 				"f2c 212" : 100
-				"c2f_lerp 0" : 32
-				"c2f_lerp 100" : 212
-				"f2c_lerp 32" : 0
-				"f2c_lerp 212" : 100
 			e:
 				Calculator : "http://www.rapidtables.com/convert/temperature/fahrenheit-to-celsius.htm"
 
