@@ -1336,7 +1336,9 @@ f2c = (f) -> (f-32) / 1.8
 
 			h2r = (x) -> 0
 			"""
-			a: "h2r = (x) -> (map 15-x,0,12,0,2*Math.PI) % (2*Math.PI)"
+			a:"""
+			h2r = (x) -> (map x,15,3,0,2*Math.PI) % (2*Math.PI)
+			"""
 			c:
 				"h2r 0" : 3*Math.PI/6
 				#"h2r 1" : 2*Math.PI/6  decimal problem
