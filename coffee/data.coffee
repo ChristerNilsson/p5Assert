@@ -686,6 +686,8 @@ profit = (numbers,winner) -> if winner in numbers then 36 / numbers.length else 
 				"profit L18, 36": 0
 				"profit BLACK, 36": 0
 				"profit ODD, 36": 0
+			e:
+				"Roulette" : "https://qph.ec.quoracdn.net/main-qimg-0aeb011835c7633bf0961eae5c965708-c"
 
 #########################
 	"A3: [ ]" :
