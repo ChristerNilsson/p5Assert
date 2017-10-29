@@ -513,9 +513,9 @@ Ture = (x) -> 0
 g = (x) -> x + 1
 """
 			c:
-				"g g 0" : 2
-				"g g 10" : 12
-				"g g g 0" : 3
+				"g(g(0))" : 2
+				"g(g(10))" : 12
+				"g(g(g(0)))" : 3
 				"g g g 10" : 13
 			d:
 				"0 + 1 + 1" : 2
@@ -535,8 +535,8 @@ g = (x) -> x + 1
 f = (x) -> x * 2
 """
 			c:
-				"f f 0" : 0
-				"f f 1" : 4
+				"f(f(0))" : 0
+				"f(f(1))" : 4
 				"f f f 1" : 8
 			e:
 				operators : "https://www.w3schools.com/jsref/jsref_operators.asp"
@@ -751,7 +751,11 @@ sista = (a,n) -> a[-n..]
 nim = ([a,b,c]) -> [a,b,c]
 """
 			a:"""
-nim=([a,b,c])->sort if(b^c)<a then[b^c,b,c]else if(a^c)<b then[a,a^c,c]else if(a^b)<c then[a,b,a^b]else[a,b,c-1]
+nim = ([a,b,c]) -> 
+	if (b^c) < a then return sort [b^c,b,c]
+	if (a^c) < b then return sort [a,a^c,c]
+	if (a^b) < c then return sort [a,b,a^b]
+	sort [a,b,c-1]
 """
 			c:
 				"nim [0,0,1]" : [0,0,0]
