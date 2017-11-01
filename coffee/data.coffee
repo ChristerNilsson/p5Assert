@@ -904,6 +904,38 @@ gear = (big, small, index) ->
 			e:
 				"Gear ratios" : "https://cyclingtips.com/2014/08/beyond-the-big-ring-understanding-gear-ratios-and-why-they-matter/"
 
+		SingaporeMath :
+			b: """
+# LOC:7 [] int if % / * in concat
+# Uttryck talet n som summan av en lista med 
+# tal bestående enbart av siffrorna 0 till 5
+
+f = (n) -> 
+	[]
+"""
+			a: """
+f = (n,faktor=1) ->
+	if n==0 then return []
+	digit = n % 10
+	n = int n / 10
+	if digit==0 then return	f n, faktor*10
+	if digit<=5 then return f(n, faktor*10).concat [digit*faktor]
+	f(n+1, faktor*10).concat [(digit-10)*faktor]
+"""
+			c:
+				"f 0" : []
+				"f 5" : [5]
+				"f 6" : [10,-4]
+				"f 9" : [10,-1]
+				"f 10" : [10]
+				"f 19" : [20,-1]
+				"f 55" : [50,5]
+				"f 56" : [100,-40,-4]
+				"f 99" : [100,-1]
+				"f 678" : [1000,-300,-20,-2]
+				"f 1234" : [1000,200,30,4]
+				"f 98765" : [100000,-1000,-200,-40,5]
+
 
 #########################
 	"A4: { }" :
