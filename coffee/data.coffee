@@ -909,6 +909,8 @@ gear = (big, small, index) ->
 # LOC:7 [] int if % / * in concat
 # Uttryck talet n som summan av en lista med 
 # tal bestående enbart av siffrorna 0 till 5
+# Listan ska vara den kortast möjliga listan
+# Vid lika längd: listan med flest nollor
 
 f = (n) -> 
 	[]
