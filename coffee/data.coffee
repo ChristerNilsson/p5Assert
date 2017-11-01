@@ -914,6 +914,7 @@ f = (n) ->
 	[]
 """
 			a: """
+# rekursiv lösning:
 f = (n,faktor=1) ->
 	if n==0 then return []
 	digit = n % 10
@@ -921,6 +922,21 @@ f = (n,faktor=1) ->
 	if digit==0 then return	f n, faktor*10
 	if digit<=5 then return f(n, faktor*10).concat [digit*faktor]
 	f(n+1, faktor*10).concat [(digit-10)*faktor]
+
+# iterativ lösning:
+# f = (n) ->
+# 	res = []
+# 	faktor = 1
+# 	while n>0
+# 		digit = n % 10
+# 		n = int n / 10
+# 		if digit==0 
+# 		else if digit<=5 then res.unshift digit*faktor
+# 		else
+# 			res.unshift (digit-10)*faktor
+# 			n += 1
+# 		faktor *= 10
+# 	res	
 """
 			c:
 				"f 0" : []
