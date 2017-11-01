@@ -12,6 +12,8 @@ data =
 
 		"Nyheter" :
 			b:"""
+# NYHETER 2017 November
+#   A3: SingaporeMath
 # NYHETER 2017 Mars
 #   A6: CelsiusFahrenheit
 # NYHETER 2017 Mars
