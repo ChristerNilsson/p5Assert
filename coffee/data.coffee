@@ -745,7 +745,7 @@ sista = (a,n) -> a[-n..]
 
 		Nim:
 			b:"""
-# LOC:1 < ^ sort if then else []
+# LOC:5 < ^ sort if then else []
 
 # NIM är ett tvåmansspel
 # Tag minst en sticka ur en av tre högar
