@@ -14,6 +14,7 @@ data =
 			b:"""
 # NYHETER 2017 November
 #   A3: SingaporeMath
+#   A6: AverageTime
 # NYHETER 2017 Mars
 #   A6: CelsiusFahrenheit
 # NYHETER 2017 Mars
@@ -1452,6 +1453,34 @@ g2t = (g) -> map g,0,90, 3,0
 				"t2g 0" : 90
 				"g2t 0"  : 3
 				"g2t 90" : 0
+
+		'AverageTime':
+			b: """
+			# LOC:14 "" [] parseInt if * + / % split
+
+			avg = (t1,t2) -> "00:00"
+			"""
+			a: """
+checkTime = (i) -> if i < 10 then "0" + i else i
+avg = (t1,t2) -> 
+	arr1 = t1.split ':'
+	h1 = parseInt arr1[0]
+	m1 = parseInt arr1[1]
+	arr2 = t2.split ':'
+	h2 = parseInt arr2[0]
+	m2 = parseInt arr2[1]
+	i1 = 60*h1+m1
+	i2 = 60*h2+m2
+	i = int (i1+i2)/2
+	h = int i/60
+	m = i % 60
+	checkTime(h) + ':' + checkTime(m)
+			"""
+			c:
+				'avg "07:00", "15:00"' : "11:00"
+				'avg "07:00", "14:00"' : "10:30"
+				'avg "07:16", "15:14"' : "11:15"
+				'avg "07:16", "10:56"' : "09:06"
 
 #########################
 	"A7: class" :
