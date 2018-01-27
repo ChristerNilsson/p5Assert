@@ -3,6 +3,7 @@
 # c : call in Coffeescript syntax, three columns
 # d : axioms, two columns
 # e : links
+# OBS: String interpolation fungerar ej.
 
 data =
 
@@ -1542,7 +1543,7 @@ average = (numbers) -> sum(numbers) / antal(numbers)
 				"average ages girls" : 11
 				"average ages boys" : 9.5
 			e:
-				class : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
+				classes : "http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-coffeescript"
 
 
 		Geometri :
@@ -1933,6 +1934,7 @@ h = h.mul h for i in range 7
 				push : "https://www.w3schools.com/jsref/jsref_push.asp"
 				pop : "https://www.w3schools.com/jsref/jsref_pop.asp"
 
+
 		Complex:
 			b: """
 # LOC:31 class constructor new @ -> if + * == > <
@@ -1957,14 +1959,14 @@ class Complex
 		new Complex a*c-b*d, b*c+a*d
 	to_s : ->
 		sx = "" if @x == 0
-		sx = "#{@x}" if @x > 0
-		sx = "#{@x}" if @x < 0
+		sx = @x if @x > 0
+		sx = @x if @x < 0
 
 		sy = "" if @y == 0
 		sy = "-i" if @y == -1
 		sy = "i" if @y == 1
-		sy = "#{@y}i" if @y > 1
-		sy = "#{@y}i" if @y < -1
+		sy = @y+"i" if @y > 1
+		sy = @y+"i" if @y < -1
 
 		if sx!="" and sy!=""
 			if @y < 0
