@@ -1,5 +1,7 @@
 # p5Assert
 
+[Try it!](https://christernilsson.github.io/p5Assert)
+
  - [p5Assert](https://christernilsson.github.io/p5Assert) christernilsson.github.io/p5Assert
  - [p5](https://p5js.org/reference) 
  - [Coffeescript](http://coffeescript.org)
